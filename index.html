@@ -23,6 +23,27 @@
 
       #hover-dropdown:hover .dropdown-menu {
         display: block;
+        min-width: 1rem;
+        max-width: 6.5rem;
+        max-height: calc(50vh - 50px);
+        overflow-y: auto;
+        text-align: center;
+      }
+
+      .photo-row {
+        padding: 50px;
+      }
+
+      .photo-row img {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-right: 20px;
+      }
+
+      .category {
+        margin-bottom: 30px;
+        padding: 50px;
+        margin-right: 20px;
       }
     </style>
   </head>
@@ -34,9 +55,10 @@
         <div class="container-fluid">
           <img
             src="assets/images/photography.png"
-            alt="Your Logo"
+            alt="Photography Logo"
             style="max-width: 250px; max-height: 100px"
           />
+
           <button
             class="navbar-toggler"
             type="button"
@@ -57,6 +79,9 @@
                 <a class="nav-link" href="#">Gallery</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item dropdown" id="hover-dropdown">
@@ -70,7 +95,8 @@
                 >
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="#">Account</a></li>
-                  <li><a class="dropdown-item" href="#">IDK</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Cart</a></li>
                   <li><hr class="dropdown-divider" /></li>
                   <li><a class="dropdown-item" href="#">Settings</a></li>
                 </ul>
@@ -81,19 +107,97 @@
       </nav>
     </header>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <div>
+      <section class="category">
+        <h2>Recommended</h2>
+        <div class="photo-row">
+          <!-- Photos in the Portrait category -->
+          <img
+            src="assets/images/gallery/DSC00892.jpg"
+            alt="Your Logo"
+            style="max-width: 350px; max-height: 300px"
+          />
+          <img
+            src="assets/images/gallery/DSC00868-Enhanced-NR.jpg"
+            alt="Your Logo"
+            style="max-width: 550px; max-height: 250px"
+          />
+          <img
+            src="assets/images/gallery/DSC00022.jpg"
+            alt="Your Logo"
+            style="max-width: 500px; max-height: 350px"
+          />
+          <img
+            src="assets/images/gallery/DSC00887.jpg"
+            alt="Your Logo"
+            style="max-width: 300px; max-height: 330px"
+          />
+          <!-- Add more photos here -->
+        </div>
+      </section>
+
+      <section class="category">
+        <h2>Nature</h2>
+        <div class="photo-row">
+          <img
+            src="assets/images/gallery/DSC06655.jpg"
+            alt="Your Logo"
+            style="max-width: 350px; max-height: 300px"
+          />
+          <img
+            src="assets/images/gallery/DSC06664.jpg"
+            alt="Your Logo"
+            style="max-width: 550px; max-height: 250px"
+          />
+          <img
+            src="assets/images/gallery/DSC07026.jpg"
+            alt="Your Logo"
+            style="max-width: 500px; max-height: 350px"
+          />
+          <img
+            src="assets/images/gallery/DSC07112.jpg"
+            alt="Your Logo"
+            style="max-width: 300px; max-height: 230px"
+          />
+        </div>
+      </section>
+
+      <section class="category">
+        <h2>Portrait</h2>
+        <div class="photo-row">
+          <!-- Photos in the Portrait category -->
+          <img
+            src="assets/images/gallery/DSC07334-Enhanced-NR.jpg"
+            alt="Your Logo"
+            style="max-width: 450px; max-height: 300px"
+          />
+          <img
+            src="assets/images/gallery/DSC00980.jpg"
+            alt="Your Logo"
+            style="max-width: 400px; max-height: 250px"
+          />
+          <img
+            src="assets/images/gallery/DSC05084-Enhanced-NR-2.jpg"
+            alt="Your Logo"
+            style="max-width: 500px; max-height: 350px"
+          />
+          <img
+            src="assets/images/gallery/DSC06474.jpg"
+            alt="Your Logo"
+            style="max-width: 450px; max-height: 300px"
+          />
+          <img
+            src="assets/images/gallery/DSC04977-Enhanced-NR.jpg"
+            alt="Your Logo"
+            style="max-width: 550px; max-height: 300px"
+          />
+        </div>
+      </section>
+    </div>
 
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container text-center">
-        <span class="text-muted">Your Photography Website &copy; 2024</span>
+        <span class="text-muted">Photography Website &copy; 2024</span>
       </div>
     </footer>
 
