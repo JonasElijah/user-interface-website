@@ -58,6 +58,9 @@
         border-color: #f0e6d1;
         color: #a5998c;
       }
+	.footer {
+	margin-top: auto; /* Push the footer to the bottom */
+	}
 
     </style>
 	
