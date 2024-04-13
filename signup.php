@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
 <style>
-      .custom-navbar {
+      .custom_navbar {
         background-color: #fdf4eb;
       }
 
@@ -65,7 +65,7 @@
 <body>
 <header>
       <nav
-        class="navbar navbar-expand-lg navbar-light custom-navbar shadow p-3 mb-5 bg-body-tertiary rounded"
+        class="navbar navbar-expand-lg navbar-light custom_navbar shadow p-3 mb-5 bg-body-tertiary rounded"
       >
         <div class="container-fluid">
           <img
