@@ -15,7 +15,7 @@
 <?php
 	session_start();
 	if(!isset($_POST['submit'])){
-		echo '<form class="col-md-6 col-md-offset-3 form-horizontal" id="contact" method="post" action="index.php">';
+		echo '<form class="col-md-6 col-md-offset-3 form-horizontal" id="contact" method="post" action="">';
 		
 		if( (!isset($_GET['fName'])))
 		{
