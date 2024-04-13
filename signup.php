@@ -16,6 +16,9 @@
 
       body {
         font-family: "Georgia", sans-serif;
+	display: flex;
+    	flex-direction: column;
+    	min-height: 100vh; /* Set minimum height of the body to 100% of viewport height */
       }
 
       .dropdown-menu {
