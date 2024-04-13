@@ -92,7 +92,7 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-	<h1 class="text-center"> Photo bucket </h1>
+	<h1 class="text-center"> Photo Bucket </h1>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
