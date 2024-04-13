@@ -66,10 +66,7 @@
 	}
 
     </style>
-	
-</head>
-<body>
-<header>
+	<header>
       <nav
         class="navbar navbar-expand-lg custom-navbar shadow rounded"
       >
@@ -136,6 +133,9 @@
         </div>
       </nav>
     </header>
+</head>
+<body>
+
 
 
 <h1 style = "color: red" align = "center">Welcome to the Sign Up page! </h1>
