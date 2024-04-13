@@ -64,7 +64,7 @@
 <body>
 <header>
       <nav
-        class="navbar navbar-expand-lg navbar-light custom_navbar shadow p-3 mb-5 bg-body-tertiary rounded"
+        class="navbar navbar-expand-lg custom-navbar shadow rounded"
       >
         <div class="container-fluid">
           <img
