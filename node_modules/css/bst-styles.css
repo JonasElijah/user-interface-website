@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+
+.jumbotron-cus {
+	background-color: #861657;
+	color: floralwhite;
+}
+
+.con-bg {
+	background-color: white;
+	padding: 20px;
+	padding-bottom: 10px;
+	min-height: 95vh;
+}
+
+.blog-indent {
+	padding: 0px 20px 0px 20px;
+}
+
+.header-pad {
+	padding-bottom: 20px;
+}
+
+.border {
+	border-style: groove;
+	border-width: thin;
+	border-color: #3B7080
+}
+
+.titles {
+	font-style: italic;
+	font-size: 1.2em;
+}
+
+.titles li:hover{
+	color: #3B7080;
+	font-weight: bold;
+}
+
+.fixed-panel {
+  min-height: 450px;
+  max-height: 450px;
+}
+
+.fixed-panel li:first-child{
+	height:250px;
+	width:inherit;
+}
+
+.fixed-panel li:last-child{
+	height:150px;
+	width:inherit;
+}
+
+.fixed-scroll {
+	overflow-y: scroll;
+}
+
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.fill img {
+	flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+.img-pad {
+	padding: 10px;
+}
+
+.body-grad-bg {
+	min-height: 100vh;
+	background-image: linear-gradient(#93E1D8, #DDFFF7);
+	background-repeat: no-repeat;
+}
+
+.form-horizontal {
+	border-radius: 5px;
+	border: groove;
+	border-style: thin;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.form-horizontal label {
+	text-align: right;
+}
