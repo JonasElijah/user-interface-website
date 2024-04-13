@@ -85,7 +85,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a class="nav-link" href="#">Home</a>
               </li>
@@ -98,6 +98,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signup.php">Signup</a>
+              </li>
+
+              <!--
               <li class="nav-item dropdown" id="hover-dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -115,6 +123,7 @@
                   <li><a class="dropdown-item" href="#">Settings</a></li>
                 </ul>
               </li>
+              -->
             </ul>
           </div>
         </div>
