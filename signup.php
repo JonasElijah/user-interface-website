@@ -341,7 +341,7 @@
 			if (count($errStatus)>0)
 			{
 				$errString=implode("&",$errStatus);
-				header("Location: https://ec2-3-143-17-29.us-east-2.compute.amazonaws.com/hw14/index.php?$errString");
+				header("Location: https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/signup.php?$errString");
 			}
 			
 			echo "<div>First Name is: $_POST[fName]</div>";
