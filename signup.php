@@ -13,6 +13,7 @@
 <style>
       .custom_navbar {
         background-color: #fdf4eb;
+	text-align: left;
       }
 
       body {
