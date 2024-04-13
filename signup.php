@@ -291,97 +291,7 @@
 			}
 		}
 
-		if( (!isset($_GET['phoneNum'])))
-		{
-			if(isset($_SESSION['phoneNum']))
-			{
-				echo '<div class="form-group">';
-				echo '<label class="col-md-3" for="phoneNum">Phone Number</label>';
-				echo '<div class="col-md-9">';
-				echo '<input name="phoneNum" type="tel" class="form-control" id="phoneNum" value="'.$_SESSION['phoneNum'].'">';
-				echo '<p class="alert-success" id="pNumStatus">Phone number is valid!</p>';
-				echo '</div></div>';
-			}
-			else
-			{
-				echo '<div class="form-group">';
-				echo '<label class="col-md-3" for="phoneNum">Phone Number</label>';
-				echo '<div class="col-md-9">';
-				echo '<input name="phoneNum" type="tel" class="form-control" id="phoneNum" placeholder="Phone Number">';
-				echo '<p id="pNumStatus"></p>';
-				echo '</div></div>';
-			}
-		}
-		elseif (isset($_GET['phoneNum']))
-		{
-			if ($_GET['phoneNum']=="phoneNumNull")
-			{
-				echo '<div class="form-group">';
-				echo '<label class="col-md-3" for="phoneNum">Phone Number</label>';
-				echo '<div class="col-md-9">';
-				echo '<input name="phoneNum" type="tel" class="form-control" id="phoneNum" placeholder="Phone Number">';
-				echo '<p class="alert-danger" id="pNumStatus">Phone number cannot be blank!</p>';
-				echo '</div></div>';
-			}
-			else
-			{
-				if(isset($_SESSION['phoneNum']))
-				{
-					echo '<div class="form-group">';
-					echo '<label class="col-md-3" for="phoneNum">Phone Number</label>';
-					echo '<div class="col-md-9">';
-					echo '<input name="phoneNum" type="tel" class="form-control" id="phoneNum" value="'.$_SESSION['phoneNum'].'">';
-					echo '<p class="alert-danger" id="pNumStatus">Phone number is invalid!</p>';
-					echo '</div></div>';
-				}
-			}
-		}
-			
-		if( (!isset($_GET['comment'])))
-		{
-			if(isset($_SESSION['comment']))
-			{
-				echo '<div class="form-group">';
-				echo '<label class="col-md-3" for="comment">Comments</label>';
-				echo '<div class="col-md-9">';
-				echo '<input name="comment" type="text" class="form-control" id="comment" value="'.$_SESSION['comment'].'">';
-				echo '<p class="alert-success" id="commentStatus">Comment is valid!</p>';
-				echo '</div></div>';
-			}
-			else
-			{
-				echo '<div class="form-group">';
-				echo '<label class="col-md-3" for="comment">Comments</label>';
-				echo '<div class="col-md-9">';
-				echo '<input name="comment" type="text" class="form-control" id="comment" placeholder="Comments">';
-				echo '<p id="commentStatus"></p>';
-				echo '</div></div>';
-			}
-		}
-		elseif (isset($_GET['comment']))
-		{
-			if ($_GET['comment']=="commentNull")
-			{
-				echo '<div class="form-group">';
-				echo '<label class="col-md-3" for="comment">Comments</label>';
-				echo '<div class="col-md-9">';
-				echo '<input name="comment" type="text" class="form-control" id="comment" placeholder="Comments">';
-				echo '<p class="alert-danger" id="commentStatus">Comments cannot be blank!</p>';
-				echo '</div></div>';
-			}
-			else
-			{
-				if(isset($_SESSION['comment']))
-				{
-					echo '<div class="form-group">';
-					echo '<label class="col-md-3" for="comment">Comments</label>';
-					echo '<div class="col-md-9">';
-					echo '<input name="comment" type="text" class="form-control" id="comment" value="'.$_SESSION['comment'].'">';
-					echo '<p class="alert-danger" id="commentStatus">Comment is invalid!</p>';
-					echo '</div></div>';
-				}
-			}
-		}
+		
 		
 			echo '<br><button class="center-block" name="submit" type="submit" value="submit">Submit</button></form>';
 	}
@@ -393,8 +303,7 @@
 			$firstName=$_POST['fName'];
 			$lastName=$_POST['lName'];
 			$email=$_POST['email'];
-			$pNum=$_POST['phoneNum'];
-			$comment=$_POST['comment'];
+			
 			
 			if ($firstName==NULL)
 			{
@@ -427,26 +336,7 @@
 			$_SESSION['email']=$email;
 
 			
-			if ($pNum==NULL)
-			{
-				$errStatus[]="phoneNum=phoneNumNull";
-			}
-			elseif (!preg_match('/^[0-9]{10}$/',$pNum))
-			{
-				$errStatus[]="phoneNum=phoneNumInvalid";
-			}
-			$_SESSION['phoneNum']=$pNum;
 			
-			if ($comment==NULL)
-			{
-				$errStatus[]="comment=commentNull";
-			}
-			elseif (!preg_match('/^.*\S+.*$/',$comment))
-			{
-				$errStatus[]="comment=commentInvalid";
-			}
-			$_SESSION['comment']=$comment;
-
 			
 			if (count($errStatus)>0)
 			{
@@ -457,8 +347,6 @@
 			echo "<div>First Name is: $_POST[fName]</div>";
 			echo "<div>Last Name is: $_POST[lName]</div>";
 			echo "<div>Email is: $_POST[email]</div>";
-			echo "<div>Phone Number is: $_POST[phoneNum]</div>";
-			echo "<div>Comments is: $_POST[comment]</div>";
 			echo '</div>';
 		}
 		
