@@ -4,14 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photography Website</title>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <!-- Local Bootstrap CSS files -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-      .custom-navbar {
-        background-color: #fdf4eb;
-      }
+        header {
+          background-color: #fdf4eb;
+        }
+
 
       body {
         font-family: "Georgia", sans-serif;
@@ -62,7 +61,7 @@
   <body>
     <header>
       <nav
-        class="navbar navbar-expand-lg navbar-light custom-navbar shadow p-3 mb-5 bg-body-tertiary rounded"
+        class="navbar navbar-expand-lg custom-navbar shadow rounded"
       >
         <div class="container-fluid">
           <img
@@ -83,7 +82,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a class="nav-link" href="#">Home</a>
               </li>
@@ -120,10 +119,27 @@
     </header>
 
     <div>
+   <br />
+    <br />
+    <br />
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container text-center">
+        <span class="text-muted">Photography Website &copy; 2024</span>
+      </div>
+    </footer>
+
+    <!-- Local Bootstrap JavaScript files -->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+<!--
       <section class="category">
         <h2>Recommended</h2>
         <div class="photo-row">
-          <!-- Photos in the Portrait category -->
           <img
             src="assets/images/gallery/DSC00892.jpg"
             alt="Your Logo"
@@ -144,7 +160,6 @@
             alt="Your Logo"
             style="max-width: 300px; max-height: 330px"
           />
-          <!-- Add more photos here -->
         </div>
       </section>
 
@@ -177,7 +192,6 @@
       <section class="category">
         <h2>Portrait</h2>
         <div class="photo-row">
-          <!-- Photos in the Portrait category -->
           <img
             src="assets/images/gallery/DSC07334-Enhanced-NR.jpg"
             alt="Your Logo"
@@ -220,19 +234,4 @@
         Explore More
       </button>
     </div>
-
-    <br />
-    <br />
-    <br />
-
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container text-center">
-        <span class="text-muted">Photography Website &copy; 2024</span>
-      </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
-</html>
+-->
