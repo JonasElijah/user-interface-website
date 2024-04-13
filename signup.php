@@ -16,9 +16,6 @@
 
       body {
         font-family: "Georgia", sans-serif;
-	display: flex;
-    	flex-direction: column;
-    	min-height: 100vh; /* Set minimum height of the body to 100% of viewport height */
       }
 
       .dropdown-menu {
@@ -61,9 +58,7 @@
         border-color: #f0e6d1;
         color: #a5998c;
       }
-	.footer {
-    margin-top: auto; /* Push the footer to the bottom */
-	}
+
     </style>
 	
 </head>
@@ -135,6 +130,14 @@
         </div>
       </nav>
     </header>
+
+<div>
+	<footer class="footer mt-auto py-3 bg-light">
+      <div class="container text-center">
+        <span class="text-muted">Photography Website &copy; 2024</span>
+      </div>
+    </footer>
+</div>
 <h1 style = "color: red" align = "center">Welcome to the Sign Up page! </h1>
 <h3 align = "center">Please fill out the fields below to create your account!</h3>
 <div id="wrapper">
@@ -463,11 +466,7 @@
 </div>
 </body>
 <br>
-<footer class="footer mt-auto py-3 bg-light">
-      <div class="container text-center">
-        <span class="text-muted">Photography Website &copy; 2024</span>
-      </div>
-    </footer>
+
 
 </html>
 <!--<script src="node_modules/bootstrap/js/validation.js"></script>-->
