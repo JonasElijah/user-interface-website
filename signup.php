@@ -3,11 +3,75 @@
 <meta charset="utf-8">
 <title>Contact Form</title>
 
-<link href="node-modules/css/bootstrap.min.css" rel="stylesheet">
-<link href="node-modules/css/bst-styles.css" rel="stylesheet">
+<link href="node_modules/css/bootstrap.min.css" rel="stylesheet">
+<link href="node_modules/css/bst-styles.css" rel="stylesheet">
+<link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 	
 </head>
 <body>
+<header>
+      <nav
+        class="navbar navbar-expand-lg navbar-light custom-navbar shadow p-3 mb-5 bg-body-tertiary rounded"
+      >
+        <div class="container-fluid">
+          <img
+            src="assets/images/photography.png"
+            alt="Photography Logo"
+            style="max-width: 250px; max-height: 100px"
+          />
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown" id="hover-dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Profile</a
+                >
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Account</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Cart</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<h1 style = "color: red" align = "center">Welcome to the Sign Up page! </h1>
+<h3 align = "center">Please fill out the fields below to create your account!</h3>
 <div id="wrapper">
 <div id="page-wrapper">
 <div id="page-inner">
@@ -334,4 +398,4 @@
 </div>
 </body>
 </html>
-<!--<script src="node-modules/bootstrap/js/validation.js"></script>-->
+<!--<script src="node_modules/bootstrap/js/validation.js"></script>-->
