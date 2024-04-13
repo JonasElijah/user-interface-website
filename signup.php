@@ -134,13 +134,7 @@
       </nav>
     </header>
 
-<div>
-	<footer class="footer mt-auto py-3 bg-light">
-      <div class="container text-center">
-        <span class="text-muted">Photography Website &copy; 2024</span>
-      </div>
-    </footer>
-</div>
+
 <h1 style = "color: red" align = "center">Welcome to the Sign Up page! </h1>
 <h3 align = "center">Please fill out the fields below to create your account!</h3>
 <div id="wrapper">
@@ -466,6 +460,13 @@
 ?>
 </div>
 </div>
+</div>
+<div>
+	<footer class="footer mt-auto py-3 bg-light">
+      <div class="container text-center">
+        <span class="text-muted">Photography Website &copy; 2024</span>
+      </div>
+    </footer>
 </div>
 </body>
 <br>
