@@ -66,6 +66,9 @@
 	}
 
     </style>
+	
+</head>
+<body>
 	<header>
       <nav
         class="navbar navbar-expand-lg custom-navbar shadow rounded"
@@ -133,8 +136,6 @@
         </div>
       </nav>
     </header>
-</head>
-<body>
 
 
 
