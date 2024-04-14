@@ -429,7 +429,7 @@
 			$dblink->query($sqlW) or
 				die("Something went wrong with: $sqlW<br>".$dblink->error."</p>");
 			
-			$sql = "SELECT `userID` FROM `user` where `email` = '$email'";
+			$sql = "SELECT `userID` FROM `user` where `email` LIKE '$email'";
 			$result = $dblink->query($sql);
 			$row = $result->fetch_assoc();
 			$_SESSION['userID'] = $row['userID'];
