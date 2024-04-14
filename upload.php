@@ -148,10 +148,7 @@ if(isset($_POST["submit"])) {
       
       .custom-card .custom-file-label
       {
-        cursor: pointer;
-        color: #ffffff;
-        padding: 10px 20px;
-        border-radius: 5px;
+	display: block;
 	margin: 20px auto;
       }
       
