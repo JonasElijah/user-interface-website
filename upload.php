@@ -28,14 +28,13 @@ if(isset($_POST["submit"])) {
     } else if ($fileSize > 1000000) { // Validate image size
       echo "<script>alert('Image Size Is Too Large');</script>";
     } else {
-	    echo "Name: " . $name . "<br>";
-		echo "Category: " . $category . "<br>";
-		echo "Price: " . $price . "<br>";
-		echo "Description: " . $desc . "<br>";
-	/*
+	
+
+
       // Generate a unique name for the image
       $newImageName = uniqid() . '.' . $imageExtension;
-	
+	    echo "Name: " . $newImageName . "<br>";
+	    /*
       // Move the uploaded image to the img directory
       move_uploaded_file($tmpName, 'assets/images/' . $newImageName);
 	
