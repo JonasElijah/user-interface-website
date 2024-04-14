@@ -27,11 +27,12 @@ if(isset($_POST["submit"])) {
 	
       include("functions.php");		
       $conn = db_connect("UI-schema");
-      // Generate a unique name for the image
-      $newImageName = uniqid() . '.' . $imageExtension;
-
+      $targetDirectory = "/var/www/html/img/";
+      $newImageName = $targetDirectory . uniqid() . '.' . $imageExtension;
+      
+	
       // Move the uploaded image to the img directory
-      if (move_uploaded_file($tmpName, 'img/' . $newImageName)) {
+      if (move_uploaded_file($tmpName, $newImageName)) {
 	    echo "File moved successfully.";
       } else {
 	    echo "Error moving file.";
