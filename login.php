@@ -328,7 +328,7 @@ if(!isset($_POST['submit'])){
 			if($row <0)
 			{
 			
-			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php?email=emailNonexist"");
+			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php?email=emailNonexist");
 			}
 			else
 			{
