@@ -139,7 +139,7 @@
     </header>
 </div>
 
-<div>
+<div align = "center">
 <form>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -157,5 +157,6 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+	
 </body>
 </html>
