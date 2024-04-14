@@ -27,8 +27,7 @@ if(isset($_POST["submit"])) {
 	
     include("functions.php");		
     $conn = db_connect("UI-schema");
-    $targetDirectory = "img/";
-    $newImageName = $targetDirectory . uniqid() . '.' . $imageExtension;	
+    $newImageName = 'img/' . uniqid() . '.' . $imageExtension;	
       // Move the uploaded image to the img directory
      if (move_uploaded_file($tmpName, $newImageName)) {
      } else {
