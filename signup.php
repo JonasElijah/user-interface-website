@@ -394,7 +394,7 @@
 
 			if ($pWord==NULL)
 			{
-				$errStatus[] .="pWord=pWordNull";
+				$errStatus[] .="password=pWordNull";
 			}
 			$_SESSION['password']=$pWord;
 			
