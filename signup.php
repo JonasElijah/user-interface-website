@@ -146,7 +146,7 @@
 </div>
 
 
-<h1 style = "color: #fdf4eb; font-size: 50px;"  align = "center">Welcome to the Sign Up page! </h1>
+<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Sign Up page! </h1>
 
 <div id="wrapper">
 <div id="page-wrapper">
