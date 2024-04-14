@@ -241,6 +241,10 @@ if(isset($_POST["submit"])) {
 	          <div class="card-body">
 	            <h3 class="card-title">Upload Your Image</h3>
 	            <p class="card-text">Please select an image from your device to upload.</p>
+		    <div class="form-group">
+	              <label for="name">Name:</label>
+	              <input type="text" name="name" id="name" class="form-control" required value="">
+	            </div>
 	            <div class="form-group">
 	              <label for="category">Category:</label>
 	              <input type="text" name="category" id="category" class="form-control" required value="">
