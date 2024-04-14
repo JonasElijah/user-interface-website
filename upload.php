@@ -59,43 +59,40 @@
         color: #a5998c;
       }
 
-  .upload {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.upload .card {
-  /* width: 400px; Remove width specification */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  /* Add margin instead of width */
-  margin: auto;
-}
-
-.upload .card-body {
-  text-align: center;
-}
-
-.upload .btn-primary {
-  display: block;
-  margin: 20px auto;
-}
-
-.upload .custom-file-input {
-  display: none;
-}
-
-.upload .custom-file-label {
-  cursor: pointer;
-  background-color: #007bff;
-  color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
+      .upload {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .upload .card {
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+    }
+    
+    .upload .card-body {
+      text-align: center;
+    }
+    
+    .upload .btn-primary {
+      display: block;
+      margin: 20px auto;
+    }
+    
+    .upload .custom-file-input {
+      display: none;
+    }
+    
+    .upload .custom-file-label {
+      cursor: pointer;
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
 
     </style>
   </head>
