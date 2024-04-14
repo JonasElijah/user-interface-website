@@ -297,6 +297,53 @@
 			}
 		}
 
+		if( (!isset($_GET['password'])))
+		{
+			if(isset($_SESSION['password']))
+			{
+				echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="password">Password</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
+				echo '<p class="alert-success" id="passwordStatus">Password is valid!</p>';
+				echo '</div></div>';
+			}
+			else
+			{
+				echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="password">Password</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
+				echo '<p id="passwordStatus"></p>';
+				echo '</div></div>';
+			}
+		}
+		elseif (isset($_GET['password']))
+		{
+			if ($_GET['password']=='passwordNull')
+			{
+				echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="email">Password</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
+				echo '<p class="alert-danger" id="passwordStatus">Email cannot be blank!</p>';
+				echo '</div></div>';
+			}
+			else
+			{
+				if (isset($_SESSION['password']))
+				{
+					echo '<div class="form-group">';
+					echo '<label class="col-md-3" for="password">Password</label>';
+					echo '<div class="col-md-9">';
+					echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
+					echo '<p class="alert-danger" id="passwordStatus">Password is invalid!</p>';
+					echo '</div>
+					</div>';
+				}
+			}
+		}
+
 		
 		
 			echo '<br><button class="center-block" name="submit" type="submit" value="submit">Submit</button></form>';
@@ -309,6 +356,7 @@
 			$firstName=$_POST['fName'];
 			$lastName=$_POST['lName'];
 			$email=$_POST['email'];
+			$pWord=$_POST['password'];
 			
 			
 			if ($firstName==NULL)
@@ -341,6 +389,13 @@
 			}
 			$_SESSION['email']=$email;
 
+			if ($pWord==NULL)
+			{
+				$errStatus[]="pWord=pWordNull";
+			}
+			$_SESSION['password']=$pWord;
+			
+
 			
 			
 			if (count($errStatus)>0)
@@ -353,8 +408,9 @@
 			$firstName = addslashes($firstName);
 			$lastName = addslashes($lastName);
 			$email = addslashes($email);
+			$pWord = addslashes($pWord);
 			
-			$sql="Insert into `user` (`fName`,`lName`,`email`) values ('$firstName','$lastName','$email')";
+			$sql="Insert into `user` (`fName`,`lName`,`email`,'pWord) values ('$firstName','$lastName','$email','$pWord')";
 			$dblink->query($sql) or
 				die("Something went wrong with: $sql<br>".$dblink->error."</p>");
 			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
