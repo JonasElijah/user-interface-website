@@ -430,7 +430,7 @@
 				die("Something went wrong with: $sqlW<br>".$dblink->error."</p>");
 			
 			$sql = "SELECT `userID` FROM `user` where `email` LIKE '$email'";
-			$result = $dblink->query($sql);
+			$result = mysqli_query($dblink, $sql);
 			$row = $result->fetch_assoc();
 			$_SESSION['userID'] = $row['userID'];
 			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
