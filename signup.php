@@ -361,37 +361,37 @@
 			
 			if ($firstName==NULL)
 			{
-				$errStatus[]="fName=fNameNull";
+				$errStatus[] .="fName=fNameNull";
 			}
 			elseif (!preg_match("/^[a-zA-Z\'-]+$/",$firstName))
 			{
-				$errStatus[]="fName=fNameInvalid";
+				$errStatus[] .="fName=fNameInvalid";
 			}
 			$_SESSION['fName']=$firstName;
 			
 			if ($lastName==NULL)
 			{
-				$errStatus[]="lName=lNameNull";
+				$errStatus[] .="lName=lNameNull";
 			}
 			elseif (!preg_match("/^[a-zA-Z\'-]+$/",$lastName))
 			{
-				$errStatus[]="lName=lNameInvalid";
+				$errStatus[] .="lName=lNameInvalid";
 			}
-			$_SESSION['lName']=$lastName;
+			$_SESSION['lName'] =$lastName;
 			
 			if ($email==NULL)
 			{
-				$errStatus[]="email=emailNull";
+				$errStatus[] .="email=emailNull";
 			}
 			elseif (!preg_match('/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/',$email))
 			{
-				$errStatus[]="email=emailInvalid";
+				$errStatus[] .="email=emailInvalid";
 			}
 			$_SESSION['email']=$email;
 
 			if ($pWord==NULL)
 			{
-				$errStatus[]="pWord=pWordNull";
+				$errStatus[] .="pWord=pWordNull";
 			}
 			$_SESSION['password']=$pWord;
 			
