@@ -124,11 +124,15 @@
                 	echo '<a class="nav-link" href="signup.php">Signup</a>';
               		echo ' </li>';
 			       }
+			    else
+			    {
+			echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="account.php">Account</a>';
+             		 echo '</li>';
+			    }
 		?>
 		
-              <li class="nav-item">
-                <a class="nav-link" href="account.php">Account</a>
-              </li>
+              
               
 
               <!--
