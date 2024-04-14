@@ -36,18 +36,9 @@ if(isset($_POST["submit"])) {
 	
       // Insert the image information into the database
       $query = "INSERT INTO image (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
-     
-	
-      if($conn->query($query)) 
-      {
-        echo "<script>alert('Successfully Added'); document.location.href = 'gallery.php';</script>";
-      } 
-      else
-      {
-	echo "<script>alert('ERROR');";
-      }
+      $conn->query($query) or
+	      die("Something went wrong with: $query<br>".$dblink->error."</p>");
 	    
-      
 	 
     }
   }
