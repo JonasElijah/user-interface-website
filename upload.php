@@ -237,7 +237,7 @@ echo "<img src='" . $_FILES["image"]["tmp_name"] . "' alt='Uploaded Image' style
       </nav>
     </header>
 	     <?php if(isset($_POST["submit"]) && $_FILES["image"]["error"] == 0) { ?>
-        <img src="<?php echo $newImageName; ?>" alt="Uploaded Image" style="max-width: 250px; max-height: 100px;" />
+        <img src="<?php echo $tmpName; ?>" alt="Uploaded Image" style="max-width: 250px; max-height: 100px;" />
     <?php } ?>
     <br /><br /><br />
         <form class="" action="" method="post" autocomplete="off" enctype="multipart/form-data">
