@@ -35,7 +35,11 @@ if(isset($_POST["submit"])) {
       if (move_uploaded_file($tmpName, $newImageName)) {
 		echo $fileName;
       } else {
-		echo $fileName;
+		echo <img
+            src="/tmp/$tmpName"
+            alt="Photography Logo"
+            style="max-width: 250px; max-height: 100px"
+          />
       }
 
 	
