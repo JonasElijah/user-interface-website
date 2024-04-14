@@ -424,6 +424,10 @@
 			$lastName = addslashes($lastName);
 			$email = addslashes($email);
 			$pWord = addslashes($pWord);
+
+			$sqlW="Insert into `user` (`fName`,`lName`,`email`) values ('$firstName','$lastName','$email')";
+			$dblink->query($sqlW) or
+				die("Something went wrong with: $sqlW<br>".$dblink->error."</p>");
 			
 			$sql = "SELECT `userID` FROM `user` where `email` = '$email'";
 			$result = $dblink->query($sql);
