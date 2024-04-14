@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Photography Website</title>
+    <title>Photography Website Log-in</title>
    <link href="node_modules/css/bootstrap.min.css" rel="stylesheet">
 <link href="node_modules/css/bst-styles.css" rel="stylesheet">
 <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
@@ -142,6 +142,7 @@
       </nav>
     </header>
 </div>
+<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
 
 <div align = "center">
 <form class = "col-md-6 col-md-offset-3 form-horizontal form">
