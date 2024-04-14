@@ -63,6 +63,10 @@
 	.footer {
 	margin-top: auto; /* Push the footer to the bottom */
 	}
+	.form
+	{
+		background-color: #fdf4eb;
+	}
 
     </style>
   </head>
