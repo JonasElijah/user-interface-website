@@ -72,6 +72,11 @@
   </head>
 
 <body>
+	<?php
+	if (session_status() === PHP_SESSION_NONE) {
+    	session_start();
+	}
+	?>
   <div>
 	<header>
       <nav
@@ -110,12 +115,21 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="signup.php">Signup</a>
-              </li>
+             <?php
+		if(!isset($_SESSION['userID'])){
+			echo '<li class="nav-item"> ';
+               	 	echo ' <a class="nav-link" href="#">Login</a>';
+              		echo '</li>';
+              		echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="signup.php">Signup</a>';
+              		echo ' </li>';
+			       }
+		else{
+			echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="account.php">Account</a>';
+             		echo '</li>';
+			    }
+		?>
 
               <!--
               <li class="nav-item dropdown" id="hover-dropdown">
@@ -143,25 +157,162 @@
     </header>
 </div>
 <h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+<?php
+if(!isset($_POST['submit'])){
+	if( (!isset($_GET['email'])))
+		{
+			if(isset($_SESSION['email']))
+			{
+				echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="email">Email address</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="email" type="email" class="form-control" id="email" value="'.$_SESSION['email'].'">';
+				echo '<p class="alert-success" id="emailStatus">Email is valid!</p>';
+				echo '</div></div>';
+			}
+			else
+			{
+				echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="email">Email address</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
+				echo '<p id="emailStatus"></p>';
+				echo '</div></div>';
+			}
+		}
+		elseif (isset($_GET['email']))
+		{
+			if ($_GET['email']=='emailNull')
+			{
+				echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="email">Email address</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
+				echo '<p class="alert-danger" id="emailStatus">Email cannot be blank!</p>';
+				echo '</div></div>';
+			}
+			else
+			{
+				if (isset($_SESSION['email']))
+				{
+					echo '<div class="form-group">';
+					echo '<label class="col-md-3" for="email">Email address</label>';
+					echo '<div class="col-md-9">';
+					echo '<input name="email" type="email" class="form-control" id="email" value="'.$_SESSION['email'].'">';
+					echo '<p class="alert-danger" id="emailStatus">Email is invalid!</p>';
+					echo '</div>
+					</div>';
+				}
+			}
+		}
 
-<div align = "center">
-<form class = "col-md-6 col-md-offset-3 form-horizontal form">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">Please enter the email you registered with!</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Keep me signed in.</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign In</button>
-</form>
-</div>
-	
+		if( (!isset($_GET['password'])))
+		{
+			if(isset($_SESSION['password']))
+			{
+				echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="password">Password</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
+				echo '<p class="alert-success" id="passwordStatus">Password is valid!</p>';
+				echo '</div></div>';
+			}
+			else
+			{
+				echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="password">Password</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
+				echo '<p id="passwordStatus"></p>';
+				echo '</div></div>';
+			}
+		}
+		elseif (isset($_GET['password']))
+		{
+			if ($_GET['password']=='pWordNull')
+			{
+				echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="password">Password</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
+				echo '<p class="alert-danger" id="passwordStatus">Password cannot be blank!</p>';
+				echo '</div></div>';
+			}
+			else
+			{
+				if (isset($_SESSION['password']))
+				{
+					echo '<div class="form-group">';
+					echo '<label class="col-md-3" for="password">Password</label>';
+					echo '<div class="col-md-9">';
+					echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
+					echo '<p class="alert-danger" id="passwordStatus">Password is invalid!</p>';
+					echo '</div>
+					</div>';
+				}
+			}
+		}
+
+		
+		
+			echo '<br><button class="center-block" name="submit" type="submit" value="submit">Submit</button></form>';
+}
+	if(isset($_POST['submit'])){
+		echo '<div class ="col-md-6 col-md-offset-3">';
+		if($_POST['submit']=='submit'){
+			$errStatus=array();
+			
+			$email=$_POST['email'];
+			$pWord=$_POST['password'];
+			
+			
+			
+			
+			if ($email==NULL)
+			{
+				$errStatus[] .="email=emailNull";
+			}
+			elseif (!preg_match('/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/',$email))
+			{
+				$errStatus[] .="email=emailInvalid";
+			}
+			$_SESSION['email']=$email;
+
+			if ($pWord==NULL)
+			{
+				$errStatus[] .="password=pWordNull";
+			}
+			$_SESSION['password']=$pWord;
+			
+
+			
+			include("functions.php");
+			if (count($errStatus)>0)
+			{
+				$errString=implode("&",$errStatus);
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/signup.php?$errString");
+			}
+			
+			$dblink = db_connect("UI-schema");
+			$firstName = addslashes($firstName);
+			$lastName = addslashes($lastName);
+			$email = addslashes($email);
+			$pWord = addslashes($pWord);
+
+			
+			
+			$sql = "SELECT `userID` FROM `user` where `email` LIKE '$email'";
+			
+			$result = mysqli_query($dblink, $sql);
+			
+			$row = $result->fetch_assoc();
+			$_SESSION['userID'] = $row['userID'];
+			//echo '$_SESSION[\'userID\'] = ' . $_SESSION['userID'] . '<br>';
+			
+			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
+		}
+		
+}
+		?>
 </body>
 </html>
