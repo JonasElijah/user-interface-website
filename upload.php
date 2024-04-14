@@ -60,35 +60,41 @@
       }
 
       .upload {
-      justify-content: center; 
-      align-items: center;
-      min-height: 100vh;
-    }
-    
-    .upload .card {
-     
-    }
-    
-    .upload .card-body {
-      text-align: center;
-    }
-    
-    .upload .btn-primary {
-      display: block;
-      margin: 20px auto;
-    }
-    
-    .upload .custom-file-input {
-      display: none;
-    }
-    
-    .upload .custom-file-label {
-      cursor: pointer;
-      background-color: #007bff;
-      color: #ffffff;
-      padding: 10px 20px;
-      border-radius: 5px;
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Change height to min-height */
+      }
+      
+      .upload .card {
+        width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+      }
+      
+      .upload .card-body {
+        text-align: center;
+      }
+      
+      .upload .btn-primary {
+        display: block;
+        margin: 20px auto;
+      }
+      
+      .upload .custom-file-input {
+        display: none;
+      }
+      
+      .upload .custom-file-label {
+        cursor: pointer;
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+
 
     </style>
   </head>
