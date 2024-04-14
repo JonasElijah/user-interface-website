@@ -30,6 +30,7 @@ if(isset($_POST["submit"])) {
     $targetDirectory = "/var/www/html/img/";
     $newImageName = $targetDirectory . uniqid() . '.' . $imageExtension;
       // Display the uploaded image directly from the temporary directory
+// Display the uploaded image directly from the temporary directory
 echo "<img src='/tmp/$tmpName' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
 
 	
