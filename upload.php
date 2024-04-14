@@ -59,19 +59,21 @@
         color: #a5998c;
       }
 
-   .upload {
+  .upload {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Change height to min-height */
+  min-height: 100vh;
 }
 
 .upload .card {
-  width: 400px;
+  /* width: 400px; Remove width specification */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
+  /* Add margin instead of width */
+  margin: auto;
 }
 
 .upload .card-body {
