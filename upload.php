@@ -149,10 +149,10 @@ if(isset($_POST["submit"])) {
       .custom-card .custom-file-label
       {
         cursor: pointer;
-        background-color: #007bff;
         color: #ffffff;
         padding: 10px 20px;
         border-radius: 5px;
+	margin: 20px auto;
       }
       
       .custom-card .form-group label {
@@ -256,7 +256,7 @@ if(isset($_POST["submit"])) {
               <br>
             </div>
             <div class="form-group">
-     	      <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br> <br>
+     	      <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value="" class="custom-file-label"> <br> <br>
             </div>
             <button type="submit" name="submit" class="btn btn-primary">Upload</button>
           </div>
