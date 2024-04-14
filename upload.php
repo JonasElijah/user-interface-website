@@ -37,7 +37,7 @@ if(isset($_POST["submit"])) {
       // Insert the image information into the database
       $query = "INSERT INTO your_table_name (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
       if(mysqli_query($conn, $query)) {
-        echo "<script>alert('Successfully Added'); document.location.href = 'data.php';</script>";
+        echo "<script>alert('Successfully Added'); document.location.href = 'gallery.php';</script>";
       } else {
         echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
       }
@@ -260,7 +260,7 @@ if(isset($_POST["submit"])) {
         </div>
       </div>
     </div>
-    <a href="data.php"> Data</a>
+    <a href="gallery.php"> Data</a>
 
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container text-center">
