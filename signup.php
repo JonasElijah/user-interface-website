@@ -326,10 +326,10 @@
 			if ($_GET['password']=='passwordNull')
 			{
 				echo '<div class="form-group">';
-				echo '<label class="col-md-3" for="email">Password</label>';
+				echo '<label class="col-md-3" for="password">Password</label>';
 				echo '<div class="col-md-9">';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
-				echo '<p class="alert-danger" id="passwordStatus">Email cannot be blank!</p>';
+				echo '<p class="alert-danger" id="passwordStatus">Password cannot be blank!</p>';
 				echo '</div></div>';
 			}
 			else
