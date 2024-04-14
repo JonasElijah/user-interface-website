@@ -32,15 +32,12 @@ if(isset($_POST["submit"])) {
       
 	
       // Move the uploaded image to the img directory
-      if (move_uploaded_file($tmpName, $newImageName)) {
-		echo $fileName;
-      } else {
-		echo <img
-            src="/tmp/$tmpName"
-            alt="Photography Logo"
-            style="max-width: 250px; max-height: 100px"
-          />;
+     if (move_uploaded_file($tmpName, $newImageName)) {
+    		echo "<img src='$newImageName' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
+     } else {
+       	        echo "<p>Error moving file.</p>";
       }
+
 
 	
       // Insert the image information into the database
