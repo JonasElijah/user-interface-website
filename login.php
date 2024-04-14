@@ -5,17 +5,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photography Website</title>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      .custom-navbar {
-        background-color: #fdf4eb;
+   <link href="node_modules/css/bootstrap.min.css" rel="stylesheet">
+<link href="node_modules/css/bst-styles.css" rel="stylesheet">
+<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
+<style>
+      header {
+	       background-color: #fdf4eb;
       }
 
       body {
         font-family: "Georgia", sans-serif;
+	display: flex;
+    	flex-direction: column;
+	
       }
 
       .dropdown-menu {
@@ -58,6 +60,10 @@
         border-color: #f0e6d1;
         color: #a5998c;
       }
+	.footer {
+	margin-top: auto; /* Push the footer to the bottom */
+	}
+
     </style>
   </head>
 
