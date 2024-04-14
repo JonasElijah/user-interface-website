@@ -302,7 +302,7 @@
 			echo '<br><button class="center-block" name="submit" type="submit" value="submit">Submit</button></form>';
 	}
 
-	ifif(isset($_POST['submit'])){
+	if(isset($_POST['submit'])){
 		echo '<div class ="col-md-6 col-md-offset-3">';
 		if($_POST['submit']=='submit'){
 			$errStatus=array();
