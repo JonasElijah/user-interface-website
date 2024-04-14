@@ -154,7 +154,7 @@
 <div id="page-inner">
 <br><br><br><br>
 <?php
-	session_start();
+	
 	if(!isset($_POST['submit'])){
 		echo '<form class="col-md-6 col-md-offset-3 form-horizontal form" id="contact" method="post" action="">';
 		
