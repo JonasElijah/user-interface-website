@@ -1,9 +1,5 @@
 <?php
 
-include("functions.php");
-
-			
-$conn = db_connect("UI-schema");
 
 
 if(isset($_POST["submit"])) {
@@ -29,7 +25,8 @@ if(isset($_POST["submit"])) {
       echo "<script>alert('Image Size Is Too Large');</script>";
     } else {
 	
-
+	include("functions.php");		
+	$conn = db_connect("UI-schema");
 
       // Generate a unique name for the image
       $newImageName = uniqid() . '.' . $imageExtension;
