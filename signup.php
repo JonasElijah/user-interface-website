@@ -425,25 +425,10 @@
 			$email = addslashes($email);
 			$pWord = addslashes($pWord);
 			
-			$sql = "SELECT `userID` FROM `user` WHERE `email` = '$email'";
+			$sql = "SELECT `userID` FROM `user` where `email` == '$email'";
 			$result = $dblink->query($sql);
-
-			if ($result === false) {
-    				// Handle query error
-    				echo "Error: " . $dblink->error;
-				} else {
-    // Check if any rows were returned
-    if ($result->num_rows > 0) {
-        // Fetch the first row of the result set
-        $row = $result->fetch_assoc();
-        
-        // Assign the value of the 'userID' column to $_SESSION['userID']
-        $_SESSION['userID'] = $row['userID'];
-    } else {
-        // No matching rows found
-        echo "No user found with the specified email.";
-    }
-}
+			$row = $result->fetch_assoc();
+			$_SESSION['userID'] = $row['userID'];
 			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
 		}
 		
