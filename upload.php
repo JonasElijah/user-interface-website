@@ -37,7 +37,7 @@ if(isset($_POST["submit"])) {
      } else {
     		echo $tmpName;
 	        echo $newImageName;
-    		echo "<img src='$tmpName' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
+echo "<img src='" . $_FILES["image"]["tmp_name"] . "' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
       }
 
 
