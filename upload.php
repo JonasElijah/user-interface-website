@@ -35,7 +35,7 @@ if(isset($_POST["submit"])) {
       /* move_uploaded_file($tmpName, 'assets/images/' . $newImageName); */
 	
       // Insert the image information into the database
-      $query = "INSERT INTO `image` (`name`, `category`, `price`, `desc`, `image`) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";i
+      $query = "INSERT INTO `image` (`name`, `category`, `price`, `desc`, `image`) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
 
 	/*
       $conn->query($query) or
