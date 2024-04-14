@@ -39,9 +39,13 @@ if(isset($_POST["submit"])) {
 	
       // Insert the image information into the database
       $query = "INSERT INTO image (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
+      mysqli_query($conn, $query);
+
+	    /*
       if(mysqli_query($conn, $query)) {
         echo "<script>alert('Successfully Added'); document.location.href = 'gallery.php';</script>";
       } 
+      */
 	 
     }
   }
