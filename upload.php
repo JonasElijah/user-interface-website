@@ -191,7 +191,7 @@
   <div class="custom-card">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Upload Your Image</h5>
+        <h3 class="card-title">Upload Your Image</h3>
         <p class="card-text">Please select an image from your device to upload.</p>
         <div class="form-group">
           <label for="category">Category:</label>
