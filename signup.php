@@ -349,7 +349,7 @@
 				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com&$errString");
 			}
 			include("functions.php");
-			$dblink = db_connect("user");
+			$dblink = db_connect("UI-schema");
 			$firstName = addslashes($firstName);
 			$lastName = addslashes($lastName);
 			$email = addslashes($email);
