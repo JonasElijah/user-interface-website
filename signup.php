@@ -349,13 +349,12 @@
 				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com&$errString");
 			}
 			include("functions.php");
-			$dblink = db_connect("contact");
+			$dblink = db_connect("user");
 			$firstName = addslashes($firstName);
 			$lastName = addslashes($lastName);
 			$email = addslashes($email);
-			$pNum = addslashes($pNum);
-			$comment = addslashes($comment);
-			$sql="Insert into `contact_info` (`first_name`,`last_name`,`email`,`phone_number`,`comments`) values ('$firstName','$lastName','$email','$pNum','$comment')";
+			
+			$sql="Insert into `user` (`fName`,`lName`,`email`) values ('$firstName','$lastName','$email')";
 			$dblink->query($sql) or
 				die("Something went wrong with: $sql<br>".$dblink->error."</p>");
 			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
