@@ -35,19 +35,8 @@ if(isset($_POST["submit"])) {
 	
       // Insert the image information into the database
       $query = "INSERT INTO image (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
-	/*
-	$result = mysqli_query($conn, $query);
-	
-	// Check if the query was successful
-	if ($result) {
-	    echo "<script>alert('Image uploaded successfully');</script>";
-	    // Additional actions after successful upload, such as redirecting to another page
-	} else {
-	    // If the query failed, display an error message
-	    echo "<script>alert('Error uploading image: " . mysqli_error($conn) . "');</script>";
-	}
- 	*/
-	 
+      $dblink->query($sqlW) or
+	      die("Something went wrong with: $sqlW<br>".$dblink->error."</p>");
     }
   }
 }
