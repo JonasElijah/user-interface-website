@@ -89,7 +89,7 @@
       .custom-card .btn-primary
       {
         display: block;
-        margin: 20px auto;
+        margin: 50px auto;
       }
       
       .custom-card .custom-file-input
