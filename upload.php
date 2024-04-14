@@ -257,7 +257,7 @@ if(isset($_POST["submit"])) {
             </div>
             <div class="form-group">
               <label for="upload" class="custom-file-label">Choose File</label>
-              <input type="file" id="upload" accept=".jpg, .jpeg, .png" class="custom-file-input">
+     	      <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br> <br>
             </div>
             <button type="submit" name="submit" class="btn btn-primary">Upload</button>
           </div>
