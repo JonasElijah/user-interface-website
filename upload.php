@@ -27,7 +27,7 @@ if(isset($_POST["submit"])) {
       $newImageName = uniqid() . '.' . $imageExtension;
 
       // Move the uploaded image to the img directory
-      move_uploaded_file($tmpName, 'img/' . $newImageName);
+      move_uploaded_file($tmpName, 'assets/images/' . $newImageName);
 
       // Insert the image information into the database
       $query = "INSERT INTO your_table_name (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
