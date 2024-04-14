@@ -121,6 +121,7 @@
                 <a class="nav-link" href="#">About</a>
               </li>
               <?php
+
 	if(!isset($_SESSION['userID'])){
 			echo '<li class="nav-item"> ';
                	 	echo ' <a class="nav-link" href="#">Login</a>';
@@ -160,7 +161,9 @@
         </div>
       </nav>
     </header>
-    <div>
+    <?php
+	  echo '$_SESSION[\'userID\'] = ' . $_SESSION['userID'] . '<br>';
+	 ?> <div>
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
