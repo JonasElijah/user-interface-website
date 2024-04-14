@@ -25,8 +25,7 @@ if(isset($_POST["submit"])) {
       echo "<script>alert('Image Size Is Too Large');</script>";
     } else {
 	
-	include("functions.php");		
-	$conn = db_connect("UI-schema");
+	$conn = mysqli_connect("ec2-18-191-216-234.us-east-2.compute.amazonaws.com", "root", "2024UTSA!", "UI-schema");
 
       // Generate a unique name for the image
       $newImageName = uniqid() . '.' . $imageExtension;
@@ -36,10 +35,8 @@ if(isset($_POST["submit"])) {
 	
       // Insert the image information into the database
       $query = "INSERT INTO image (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
-$result = $conn->query($query);
-if (!$result) {
-    die("Something went wrong with: $query<br>" . $conn->error . "</p>");
-}
+	mysqli_query($conn, $query);
+
 
 
 
