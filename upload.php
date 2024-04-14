@@ -188,11 +188,11 @@
             <h5 class="card-title">Upload Your Image</h5>
             <p class="card-text">Please select an image from your device to upload.</p>
             <label for="category"> Category : </label>
-            <input type="text" name="category" id = "catergory" required value=""> <br>
+            <input type="text" name="category" id = "catergory" required value=""> <br> <br>
             <label for="desc"> Description : </label>
-            <input type="text" name="desc" id = "desc" required value=""> <br>
+            <input type="text" name="desc" id = "desc" required value=""> <br> <br>
             <label for="price"> Price : </label>
-            <input type="number" name="price" id = "price" required value=""> <br>
+            <input type="number" name="price" id = "price" required value=""> <br> <br>
             <label for="upload" class="custom-file-label">Choose File</label>
             <input type="file" id="upload" accept=".jpg, .jpeg, .png" class="custom-file-input">
             <button class="btn btn-primary">Upload</button>
