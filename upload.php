@@ -89,7 +89,7 @@
       .custom-card .btn-primary
       {
         display: block;
-        margin: 50px auto;
+        margin: 20px auto;
       }
       
       .custom-card .custom-file-input
@@ -112,6 +112,7 @@
       
       .custom-card .form-group input {
         flex: 1;
+        padding: 10px;
       }        
     </style>
   </head>
