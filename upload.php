@@ -46,11 +46,6 @@
         margin-right: 20px;
       }
 
-      .category {
-        margin-bottom: 10px;
-        padding: 40px;
-        margin-right: 10px;
-      }
 
       .custom-button {
         background-color: #fdf4eb;
@@ -64,23 +59,49 @@
         color: #a5998c;
       }
 
-
-  #carouselExample {
-    max-width: 600px; 
-    margin: 0 auto; 
-  }
-
-
-  #carouselExample .carousel-item img {
-    height: 300px; 
-    object-fit: cover; 
-  }
-
     .upload {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh; 
+    }
+
+      body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .card {
+      width: 400px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+    }
+
+    .card-body {
+      text-align: center;
+    }
+
+    .btn-primary {
+      display: block;
+      margin: 20px auto;
+    }
+
+    .custom-file-input {
+      display: none;
+    }
+
+    .custom-file-label {
+      cursor: pointer;
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
     }
     </style>
   </head>
@@ -155,16 +176,15 @@
     </header>
     <br /><br /><br />
 
-    <div class="upload">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <button href="#" class="btn btn-primary">Go somewhere</button>
-        </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Upload Your Image</h5>
+        <p class="card-text">Please select an image from your device to upload.</p>
+        <label for="upload" class="custom-file-label">Choose File</label>
+        <input type="file" id="upload" class="custom-file-input">
+        <button class="btn btn-primary">Upload</button>
       </div>
-    </div> 
+    </div>
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container text-center">
         <span class="text-muted">Photography Website &copy; 2024</span>
