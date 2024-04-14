@@ -28,10 +28,10 @@ if(isset($_POST["submit"])) {
     } else if ($fileSize > 1000000) { // Validate image size
       echo "<script>alert('Image Size Is Too Large');</script>";
     } else {
-	/*
+	
       // Generate a unique name for the image
       $newImageName = uniqid() . '.' . $imageExtension;
-
+	/*
       // Move the uploaded image to the img directory
       move_uploaded_file($tmpName, 'assets/images/' . $newImageName);
 
