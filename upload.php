@@ -35,6 +35,7 @@ if(isset($_POST["submit"])) {
 	
       // Insert the image information into the database
       $query = "INSERT INTO image (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
+	/*
 	$result = mysqli_query($conn, $query);
 	
 	// Check if the query was successful
@@ -45,6 +46,7 @@ if(isset($_POST["submit"])) {
 	    // If the query failed, display an error message
 	    echo "<script>alert('Error uploading image: " . mysqli_error($conn) . "');</script>";
 	}
+ 	*/
 	 
     }
   }
