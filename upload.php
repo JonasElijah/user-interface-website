@@ -1,4 +1,5 @@
 <?php
+/*
 include("functions.php");
 if (count($errStatus)>0)
 {
@@ -7,7 +8,7 @@ if (count($errStatus)>0)
 }
 			
 $conn = db_connect("UI-schema");
-
+*/
 /*
 if(isset($_POST["submit"])) {
   $name = $_POST["name"];
