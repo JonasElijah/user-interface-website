@@ -35,10 +35,10 @@ if(isset($_POST["submit"])) {
 	
       // Insert the image information into the database
       $query = "INSERT INTO `image` (`name`, `category`, `price`, `desc`, `image`) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
-/*
+
       $conn->query($query) or
 	      die("Something went wrong with: $query<br>".$conn->error."</p>");
-       */
+       
     }
   }
 }
