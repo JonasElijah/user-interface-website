@@ -63,10 +63,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh; /* Change height to min-height */
+        min-height: 100vh; 
       }
       
       .upload .card {
+         width: 400px;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
