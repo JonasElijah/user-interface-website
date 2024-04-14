@@ -146,8 +146,8 @@
 </div>
 
 
-<h1 style = "color: red" align = "center">Welcome to the Sign Up page! </h1>
-<h3 align = "center">Please fill out the fields below to create your account!</h3>
+<h1 style = "color: #fdf4eb" align = "center">Welcome to the Sign Up page! </h1>
+<h3 style = "color: #fdf4eb align = "center">Please fill out the fields below to create your account!</h3>
 <div id="wrapper">
 <div id="page-wrapper">
 <div id="page-inner">
