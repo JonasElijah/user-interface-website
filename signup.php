@@ -428,7 +428,7 @@
 			$sql="Insert into `user` (`fName`,`lName`,`email`,`pWord`) values ('$firstName','$lastName','$email','$pWord')";
 			$dblink->query($sql) or
 				die("Something went wrong with: $sql<br>".$dblink->error."</p>");
-			$sql = "SELECT `userID` FROM `user` where `email` == $email";
+			$sql = "SELECT `userID` FROM `user` where `email` == '$email'";
 			$result = $dblink->query($sql);
 			$_SESSION['userID'] = $result;
 			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
