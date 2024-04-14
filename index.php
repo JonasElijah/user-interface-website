@@ -82,7 +82,6 @@
     if (session_status() === PHP_SESSION_NONE) {
     session_start();
     }
-	echo "Session ID: " . session_id();
 	    ?>
     <header>
       <nav
