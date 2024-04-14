@@ -59,50 +59,42 @@
         color: #a5998c;
       }
 
-    .upload {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; 
-    }
+   .upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Change height to min-height */
+}
 
-      body {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f0f0f0;
-    }
+.upload .card {
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
 
-    .card {
-      width: 400px;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background-color: #ffffff;
-    }
+.upload .card-body {
+  text-align: center;
+}
 
-    .card-body {
-      text-align: center;
-    }
+.upload .btn-primary {
+  display: block;
+  margin: 20px auto;
+}
 
-    .btn-primary {
-      display: block;
-      margin: 20px auto;
-    }
+.upload .custom-file-input {
+  display: none;
+}
 
-    .custom-file-input {
-      display: none;
-    }
+.upload .custom-file-label {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
 
-    .custom-file-label {
-      cursor: pointer;
-      background-color: #007bff;
-      color: #ffffff;
-      padding: 10px 20px;
-      border-radius: 5px;
-    }
     </style>
   </head>
   <body>
