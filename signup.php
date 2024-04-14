@@ -74,6 +74,7 @@
 	
 </head>
 <body>
+	session_start();
 	<div>
 	<header>
       <nav
