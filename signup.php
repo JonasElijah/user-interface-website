@@ -183,7 +183,7 @@
 		}
 		elseif (isset($_GET['fName']))
 		{
-			if ($_GET['fName']=="fName")
+			if ($_GET['fName']=="fNameNull")
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="firstName">First Name</label>';
