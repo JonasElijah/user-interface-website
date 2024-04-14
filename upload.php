@@ -36,10 +36,11 @@ if(isset($_POST["submit"])) {
 	
       // Insert the image information into the database
       $query = "INSERT INTO image (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
-	    $result = mysqli_query($conn, $query);
+$result = $conn->query($query);
 if (!$result) {
-    die("Query failed: " . mysqli_error($conn));
+    die("Something went wrong with: $query<br>" . $conn->error . "</p>");
 }
+
 
 
 	    /*
