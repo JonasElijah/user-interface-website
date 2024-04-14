@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact Form</title>
+<title>Sign Up Page</title>
 
 <link href="node_modules/css/bootstrap.min.css" rel="stylesheet">
 <link href="node_modules/css/bst-styles.css" rel="stylesheet">
@@ -146,8 +146,8 @@
 </div>
 
 
-<h1 style = "color: red" align = "center">Welcome to the Sign Up page! </h1>
-<h3 align = "center">Please fill out the fields below to create your account!</h3>
+<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Sign Up page! </h1>
+
 <div id="wrapper">
 <div id="page-wrapper">
 <div id="page-inner">
