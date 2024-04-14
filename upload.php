@@ -33,9 +33,9 @@ if(isset($_POST["submit"])) {
 	
       // Move the uploaded image to the img directory
       if (move_uploaded_file($tmpName, $newImageName)) {
-		echo $tmpName;
+		echo $fileName;
       } else {
-		echo $tmpName;
+		echo $fileName;
       }
 
 	
