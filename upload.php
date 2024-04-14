@@ -25,17 +25,17 @@ if(isset($_POST["submit"])) {
       echo "<script>alert('Image Size Is Too Large');</script>";
     } else {
 	
-      include("functions.php");		
-      $conn = db_connect("UI-schema");
-      $targetDirectory = "/var/www/html/img/";
-      $newImageName = $targetDirectory . uniqid() . '.' . $imageExtension;
+    include("functions.php");		
+    $conn = db_connect("UI-schema");
+    $targetDirectory = "/var/www/html/img/";
+    $newImageName = $targetDirectory . uniqid() . '.' . $imageExtension;
       
 	
       // Move the uploaded image to the img directory
      if (move_uploaded_file($tmpName, $newImageName)) {
     		echo "<img src='/tmp/$tmpName' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
      } else {
-       	        echo "<p>Error moving file.</p>";
+    		echo "<img src='/tmp/$tmpName' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
       }
 
 
