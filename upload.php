@@ -34,11 +34,11 @@ echo "<img src='/tmp/$tmpName' alt='Uploaded Image' style='max-width: 250px; max
 
 	
       // Move the uploaded image to the img directory
-     if (move_uploaded_file($tmpName, $newImageName)) {
-    		echo "<img src='/tmp/$tmpName' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
-     } else {
-    		echo "<img src='/tmp/$tmpName' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
-      }
+     // if (move_uploaded_file($tmpName, $newImageName)) {
+    	// 	echo "<img src='/tmp/$tmpName' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
+     // } else {
+    	// 	echo "<img src='/tmp/$tmpName' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
+     //  }
 
 
 	
