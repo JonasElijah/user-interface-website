@@ -191,6 +191,16 @@ if(!isset($_POST['submit'])){
 				echo '<p class="alert-danger" id="emailStatus">Email cannot be blank!</p>';
 				echo '</div></div>';
 			}
+			elseif($_GET['email']=='emailNonexist')
+			{
+				echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="email">Email address</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
+				echo '<p class="alert-danger" id="emailStatus">Email Does not exist!</p>';
+				echo '</div></div>';
+			}
+			
 			else
 			{
 				if (isset($_SESSION['email']))
@@ -238,6 +248,15 @@ if(!isset($_POST['submit'])){
 				echo '<p class="alert-danger" id="passwordStatus">Password cannot be blank!</p>';
 				echo '</div></div>';
 			}
+			elseif($_GET['password']=='pWordNonexist')
+			{
+			echo '<div class="form-group">';
+				echo '<label class="col-md-3" for="password">Password</label>';
+				echo '<div class="col-md-9">';
+				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
+				echo '<p class="alert-danger" id="passwordStatus">Password does not match email!</p>';
+				echo '</div></div>';
+			}
 			else
 			{
 				if (isset($_SESSION['password']))
@@ -276,12 +295,14 @@ if(!isset($_POST['submit'])){
 			{
 				$errStatus[] .="email=emailInvalid";
 			}
+			
 			$_SESSION['email']=$email;
 
 			if ($pWord==NULL)
 			{
 				$errStatus[] .="password=pWordNull";
 			}
+			
 			$_SESSION['password']=$pWord;
 			
 
@@ -290,7 +311,7 @@ if(!isset($_POST['submit'])){
 			if (count($errStatus)>0)
 			{
 				$errString=implode("&",$errStatus);
-				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/signup.php?$errString");
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php?$errString");
 			}
 			
 			$dblink = db_connect("UI-schema");
@@ -301,15 +322,32 @@ if(!isset($_POST['submit'])){
 
 			
 			
-			$sql = "SELECT `userID` FROM `user` where `email` LIKE '$email'";
-			
+			$sql = "SELECT `pWord`,`email`,`userID` FROM `user` where `email` LIKE '$email'";
 			$result = mysqli_query($dblink, $sql);
-			
 			$row = $result->fetch_assoc();
-			$_SESSION['userID'] = $row['userID'];
-			//echo '$_SESSION[\'userID\'] = ' . $_SESSION['userID'] . '<br>';
+			if($row <0)
+			{
 			
-			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
+			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php?email=emailNonexist"");
+			}
+			else
+			{
+			
+			
+				if($row['pWord'] != $pWord)
+				{
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php?password=pWordNonexist");
+				}
+				else
+				{
+
+			
+				$_SESSION['userID'] = $row['userID'];
+				//echo '$_SESSION[\'userID\'] = ' . $_SESSION['userID'] . '<br>';
+			
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
+				}
+			}
 		}
 		
 }
