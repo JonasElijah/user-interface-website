@@ -425,7 +425,7 @@
 			$email = addslashes($email);
 			$pWord = addslashes($pWord);
 
-			$sqlW="Insert into `user` (`fName`,`lName`,`email`) values ('$firstName','$lastName','$email')";
+			$sqlW="Insert into `user` (`fName`,`lName`,`email`,`pWord`) values ('$firstName','$lastName','$email','$pWord')";
 			$dblink->query($sqlW) or
 				die("Something went wrong with: $sqlW<br>".$dblink->error."</p>");
 			
