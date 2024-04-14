@@ -29,7 +29,9 @@ if(isset($_POST["submit"])) {
     $conn = db_connect("UI-schema");
     $targetDirectory = "/var/www/html/img/";
     $newImageName = $targetDirectory . uniqid() . '.' . $imageExtension;
-      
+      // Display the uploaded image directly from the temporary directory
+echo "<img src='/tmp/$tmpName' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
+
 	
       // Move the uploaded image to the img directory
      if (move_uploaded_file($tmpName, $newImageName)) {
