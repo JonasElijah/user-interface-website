@@ -323,7 +323,7 @@
 		}
 		elseif (isset($_GET['password']))
 		{
-			if ($_GET['password']=='passwordNull')
+			if ($_GET['password']=='pWordNull')
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="password">Password</label>';
