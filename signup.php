@@ -349,10 +349,15 @@
 				header("Location: https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/signup.php?$errString");
 			}
 			
-			echo "<div>First Name is: $_POST[fName]</div>";
-			echo "<div>Last Name is: $_POST[lName]</div>";
-			echo "<div>Email is: $_POST[email]</div>";
-			echo '</div>';
+			$dblink = db_connect("user");
+			$firstName = addslashes($firstName);
+			$lastName = addslashes($lastName);
+			$email = addslashes($email);
+			
+			$sql="Insert into `contact_info` (`first_name`,`last_name`,`email`) values ('$firstName','$lastName','$email')";
+			$dblink->query($sql) or
+				die("Something went wrong with: $sql<br>".$dblink->error."</p>");
+			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
 		}
 		
 }
