@@ -28,6 +28,7 @@ if(isset($_POST["submit"])) {
     } else if ($fileSize > 1000000) { // Validate image size
       echo "<script>alert('Image Size Is Too Large');</script>";
     } else {
+	 /*
       // Generate a unique name for the image
       $newImageName = uniqid() . '.' . $imageExtension;
 
@@ -41,6 +42,7 @@ if(isset($_POST["submit"])) {
       } else {
         echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
       }
+	    */
     }
   }
 }
