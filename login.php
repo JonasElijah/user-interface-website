@@ -17,7 +17,7 @@
         font-family: "Georgia", sans-serif;
 	display: flex;
     	flex-direction: column;
-	
+	background-image: url('/assets/images/gallery/DSC06655.jpg');
       }
 
       .dropdown-menu {
