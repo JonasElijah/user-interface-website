@@ -187,24 +187,33 @@
     <br /><br /><br />
 
     <div class="upload">
-      <div class="custom-card">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Upload Your Image</h5>
-            <p class="card-text">Please select an image from your device to upload.</p>
-            <label for="category"> Category : </label>
-            <input type="text" name="category" id = "catergory" required value=""> <br> <br>
-            <label for="desc"> Description : </label>
-            <input type="text" name="desc" id = "desc" required value=""> <br> <br>
-            <label for="price"> Price : </label>
-            <input type="number" name="price" id = "price" required value=""> <br> <br>
-            <label for="upload" class="custom-file-label">Choose File</label>
-            <input type="file" id="upload" accept=".jpg, .jpeg, .png" class="custom-file-input">
-            <button class="btn btn-primary">Upload</button>
-          </div>
+  <div class="custom-card">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Upload Your Image</h5>
+        <p class="card-text">Please select an image from your device to upload.</p>
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <input type="text" name="category" id="category" class="form-control" required value="">
         </div>
+        <div class="form-group">
+          <label for="desc">Description:</label>
+          <input type="text" name="desc" id="desc" class="form-control" required value="">
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" name="price" id="price" class="form-control" required value="">
+        </div>
+        <div class="form-group">
+          <label for="upload" class="custom-file-label">Choose File</label>
+          <input type="file" id="upload" accept=".jpg, .jpeg, .png" class="custom-file-input">
+        </div>
+        <button class="btn btn-primary">Upload</button>
       </div>
     </div>
+  </div>
+</div>
+
 
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container text-center">
