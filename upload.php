@@ -1,6 +1,7 @@
 <?php
-/*
+
 include("functions.php");
+/*
 if (count($errStatus)>0)
 {
 	$errString=implode("&",$errStatus);
