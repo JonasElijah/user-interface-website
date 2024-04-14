@@ -27,17 +27,11 @@ if(isset($_POST["submit"])) {
 	
     include("functions.php");		
     $conn = db_connect("UI-schema");
-    $targetDirectory = "/var/www/html/img/";
+    $targetDirectory = "img/";
     $newImageName = $targetDirectory . uniqid() . '.' . $imageExtension;	
       // Move the uploaded image to the img directory
      if (move_uploaded_file($tmpName, $newImageName)) {
-    		echo $tmpName;
-	        echo $newImageName;
-
      } else {
-    		echo $tmpName;
-	        echo $newImageName;
-echo "<img src='" . $_FILES["image"]["tmp_name"] . "' alt='Uploaded Image' style='max-width: 250px; max-height: 100px;' />";
       }
 
 
