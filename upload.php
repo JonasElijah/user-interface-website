@@ -33,11 +33,10 @@ if(isset($_POST["submit"])) {
 
       // Generate a unique name for the image
       $newImageName = uniqid() . '.' . $imageExtension;
-	    echo "Name: " . $newImageName . "<br>";
-	    /*
+
       // Move the uploaded image to the img directory
       move_uploaded_file($tmpName, 'assets/images/' . $newImageName);
-	
+	/*
       // Insert the image information into the database
       $query = "INSERT INTO image (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
       if(mysqli_query($conn, $query)) {
