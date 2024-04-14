@@ -27,9 +27,9 @@ if(isset($_POST["submit"])) {
 	
       include("functions.php");		
       $conn = db_connect("UI-schema");
-   	if (!$conn) {
-    echo "Failed to connect to the database.";
-}
+   	
+	echo "Value of conn: ";
+	var_dump($conn);
       // Generate a unique name for the image
       $newImageName = uniqid() . '.' . $imageExtension;
 
