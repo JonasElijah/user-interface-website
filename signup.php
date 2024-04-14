@@ -111,10 +111,11 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">FAQ</a>
-              </li>
+	      </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
+		
               <li class="nav-item">
                 <a class="nav-link" href="#">Login</a>
               </li>
@@ -415,6 +416,9 @@
 			$sql="Insert into `user` (`fName`,`lName`,`email`,`pWord`) values ('$firstName','$lastName','$email','$pWord')";
 			$dblink->query($sql) or
 				die("Something went wrong with: $sql<br>".$dblink->error."</p>");
+			$sql = "SELECT 'userID' FROM 'user' where 'email' == $email";
+			$result = $dblink->query($sql);
+			$_SESSION['userID'] = $result;
 			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
 		}
 		
