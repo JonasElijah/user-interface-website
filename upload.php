@@ -27,9 +27,6 @@ if(isset($_POST["submit"])) {
 	
       include("functions.php");		
       $conn = db_connect("UI-schema");
-   	
-	echo "Value of conn: ";
-	var_dump($conn);
       // Generate a unique name for the image
       $newImageName = uniqid() . '.' . $imageExtension;
 
@@ -38,11 +35,7 @@ if(isset($_POST["submit"])) {
 	
       // Insert the image information into the database
       $query = "INSERT INTO `image` (`name`, `category`, `price`, `desc`, `image`) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
-
-	/*
-      $conn->query($query) or
-	      die("Something went wrong with: $query<br>".$conn->error."</p>");
-       */
+      $conn->query($query);
     }
   }
 }
