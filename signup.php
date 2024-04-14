@@ -116,7 +116,7 @@
                 <a class="nav-link" href="#">About</a>
               </li>
 		    <?php
-			    if(!isset($_SESSION['userID']){
+			    if(!isset($_SESSION['userID'])){
 			echo '<li class="nav-item"> ';
                	 	echo ' <a class="nav-link" href="#">Login</a>';
               		echo '</li>';
