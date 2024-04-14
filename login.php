@@ -61,7 +61,79 @@
     </style>
   </head>
 
+<body>
+  <div>
+	<header>
+      <nav
+        class="navbar navbar-expand-lg custom-navbar shadow rounded"
+      >
+        <div class="container-fluid">
+          <img
+            src="assets/images/photography.png"
+            alt="Photography Logo"
+            style="max-width: 250px; max-height: 100px"
+          />
 
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+	<h1 class="text-center"> Photo Bucket </h1>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signup.php">Signup</a>
+              </li>
+
+              <!--
+              <li class="nav-item dropdown" id="hover-dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Profile</a
+                >
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Account</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Cart</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                </ul>
+              </li>
+              -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+</div>
+
+<div>
 <form>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -78,5 +150,6 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+</div>
+</body>
 </html>
