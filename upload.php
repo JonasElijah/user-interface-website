@@ -39,8 +39,8 @@ if(isset($_POST["submit"])) {
 	
       // Insert the image information into the database
       $query = "INSERT INTO image (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
-	    error_reporting(E_ALL);
-ini_set('display_errors', 1);
+      $dblink->query($sqlW) or
+		die("Something went wrong with: $sqlW<br>".$dblink->error."</p>");
 	    /*
       mysqli_query($conn, $query);
 	
