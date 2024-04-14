@@ -8,7 +8,7 @@ if (count($errStatus)>0)
 			
 $conn = db_connect("UI-schema");
 
-
+/*
 if(isset($_POST["submit"])) {
   $name = $_POST["name"];
   $category = $_POST["category"];
@@ -47,6 +47,7 @@ if(isset($_POST["submit"])) {
     }
   }
 }
+*/
 ?>
 
 <!DOCTYPE html>
