@@ -36,6 +36,11 @@ if(isset($_POST["submit"])) {
 	
       // Insert the image information into the database
       $query = "INSERT INTO image (name, category, price, `desc`, image) VALUES ('$name', '$category', $price, '$desc', '$newImageName')";
+	    $conn = db_connect("UI-schema");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
 	    /*
       $conn->query($query) or
 	      die("Something went wrong with: $query<br>".$conn->error."</p>");
