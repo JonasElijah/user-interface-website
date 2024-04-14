@@ -59,42 +59,53 @@
         color: #a5998c;
       }
 
-      .upload {
+      .upload 
+      {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh; 
+        min-height: 100vh;
       }
       
-      .upload .card {
-          max-width: 400px; /* Set a maximum width */
-          width: 100%; /* Make the width 100% */
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          background-color: #ffffff;
-        }
+      .custom-card 
+      {
+        max-width: 400px;
+        width: 100%;
+      }
       
-      .upload .card-body {
+      .custom-card .card 
+      {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+      }
+      
+      .custom-card .card-body 
+      {
         text-align: center;
       }
       
-      .upload .btn-primary {
+      .custom-card .btn-primary
+      {
         display: block;
         margin: 20px auto;
       }
       
-      .upload .custom-file-input {
+      .custom-card .custom-file-input
+      {
         display: none;
       }
       
-      .upload .custom-file-label {
+      .custom-card .custom-file-label
+      {
         cursor: pointer;
         background-color: #007bff;
         color: #ffffff;
         padding: 10px 20px;
         border-radius: 5px;
       }
+        
 
 
     </style>
@@ -170,15 +181,20 @@
     </header>
     <br /><br /><br />
 
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Upload Your Image</h5>
-        <p class="card-text">Please select an image from your device to upload.</p>
-        <label for="upload" class="custom-file-label">Choose File</label>
-        <input type="file" id="upload" class="custom-file-input">
-        <button class="btn btn-primary">Upload</button>
+    <div class="upload">
+      <div class="custom-card">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Upload Your Image</h5>
+            <p class="card-text">Please select an image from your device to upload.</p>
+            <label for="upload" class="custom-file-label">Choose File</label>
+            <input type="file" id="upload" class="custom-file-input">
+            <button class="btn btn-primary">Upload</button>
+          </div>
+        </div>
       </div>
     </div>
+
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container text-center">
         <span class="text-muted">Photography Website &copy; 2024</span>
