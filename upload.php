@@ -33,7 +33,7 @@ if(isset($_POST["submit"])) {
 	
       // Move the uploaded image to the img directory
       if (move_uploaded_file($tmpName, $newImageName)) {
-	    echo "File moved successfully.";
+	    echo "File moved successfully. $newImageName";
       } else {
 	    echo "Error moving file.";
       }
