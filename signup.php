@@ -18,6 +18,7 @@
         font-family: "Georgia", sans-serif;
 	display: flex;
     	flex-direction: column;
+	background-image: url('/assets/images/gallery/trees-3822149_1280.jpg');
 	
       }
 
@@ -63,6 +64,10 @@
       }
 	.footer {
 	margin-top: auto; /* Push the footer to the bottom */
+	}
+	.form
+	{
+		background-color: #fdf4eb;
 	}
 
     </style>
@@ -150,7 +155,7 @@
 <?php
 	session_start();
 	if(!isset($_POST['submit'])){
-		echo '<form class="col-md-6 col-md-offset-3 form-horizontal" id="contact" method="post" action="">';
+		echo '<form class="col-md-6 col-md-offset-3 form-horizontal form" id="contact" method="post" action="">';
 		
 		if( (!isset($_GET['fName'])))
 		{
