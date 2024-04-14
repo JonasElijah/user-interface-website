@@ -302,7 +302,7 @@
 			echo '<br><button class="center-block" name="submit" type="submit" value="submit">Submit</button></form>';
 	}
 
-	if(isset($_POST['submit'])){
+	ifif(isset($_POST['submit'])){
 		echo '<div class ="col-md-6 col-md-offset-3">';
 		if($_POST['submit']=='submit'){
 			$errStatus=array();
@@ -343,19 +343,19 @@
 
 			
 			
-			
 			if (count($errStatus)>0)
 			{
 				$errString=implode("&",$errStatus);
-				header("Location: https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/signup.php?$errString");
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com&$errString");
 			}
 			
-			$dblink = db_connect("user");
+			$dblink = db_connect("contact");
 			$firstName = addslashes($firstName);
 			$lastName = addslashes($lastName);
 			$email = addslashes($email);
-			
-			$sql="Insert into `contact_info` (`first_name`,`last_name`,`email`) values ('$firstName','$lastName','$email')";
+			$pNum = addslashes($pNum);
+			$comment = addslashes($comment);
+			$sql="Insert into `contact_info` (`first_name`,`last_name`,`email`,`phone_number`,`comments`) values ('$firstName','$lastName','$email','$pNum','$comment')";
 			$dblink->query($sql) or
 				die("Something went wrong with: $sql<br>".$dblink->error."</p>");
 			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
