@@ -105,9 +105,14 @@
         padding: 10px 20px;
         border-radius: 5px;
       }
-        
-
-
+      
+      .custom-card .form-group label {
+        flex: 0 0 120px; /* Adjust the width of the label as needed */
+      }
+      
+      .custom-card .form-group input {
+        flex: 1;
+      }        
     </style>
   </head>
   <body>
