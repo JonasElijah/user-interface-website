@@ -232,35 +232,36 @@ if(isset($_POST["submit"])) {
       </nav>
     </header>
     <br /><br /><br />
-
-    <div class="upload">
-      <div class="custom-card">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Upload Your Image</h3>
-            <p class="card-text">Please select an image from your device to upload.</p>
-            <div class="form-group">
-              <label for="category">Category:</label>
-              <input type="text" name="category" id="category" class="form-control" required value="">
-            </div>
-            <div class="form-group">
-              <label for="desc">Description:</label>
-              <input type="text" name="desc" id="desc" class="form-control" required value="">
-            </div>
-            <div class="form-group">
-              <label for="price">Price:</label>
-              <input type="number" name="price" id="price" class="form-control" required value="">
-              <br>
-            </div>
-            <div class="form-group">
-     	      <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value="" class="custom-file-label">
+        <form class="" action="" method="post" autocomplete="off" enctype="multipart/form-data">
+	    <div class="upload">
+	      <div class="custom-card">
+	        <div class="card">
+	          <div class="card-body">
+	            <h3 class="card-title">Upload Your Image</h3>
+	            <p class="card-text">Please select an image from your device to upload.</p>
+	            <div class="form-group">
+	              <label for="category">Category:</label>
+	              <input type="text" name="category" id="category" class="form-control" required value="">
+	            </div>
+	            <div class="form-group">
+	              <label for="desc">Description:</label>
+	              <input type="text" name="desc" id="desc" class="form-control" required value="">
+	            </div>
+	            <div class="form-group">
+	              <label for="price">Price:</label>
+	              <input type="number" name="price" id="price" class="form-control" required value="">
+	              <br>
+	            </div>
+	            <div class="form-group">
+	     	      <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value="" class="custom-file-label">
+		    </div>
+	            <button type = "submit" name = "submit">Submit</button>
+	          </div>
+	        </div>
+	      </div>
 	    </div>
-            <button type = "submit" name = "submit">Submit</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a href="gallery.php"> Data</a>
+    	</form>
+    <a href="gallery.php"> Gallery</a>
 
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container text-center">
