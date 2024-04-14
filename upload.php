@@ -39,7 +39,7 @@ if(isset($_POST["submit"])) {
             src="/tmp/$tmpName"
             alt="Photography Logo"
             style="max-width: 250px; max-height: 100px"
-          />
+          />;
       }
 
 	
