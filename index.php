@@ -78,9 +78,11 @@
     </style>
   </head>
   <body>
+	<?php
     if (session_status() === PHP_SESSION_NONE) {
     session_start();
     }
+	    ?>
     <header>
       <nav
         class="navbar navbar-expand-lg custom-navbar shadow rounded"
