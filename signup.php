@@ -433,7 +433,7 @@
 			$result = mysqli_query($dblink, $sql);
 			$row = $result->fetch_assoc();
 			$_SESSION['userID'] = $row['userID'];
-			echo '$_SESSION[\'userID\'] = ' . $_SESSION['userID'] . '<br>';
+			//echo '$_SESSION[\'userID\'] = ' . $_SESSION['userID'] . '<br>';
 			header("Location: index.php");
 			//redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
 		}
