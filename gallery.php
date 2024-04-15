@@ -102,6 +102,53 @@ if(isset($_POST["submit"])) {
         border-color: #f0e6d1;
         color: #a5998c;
       }
+
+	.modal-dialog.modal-fullscreen-sm-down {
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    min-height: 100vh;
+	}
+	
+	.custom-modal {
+	    max-width: 400px;
+	    width: 100%;
+	}
+	
+	.custom-modal .modal-content {
+	    padding: 20px;
+	    border-radius: 10px;
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	    background-color: #fdf4eb;
+	}
+	
+	.custom-modal .modal-body {
+	    text-align: center;
+	}
+	
+	.custom-modal .btn-primary {
+	    display: block;
+	    margin: 20px auto;
+	}
+	
+	.custom-modal .custom-file-input {
+	    display: none;
+	}
+	
+	.custom-modal .custom-file-label {
+	    display: block;
+	    margin: 20px auto;
+	}
+	
+	.custom-modal .form-group label {
+	    flex: 0 0 120px; /* Adjust the width of the label as needed */
+	}
+	
+	.custom-modal .form-group input {
+	    flex: 1;
+	    padding: 10px;
+	}
+
     </style>
   </head>
   <body>
@@ -168,52 +215,49 @@ if(isset($_POST["submit"])) {
 	<?php	
 		echo "<h1>Gallery Placeholder</h1>";
 	?>
-	<!-- Button to launch modal -->
-	<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Launch modal</button>
+	<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
 	
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade custom-modal" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-fullscreen-sm-down">
 	    <div class="modal-content">
 	      <!-- Modal content goes here -->
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+	        <h5 class="modal-title" id="exampleModalLabel">Upload Your Image here</h5>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	      </div>
 	      <div class="modal-body">
-	  <form class="" action="" method="post" autocomplete="off" enctype="multipart/form-data">
-	    <div class="upload">
-	      <div class="custom-card">
-	        <div class="card">
-	          <div class="card-body">
-	            <h3 class="card-title">Upload Your Image</h3>
-	            <p class="card-text">Please select an image from your device to upload.</p>
-		    <div class="form-group">
-	              <label for="name">Name:</label>
-	              <input type="text" name="name" id="name" class="form-control" required value="">
-	            </div>
-	            <div class="form-group">
-	              <label for="category">Category:</label>
-	              <input type="text" name="category" id="category" class="form-control" required value="">
-	            </div>
-	            <div class="form-group">
-	              <label for="desc">Description:</label>
-	              <input type="text" name="desc" id="desc" class="form-control" required value="">
-	            </div>
-	            <div class="form-group">
-	              <label for="price">Price:</label>
-	              <input type="number" name="price" id="price" class="form-control" required value="">
-	              <br>
-	            </div>
-	            <div class="form-group">
-	     	      <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value="" class="custom-file-label">
+		  <form class="" action="" method="post" autocomplete="off" enctype="multipart/form-data">
+		    <div class="upload">
+		      <div class="custom-card">
+		        <div class="card">
+		          <div class="card-body">
+		            <p class="card-text">Please select an image from your device to upload.</p>
+			    <div class="form-group">
+		              <label for="name">Name:</label>
+		              <input type="text" name="name" id="name" class="form-control" required value="">
+		            </div>
+		            <div class="form-group">
+		              <label for="category">Category:</label>
+		              <input type="text" name="category" id="category" class="form-control" required value="">
+		            </div>
+		            <div class="form-group">
+		              <label for="desc">Description:</label>
+		              <input type="text" name="desc" id="desc" class="form-control" required value="">
+		            </div>
+		            <div class="form-group">
+		              <label for="price">Price:</label>
+		              <input type="number" name="price" id="price" class="form-control" required value="">
+		              <br>
+		            </div>
+		            <div class="form-group">
+		     	      <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value="" class="custom-file-label">
+			    </div>
+		            <button type = "submit" name = "submit">Submit</button>
+		          </div>
+		        </div>
+		      </div>
 		    </div>
-	            <button type = "submit" name = "submit">Submit</button>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-    	</form>	        
+	    	</form>	        
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
