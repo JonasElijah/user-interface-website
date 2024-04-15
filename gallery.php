@@ -283,11 +283,15 @@ $result=$conn->query($sql) or
 	  </div>
 	</div>
 	<?php 
-	if ($result->num_rows > 0) {
-	    while ($row = $result->fetch_assoc()) {
-	        echo '<img src="' . $row['image'] . '" alt="' . $row['image_alt_text'] . '" />';
+	if ($result->num_rows > 0) 
+	{
+	    while ($row = $result->fetch_assoc()) 
+	    {
+        	echo '<img src="' . $row['image'] . '" alt="' . $row['image_alt_text'] . '" width="200" height="200" />';
 	    }
-	} else {
+	} 
+	else 
+	{
 	    echo "No images found.";
 	}
 	?>
