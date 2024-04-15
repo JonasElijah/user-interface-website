@@ -193,6 +193,9 @@ $result=$conn->query($sql) or
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
+	      <li class="nav-item">
+	        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Home</a>
               </li>
@@ -233,7 +236,6 @@ $result=$conn->query($sql) or
 		echo "<h1>Gallery Placeholder</h1>";
 	?>
 	<!-- Button to launch modal -->
-	<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
 	
 	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-fullscreen-sm-down">
