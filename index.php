@@ -124,7 +124,7 @@
 
 	if(!isset($_SESSION['userID'])){
 			echo '<li class="nav-item"> ';
-               	 	echo ' <a class="nav-link" href="#">Login</a>';
+               	 	echo ' <a class="nav-link" href="login.php">Login</a>';
               		echo '</li>';
               		echo '<li class="nav-item">';
                 	echo '<a class="nav-link" href="signup.php">Signup</a>';
