@@ -96,8 +96,7 @@
 			border-right: thin;
 			border-right-style: solid;
 			border-color: #b7b7b7;
-			position: fixed;
-			height: 100%;
+			height: inherit;
 			overflow: auto;
 		}
 		
@@ -129,8 +128,7 @@
 		
 		.main-background {
 			background-color: whitesmoke;
-			height: 100%;
-			position: fixed;
+			height: 100vh;
 			width: 100%;
 			margin: unset;
 		}
@@ -257,17 +255,12 @@
 		
 		echo '</div>';
 	?>
-   <br />
-    <br />
-    <br />
 	
-	<div class="row">
 	<footer class="footer col-md-12 mt-auto py-3 bg-light">
       <div class="container text-center">
         <span class="text-muted">Photography Website &copy; 2024</span>
       </div>
     </footer>
-	</div>
 
     <!-- Local Bootstrap JavaScript files -->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
