@@ -63,11 +63,12 @@
       }
 		
 		.profile-img {
-			  border-radius: 50%;
-			  width: 100px;
+			border-radius: 50%;
+			width: 100px;
 			height: 100px;
 			border-style: solid;
 			margin: 20px;
+			background-color: white;
 		 }
 		
 		.sidebar {
@@ -81,13 +82,20 @@
 		}
 		
 		.sidebar a {
-			color: black;
+			color:#383B44;
 			text-decoration: underline;
 		}
 		
 		.sidebar a:hover {
-			color: black;
 			text-decoration: none;
+		}
+		
+		.sidebar a:active {
+			color: black;
+		}
+		
+		.sub-text {
+			color: #383B44;
 		}
     </style>
   </head>
@@ -185,6 +193,17 @@
 		
 		//Profile info
 		echo '<div class="col-md-9">';
+		echo '<div class="col-md-10 offset-md-1">';
+		echo '<h1>Profile</h1>';
+			echo '<div class="sub-text offset-md-1">';
+				echo '<h3>First Name</h3>';
+				echo '<br>';
+				echo '<h3>Last Name</h3>';
+				echo '<br>';
+				echo '<h3>Email</h3>';
+				echo '<br>';
+			echo '</div>';
+		echo '</div>';
 		echo '</div>';
 		
 		echo '</div>';
