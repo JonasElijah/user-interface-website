@@ -82,11 +82,12 @@
 		}
 		
 		.sidebar a {
-			color:#383B44;
+			color:dimgray;
 			text-decoration: underline;
 		}
 		
 		.sidebar a:hover {
+			color: black;
 			text-decoration: none;
 		}
 		
@@ -95,7 +96,7 @@
 		}
 		
 		.sub-text {
-			color: #383B44;
+			color: dimgray;
 		}
     </style>
   </head>
@@ -194,8 +195,10 @@
 		//Profile info
 		echo '<div class="col-md-9">';
 		echo '<div class="col-md-10 offset-md-1">';
+		echo '<br>';
 		echo '<h1>Profile</h1>';
 			echo '<div class="sub-text offset-md-1">';
+				echo '<br>';
 				echo '<h3>First Name</h3>';
 				echo '<br>';
 				echo '<h3>Last Name</h3>';
