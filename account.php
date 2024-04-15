@@ -160,13 +160,14 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+           <h1 class="text-center">Photography Website</h1>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
+                <a class="nav-link" href="gallery.php">Gallery</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">FAQ</a>
@@ -174,6 +175,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
+				<li class="nav-item">
+                	<a class="nav-link" href="account.php">Account</a>';
+             	</li>
+
+              <!--
               <li class="nav-item dropdown" id="hover-dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -191,6 +197,7 @@
                   <li><a class="dropdown-item" href="#">Settings</a></li>
                 </ul>
               </li>
+              -->
             </ul>
           </div>
         </div>
