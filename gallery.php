@@ -1,3 +1,4 @@
+/*
 <?php
 
 
@@ -44,6 +45,7 @@ if(isset($_POST["submit"])) {
 }
 
 ?>
+	*/
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -102,16 +104,6 @@ if(isset($_POST["submit"])) {
         border-color: #f0e6d1;
         color: #a5998c;
       }
-
-	.modal-dialog.modal-fullscreen-sm-down {
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	    min-height: 100vh;
-	}
-	
-
-
 
     </style>
   </head>
