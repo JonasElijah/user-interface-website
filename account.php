@@ -128,7 +128,7 @@
 		
 		.main-background {
 			background-color: whitesmoke;
-			height: 100vh;
+			min-height: 79vh;
 			width: 100%;
 			margin: unset;
 		}
