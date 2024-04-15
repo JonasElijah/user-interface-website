@@ -53,7 +53,7 @@ if(isset($_POST["submit"])) {
 $sql="SELECT * FROM `image` where `user_id` LIKE '$userId'";
 $result=$conn->query($sql) or
 	die("<p>Something went wrong with: <br>$sql<br>".$conn->error."</p>");
-$data=$result->fetch_array(MYSQLI_ASSOC);	  
+/*$data=$result->fetch_array(MYSQLI_ASSOC);*/	  
 ?>
 
 <!DOCTYPE html>
@@ -283,8 +283,13 @@ $data=$result->fetch_array(MYSQLI_ASSOC);
 	  </div>
 	</div>
 	<?php 
-
-	   echo $data['image'];
+	if ($result->num_rows > 0) {
+	    while ($row = $result->fetch_assoc()) {
+	        echo '<img src="' . $row['image'] . '" alt="' . $row['image_alt_text'] . '" />';
+	    }
+	} else {
+	    echo "No images found.";
+	}
 	?>
 	
           	
