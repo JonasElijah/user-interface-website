@@ -1,59 +1,58 @@
 <?php
 session_start();
-include("functions.php");		
+include("functions.php");
 $conn = db_connect("UI-schema");
 $userId = $_SESSION['userID'];
-if (isset($_SESSION['userID'])) {
-    $userId = $_SESSION['userID'];
-    echo "User ID from session: " . $userId;
-} else {
+
+if (!isset($_SESSION['userID'])) {
     echo "User ID is not set in the session.";
+    exit; // Exit if user ID is not set
 }
 
+if (isset($_POST["submit"])) {
+    $name = $_POST["name"];
+    $category = $_POST["category"];
+    $price = $_POST["price"];
+    $desc = $_POST["desc"];
 
-if(isset($_POST["submit"])) {
-  $name = $_POST["name"];
-  $category = $_POST["category"];
-  $price = $_POST["price"];
-  $desc = $_POST["desc"];
-
-  // Check if an image was uploaded
-  if($_FILES["image"]["error"] == 4) {
-    echo "<script>alert('Image Does Not Exist');</script>";
-  } else {
-    $fileName = $_FILES["image"]["name"];
-    $fileSize = $_FILES["image"]["size"];
-    $tmpName = $_FILES["image"]["tmp_name"];
-
-    // Validate image extension
-    $validImageExtensions = ['jpg', 'jpeg', 'png'];
-    $imageExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-    if (!in_array($imageExtension, $validImageExtensions)) {
-      echo "<script>alert('Invalid Image Extension');</script>";
-    } else if ($fileSize > 1000000) { // Validate image size
-      echo "<script>alert('Image Size Is Too Large');</script>";
+    // Check if an image was uploaded
+    if ($_FILES["image"]["error"] == 4) {
+        echo "<script>alert('Image Does Not Exist');</script>";
     } else {
-	
+        $fileName = $_FILES["image"]["name"];
+        $fileSize = $_FILES["image"]["size"];
+        $tmpName = $_FILES["image"]["tmp_name"];
 
-    $newImageName = 'img/' . uniqid() . '.' . $imageExtension;	
-      // Move the uploaded image to the img directory
-     if (move_uploaded_file($tmpName, $newImageName)) {
-     } else {
-      }
-
-	
-      // Insert the image information into the database
-      $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`, `user_id`) VALUES ( '$category', $price, '$desc', '$name', '$newImageName', '$userId')";
-      $conn->query($query) or
-	      die("Something went wrong with: $query<br>".$conn->error."</p>");
+        // Validate image extension
+        $validImageExtensions = ['jpg', 'jpeg', 'png'];
+        $imageExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        if (!in_array($imageExtension, $validImageExtensions)) {
+            echo "<script>alert('Invalid Image Extension');</script>";
+        } else if ($fileSize > 1000000) { // Validate image size
+            echo "<script>alert('Image Size Is Too Large');</script>";
+        } else {
+            // Check if the image already exists for the user
+            $existingImageQuery = "SELECT * FROM `image` WHERE `user_id` = '$userId' AND `name` = '$name'";
+            $existingImageResult = $conn->query($existingImageQuery);
+            if ($existingImageResult->num_rows > 0) {
+                echo "<script>alert('Image with the same name already exists for this user. Please choose a different name.');</script>";
+            } else {
+                $newImageName = 'img/' . uniqid() . '.' . $imageExtension;
+                // Move the uploaded image to the img directory
+                if (move_uploaded_file($tmpName, $newImageName)) {
+                    // Insert the image information into the database
+                    $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`, `user_id`) VALUES ('$category', $price, '$desc', '$name', '$newImageName', '$userId')";
+                    $conn->query($query) or die("Something went wrong with: $query<br>" . $conn->error);
+                } else {
+                    echo "<script>alert('Failed to move uploaded file.');</script>";
+                }
+            }
+        }
     }
-  }
 }
 
-$sql="SELECT * FROM `image` where `user_id` LIKE '$userId'";
-$result=$conn->query($sql) or
-	die("<p>Something went wrong with: <br>$sql<br>".$conn->error."</p>");
-/*$data=$result->fetch_array(MYSQLI_ASSOC);*/	  
+$sql = "SELECT * FROM `image` WHERE `user_id` = '$userId'";
+$result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $conn->error);
 ?>
 
 <!DOCTYPE html>
