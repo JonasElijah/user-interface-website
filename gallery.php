@@ -1,8 +1,6 @@
 <?php
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-    }
+$userId = $_SESSION['userID'];
 
 if(isset($_POST["submit"])) {
   $name = $_POST["name"];
