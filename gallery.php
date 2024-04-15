@@ -285,7 +285,7 @@ if(isset($_POST["submit"])) {
 	  if (mysqli_num_rows($res) > 0) {
 	while ($row = mysqli_fetch_assoc($res)) 
 	{
-	        echo '<img src="' . $row['image_path'] . '" alt="' . $row['image_alt_text'] . '" />';
+	        echo $row['image_path'];
 	}
 	} else {
 	    echo "No images found.";
