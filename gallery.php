@@ -110,48 +110,7 @@ if(isset($_POST["submit"])) {
 	    min-height: 100vh;
 	}
 	
-	.custom-modal {
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	    min-height: 100vh;
-	}
-	
-	.custom-modal .modal-content {
-	    max-width: 400px;
-	    width: 100%;
-	    padding: 20px;
-	    border-radius: 10px;
-	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	    background-color: #fdf4eb;
-	}
-	
-	.custom-modal .modal-body {
-	    text-align: center;
-	}
-	
-	.custom-modal .btn-primary {
-	    display: block;
-	    margin: 20px auto;
-	}
-	
-	.custom-modal .custom-file-input {
-	    display: none;
-	}
-	
-	.custom-modal .custom-file-label {
-	    display: block;
-	    margin: 20px auto;
-	}
-	
-	.custom-modal .form-group label {
-	    flex: 0 0 120px; /* Adjust the width of the label as needed */
-	}
-	
-	.custom-modal .form-group input {
-	    flex: 1;
-	    padding: 10px;
-	}
+
 
 
     </style>
@@ -221,9 +180,8 @@ if(isset($_POST["submit"])) {
 		echo "<h1>Gallery Placeholder</h1>";
 	?>
 	<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
-	
 	<div class="modal-dialog modal-fullscreen-sm-down" id = "myModal">
-	  ...
+	  
 	</div>
 
    <br />
