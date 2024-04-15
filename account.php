@@ -16,7 +16,10 @@
         font-family: "Georgia", sans-serif;
       }
 		
-	
+		footer {
+			position: absolute;
+			bottom: 0;
+		}
 
       .dropdown-menu {
         display: none;
@@ -77,6 +80,12 @@
 		
 		.sidebar a {
 			color: black;
+			text-decoration: underline;
+		}
+		
+		.sidebar a:hover {
+			color: black;
+			text-decoration: none;
 		}
     </style>
   </head>
