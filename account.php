@@ -196,7 +196,7 @@
     <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
-	<footer class="footer mt-auto py-3 bg-light">
+	<footer class="footer col-md-12 mt-auto py-3 bg-light">
       <div class="container text-center">
         <span class="text-muted">Photography Website &copy; 2024</span>
       </div>
