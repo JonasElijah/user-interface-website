@@ -279,13 +279,7 @@ if(isset($_POST["submit"])) {
 	    </div>
 	  </div>
 	</div>
-	<?php 
-	  $sql="SELECT * FROM `image` where `userID` LIKE '$userId'";
-          $result=$dblink->query($sql) or
-			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
-	   $data=$result->fetch_array(MYSQLI_ASSOC);	  
-	   echo $data;
-	?>
+	
           	
     <br />
     <br />
