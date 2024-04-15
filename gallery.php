@@ -1,59 +1,58 @@
 <?php
+include("functions.php");
 session_start();
-include("functions.php");		
+if(!isset($_SESSION['userID']))
+{
+	redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/signup.php");
+}
 $conn = db_connect("UI-schema");
 $userId = $_SESSION['userID'];
-if (isset($_SESSION['userID'])) {
-    $userId = $_SESSION['userID'];
-    echo "User ID from session: " . $userId;
-} else {
+
+if (!isset($_SESSION['userID'])) {
     echo "User ID is not set in the session.";
+    exit; // Exit if user ID is not set
 }
 
+if (isset($_POST["submit"])) {
+    $name = $_POST["name"];
+    $category = $_POST["category"];
+    $price = $_POST["price"];
+    $desc = $_POST["desc"];
 
-if(isset($_POST["submit"])) {
-  $name = $_POST["name"];
-  $category = $_POST["category"];
-  $price = $_POST["price"];
-  $desc = $_POST["desc"];
-
-  // Check if an image was uploaded
-  if($_FILES["image"]["error"] == 4) {
-    echo "<script>alert('Image Does Not Exist');</script>";
-  } else {
-    $fileName = $_FILES["image"]["name"];
-    $fileSize = $_FILES["image"]["size"];
-    $tmpName = $_FILES["image"]["tmp_name"];
-
-    // Validate image extension
-    $validImageExtensions = ['jpg', 'jpeg', 'png'];
-    $imageExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-    if (!in_array($imageExtension, $validImageExtensions)) {
-      echo "<script>alert('Invalid Image Extension');</script>";
-    } else if ($fileSize > 1000000) { // Validate image size
-      echo "<script>alert('Image Size Is Too Large');</script>";
+    // Check if an image was uploaded
+    if ($_FILES["image"]["error"] == 4) {
+        echo "<script>alert('Image Does Not Exist');</script>";
     } else {
-	
+        $fileName = $_FILES["image"]["name"];
+        $fileSize = $_FILES["image"]["size"];
+        $tmpName = $_FILES["image"]["tmp_name"];
 
-    $newImageName = 'img/' . uniqid() . '.' . $imageExtension;	
-      // Move the uploaded image to the img directory
-     if (move_uploaded_file($tmpName, $newImageName)) {
-     } else {
-      }
-
-	
-      // Insert the image information into the database
-      $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`, `user_id`) VALUES ( '$category', $price, '$desc', '$name', '$newImageName', '$userId')";
-      $conn->query($query) or
-	      die("Something went wrong with: $query<br>".$conn->error."</p>");
+        $validImageExtensions = ['jpg', 'jpeg', 'png'];
+        $imageExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        if (!in_array($imageExtension, $validImageExtensions)) {
+            echo "<script>alert('Invalid Image Extension');</script>";
+        } else if ($fileSize > 50000000) { 
+            /*echo "<script>alert('Image Size Is Too Large');</script>";*/
+	    echo $fileSize;
+        } else {
+            $existingImageQuery = "SELECT * FROM `image` WHERE `user_id` = '$userId' AND `name` = '$name'";
+            $existingImageResult = $conn->query($existingImageQuery);
+            if ($existingImageResult->num_rows <= 0) {
+                $newImageName = 'img/' . uniqid() . '.' . $imageExtension;
+                if (move_uploaded_file($tmpName, $newImageName)) {
+                    $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`, `user_id`) VALUES ('$category', $price, '$desc', '$name', '$newImageName', '$userId')";
+                    $conn->query($query) or die("Something went wrong with: $query<br>" . $conn->error);
+                } else {
+			echo $existingImageResult->num_rows;
+                    /*echo "<script>alert('Failed to move uploaded file.');</script>";*/
+                }
+            }
+        }
     }
-  }
 }
 
-$sql="SELECT * FROM `image` where `user_id` LIKE '$userId'";
-$result=$conn->query($sql) or
-	die("<p>Something went wrong with: <br>$sql<br>".$conn->error."</p>");
-/*$data=$result->fetch_array(MYSQLI_ASSOC);*/	  
+$sql = "SELECT * FROM `image` WHERE `user_id` = '$userId'";
+$result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $conn->error);
 ?>
 
 <!DOCTYPE html>
@@ -189,10 +188,55 @@ $result=$conn->query($sql) or
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-		   <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
             <span class="navbar-toggler-icon"></span>
           </button>
-		<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+	      <li class="nav-item">
+	        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link">Upload</button>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown" id="hover-dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Profile</a
+                >
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Account</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Cart</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div>
+	<?php	
+		echo "<h1>Gallery Placeholder</h1>";
+	?>
+	<!-- Button to launch modal -->
+	
+	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-fullscreen-sm-down">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -239,49 +283,6 @@ $result=$conn->query($sql) or
 	    </div>
 	  </div>
 	</div>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item dropdown" id="hover-dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  >Profile</a
-                >
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Account</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Cart</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Settings</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <div>
-	<?php	
-		echo "<h1>Gallery Placeholder</h1>";
-	?>
-	<!-- Button to launch modal -->
-	
 	<?php 
 	if ($result->num_rows > 0) 
 	{
