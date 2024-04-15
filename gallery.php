@@ -123,7 +123,10 @@
 	<?php	
 		echo "<h1>Gallery Placeholder</h1>";
 	?>
-	<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+	  Launch Fullscreen Modal
+	</button>
+	
 	<div class="modal-dialog modal-fullscreen-sm-down" id = "myModal">
 	  
 	</div>
