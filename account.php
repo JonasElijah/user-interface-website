@@ -1,3 +1,19 @@
+<?php
+	include("functions.php");
+
+	if(!isset($_SESSION['userID'])){
+		redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+	}
+	else {
+		$userId = $_SESSION['userID'];
+		$dblink=db_connect("UI-schema");
+		$sql="SELECT * FROM `user` where `userID` LIKE '$userId'";
+		$result=$dblink->query($sql) or
+			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
+		$data=$result->fetch_array(MYSQLI_ASSOC);
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -216,13 +232,13 @@
 			echo '<div class="sub-text offset-md-1">';
 				echo '<br>';
 				echo '<h3>First Name</h3>';
-				echo '<p class="user-info">User FName</p>';
+				echo '<p class="user-info">'.$data['fName'].'</p>';
 				echo '<br>';
 				echo '<h3>Last Name</h3>';
-				echo '<p class="user-info">User LName</p>';
+				echo '<p class="user-info">'.$data['lName'].'</p>';
 				echo '<br>';
 				echo '<h3>Email</h3>';
-				echo '<p class="user-info">User Email</p>';
+				echo '<p class="user-info">'.$data['email'].'</p>';
 				echo '<br>';
 			echo '</div>';
 		echo '</div>';
