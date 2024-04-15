@@ -189,18 +189,8 @@ $result=$conn->query($sql) or
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-		   <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
             <span class="navbar-toggler-icon"></span>
           </button>
-
-	    	</form>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
@@ -237,7 +227,15 @@ $result=$conn->query($sql) or
         </div>
       </nav>
     </header>
-	  		<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div>
+	<?php	
+		echo "<h1>Gallery Placeholder</h1>";
+	?>
+	<!-- Button to launch modal -->
+	<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
+	
+	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-fullscreen-sm-down">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -276,13 +274,14 @@ $result=$conn->query($sql) or
 		        </div>
 		      </div>
 		    </div>
-
-    <div>
-	<?php	
-		echo "<h1>Gallery Placeholder</h1>";
-	?>
-	<!-- Button to launch modal -->
-	
+	    	</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	<?php 
 	if ($result->num_rows > 0) 
 	{
