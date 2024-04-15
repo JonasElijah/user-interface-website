@@ -64,12 +64,14 @@
 		
 		.profile-img {
 			  border-radius: 50%;
-			  width: 150px;
-			height: 150px;
+			  width: 100px;
+			height: 100px;
+			border-style: solid;
+			margin: 20px;
 		 }
 		
 		.sidebar {
-	  		background-color: #fdf4eb;
+	  		background-color: #F2EAE1;
 			border-right: thin;
 			border-right-style: solid;
 			border-color: #b7b7b7;
@@ -159,7 +161,7 @@
 			echo '<img src="assets/images/photography.png" class="profile-img">';
 			echo '</div>';
 			echo '<div align="center">';
-				echo '<h3>User Name</h3>';
+				echo '<h5>User Name</h5>';
 			echo '</div>';
 			echo '<hr>';
 			echo '<div class="offset-md-1">';
