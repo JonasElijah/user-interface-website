@@ -44,7 +44,7 @@ if(isset($_POST["submit"])) {
 
 	
       // Insert the image information into the database
-      $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`) VALUES ( '$category', $price, '$desc', '$name', '$newImageName')";
+      $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`, `user_id`) VALUES ( '$category', $price, '$desc', '$name', '$newImageName', '$userId')";
       $conn->query($query) or
 	      die("Something went wrong with: $query<br>".$conn->error."</p>");
     }
