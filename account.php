@@ -234,7 +234,7 @@
 		echo '</div>';
 		
 		//Profile info
-		echo '<div class="col-md-9 offset-md-3">';
+		echo '<div class="col-md-9">';
 		echo '<div class="col-md-10 offset-md-1">';
 		echo '<br>';
 		echo '<h1>Profile</h1>';
