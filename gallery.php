@@ -23,22 +23,18 @@ if (isset($_POST["submit"])) {
         $fileSize = $_FILES["image"]["size"];
         $tmpName = $_FILES["image"]["tmp_name"];
 
-        // Validate image extension
         $validImageExtensions = ['jpg', 'jpeg', 'png'];
         $imageExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
         if (!in_array($imageExtension, $validImageExtensions)) {
             echo "<script>alert('Invalid Image Extension');</script>";
-        } else if ($fileSize > 1000000) { // Validate image size
+        } else if ($fileSize > 1000000) { 
             echo "<script>alert('Image Size Is Too Large');</script>";
         } else {
-            // Check if the image already exists for the user
             $existingImageQuery = "SELECT * FROM `image` WHERE `user_id` = '$userId' AND `name` = '$name'";
             $existingImageResult = $conn->query($existingImageQuery);
             if ($existingImageResult->num_rows < 0) {
                 $newImageName = 'img/' . uniqid() . '.' . $imageExtension;
-                // Move the uploaded image to the img directory
                 if (move_uploaded_file($tmpName, $newImageName)) {
-                    // Insert the image information into the database
                     $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`, `user_id`) VALUES ('$category', $price, '$desc', '$name', '$newImageName', '$userId')";
                     $conn->query($query) or die("Something went wrong with: $query<br>" . $conn->error);
                 } else {
