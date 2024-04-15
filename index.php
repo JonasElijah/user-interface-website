@@ -161,6 +161,9 @@
         </div>
       </nav>
     </header>
+	  <?php
+	 echo "User ID from session: " . $_SESSION['userID']; 
+		?>
     <div>
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
