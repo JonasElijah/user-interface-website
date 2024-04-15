@@ -281,7 +281,7 @@ if(isset($_POST["submit"])) {
 	  </div>
 	</div>
 	<?php 
-          $sql = "SELECT * FROM images ORDER BY id DESC";
+          /*$sql = "SELECT * FROM images ORDER BY id DESC";*/
           /*$res = mysqli_query($conn,  $sql);*/
 	  /*$row = mysqli_fetch_assoc($res);*/
 	  /*echo $row['image_path'];*/
