@@ -287,7 +287,7 @@ if(isset($_POST["submit"])) {
           	while ($images = mysqli_fetch_assoc($res)) {  ?>
              
              <div class="alb">
-             	<img src="uploads/<?=$images['image_url']?>">
+             	echo $images;
              </div>
           		
     <?php } }?>
