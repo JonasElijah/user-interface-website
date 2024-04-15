@@ -284,7 +284,7 @@ $data=$result->fetch_array(MYSQLI_ASSOC);
 	</div>
 	<?php 
 
-	   echo $data;
+	   echo $data['image'];
 	?>
 	
           	
