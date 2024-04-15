@@ -31,7 +31,7 @@ if (isset($_POST["submit"])) {
         $imageExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
         if (!in_array($imageExtension, $validImageExtensions)) {
             echo "<script>alert('Invalid Image Extension');</script>";
-        } else if ($fileSize > 20000000) { 
+        } else if ($fileSize > 50000000) { 
             echo "<script>alert('Image Size Is Too Large');</script>";
         } else {
             $existingImageQuery = "SELECT * FROM `image` WHERE `user_id` = '$userId' AND `name` = '$name'";
