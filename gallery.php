@@ -34,9 +34,7 @@ if (isset($_POST["submit"])) {
             // Check if the image already exists for the user
             $existingImageQuery = "SELECT * FROM `image` WHERE `user_id` = '$userId' AND `name` = '$name'";
             $existingImageResult = $conn->query($existingImageQuery);
-            if ($existingImageResult->num_rows > 0) {
-                echo "<script>alert('Image with the same name already exists for this user. Please choose a different name.');</script>";
-            } else {
+            if ($existingImageResult->num_rows < 0) {
                 $newImageName = 'img/' . uniqid() . '.' . $imageExtension;
                 // Move the uploaded image to the img directory
                 if (move_uploaded_file($tmpName, $newImageName)) {
