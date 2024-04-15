@@ -2,7 +2,6 @@
 session_start();
 include("functions.php");		
 $conn = db_connect("UI-schema");
-
 $userId = $_SESSION['userID'];
 if (isset($_SESSION['userID'])) {
     $userId = $_SESSION['userID'];
@@ -35,7 +34,7 @@ if(isset($_POST["submit"])) {
       echo "<script>alert('Image Size Is Too Large');</script>";
     } else {
 	
-   
+
     $newImageName = 'img/' . uniqid() . '.' . $imageExtension;	
       // Move the uploaded image to the img directory
      if (move_uploaded_file($tmpName, $newImageName)) {
@@ -51,6 +50,10 @@ if(isset($_POST["submit"])) {
   }
 }
 
+$sql="SELECT * FROM `image` where `user_id` LIKE '$userId'";
+$result=$conn->query($sql) or
+	die("<p>Something went wrong with: <br>$sql<br>".$conn->error."</p>");
+/*$data=$result->fetch_array(MYSQLI_ASSOC);*/	  
 ?>
 
 <!DOCTYPE html>
@@ -186,51 +189,7 @@ if(isset($_POST["submit"])) {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item dropdown" id="hover-dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  >Profile</a
-                >
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Account</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Cart</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Settings</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <div>
-	<?php	
-		echo "<h1>Gallery Placeholder</h1>";
-	?>
-	<!-- Button to launch modal -->
-	<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
+		   <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
 	
 	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-fullscreen-sm-down">
@@ -279,13 +238,65 @@ if(isset($_POST["submit"])) {
 	    </div>
 	  </div>
 	</div>
-	<?php 
-          $sql = "SELECT * FROM `images` ORDER BY id DESC";
-          $result=$dblink->query($sql) or
-			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
-	  /*$row = mysqli_fetch_assoc($res);*/
-	  /*echo $row['image_path'];*/
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown" id="hover-dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Profile</a
+                >
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Account</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Cart</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div>
+	<?php	
+		echo "<h1>Gallery Placeholder</h1>";
 	?>
+	<!-- Button to launch modal -->
+	
+	<?php 
+	if ($result->num_rows > 0) 
+	{
+	    while ($row = $result->fetch_assoc()) 
+	    {
+        	echo '<img src="' . $row['image'] . '" alt="' . $row['image_alt_text'] . '" width="200" height="200" />';
+	    }
+	} 
+	else 
+	{
+	    echo "No images found.";
+	}
+	?>
+	
           	
     <br />
     <br />
