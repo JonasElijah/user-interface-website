@@ -234,19 +234,19 @@ if(isset($_POST["submit"])) {
 	                  <p class="card-text">Please select an image from your device to upload.</p>
 	                  <div class="form-group">
 	                    <label for="name">Name:</label>
-	                    <input type="text" name="name" id="name" class="" required value="">
+	                    <input type="text" name="name" id="name" class="form-control" required value="">
 	                  </div>
 	                  <div class="form-group">
 	                    <label for="category">Category:</label>
-	                    <input type="text" name="category" id="category" class="" required value="">
+	                    <input type="text" name="category" id="category" class="form-control" required value="">
 	                  </div>
 	                  <div class="form-group">
 	                    <label for="desc">Description:</label>
-	                    <input type="text" name="desc" id="desc" class="" required value="">
+	                    <input type="text" name="desc" id="desc" class="form-control" required value="">
 	                  </div>
 	                  <div class="form-group">
 	                    <label for="price">Price:</label>
-	                    <input type="number" name="price" id="price" class="" required value="">
+	                    <input type="number" name="price" id="price" class="form-control" required value="">
 	                    <br>
 	                  </div>
 	                  <div class="form-group">
