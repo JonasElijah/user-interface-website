@@ -282,14 +282,8 @@ if(isset($_POST["submit"])) {
 	     <?php 
           $sql = "SELECT * FROM images ORDER BY id DESC";
           $res = mysqli_query($conn,  $sql);
-	  if (mysqli_num_rows($res) > 0) {
-	while ($row = mysqli_fetch_assoc($res)) 
-	{
-	        echo $row['image_path'];
-	}
-	} else {
-	    echo "No images found.";
-	}
+	  $row = mysqli_fetch_assoc($res);
+	  echo $row['image_path'];
 	?>
           	
     <br />
