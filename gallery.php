@@ -39,7 +39,7 @@ if(isset($_POST["submit"])) {
       $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`) VALUES ( '$category', $price, '$desc', '$name', '$newImageName')";
       $conn->query($query) or
 	      die("Something went wrong with: $query<br>".$conn->error."</p>");
-	echo $_SESSION['userID'];
+      echo "User ID from session: " . $_SESSION['userID']; 
     }
   }
 }
