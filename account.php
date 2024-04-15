@@ -1,6 +1,10 @@
 <?php
 	include("functions.php");
-
+	
+	if (session_status() === PHP_SESSION_NONE) {
+    	session_start();
+	}
+	
 	if(!isset($_SESSION['userID'])){
 		$_SESSION['userID']=6;
 		redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
