@@ -85,6 +85,10 @@
 			min-height: 79vh;
 			width: 100%;
 		}
+		
+		.info {
+			height: 85%;
+		}
     </style>
   </head>
   <body>
@@ -179,13 +183,16 @@
 	  		echo '</div>';
 	  		
 	  		//Description
-	  		echo '<div class="col-md-4 offset-md-4">';
+	  		echo '<div class="col-md-4">';
 	  		echo '<hr>';
 	  		echo '</div>';
 	  		
 	  		//Photo Info
-	  		echo '<div class="col-md-4 offset-md-8">';
+	  		echo '<div class="col-md-4">';
 	  		echo '<hr>';
+	  			echo '<div class="info">';
+	  				echo '<p>';
+	  			echo '</div>';
 	  		echo '<hr>';
 	  		echo '</div>';
 	  	echo '</div>';
