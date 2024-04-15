@@ -194,7 +194,7 @@ $result=$conn->query($sql) or
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
 	      <li class="nav-item">
-	        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
+	        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link">Upload</button>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Home</a>
