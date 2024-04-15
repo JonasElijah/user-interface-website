@@ -177,16 +177,19 @@
 	<!-- Button to launch modal -->
 	<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
 	
-	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-fullscreen-sm-down">
 	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
 	      <div class="modal-body">
 	        <form class="" action="" method="post" autocomplete="off" enctype="multipart/form-data">
 		    <div class="upload">
 		      <div class="custom-card">
 		        <div class="card">
 		          <div class="card-body">
+			    <h5 class="modal-title" id="exampleModalLabel">Upload Your Image</h5>
 		            <p class="card-text">Please select an image from your device to upload.</p>
 			    <div class="form-group">
 		              <label for="name">Name:</label>
@@ -215,10 +218,12 @@
 		    </div>
 	    	</form>
 	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	      </div>
 	    </div>
 	  </div>
 	</div>
-
    <br />
     <br />
     <br />
