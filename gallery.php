@@ -36,8 +36,8 @@ if (isset($_POST["submit"])) {
         } else {
             $existingImageQuery = "SELECT * FROM `image` WHERE `user_id` = '$userId' AND `name` = '$name'";
             $existingImageResult = $conn->query($existingImageQuery);
+	    echo $existingImageResult->num_rows;
             if ($existingImageResult->num_rows < 0) {
-		echo $existingImageResult->num_rows;
                 $newImageName = 'img/' . uniqid() . '.' . $imageExtension;
                 if (move_uploaded_file($tmpName, $newImageName)) {
                     $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`, `user_id`) VALUES ('$category', $price, '$desc', '$name', '$newImageName', '$userId')";
