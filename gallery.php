@@ -283,8 +283,8 @@ if(isset($_POST["submit"])) {
           $sql = "SELECT * FROM `images` ORDER BY id DESC";
           $result=$dblink->query($sql) or
 			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
-	  /*$row = mysqli_fetch_assoc($res);*/
-	  /*echo $row['image_path'];*/
+	   $data=$result->fetch_array(MYSQLI_ASSOC);	  
+	/*echo $row['image_path'];*/
 	?>
           	
     <br />
