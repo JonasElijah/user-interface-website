@@ -70,6 +70,9 @@
 			border-right: thin;
 			border-right-style: solid;
 			border-color: #b7b7b7;
+			position: fixed;
+			height: 100%;
+			overflow: auto;
 		}
 		
 		.sidebar a {
