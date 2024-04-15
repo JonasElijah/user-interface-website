@@ -165,6 +165,36 @@
 
 	
 <h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Shopping Cart </h1>
+<?php
 	
+include("functions.php");
+$dblink = db_connect("UI-schema");
+
+$userID = $_SESSION['userID'];
+$sql = "SELECT * FROM `orders` where `userID` LIKE '$userID'";
+$result = mysqli_query($dblink, $sql);
+$row = $result->fetch_assoc();
+	if($row <0)
+	{
+			
+		<html> <h1>Error, cart not found. Please log in or add to your cart.</h1> </html>
+	}
+else
+	{
+		
+	echo '<table>';
+	while ($data=$result->fetch_array(MYSQLI_ASSOC))
+		{
+			
+			echo '<tr>';
+			echo '<td>'.$data['imageID'].'</td>';
+			echo '<td>'.$data['name'].'</td>';
+			echo '<td>'.$data['price'].'</td>';
+			echo '</tr>';
+		}
+	echo '</table>';
+		
+	}
+?>
 </body>
 </html>
