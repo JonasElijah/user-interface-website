@@ -252,6 +252,7 @@ if(isset($_POST["submit"])) {
 	                  <div class="form-group">
 	                    <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="" class="custom-file-label">
 	                  </div>
+			  <button type="submit" name="submit">Submit</button>
 	                </div>
 	              </div>
 	            </div>
@@ -260,7 +261,6 @@ if(isset($_POST["submit"])) {
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		<button type="submit" name="submit">Submit</button>
 	      </div>
 	    </div>
 	  </div>
