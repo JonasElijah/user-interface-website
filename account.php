@@ -37,8 +37,8 @@
       }
 		
 		footer {
-			position: absolute;
-			bottom: 0;
+			/*position: absolute;
+			bottom: 0;*/
 		}
 
       .dropdown-menu {
@@ -260,12 +260,14 @@
    <br />
     <br />
     <br />
-		
+	
+	<div class="row">
 	<footer class="footer col-md-12 mt-auto py-3 bg-light">
       <div class="container text-center">
         <span class="text-muted">Photography Website &copy; 2024</span>
       </div>
     </footer>
+	</div>
 
     <!-- Local Bootstrap JavaScript files -->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
