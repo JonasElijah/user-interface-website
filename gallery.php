@@ -43,7 +43,8 @@ if (isset($_POST["submit"])) {
                     $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`, `user_id`) VALUES ('$category', $price, '$desc', '$name', '$newImageName', '$userId')";
                     $conn->query($query) or die("Something went wrong with: $query<br>" . $conn->error);
                 } else {
-                    echo "<script>alert('Failed to move uploaded file.');</script>";
+			echo $existingImageResult->num_rows;
+                    /*echo "<script>alert('Failed to move uploaded file.');</script>";*/
                 }
             }
         }
