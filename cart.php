@@ -1,11 +1,12 @@
-<html>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Photography Website Cart</title>
-   <link href="node_modules/css/bootstrap.min.css" rel="stylesheet">
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign Up Page</title>
+
+<link href="node_modules/css/bootstrap.min.css" rel="stylesheet">
 <link href="node_modules/css/bst-styles.css" rel="stylesheet">
 <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
 <style>
@@ -18,6 +19,7 @@
 	display: flex;
     	flex-direction: column;
 	background-image: url('/assets/images/gallery/trees-3822149_1280.jpg');
+	
       }
 
       .dropdown-menu {
@@ -69,10 +71,15 @@
 	}
 
     </style>
-  </head>
-
+	
+</head>
 <body>
-  <div>
+	<?php
+	if (session_status() === PHP_SESSION_NONE) {
+    	session_start();
+	}
+	?>
+	<div>
 	<header>
       <nav
         class="navbar navbar-expand-lg custom-navbar shadow rounded"
@@ -106,16 +113,29 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">FAQ</a>
-              </li>
+	      </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="signup.php">Signup</a>
-              </li>
+		    <?php
+			    if(!isset($_SESSION['userID'])){
+			echo '<li class="nav-item"> ';
+               	 	echo ' <a class="nav-link" href="#">Login</a>';
+              		echo '</li>';
+              		echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="signup.php">Signup</a>';
+              		echo ' </li>';
+			       }
+			    else
+			    {
+			echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="account.php">Account</a>';
+             		 echo '</li>';
+			    }
+		?>
+		
+              
+              
 
               <!--
               <li class="nav-item dropdown" id="hover-dropdown">
@@ -142,6 +162,8 @@
       </nav>
     </header>
 </div>
+
+	
 <h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Shopping Cart </h1>
 	
 </body>
