@@ -56,6 +56,58 @@
         border-color: #f0e6d1;
         color: #a5998c;
       }
+	     .upload 
+      {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      
+      .custom-card 
+      {
+        max-width: 400px;
+        width: 100%;
+      }
+      
+      .custom-card .card 
+      {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fdf4eb;
+      }
+      
+      .custom-card .card-body 
+      {
+        text-align: center;
+      }
+      
+      .custom-card .btn-primary
+      {
+        display: block;
+        margin: 20px auto;
+      }
+      
+      .custom-card .custom-file-input
+      {
+        display: none;
+      }
+      
+      .custom-card .custom-file-label
+      {
+	display: block;
+	margin: 20px auto;
+      }
+      
+      .custom-card .form-group label {
+        flex: 0 0 120px; /* Adjust the width of the label as needed */
+      }
+      
+      .custom-card .form-group input {
+        flex: 1;
+        padding: 10px;
+      }        
     </style>
   </head>
   <body>
@@ -129,7 +181,6 @@
 	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-fullscreen-sm-down">
 	    <div class="modal-content">
-	      <p class="card-text">Please select an image from your device to upload.</p>
 	      <div class="modal-header">
 	        <h5 class="modal-title" id="exampleModalLabel">Upload Your Image</h5>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
