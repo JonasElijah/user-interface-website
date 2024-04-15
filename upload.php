@@ -199,10 +199,7 @@ if(isset($_POST["submit"])) {
                 <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="signup.php">Signup</a>
+                <a class="nav-link" href="account.php">Account</a>
               </li>
 
               <!--
