@@ -7,7 +7,7 @@
     <!-- Local Bootstrap CSS files -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-	header {
+	header .sidebar {
 	  background-color: #fdf4eb;
 	}
 
@@ -61,8 +61,8 @@
 		
 		.profile-img {
 			  border-radius: 50%;
-			  width: 100;
-			height: 100;
+			  width: 100px;
+			height: 100px;
 			align-self: center;
 		 }
     </style>
@@ -129,15 +129,16 @@
 
     <div>
 	<?php
+		echo "<div class='container'>";
 		//Side Bar
-		echo '<div class="col-md-3" >';
+		echo '<div class="col-md-3 sidebar" >';
 			echo '<div>';
-			echo '<img src="assets/images/photography.png" class="profile-img">';
+			echo '<img src="assets/images/photography.png" class="profile-img" align="center">';
 			echo '</div>';
 			echo '<div>';
 				echo '<h3>User Name</h3>';
-				echo '<br>';
 			echo '</div>';
+			echo '<hr>';
 			echo '<div>';
 				echo '<ul class="nav flex-column">';
 					echo '<li class="nav-item">';
@@ -158,7 +159,9 @@
 		
 		//Profile info
 		echo '<div class="col-md-9">';
-		echo '</div>';		
+		echo '</div>';
+		
+		echo '</div>';
 	?>
    <br />
     <br />
