@@ -91,7 +91,7 @@
 			text-decoration: none;
 		}
 		
-		.sidebar a:active {
+		.active {
 			color: black;
 		}
 		
@@ -200,10 +200,13 @@
 			echo '<div class="sub-text offset-md-1">';
 				echo '<br>';
 				echo '<h3>First Name</h3>';
+				echo '<p class="user-info">User FName</p>';
 				echo '<br>';
 				echo '<h3>Last Name</h3>';
+				echo '<p class="user-info">User LName</p>';
 				echo '<br>';
 				echo '<h3>Email</h3>';
+				echo '<p class="user-info">User Email</p>';
 				echo '<br>';
 			echo '</div>';
 		echo '</div>';
