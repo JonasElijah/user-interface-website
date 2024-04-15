@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+include("functions.php");		
+$conn = db_connect("UI-schema");
 
 $userId = $_SESSION['userID'];
 if (isset($_SESSION['userID'])) {
@@ -41,8 +42,6 @@ if(isset($_POST["submit"])) {
      } else {
       }
 
-      include("functions.php");		
-      $conn = db_connect("UI-schema");
 	
       // Insert the image information into the database
       $query = "INSERT INTO `image` (`category`, `price`, `ds`, `name`,  `image`, `user_id`) VALUES ( '$category', $price, '$desc', '$name', '$newImageName', '$userId')";
@@ -285,7 +284,7 @@ if(isset($_POST["submit"])) {
           /*$res = mysqli_query($conn,  $sql);*/
 	  /*$row = mysqli_fetch_assoc($res);*/
 	  /*echo $row['image_path'];*/
-	?
+	?>
           	
     <br />
     <br />
