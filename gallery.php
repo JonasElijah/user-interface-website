@@ -284,7 +284,7 @@ if(isset($_POST["submit"])) {
           $result=$dblink->query($sql) or
 			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
 	   $data=$result->fetch_array(MYSQLI_ASSOC);	  
-	/*echo $row['image_path'];*/
+	   echo $data;
 	?>
           	
     <br />
