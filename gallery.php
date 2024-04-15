@@ -234,25 +234,24 @@ if(isset($_POST["submit"])) {
 	                  <p class="card-text">Please select an image from your device to upload.</p>
 	                  <div class="form-group">
 	                    <label for="name">Name:</label>
-	                    <input type="text" name="name" id="name" class="form-control" required value="">
+	                    <input type="text" name="name" id="name" class="" required value="">
 	                  </div>
 	                  <div class="form-group">
 	                    <label for="category">Category:</label>
-	                    <input type="text" name="category" id="category" class="form-control" required value="">
+	                    <input type="text" name="category" id="category" class="" required value="">
 	                  </div>
 	                  <div class="form-group">
 	                    <label for="desc">Description:</label>
-	                    <input type="text" name="desc" id="desc" class="form-control" required value="">
+	                    <input type="text" name="desc" id="desc" class="" required value="">
 	                  </div>
 	                  <div class="form-group">
 	                    <label for="price">Price:</label>
-	                    <input type="number" name="price" id="price" class="form-control" required value="">
+	                    <input type="number" name="price" id="price" class="" required value="">
 	                    <br>
 	                  </div>
 	                  <div class="form-group">
 	                    <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="" class="custom-file-label">
 	                  </div>
-	                  <button type="submit" name="submit">Submit</button>
 	                </div>
 	              </div>
 	            </div>
@@ -261,7 +260,7 @@ if(isset($_POST["submit"])) {
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+		<button type="submit" name="submit">Submit</button>
 	      </div>
 	    </div>
 	  </div>
