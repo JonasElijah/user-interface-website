@@ -122,6 +122,7 @@
 	<?php	
 		echo "<h1>Gallery Placeholder</h1>";
 	?>
+	<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Launch modal</button>
    <br />
     <br />
     <br />
