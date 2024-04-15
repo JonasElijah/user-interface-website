@@ -1,7 +1,12 @@
 <?php
 
 $userId = $_SESSION['userID'];
-echo "User ID from session: " . $userId; 
+if (isset($_SESSION['userID'])) {
+    $userId = $_SESSION['userID'];
+    echo "User ID from session: " . $userId;
+} else {
+    echo "User ID is not set in the session.";
+}
 
 
 if(isset($_POST["submit"])) {
