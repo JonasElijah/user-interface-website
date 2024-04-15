@@ -108,7 +108,11 @@
 		}
 		
 		.main-background {
-			background-color: lightgray;
+			background-color: whitesmoke;
+			height: 100%;
+			position: fixed;
+			width: 100%;
+			margin: unset;
 		}
     </style>
   </head>
@@ -174,7 +178,7 @@
 
     <div>
 	<?php
-		echo "<div class='row'>";
+		echo "<div class='row main-background'>";
 		//Side Bar
 		echo '<div class="col-md-3 sidebar" >';
 			echo '<div class="col-md-10 offset-md-1">';
