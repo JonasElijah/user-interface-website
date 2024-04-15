@@ -190,8 +190,9 @@ $result=$conn->query($sql) or
             aria-label="Toggle navigation"
           >
 		   <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Upload</button>
-	
-	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+		<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-fullscreen-sm-down">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -238,8 +239,6 @@ $result=$conn->query($sql) or
 	    </div>
 	  </div>
 	</div>
-            <span class="navbar-toggler-icon"></span>
-          </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
