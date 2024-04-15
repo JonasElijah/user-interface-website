@@ -32,7 +32,8 @@ if (isset($_POST["submit"])) {
         if (!in_array($imageExtension, $validImageExtensions)) {
             echo "<script>alert('Invalid Image Extension');</script>";
         } else if ($fileSize > 50000000) { 
-            echo "<script>alert('Image Size Is Too Large');</script>";
+            /*echo "<script>alert('Image Size Is Too Large');</script>";*/
+	    echo $fileSize;
         } else {
             $existingImageQuery = "SELECT * FROM `image` WHERE `user_id` = '$userId' AND `name` = '$name'";
             $existingImageResult = $conn->query($existingImageQuery);
