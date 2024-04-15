@@ -1,10 +1,10 @@
 <?php
+include("functions.php");
 session_start();
 if(!isset($_SESSION['userID']))
 {
 	redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/signup.php");
 }
-include("functions.php");
 $conn = db_connect("UI-schema");
 $userId = $_SESSION['userID'];
 
