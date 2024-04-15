@@ -1,7 +1,6 @@
 <?php
 session_start();
-include("functions.php");		
-$conn = db_connect("UI-schema");
+
 $userId = $_SESSION['userID'];
 if (isset($_SESSION['userID'])) {
     $userId = $_SESSION['userID'];
@@ -34,7 +33,8 @@ if(isset($_POST["submit"])) {
       echo "<script>alert('Image Size Is Too Large');</script>";
     } else {
 	
-   
+    include("functions.php");		
+    $conn = db_connect("UI-schema");
     $newImageName = 'img/' . uniqid() . '.' . $imageExtension;	
       // Move the uploaded image to the img directory
      if (move_uploaded_file($tmpName, $newImageName)) {
@@ -279,10 +279,12 @@ if(isset($_POST["submit"])) {
 	  </div>
 	</div>
 	<?php 
+          include("functions.php");		
+          $conn = db_connect("UI-schema");
 
 	  $sql="SELECT * FROM `image` where `userID` LIKE '$userId'";
           $result=$conn->query($sql) or
-			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
+			die("<p>Something went wrong with: <br>$sql<br>".$conn->error."</p>");
 	   $data=$result->fetch_array(MYSQLI_ASSOC);	  
 	   echo $data;
 	?>
