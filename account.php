@@ -15,6 +15,8 @@
       body {
         font-family: "Georgia", sans-serif;
       }
+		
+	
 
       .dropdown-menu {
         display: none;
@@ -56,6 +58,13 @@
         border-color: #f0e6d1;
         color: #a5998c;
       }
+		
+		.profile-img {
+			  border-radius: 50%;
+			  width: 100;
+			height: 100;
+			align-self: center;
+		 }
     </style>
   </head>
   <body>
@@ -119,8 +128,37 @@
     </header>
 
     <div>
-	<?php	
-		echo "<h1>Account Placeholder</h1>";
+	<?php
+		//Side Bar
+		echo '<div class="col-md-3" >';
+			echo '<div>';
+			echo '<img src="assets/images/photography.png" class="profile-img">';
+			echo '</div>';
+			echo '<div>';
+				echo '<h3>User Name</h3>';
+				echo '<br>';
+			echo '</div>';
+			echo '<div>';
+				echo '<ul class="nav flex-column">';
+					echo '<li class="nav-item">';
+						echo '<a class="nav-link active" href="account.php">Profile</a>';
+					echo '</li>';
+					echo '<li class="nav-item">';
+						echo '<a class="nav-link" href="#">Payment Options</a>';
+					echo '</li>';
+					echo '<li class="nav-item">';
+						echo '<a class="nav-link" href="#">Privacy & Security</a>';
+					echo '</li>';
+					echo '<li class="nav-item">';
+						echo '<a class="nav-link" href="gallery.php">View Gallery</a>';
+					echo '</li>';
+				echo '</ul>';
+			echo '</div>';
+		echo '</div>';
+		
+		//Profile info
+		echo '<div class="col-md-9">';
+		echo '</div>';		
 	?>
    <br />
     <br />
