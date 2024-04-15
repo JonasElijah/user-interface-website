@@ -61,9 +61,8 @@
 		
 		.profile-img {
 			  border-radius: 50%;
-			  width: 100px;
-			height: 100px;
-			align-self: center;
+			  width: 150px;
+			height: 150px;
 		 }
     </style>
   </head>
@@ -132,14 +131,15 @@
 		echo "<div class='container'>";
 		//Side Bar
 		echo '<div class="col-md-3 sidebar" >';
-			echo '<div>';
-			echo '<img src="assets/images/photography.png" class="profile-img" align="center">';
+			echo '<div class="col-md-10 offset-md-1">';
+			echo '<div align="center">';
+			echo '<img src="assets/images/photography.png" class="profile-img">';
 			echo '</div>';
-			echo '<div>';
+			echo '<div align="center">';
 				echo '<h3>User Name</h3>';
 			echo '</div>';
 			echo '<hr>';
-			echo '<div>';
+			echo '<div class="offset-md-1">';
 				echo '<ul class="nav flex-column">';
 					echo '<li class="nav-item">';
 						echo '<a class="nav-link active" href="account.php">Profile</a>';
@@ -155,6 +155,7 @@
 					echo '</li>';
 				echo '</ul>';
 			echo '</div>';
+		echo '</div>';
 		echo '</div>';
 		
 		//Profile info
