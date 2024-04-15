@@ -2,7 +2,6 @@
 session_start();
 include("functions.php");		
 $conn = db_connect("UI-schema");
-
 $userId = $_SESSION['userID'];
 if (isset($_SESSION['userID'])) {
     $userId = $_SESSION['userID'];
@@ -279,6 +278,14 @@ if(isset($_POST["submit"])) {
 	    </div>
 	  </div>
 	</div>
+	<?php 
+
+	  $sql="SELECT * FROM `image` where `userID` LIKE '$userId'";
+          $result=$conn->query($sql) or
+			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
+	   $data=$result->fetch_array(MYSQLI_ASSOC);	  
+	   echo $data;
+	?>
 	
           	
     <br />
