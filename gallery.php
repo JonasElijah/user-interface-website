@@ -280,8 +280,9 @@ if(isset($_POST["submit"])) {
 	  </div>
 	</div>
 	<?php 
-          $sql = "SELECT * FROM images ORDER BY id DESC";
-          $res = mysqli_query($conn,  $sql);
+          $sql = "SELECT * FROM `images` ORDER BY id DESC";
+          $result=$dblink->query($sql) or
+			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
 	  /*$row = mysqli_fetch_assoc($res);*/
 	  /*echo $row['image_path'];*/
 	?>
