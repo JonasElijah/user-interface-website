@@ -177,7 +177,7 @@ $row = $result->fetch_assoc();
 	if($row <0)
 	{
 			
-		<html> <h1>Error, cart not found. Please log in or add to your cart.</h1> </html>
+		echo '<h1>Error, cart not found. Please log in or add to your cart.</h1>'
 	}
 else
 	{
