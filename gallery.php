@@ -1,5 +1,7 @@
 <?php
 session_start();
+include("functions.php");		
+$conn = db_connect("UI-schema");
 
 $userId = $_SESSION['userID'];
 if (isset($_SESSION['userID'])) {
@@ -33,8 +35,7 @@ if(isset($_POST["submit"])) {
       echo "<script>alert('Image Size Is Too Large');</script>";
     } else {
 	
-    include("functions.php");		
-    $conn = db_connect("UI-schema");
+   
     $newImageName = 'img/' . uniqid() . '.' . $imageExtension;	
       // Move the uploaded image to the img directory
      if (move_uploaded_file($tmpName, $newImageName)) {
@@ -279,7 +280,12 @@ if(isset($_POST["submit"])) {
 	    </div>
 	  </div>
 	</div>
-	     
+	<?php 
+          $sql = "SELECT * FROM images ORDER BY id DESC";
+          /*$res = mysqli_query($conn,  $sql);*/
+	  /*$row = mysqli_fetch_assoc($res);*/
+	  /*echo $row['image_path'];*/
+	?
           	
     <br />
     <br />
