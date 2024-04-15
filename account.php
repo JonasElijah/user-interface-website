@@ -176,7 +176,7 @@
                 <a class="nav-link" href="#">About</a>
               </li>
 				<li class="nav-item">
-                	<a class="nav-link" href="account.php">Account</a>';
+                	<a class="nav-link" href="account.php">Account</a>
              	</li>
 
               <!--
