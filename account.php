@@ -7,7 +7,7 @@
     <!-- Local Bootstrap CSS files -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-	header .sidebar {
+	header {
 	  background-color: #fdf4eb;
 	}
 
@@ -64,6 +64,15 @@
 			  width: 150px;
 			height: 150px;
 		 }
+		
+		.sidebar {
+	  		background-color: #fdf4eb;
+			border-right: medium;
+		}
+		
+		.nav-item{
+			color: black;
+		}
     </style>
   </head>
   <body>
@@ -128,7 +137,7 @@
 
     <div>
 	<?php
-		echo "<div class='container'>";
+		echo "<div class='row'>";
 		//Side Bar
 		echo '<div class="col-md-3 sidebar" >';
 			echo '<div class="col-md-10 offset-md-1">';
