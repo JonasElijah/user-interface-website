@@ -50,7 +50,7 @@ if(isset($_POST["submit"])) {
   }
 }
 
-$sql="SELECT * FROM `image` where `userID` LIKE '$userId'";
+$sql="SELECT * FROM `image` where `user_id` LIKE '$userId'";
 $result=$conn->query($sql) or
 	die("<p>Something went wrong with: <br>$sql<br>".$conn->error."</p>");
 $data=$result->fetch_array(MYSQLI_ASSOC);	  
