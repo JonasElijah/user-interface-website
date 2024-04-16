@@ -213,6 +213,10 @@
 	  				echo '</p>';
 	  			echo '</div>';
 	  		echo '<hr>';
+	  		echo '<div class="row">';
+	  		echo '<h6>Price:</h6>';
+	  		echo '<h6>$Price</h6>';
+	  		echo '</div>';
 	  		echo '</div>';
 	  	echo '</div>';
 	?>
