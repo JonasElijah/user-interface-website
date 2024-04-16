@@ -260,7 +260,7 @@ else
 			{
 				while($dataW=$resultW->fetch_array(MYSQLI_ASSOC))
 					{
-						echo '<td>'.$dataW['image'].'</td>';
+						echo '<td><img src = "'.$dataW['image'].'"></td>';
 					}
 				
 			}
