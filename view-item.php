@@ -211,41 +211,6 @@
 	  
 	  	if(!isset($_POST['submit']))
 		{
-			echo '<div aria-live="polite" aria-atomic="true" class="position-relative">';
-			if(isset($_GET['addItem']))
-			{
-				if($_GET['addItem'] == 'success')
-				{
-					
-				  	echo '<div class="toast-container top-0 end-0 p-3">
-
-					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-					  <div class="toast-header">
-						<img src="assets/assets/images/photography.png" class="rounded me-2" alt="...">
-						<strong class="me-auto">Photography Website</strong>
-						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-					  </div>
-					  <div class="toast-body">
-						Succesfully Added Item to Cart!
-					  </div>';
-					
-				}
-				else
-				{
-				  echo '<div class="toast-container top-0 end-0 p-3">
-
-					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-					  <div class="toast-header">
-						<img src="assets/assets/images/photography.png" class="rounded me-2" alt="...">
-						<strong class="me-auto">Photography Website</strong>
-						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-					  </div>
-					  <div class="toast-body">
-						Item is already in cart!
-					  </div>
-					</div>';
-				}
-			}
 			echo '<div class="row main-view">';
 				//Display Image
 				echo '<div class="col-md-6 item">';
@@ -265,8 +230,26 @@
 						echo '</div>';
 					echo '</div>';
 					echo '<br><br><br>';
-					echo '<div class="col-md-3 offset-md-8" align="right">';
-						echo '<form method="post" action="">';
+					echo '<div class="row">';
+						
+						if(isset($_GET['addItem']))
+						{
+							if($_GET['addItem'] == success)
+							{
+								echo '<div class="col-md-auto">';
+								echo '<p class="alert alert-success">Successfully Added to Cart!</p>';
+								echo'</div>';
+							}
+							else
+							{
+								echo '<div class="col-md-auto">';
+								echo '<p class="alert alert-danger">Item Already in Cart!</p>';
+								echo'</div>';
+							}
+						}
+						
+			
+						echo '<form class="col-md-3 offset-md-8" method="post" action="">';
 						echo '<button class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
 						echo '</form>';
 					echo '</div>';
