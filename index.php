@@ -180,7 +180,7 @@ if(mysqli_num_rows($result) == 0) {
     // Loop through the result set and generate HTML for each image
     $first = true; // Flag to mark the first item as active
     while($row = mysqli_fetch_assoc($result)) {
-        $imagePath = $row['image_path']; // Assuming your image path column is named 'image_path'
+        $imagePath = $row['image']; // Assuming your image path column is named 'image_path'
         $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
 
         echo '<div class="carousel-item '.$activeClass.'">
