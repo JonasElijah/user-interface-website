@@ -236,7 +236,7 @@ else
 	echo '<table class = "table table-striped">';
 	echo '<tr>';
 	echo '<th scope="col">#</th>';
-	echo '<th scope="col">Image ID</th>';
+	echo '<th scope="col">Image</th>';
       	echo '<th scope="col">Name</th>';
       	echo '<th scope="col">Price</th>';
 	echo '</tr>';
@@ -248,6 +248,22 @@ else
 			
 			echo '<tr>';
 			echo '<td>'.$counter.'</td>';
+			$sqlW = "SELECT `image` FROM `images` where `ID` LIKE 'data['imageID']'";
+			$resultW = mysqli_query($dblink, $sqlW);
+			if(mysqli_num_rows($resultW) == 0)
+			{
+			
+				echo '<h1>Error,image not found.</h1>';
+			}
+			else
+			{
+				while($dataW=$resultW->fetch_array(MYSQLI_ASSOC))
+					{
+						echo '<td> <img src = "'.$dataW['name'].'"></td>';
+					}
+				
+			}
+			
 			echo '<td>'.$data['imageID'].'</td>';
 			echo '<td>'.$data['name'].'</td>';
 			echo '<td>'.$data['price'].'</td>';
