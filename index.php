@@ -253,7 +253,7 @@ if(isset($_POST['submit'])) {
     $imageID = $_POST['imageID'];
 
     // Fetch image details from the database using imageID
-    $sql = "SELECT name, price FROM `image` WHERE id = ?";
+    $sql = "SELECT * FROM `image` where `ID` LIKE '$imageId'";
     $stmt = $dblink->prepare($sql);
     $stmt->bind_param("i", $imageID);
     $stmt->execute();
