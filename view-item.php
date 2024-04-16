@@ -186,6 +186,23 @@
 	  		//Description
 	  		echo '<div class="col-md-4">';
 	  		echo '<hr>';
+	  		echo '<p>Description of the photo</p>';
+	  		echo '<p>"
+				Inthiscaptivating photo, weseea
+				mystical forest scenebathed inthesoft
+				glow of twilight. Toweringtreesadorned
+				with twinklingfairylightscreatean
+				enchantingambiance, whilea gentlemist
+				hoversabovetheforest floor, addingan
+				air of mystery tothescene. Inthe
+				distance, a lone figure, cloakedin
+				shadow, appearsto beona quest through
+				thisethereal woodlandrealm, perhaps
+				seekingancient secretsor hidden
+				treasures. Withitsblendof magic and
+				intrigue, thisphotoinvitesviewersto
+				embarkon a journeyintotheunknown
+				"</p>';
 	  		echo '</div>';
 	  		
 	  		//Photo Info
@@ -193,6 +210,7 @@
 	  		echo '<hr>';
 	  			echo '<div class="info">';
 	  				echo '<p>';
+	  				echo '</p>';
 	  			echo '</div>';
 	  		echo '<hr>';
 	  		echo '</div>';
