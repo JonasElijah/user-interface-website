@@ -293,7 +293,7 @@ if(!isset($_POST['submit']))
 						while($dataN=$resultN->fetch_array(MYSQLI_ASSOC))
 							{
 								echo '<div align="center">';
-								echo '<td>< p> "'.$dataN['fName'].'"</p></td>';
+								echo '<td> '.$dataN['fName'].'</td>';
 								echo '</div>';
 							}
 			
