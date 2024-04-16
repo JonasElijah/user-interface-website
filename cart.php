@@ -231,7 +231,7 @@ if(mysqli_num_rows($result) == 0)
 }
 else
 {
-	echo '<div class = "col-md-9">
+	echo '<div class = "col-md-9">';
 	echo '<table class = "table table-striped">';
 	echo '<tr>';
 	echo '<th scope="col">#</th>';
