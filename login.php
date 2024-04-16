@@ -7,7 +7,8 @@
     <title>Photography Website Log-in</title>
    
 <link href="node_modules/css/bst-styles.css" rel="stylesheet">
-<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
+<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="node_modules/css/bootstrap.min.css" rel="stylesheet">
 <style>
       header {
 	       background-color: #fdf4eb;
