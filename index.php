@@ -251,25 +251,23 @@ if(mysqli_num_rows($result) == 0) {
         </div>';
 }
 
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
     $imageID = $_POST['imageID'];
     $imageName = $_POST['imageName'];
     $imagePrice = $_POST['imagePrice'];
 
-  
-	echo "Image ID: " . $imageID . "<br>";
-	echo "Image Name: " . $imageName . "<br>";
-	echo "Image Price: " . $imagePrice . "<br>";
+    echo "Image ID: " . $imageID . "<br>";
+    echo "Image Name: " . $imageName . "<br>";
+    echo "Image Price: " . $imagePrice . "<br>";
 
-     $userID = $_SESSION['userID'];
-			
-			$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$imageName','$imagePrice')";
-				$dblink->query($sql) or
-					die("Something went wrong with: $sql<br>".$dblink->error."</p>");
-				
-			
-
+    $userID = $_SESSION['userID'];
+    
+    $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
+            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
+    $dblink->query($sql) or
+    die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
 }
+
 ?>
 
 
