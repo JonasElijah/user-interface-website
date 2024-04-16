@@ -230,28 +230,29 @@
 						echo '</div>';
 					echo '</div>';
 					echo '<br><br><br>';
-					echo '<div class="row">';
+					echo '<div>';
 						
 						if(isset($_GET['addItem']))
 						{
-							if($_GET['addItem'] == 'success')
+							if($_GET['addItem']=='success')
 							{
-								echo '<div class="col-md-4">';
+								echo '<div class="col-md-3 offset-md-8">';
 								echo '<p class="alert alert-success">Successfully Added to Cart!</p>';
-								echo'</div>';
+								echo '</div>';
 							}
 							else
 							{
-								echo '<div class="col-md-4">';
+								echo '<div class="col-md-3 offset-md-8">';
 								echo '<p class="alert alert-danger">Item Already in Cart!</p>';
-								echo'</div>';
+								echo '</div>';
 							}
 						}
-						
-			
-						echo '<form class="col-md-3 offset-md-2" method="post" action="">';
-						echo '<button class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
-						echo '</form>';
+						else
+						{
+							echo '<form class="col-md-3 offset-md-8" method="post" action="">';
+							echo '<button class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
+							echo '</form>';
+						}
 					echo '</div>';
 				echo '</div>';
 
