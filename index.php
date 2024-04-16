@@ -79,9 +79,22 @@
 	  object-fit: cover; /* Cover the area nicely without stretching the image */
 	  max-width: 100%; /* Ensure the image does not overflow its container */
 	}
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust the color as needed */
+        border-radius: 50%; /* Make the arrows round */
+        width: 40px; /* Adjust the width */
+        height: 40px; /* Adjust the height */
+        padding: 10px; /* Add some padding */
+    }
+
+    /* Custom styles for carousel control buttons */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: auto; /* Ensure the buttons wrap the arrows */
+    }
 
 	
-	/* Additional style adjustments can be made here if necessary */
 
 	    
     </style>
