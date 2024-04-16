@@ -317,7 +317,11 @@ if(!isset($_POST['submit']))
 else
 {
 echo '<div style="background-color: #f8f8f8; width: 50%; margin: 0 auto; padding: 20px;">';
-echo '<h2 style = "color: #fdf4eb; font-size: 20px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Thank you for your order! </h2>';
+echo '<h2 style="color: black; font-size: 20px; text-shadow: 
+      -1px -1px 0 #fdf4eb,
+       1px -1px 0 #fdf4eb, 
+      -1px 1px 0 #fdf4eb, 
+       1px 1px 0 #fdf4eb;" align="center">Thank you for your order! </h2>';
 echo '</div>';
 }
 ?>
