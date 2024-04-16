@@ -224,9 +224,9 @@ if(mysqli_num_rows($result) == 0) {
                         <h5 class="card-title">'.$imageName.'</h5>
                         <p class="card-text">'.$imagePrice.'</p>
                         <form method="post" action="">
-                          <input type="hidden" name="imageID" value="'.$imageID.'">
-                          <button class="btn btn-outline-secondary" type="submit" name="submit">Add to Cart</button>
-                        </form>
+			    <input type="hidden" name="imageID" value="123"> 
+			    <button type="submit" name="submit">Add to Cart</button>
+			</form>
                       </div>
                     </div>
                   </div>';
