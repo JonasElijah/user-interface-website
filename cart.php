@@ -183,6 +183,11 @@ else
 {
 		
 	echo '<table>';
+	echo '<tr>';
+	echo '<td>'.$data['imageID'].'</td>';
+	echo '<td>'.$data['name'].'</td>';
+	echo '<td>'.$data['price'].'</td>';
+	echo '</tr>';
 	while ($data=$result->fetch_array(MYSQLI_ASSOC))
 		{
 			
