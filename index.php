@@ -263,11 +263,10 @@ if(isset($_POST['submit'])) {
 
      $userID = $_SESSION['userID'];
 			
-			$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
+			$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$imageName','$imagePrice')";
 				$dblink->query($sql) or
 					die("Something went wrong with: $sql<br>".$dblink->error."</p>");
 				
-				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?itemID=$imageID&addItem=success");
 			
 
 }
