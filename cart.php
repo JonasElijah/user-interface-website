@@ -155,8 +155,15 @@
 		<?php 
 		if (isset($_POST['update_cart'])) {
 		    echo "Update cart triggered.<br>";
-		    // Existing code...
-		}
+		foreach ($_POST['quantity'] as $orderID => $quantity) 
+		{
+			echo $quantity;
+		        $quantity = intval($quantity);
+		        if ($quantity > 0) {
+		            $sql = "UPDATE `orders` SET `quantity` = '$quantity' WHERE ID = '$orderID'";
+		            mysqli_query($dblink, $sql);
+		        }
+		    }		}
 		?>
 	
           <div class="collapse navbar-collapse" id="navbarNav">
