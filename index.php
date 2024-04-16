@@ -187,7 +187,7 @@ else
 					  	echo '<div class="carousel-inner">';
 					    	echo '<div class="carousel-item active">';
 						echo '<a href';
-					      echo '<img src="'.data['image'].'" alt="Your Logo" class="d-block w-100" style="max-width: 600px; height: auto;" />';
+					      echo '<img src="'.$data['image'].'" alt="Your Logo" class="d-block w-100" style="max-width: 600px; height: auto;" />';
 					    echo '</div>';
 					  echo '</div>';
 					
