@@ -253,12 +253,10 @@ if(isset($_POST['submit'])) {
     $imageID = $_POST['imageID'];
 
     // Fetch image details from the database using imageID
-    $sql = "SELECT * FROM `image` where `ID` LIKE '$imageId'";
-    $stmt = $dblink->prepare($sql);
-    $stmt->bind_param("i", $imageID);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $data = $result->fetch_assoc();
+    $sql="SELECT * FROM `image` where `ID` LIKE '$imageId'";
+    $result=$dblink->query($sql) or
+	    die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
+    $data=$result->fetch_array(MYSQLI_ASSOC);
 
     if($data) {
         $imageName = $data['name'];  // Now you have the image name
