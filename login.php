@@ -274,8 +274,9 @@ if(!isset($_POST['submit'])){
 		}
 
 		
-		
-			echo '<br><button class="btn btn-success btn-lg btn-block" align = "center" name="submit" type="submit" value="submit">Log In</button></form>';
+			
+			echo '<br><button class="btn btn-success col-md-2 offset-md-5" name="submit" type="submit" value="submit">Log In</button></form>';
+			
 }
 	if(isset($_POST['submit'])){
 		echo '<div class ="col-md-6 col-md-offset-3">';
