@@ -69,6 +69,56 @@
 	{
 		background-color: #fdf4eb;
 	}
+	.profile-img {
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+			border-style: solid;
+			margin: 20px;
+			background-color: white;
+		 }
+		
+		.sidebar {
+	  		background-color: #F2EAE1;
+			border-right: thin;
+			border-right-style: solid;
+			border-color: #b7b7b7;
+			height: inherit;
+			overflow: auto;
+		}
+		
+		.sidebar a {
+			color:dimgray;
+			text-decoration: underline;
+		}
+		
+		.sidebar a:hover {
+			color: black;
+			text-decoration: none;
+		}
+		
+		.active {
+			color: black;
+		}
+		
+		.sub-text {
+			color: dimgray;
+			font-style: italic;
+		}
+		
+		.user-info {
+			border-radius: 5px;
+			padding: 10px;
+			background-color: white;
+			font-style: normal;
+		}
+		
+		.main-background {
+			background-color: whitesmoke;
+			min-height: 79vh;
+			width: 100%;
+			margin: unset;
+		}
 
     </style>
 	
@@ -181,7 +231,7 @@ if(mysqli_num_rows($result) == 0)
 }
 else
 {
-	
+	echo '<div class = "col-md-9">
 	echo '<table class = "table table-striped">';
 	echo '<tr>';
 	echo '<th scope="col">#</th>';
@@ -190,6 +240,8 @@ else
       	echo '<th scope="col">Price</th>';
 	echo '</tr>';
 	$counter = 1;
+	$sum = 0;
+	$quantity = 0;
 	while ($data=$result->fetch_array(MYSQLI_ASSOC))
 		{
 			
@@ -200,8 +252,64 @@ else
 			echo '<td>'.$data['price'].'</td>';
 			echo '</tr>';
 			$counter++;
+			$quantity++;
+			$sum += $data['price'];
 		}
 	echo '</table>';
+	echo '</div>';
+
+	echo "<div class='row main-background'>";
+		//Side Bar
+		echo '<div class="col-md-3 sidebar" >';
+			echo '<div class="col-md-10 offset-md-1">';
+			echo '<div align="center">';
+			echo '<img src="assets/images/photography.png" class="profile-img">';
+			echo '</div>';
+			echo '<div align="center">';
+				echo '<h5>'.$data['fName'].' '.$data['lName'].'</h5>';
+			echo '</div>';
+			echo '<hr>';
+			echo '<div class="offset-md-1">';
+				echo '<ul class="nav flex-column">';
+					echo '<li class="nav-item">';
+						echo '<a class="nav-link active" href="account.php">Profile</a>';
+					echo '</li>';
+					echo '<li class="nav-item">';
+						echo '<a class="nav-link" href="#">Payment Options</a>';
+					echo '</li>';
+					echo '<li class="nav-item">';
+						echo '<a class="nav-link" href="#">Privacy & Security</a>';
+					echo '</li>';
+					echo '<li class="nav-item">';
+						echo '<a class="nav-link" href="gallery.php">View Gallery</a>';
+					echo '</li>';
+				echo '</ul>';
+			echo '</div>';
+		echo '</div>';
+		echo '</div>';
+		
+		//Profile info
+		echo '<div class="col-md-9">';
+		echo '<div class="col-md-10 offset-md-1">';
+		echo '<br>';
+		echo '<h1>Profile</h1>';
+			echo '<div class="sub-text offset-md-1">';
+				echo '<br>';
+				echo '<h3>First Name</h3>';
+				echo '<p class="user-info">'.$data['fName'].'</p>';
+				echo '<br>';
+				echo '<h3>Last Name</h3>';
+				echo '<p class="user-info">'.$data['lName'].'</p>';
+				echo '<br>';
+				echo '<h3>Email</h3>';
+				echo '<p class="user-info">'.$data['email'].'</p>';
+				echo '<br>';
+			echo '</div>';
+		echo '</div>';
+		echo '</div>';
+		
+		echo '</div>';
+
 		
 	}
 ?>
