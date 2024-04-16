@@ -173,7 +173,7 @@ $dblink = db_connect("UI-schema");
 $userID = $_SESSION['userID'];
 $sql = "SELECT * FROM `orders` where `userID` LIKE '$userID'";
 $result = mysqli_query($dblink, $sql);
-$row = $result->fetch_assoc();
+//$row = $result->fetch_assoc();
 if(mysqli_num_rows($result) == 0)
 {
 			
