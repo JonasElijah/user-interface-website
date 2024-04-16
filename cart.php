@@ -184,6 +184,7 @@ else
 	
 	echo '<table class = "table table-dark">';
 	echo '<tr>';
+	echo '<th scope="col">#</th>';
 	echo '<th scope="col">Image ID</th>';
       	echo '<th scope="col">Name</th>';
       	echo '<th scope="col">Price</th>';
