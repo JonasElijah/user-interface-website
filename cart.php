@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sign Up Page</title>
+<title>Shopping Cart page</title>
 
 <link href="node_modules/css/bootstrap.min.css" rel="stylesheet">
 <link href="node_modules/css/bst-styles.css" rel="stylesheet">
@@ -69,6 +69,56 @@
 	{
 		background-color: #fdf4eb;
 	}
+	.profile-img {
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+			border-style: solid;
+			margin: 20px;
+			background-color: white;
+		 }
+		
+		.sidebar {
+	  		background-color: #F2EAE1;
+			border-right: thin;
+			border-right-style: solid;
+			border-color: #b7b7b7;
+			height: inherit;
+			overflow: auto;
+		}
+		
+		.sidebar a {
+			color:dimgray;
+			text-decoration: underline;
+		}
+		
+		.sidebar a:hover {
+			color: black;
+			text-decoration: none;
+		}
+		
+		.active {
+			color: black;
+		}
+		
+		.sub-text {
+			color: dimgray;
+			font-style: italic;
+		}
+		
+		.user-info {
+			border-radius: 5px;
+			padding: 10px;
+			background-color: white;
+			font-style: normal;
+		}
+		
+		.main-background {
+			background-color: whitesmoke;
+			min-height: 79vh;
+			width: 100%;
+			margin: unset;
+		}
 
     </style>
 	
@@ -165,6 +215,98 @@
 
 	
 <h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Shopping Cart </h1>
+<?php
 	
+include("functions.php");
+$dblink = db_connect("UI-schema");
+
+$userID = $_SESSION['userID'];
+$sql = "SELECT * FROM `orders` where `userID` LIKE '$userID'";
+$result = mysqli_query($dblink, $sql);
+//$row = $result->fetch_assoc();
+if(mysqli_num_rows($result) == 0)
+{
+			
+	echo '<h1>Error, cart not found. Please log in or add to your cart.</h1>';
+}
+else
+{
+	echo "<div class='row main-background'>";
+	echo '<div class = "col-md-9">';
+	echo '<table class = "table table-striped">';
+	echo '<tr>';
+	echo '<th scope="col">#</th>';
+	echo '<th scope="col">Image</th>';
+      	echo '<th scope="col">Name</th>';
+      	echo '<th scope="col">Price</th>';
+	echo '</tr>';
+	$counter = 1;
+	$sum = 0;
+	$quantity = 0;
+	while ($data=$result->fetch_array(MYSQLI_ASSOC))
+		{
+			
+			echo '<tr>';
+			echo '<td>'.$counter.'</td>';
+			$myImage = $data['imageID'];
+			$sqlW = "SELECT `image` FROM `image` where `ID` LIKE '$myImage'";
+			$resultW = mysqli_query($dblink, $sqlW);
+			if(mysqli_num_rows($resultW) == 0)
+			{
+			
+				echo '<h1>Error,image not found.</h1>';
+			}
+			else
+			{
+				while($dataW=$resultW->fetch_array(MYSQLI_ASSOC))
+					{
+						
+						echo '<td><img src = "'.$dataW['image'].'" style="max-width:250px;"></td>';
+					}
+				
+			}
+			
+			echo '<td>'.$data['name'].'</td>';
+			echo '<td>'.$data['price'].'</td>';
+			echo '</tr>';
+			$counter++;
+			$quantity++;
+			$sum += $data['price'];
+		}
+	echo '</table>';
+	echo '</div>';
+
+	
+		//Side Bar
+		echo '<div class="col-md-3 sidebar" >';
+			echo '<div class="col-md-10 offset-md-1">';
+			echo '<div align="center">';
+			echo '<img src="assets/images/photography.png" class="profile-img">';
+			echo '</div>';
+			echo '<div align="center">';
+			echo '<h5>Checkout</h5>';
+			echo '</div>';
+			echo '<hr>';
+			echo '<div class="offset-md-1">';
+			echo '</div>';
+			echo '<div class="sub-text offset-md-1">';
+				echo '<br>';
+				echo '<h3>Shopping Cart Total:</h3>';
+				echo '<p class="user-info">'.$sum.'</p>';
+				echo '<br>';
+				echo '<h3>Number of Items</h3>';
+				echo '<p class="user-info">'.$quantity.'</p>';
+				echo '<br>';
+			echo '</div>';
+		echo '</div>';
+		echo '</div>';
+		
+		
+		
+		echo '</div>';
+
+		
+	}
+?>
 </body>
 </html>
