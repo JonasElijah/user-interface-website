@@ -1,31 +1,9 @@
 <?php
-include("functions.php");
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-$dblink = db_connect("UI-schema");  // Ensure your database connection settings are correct
-
-// Check if the itemID is present in the URL
-if (isset($_GET['itemID']) && is_numeric($_GET['itemID'])) {
-    $imageId = $_GET['itemID'];
-
-    $sql = "SELECT * FROM `image` WHERE `ID` = ?";
-    $stmt = $dblink->prepare($sql);
-    $stmt->bind_param("i", $imageId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $data = $result->fetch_assoc();
-
-    if ($data) {
-        // Continue to show the item details
-    } else {
-        echo "<p>Image not found.</p>";
-    }
-} else {
-    echo "<p>No image specified.</p>";
-}
+	include("functions.php");
+	
+	if (session_status() === PHP_SESSION_NONE) {
+    	session_start();
+	}
 ?>
 
 <!DOCTYPE html>
@@ -220,32 +198,108 @@ if (isset($_GET['itemID']) && is_numeric($_GET['itemID'])) {
         </div>
       </nav>
     </header>
-	<?php if (isset($data)): ?>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="<?= $data['image']; ?>" class="img-fluid" alt="Responsive image">
-                </div>
-                <div class="col-md-6">
-                    <h1><?= $data['name']; ?></h1>
-                    <p><?= $data['description']; ?></p>
-                    <h3>Price: $<?= $data['price']; ?></h3>
-                    <!-- Add to cart form -->
-                </div>
-            </div>
-        </div>
-    <?php else: ?>
-        <p>Image details are not available. Please check the ID and try again.</p>
-    <?php endif; ?>
+	<?php
+		$imageId = $_GET['itemID'];
+		$dblink=db_connect("UI-schema");
+		$sql="SELECT * FROM `image` where `ID` LIKE '$imageId'";
+		$result=$dblink->query($sql) or
+			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
+		$data=$result->fetch_array(MYSQLI_ASSOC);
+	  
+	  	if(!isset($_POST['submit']))
+		{
+			echo '<div class="row main-view">';
+				//Display Image
+				echo '<div class="col-md-6 item">';
+				echo '<img src="'.$data['image'].'" class="img-fluid">';
+				echo '</div>';
 
+				//Description
+				echo '<div class="col-md-6">';
+				echo '<br><hr>';
+				echo '<p>Description of the photo</p>';
+				echo '<p class="desc">"'.$data['ds'].'"</p>';
+					echo '<div>';
+					echo '<hr><br>';
+						echo '<div class="row">';
+						echo '<h5 class="col-md-2 offset-md-5">Price:</h5>';
+						echo '<h5 class="col-md-4 price-val">$'.$data['price'].'</h5>';
+						echo '</div>';
+					echo '</div>';
+					echo '<br><br><br>';
+					echo '<div>';
+						
+						if(isset($_GET['addItem']))
+						{
+							if($_GET['addItem']=='success')
+							{
+								echo '<div class="col-md-4 offset-md-7">';
+								echo '<p class="alert alert-success">Successfully Added to Cart!</p>';
+								echo '</div>';
+							}
+							else
+							{
+								echo '<div class="col-md-3 offset-md-8">';
+								echo '<p class="alert alert-danger">Item Already in Cart!</p>';
+								echo '</div>';
+							}
+						}
+						else
+						{
+							echo '<form class="col-md-3 offset-md-8" method="post" action="">';
+							echo '<button class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
+							echo '</form>';
+						}
+					echo '</div>';
+				echo '</div>';
+
+			echo '</div>';
+			echo '</div>';
+		}
+	  	if(isset($_POST['submit']))
+		{	
+			if(!isset($_SESSION['userID']))
+			{
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+			}
+			
+			$userID = $_SESSION['userID'];
+			$imageID = $_GET['itemID'];
+			$name = $data['name'];
+			$price = $data['price'];
+			
+			$sql="SELECT * FROM `orders` WHERE `userID` LIKE '$userID' AND `imageID` LIKE '$imageID'";
+			$result = mysqli_query($dblink, $sql);
+			if(mysqli_num_rows($result) == 0)
+			{
+				$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
+				$dblink->query($sql) or
+					die("Something went wrong with: $sql<br>".$dblink->error."</p>");
+				
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?itemID=$imageID&addItem=success");
+			}
+			else
+			{
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?itemID=$imageID&addItem=failed");
+			}
+		}
+	?>
+
+   <br />
+    <br />
+    <br />
+	
+	<div class="row">
     <footer class="footer mt-auto py-3 bg-light">
-        <div class="container text-center">
-            <span class="text-muted">Photography Website &copy; 2024</span>
-        </div>
+      <div class="container text-center">
+        <span class="text-muted">Photography Website &copy; 2024</span>
+      </div>
     </footer>
-    
+	</div>
+		
+    <!-- Local Bootstrap JavaScript files -->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
+  </body>
 </html>
