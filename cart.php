@@ -192,7 +192,7 @@ else
 		{
 			
 			echo '<tr>';
-			<th scope="row">1</th>
+			echo '<th scope="row">1</th>';
 			echo '<td>'.$data['imageID'].'</td>';
 			echo '<td>'.$data['name'].'</td>';
 			echo '<td>'.$data['price'].'</td>';
