@@ -257,16 +257,7 @@ if(isset($_POST['submit']))
     }
     else
     {
-        $userID = $_SESSION['userID'];
-        $imageID = $_POST['imageID'];
-	 
-
-        $sql = "SELECT name, price FROM `image` WHERE id = '$imageID'";
-        $stmt = $dblink->prepare($sql);
-        $stmt->bind_param("i", $imageID);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $data = $result->fetch_assoc();
+        
 
         if($data)
         {
