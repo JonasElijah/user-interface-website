@@ -164,7 +164,7 @@
         </div>
       </nav>
     </header>
-    /*
+    
 <?php
 
 include("functions.php");
@@ -199,7 +199,7 @@ else
 
 
 ?>
-*/
+
 	<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
