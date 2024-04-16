@@ -75,7 +75,7 @@
 	/* Ensure images in the carousel have the same fixed height and adjust width automatically */
 	#carouselExample .carousel-item img {
 	  height: 400px; /* Fixed height for all images */
-	  width: auto; /* Auto width to maintain aspect ratio */
+	  width: 600px; /* Auto width to maintain aspect ratio */
 	  object-fit: cover; /* Cover the area nicely without stretching the image */
 	  max-width: 100%; /* Ensure the image does not overflow its container */
 	}
