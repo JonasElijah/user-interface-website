@@ -152,19 +152,6 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-		<?php 
-		if (isset($_POST['update_cart'])) {
-		    echo "Update cart triggered.<br>";
-		foreach ($_POST['quantity'] as $orderID => $quantity) 
-		{
-			echo $quantity;
-		        $quantity = intval($quantity);
-		        if ($quantity > 0) {
-		            $sql = "UPDATE `orders` SET `quantity` = '$quantity' WHERE ID = '$orderID'";
-		            mysqli_query($dblink, $sql);
-		        }
-		    }		}
-		?>
 	
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
@@ -219,51 +206,73 @@
 	
 <h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Shopping Cart </h1>
 <?php
+	
 include("functions.php");
 $dblink = db_connect("UI-schema");
 
-if(!isset($_POST['submit'])) {
-    $userID = $_SESSION['userID'];
-    $sql = "SELECT orders.*, image.image AS imagePath FROM orders JOIN image ON orders.imageID = image.ID WHERE orders.userID = '$userID'";
-    $result = mysqli_query($dblink, $sql);
+if(!isset($_POST['submit']))
+   {
+	$userID = $_SESSION['userID'];
+	$sql = "SELECT * FROM `orders` where `userID` LIKE '$userID'";
+	$result = mysqli_query($dblink, $sql);
+	//$row = $result->fetch_assoc();
+	if(mysqli_num_rows($result) == 0)
+		{
+			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+		}
+	else
+		{
+			echo "<div class='row main-background'>";
+			echo '<div class = "col-md-9">';
+			echo '<table class = "table table-striped">';
+			echo '<tr>';
+			echo '<th scope="col">#</th>';
+			echo '<th scope="col">Image</th>';
+      			echo '<th scope="col">Name</th>';
+      			echo '<th scope="col">Price</th>';
+			echo '</tr>';
+			$counter = 1;
+			$sum = 0;
+			$quantity = 0;
+			$nameHolder = "";
+			while ($data=$result->fetch_array(MYSQLI_ASSOC))
+				{
+			
+				echo '<tr>';
+				echo '<td>'.$counter.'</td>';
+				if($nameHolder == "")
+				{
+				$nameHolder .= $data['name'];
+				}
+				$myImage = $data['imageID'];
+				$sqlW = "SELECT `image` FROM `image` where `ID` LIKE '$myImage'";
+				$resultW = mysqli_query($dblink, $sqlW);
+				if(mysqli_num_rows($resultW) == 0)
+					{
+			
+						echo '<h1>Error,image not found.</h1>';
+					}
+				else
+					{
+						while($dataW=$resultW->fetch_array(MYSQLI_ASSOC))
+							{
+						
+								echo '<td><img src = "'.$dataW['image'].'" style="max-width:250px;"></td>';
+							}
+				
+					}
+			
+				echo '<td>'.$data['name'].'</td>';
+				echo '<td>'.$data['price'].'</td>';
+				echo '</tr>';
+				$counter++;
+				$quantity++;
+				$sum += $data['price'];
+				}
+			echo '</table>';
+			echo '</div>';
 
-    if(mysqli_num_rows($result) == 0) {
-        redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
-    } else {
-        echo "<div class='row main-background'>";
-        echo '<div class="col-md-9">';
-        echo '<form method="post" action="cart.php">';
-        echo '<table class="table table-striped">';
-        echo '<tr>';
-        echo '<th scope="col">#</th>';
-        echo '<th scope="col">Image</th>';
-        echo '<th scope="col">Name</th>';
-        echo '<th scope="col">Price</th>';
-        echo '<th scope="col">Quantity</th>';
-        echo '</tr>';
-
-        $counter = 1;
-        $sum = 0;
-        $totalItems = 0;
-        while ($row = $result->fetch_assoc()) {
-            echo '<tr>';
-            echo '<td>' . $counter . '</td>';
-            echo '<td><img src="' . $row['imagePath'] . '" style="max-width:250px;"></td>';
-            echo '<td>' . $row['name'] . '</td>';
-            echo '<td>' . $row['price'] . '</td>';
-            echo '<td><input type="number" name="quantity[' . $row['ID'] . ']" value="' . $row['quantity'] . '" min="1" style="width: 60px;"></td>';
-            echo '</tr>';
-
-            $sum += $row['price'] * $row['quantity'];
-            $totalItems += $row['quantity'];
-            $counter++;
-        }
-
-        echo '</table>';
-        echo '<input type="hidden" name="totalItems" value="'.$totalItems.'"> ';    
-        echo '<button class="btn btn-success" type="submit" name="update_cart" value="Update Cart">Update Cart</button>';
-        echo '</form>';
-        echo '</div>';
+	
 		//Side Bar
 		echo '<div class="col-md-3 sidebar" >';
 		echo '<div class="col-md-10 offset-md-1">';
@@ -282,7 +291,7 @@ if(!isset($_POST['submit'])) {
 				echo '<p class="user-info">'.$sum.'</p>';
 				echo '<br>';
 				echo '<h3>Number of Items</h3>';
-				echo '<p class="user-info">'.$totalItems.'</p>';
+				echo '<p class="user-info">'.$quantity.'</p>';
 				echo '<br>';
 				echo '<form method = "post" action = "">';
 				echo '<br><button class="btn btn-success offset-md-3" name="submit" type="submit" value="submit">Check Out</button>';
@@ -294,12 +303,23 @@ if(!isset($_POST['submit'])) {
 		
 		
 		
-		 echo '</div>';
-    }
-} 
+		echo '</div>';
 
+		
+	}
+}
+
+else
+{
+echo '<div style="background-color: #f8f8f8; width: 50%; margin: 0 auto; padding: 20px;">';
+echo '<h2 style="color: black; font-size: 20px; text-shadow: 
+      -1px -1px 0 #fdf4eb,
+       1px -1px 0 #fdf4eb, 
+      -1px 1px 0 #fdf4eb, 
+       1px 1px 0 #fdf4eb;" align="center">Thank you for your order! </h2>';
+echo '</div>';
+}
 ?>
-
 </body>
 <div>
 	<br>
