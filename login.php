@@ -19,6 +19,8 @@
 	display: flex;
     	flex-direction: column;
 	background-image: url('/assets/images/gallery/trees-3822149_1280.jpg');
+	background-position: center;
+    	background-size: cover;
       }
 
       .dropdown-menu {
