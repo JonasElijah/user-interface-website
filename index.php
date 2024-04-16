@@ -249,24 +249,25 @@ if(mysqli_num_rows($result) == 0) {
         </div>';
 }
 
-if(isset($_POST['submit']))
-{
-    if(!isset($_SESSION['userID']))
-    {
-        redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
-    }
-    else
-    {
-        
+if(isset($_POST['submit'])) {
+    $imageID = $_POST['imageID'];
 
-        if($data)
-        {
-           
-        }
-        else
-        {
-            echo '<h1>Failed to fetch item details</h1>';
-        }
+    // Fetch image details from the database using imageID
+    $sql = "SELECT name, price FROM `image` WHERE id = ?";
+    $stmt = $dblink->prepare($sql);
+    $stmt->bind_param("i", $imageID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $data = $result->fetch_assoc();
+
+    if($data) {
+        $imageName = $data['name'];  // Now you have the image name
+        $imagePrice = $data['price'];
+
+        // Proceed to add to cart logic
+        // Your existing code for adding to cart...
+    } else {
+        echo '<h1>Failed to fetch item details</h1>';
     }
 }
 ?>
