@@ -170,38 +170,38 @@ include("functions.php");
 $dblink = db_connect("UI-schema");
 $sql = "SELECT * FROM `image`";
 $result = mysqli_query($dblink, $sql);
-if(mysqli_num_rows($result) == 0)
-		{
-			echo 'Error, database table not found';
-		}
-else
-		{	 
-			echo '
-		<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-		    <div class="carousel-inner">
-		        <div class="carousel-item active">
-		            <img src="assets/images/gallery/DSC00892.jpg" alt="Your Logo" class="d-block w-100" style="max-width: 600px; height: auto;" />
-		        </div>
-		        <div class="carousel-item">
-		            <img src="assets/images/gallery/DSC00868-Enhanced-NR.jpg" alt="Your Logo" class="d-block w-100" style="max-width: 600px; height: auto;" />
-		        </div>
-		        <div class="carousel-item">
-		            <img src="assets/images/gallery/DSC00022.jpg" alt="Your Logo" class="d-block w-100" style="max-width: 600px; height: auto;" />
-		        </div>
-		        <div class="carousel-item">
-		            <img src="assets/images/gallery/DSC00887.jpg" alt="Your Logo" class="d-block w-100" style="max-width: 600px; height: auto;" />
-		        </div>
-		    </div>
-		    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-		        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		        <span class="visually-hidden">Previous</span>
-		    </button>
-		    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-		        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		        <span class="visually-hidden">Next</span>
-		    </button>
-		</div>';
-		}
+
+if(mysqli_num_rows($result) == 0) {
+    echo 'Error, database table not found';
+} else {	 
+    echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">';
+
+    // Loop through the result set and generate HTML for each image
+    $first = true; // Flag to mark the first item as active
+    while($row = mysqli_fetch_assoc($result)) {
+        $imagePath = $row['image_path']; // Assuming your image path column is named 'image_path'
+        $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
+
+        echo '<div class="carousel-item '.$activeClass.'">
+                <img src="'.$imagePath.'" alt="Your Logo" class="d-block w-100" style="max-width: 600px; height: auto;" />
+              </div>';
+
+        $first = false; // Update the flag after the first iteration
+    }
+
+    echo '</div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>';
+}
+
 
 
 ?>
