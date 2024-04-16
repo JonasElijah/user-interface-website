@@ -195,12 +195,25 @@ if(isset($_POST["submit"])) {
               <li class="nav-item">
                 <a class="nav-link" href="#">FAQ</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="account.php">Account</a>
-              </li>
+             <?php
+
+	if(!isset($_SESSION['userID'])){
+			echo '<li class="nav-item"> ';
+               	 	echo ' <a class="nav-link" href="login.php">Login</a>';
+              		echo '</li>';
+              		echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="signup.php">Signup</a>';
+              		echo ' </li>';
+			}
+	else{
+			echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="cart.php">Cart</a>';
+             		echo '</li>';		
+			echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="account.php">Account</a>';
+             		echo '</li>';
+			    }
+		?>
 
               <!--
               <li class="nav-item dropdown" id="hover-dropdown">
