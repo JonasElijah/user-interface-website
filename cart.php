@@ -259,6 +259,22 @@ else
 	echo '</div>';
 
 	echo "<div class='row main-background'>";
+	//Profile info
+		echo '<div class="col-md-9">';
+		echo '<div class="col-md-10 offset-md-1">';
+		echo '<br>';
+		echo '<h1>Shopping Cart</h1>';
+			echo '<div class="sub-text offset-md-1">';
+				echo '<br>';
+				echo '<h3>Shopping Cart Total:</h3>';
+				echo '<p class="user-info">'.$sum.'</p>';
+				echo '<br>';
+				echo '<h3>Number of Items</h3>';
+				echo '<p class="user-info">'.$quantity.'</p>';
+				echo '<br>';
+			echo '</div>';
+		echo '</div>';
+		echo '</div>';
 		//Side Bar
 		echo '<div class="col-md-3 sidebar" >';
 			echo '<div class="col-md-10 offset-md-1">';
@@ -266,47 +282,15 @@ else
 			echo '<img src="assets/images/photography.png" class="profile-img">';
 			echo '</div>';
 			echo '<div align="center">';
-				echo '<h5>'.$data['fName'].' '.$data['lName'].'</h5>';
+				echo '<h5>'.$data['name'].'</h5>';
 			echo '</div>';
 			echo '<hr>';
 			echo '<div class="offset-md-1">';
-				echo '<ul class="nav flex-column">';
-					echo '<li class="nav-item">';
-						echo '<a class="nav-link active" href="account.php">Profile</a>';
-					echo '</li>';
-					echo '<li class="nav-item">';
-						echo '<a class="nav-link" href="#">Payment Options</a>';
-					echo '</li>';
-					echo '<li class="nav-item">';
-						echo '<a class="nav-link" href="#">Privacy & Security</a>';
-					echo '</li>';
-					echo '<li class="nav-item">';
-						echo '<a class="nav-link" href="gallery.php">View Gallery</a>';
-					echo '</li>';
-				echo '</ul>';
 			echo '</div>';
 		echo '</div>';
 		echo '</div>';
 		
-		//Profile info
-		echo '<div class="col-md-9">';
-		echo '<div class="col-md-10 offset-md-1">';
-		echo '<br>';
-		echo '<h1>Profile</h1>';
-			echo '<div class="sub-text offset-md-1">';
-				echo '<br>';
-				echo '<h3>First Name</h3>';
-				echo '<p class="user-info">'.$data['fName'].'</p>';
-				echo '<br>';
-				echo '<h3>Last Name</h3>';
-				echo '<p class="user-info">'.$data['lName'].'</p>';
-				echo '<br>';
-				echo '<h3>Email</h3>';
-				echo '<p class="user-info">'.$data['email'].'</p>';
-				echo '<br>';
-			echo '</div>';
-		echo '</div>';
-		echo '</div>';
+		
 		
 		echo '</div>';
 
