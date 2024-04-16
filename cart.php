@@ -260,7 +260,8 @@ else
 			{
 				while($dataW=$resultW->fetch_array(MYSQLI_ASSOC))
 					{
-						echo '<td><img src = "'.$dataW['image'].'" style="max-width: 100px;"></td>';
+						
+						echo '<td><img src = "'.$dataW['image'].'" style="max-width:inherit;"></td>';
 					}
 				
 			}
