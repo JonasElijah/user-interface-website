@@ -215,7 +215,7 @@
 include("functions.php");
 $dblink = db_connect("UI-schema");
 
-if(!isset($_POST['submit'])
+if(!isset($_POST['submit']))
    {
 	$userID = $_SESSION['userID'];
 	$sql = "SELECT * FROM `orders` where `userID` LIKE '$userID'";
@@ -311,7 +311,7 @@ if(!isset($_POST['submit'])
 		
 	}
 }
-}
+
 else
 {
 echo '<h2 style = "color: #fdf4eb; font-size: 20px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Thank you for your order! </h2>';
