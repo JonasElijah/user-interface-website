@@ -236,7 +236,7 @@
 					echo '</div>';
 					echo '<br><br><br>';
 					echo '<div class="col-md-3 offset-md-8" align="right">';
-						echo '<form method="post" action="">';
+						echo '<form method="get" action="">';
 						echo '<button type="button" class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
 						echo '</form>';
 					echo '</div>';
