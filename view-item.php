@@ -4,6 +4,9 @@
 	if (session_status() === PHP_SESSION_NONE) {
     	session_start();
 	}
+	
+	//Debug
+	$_SESSION['itemID'] = 81;
 ?>
 
 <!DOCTYPE html>
@@ -204,41 +207,30 @@
       </nav>
     </header>
 	<?php
-	  
+		$imageId = $_SESSION['itemID'];
+		$dblink=db_connect("UI-schema");
+		$sql="SELECT * FROM `image` where `ID` LIKE '$imageId'";
+		$result=$dblink->query($sql) or
+			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
+		$data=$result->fetch_array(MYSQLI_ASSOC);
 	  
 	  
 		echo '<div class="row main-view">';
 	  		//Display Image
 	  		echo '<div class="col-md-6 item">';
-	  		echo '<img src="img/661d93c5a2987.png" class="img-fluid">';
+	  		echo '<img src="'.$data['image'].'" class="img-fluid">';
 	  		echo '</div>';
 	  		
 	  		//Description
 	  		echo '<div class="col-md-6">';
 	  		echo '<br><hr>';
 	  		echo '<p>Description of the photo</p>';
-	  		echo '<p class="desc">"
-				Inthiscaptivating photo, weseea
-				mystical forest scenebathed inthesoft
-				glow of twilight. Toweringtreesadorned
-				with twinklingfairylightscreatean
-				enchantingambiance, whilea gentlemist
-				hoversabovetheforest floor, addingan
-				air of mystery tothescene. Inthe
-				distance, a lone figure, cloakedin
-				shadow, appearsto beona quest through
-				thisethereal woodlandrealm, perhaps
-				seekingancient secretsor hidden
-				treasures. Withitsblendof magic and
-				intrigue, thisphotoinvitesviewersto
-				embarkon a journeyintotheunknown
-				"</p>';
-	  		
+	  		echo '<p class="desc">"'.$data['ds'].'"</p>';
 				echo '<div>';
 				echo '<hr><br>';
 					echo '<div class="row">';
 					echo '<h5 class="col-md-2 offset-md-5">Price:</h5>';
-					echo '<h5 class="col-md-4 price-val">$Price</h5>';
+					echo '<h5 class="col-md-4 price-val">$'.$data['price'].'</h5>';
 					echo '</div>';
 				echo '</div>';
 	  			echo '<br><br><br>';
