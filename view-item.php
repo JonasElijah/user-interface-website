@@ -99,6 +99,12 @@
 			height: 60%;
 			overflow:auto;
 		}
+		
+		.item {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
     </style>
   </head>
   <body>
@@ -188,13 +194,13 @@
 	<?php
 		echo '<div class="row main-view">';
 	  		//Display Image
-	  		echo '<div class="col-md-6">';
+	  		echo '<div class="col-md-6 item">';
 	  		echo '<img src="img/661d93c5a2987.png" class="product-image">';
 	  		echo '</div>';
 	  		
 	  		//Description
 	  		echo '<div class="col-md-6">';
-	  		echo '<hr>';
+	  		echo '<br><hr>';
 	  		echo '<p>Description of the photo</p>';
 	  		echo '<p class="desc">"
 				Inthiscaptivating photo, weseea
@@ -220,6 +226,7 @@
 					echo '<h6 class="col-md-4 price-val">$Price</h6>';
 					echo '</div>';
 				echo '</div>';
+	  			echo '<br><br>';
 	  			echo '<div class="col-md-3 offset-md-9" align="right">';
 	  				echo '<button type="button" class="btn btn-outline-secondary">Add to Cart</button>';
 	  			echo '</div>';
