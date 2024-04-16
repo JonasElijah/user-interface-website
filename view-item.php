@@ -283,23 +283,45 @@
 			$imageID = $_GET['itemID'];
 			$name = $data['name'];
 			$price = $data['price'];
-			$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
-			$dblink->query($sql) or
-				die("Something went wrong with: $sql<br>".$dblink->error."</p>");
 			
-			echo '<div aria-live="polite" aria-atomic="true" class="position-relative">
-			  <div class="toast-container top-0 end-0 p-3">
+			$sql="Select * FROM `orders` WHERE (`userID`,`imageID`) IN ('$userID','$imageID')";
+			$result = mysqli_query($dblink, $sql);
+			if(mysqli_num_rows($result) == 0)
+			{
+				$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
+				$dblink->query($sql) or
+					die("Something went wrong with: $sql<br>".$dblink->error."</p>");
 
-				<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-				  <div class="toast-header">
-					<img src="assets/assets/images/photography.png" class="rounded me-2" alt="...">
-					<strong class="me-auto">Photography Website</strong>
-					<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-				  </div>
-				  <div class="toast-body">
-					Succesfully Added Item to Cart!
-				  </div>
-				</div>';
+				echo '<div aria-live="polite" aria-atomic="true" class="position-relative">
+				  <div class="toast-container top-0 end-0 p-3">
+
+					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+					  <div class="toast-header">
+						<img src="assets/assets/images/photography.png" class="rounded me-2" alt="...">
+						<strong class="me-auto">Photography Website</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+					  </div>
+					  <div class="toast-body">
+						Succesfully Added Item to Cart!
+					  </div>
+					</div>';
+			}
+			else
+			{
+				echo '<div aria-live="polite" aria-atomic="true" class="position-relative">
+				  <div class="toast-container top-0 end-0 p-3">
+
+					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+					  <div class="toast-header">
+						<img src="assets/assets/images/photography.png" class="rounded me-2" alt="...">
+						<strong class="me-auto">Photography Website</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+					  </div>
+					  <div class="toast-body">
+						Item is already in cart!
+					  </div>
+					</div>';
+			}
 		}
 	?>
 
