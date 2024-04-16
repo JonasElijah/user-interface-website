@@ -172,7 +172,7 @@ if(!isset($_POST['submit'])){
 				echo '<label class="col-md-3" for="email">Email address</label>';
 				echo '<div class="col-md-9">';
 				echo '<input name="email" type="email" class="form-control" id="email" value="'.$_SESSION['email'].'">';
-				echo '<p class="alert-success" id="emailStatus">Email is valid!</p>';
+				echo '<p class="alert alert-success" id="emailStatus">Email is valid!</p>';
 				echo '</div></div>';
 			}
 			else
@@ -202,7 +202,7 @@ if(!isset($_POST['submit'])){
 				echo '<label class="col-md-3" for="email">Email address</label>';
 				echo '<div class="col-md-9">';
 				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
-				echo '<p class="alert-danger" id="emailStatus">Email Does not exist!</p>';
+				echo '<p class="alert alert-danger" id="emailStatus">Email Does not exist!</p>';
 				echo '</div></div>';
 			}
 			
@@ -214,7 +214,7 @@ if(!isset($_POST['submit'])){
 					echo '<label class="col-md-3" for="email">Email address</label>';
 					echo '<div class="col-md-9">';
 					echo '<input name="email" type="email" class="form-control" id="email" value="'.$_SESSION['email'].'">';
-					echo '<p class="alert-danger" id="emailStatus">Email is invalid!</p>';
+					echo '<p class="alert alert-danger" id="emailStatus">Email is invalid!</p>';
 					echo '</div>
 					</div>';
 				}
@@ -229,7 +229,7 @@ if(!isset($_POST['submit'])){
 				echo '<label class="col-md-3" for="password">Password</label>';
 				echo '<div class="col-md-9">';
 				echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
-				echo '<p class="alert-success" id="passwordStatus">Password is valid!</p>';
+				echo '<p class="alert alert-success" id="passwordStatus">Password is valid!</p>';
 				echo '</div></div>';
 			}
 			else
@@ -250,7 +250,7 @@ if(!isset($_POST['submit'])){
 				echo '<label class="col-md-3" for="password">Password</label>';
 				echo '<div class="col-md-9">';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
-				echo '<p class="alert-danger" id="passwordStatus">Password cannot be blank!</p>';
+				echo '<p class="alert alert-danger" id="passwordStatus">Password cannot be blank!</p>';
 				echo '</div></div>';
 			}
 			elseif($_GET['password']=='pWordNonexist')
@@ -259,7 +259,7 @@ if(!isset($_POST['submit'])){
 				echo '<label class="col-md-3" for="password">Password</label>';
 				echo '<div class="col-md-9">';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
-				echo '<p class="alert-danger" id="passwordStatus">Password does not match email!</p>';
+				echo '<p class="alert alert-danger" id="passwordStatus">Password does not match email!</p>';
 				echo '</div></div>';
 			}
 			else
@@ -270,7 +270,7 @@ if(!isset($_POST['submit'])){
 					echo '<label class="col-md-3" for="password">Password</label>';
 					echo '<div class="col-md-9">';
 					echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
-					echo '<p class="alert-danger" id="passwordStatus">Password is invalid!</p>';
+					echo '<p class="alert alert-danger" id="passwordStatus">Password is invalid!</p>';
 					echo '</div>
 					</div>';
 				}
