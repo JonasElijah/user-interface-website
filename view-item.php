@@ -195,7 +195,7 @@
 		echo '<div class="row main-view">';
 	  		//Display Image
 	  		echo '<div class="col-md-6 item">';
-	  		echo '<img src="img/661d93c5a2987.png" class="product-image">';
+	  		echo '<img src="img/661d93c5a2987.png" class="img-fluid">';
 	  		echo '</div>';
 	  		
 	  		//Description
