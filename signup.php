@@ -67,6 +67,13 @@
 		background-color: #fdf4eb;
 		padding: 50px;
 	}
+	 .custom-navbar h1 {
+        margin: 0;
+        padding: 0; 
+        line-height: 1;
+        vertical-align: bottom; 
+         font-size: 25px;
+      }
 
     </style>
 	
