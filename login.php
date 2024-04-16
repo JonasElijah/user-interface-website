@@ -275,7 +275,7 @@ if(!isset($_POST['submit'])){
 
 		
 		
-			echo '<br><button class="center-block" name="submit" type="submit" value="submit">Submit</button></form>';
+			echo '<br><button class="center-block btn btn-secondary" name="submit" type="submit" value="submit">Log In</button></form>';
 }
 	if(isset($_POST['submit'])){
 		echo '<div class ="col-md-6 col-md-offset-3">';
@@ -353,4 +353,13 @@ if(!isset($_POST['submit'])){
 }
 		?>
 </body>
+<div>
+	<br>
+	<br>
+	<footer class="footer mt-auto py-3 bg-light">
+      <div class="container text-center">
+        <span class="text-muted">Photography Website &copy; 2024</span>
+      </div>
+    </footer>
+</div>
 </html>
