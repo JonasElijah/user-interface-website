@@ -285,7 +285,7 @@ if(!isset($_POST['submit'])) {
 } elseif(isset($_POST['update_cart'])) {
     foreach($_POST['quantity'] as $orderID => $quantity) {
         $quantity = intval($quantity);
-        $sql = "UPDATE orders SET quantity = '$quantity' WHERE ID = '$orderID'";
+        $sql = "UPDATE `orders` SET `quantity` = '$quantity' WHERE ID = '$orderID'";
         mysqli_query($dblink, $sql);
     }
     header("Location: cart.php"); // Refresh the page
