@@ -291,7 +291,7 @@
 			$name = $data['name'];
 			$price = $data['price'];
 			
-			$sql="Select * FROM `orders` WHERE SELECT * FROM `orders` WHERE `userID` LIKE '$userID' AND `imageID` LIKE '$imageID'";
+			$sql="SELECT * FROM `orders` WHERE `userID` LIKE '$userID' AND `imageID` LIKE '$imageID'";
 			$result = mysqli_query($dblink, $sql);
 			if(mysqli_num_rows($result) == 0)
 			{
