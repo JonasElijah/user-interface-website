@@ -248,7 +248,8 @@ else
 			
 			echo '<tr>';
 			echo '<td>'.$counter.'</td>';
-			$sqlW = "SELECT `image` FROM `images` where `ID` LIKE '$data['imageID']'";
+			$myImage = data['imageID'];
+			$sqlW = "SELECT `image` FROM `images` where `ID` LIKE '$myImage'";
 			$resultW = mysqli_query($dblink, $sqlW);
 			if(mysqli_num_rows($resultW) == 0)
 			{
