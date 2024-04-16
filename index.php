@@ -182,6 +182,7 @@
       </nav>
     </header>
 <div class="category">
+	<h1> Recommended </h1>
 <div class="carousel-inner">
 <?php
 
