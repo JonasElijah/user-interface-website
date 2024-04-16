@@ -230,11 +230,6 @@
               </div>';
       }
 
-      if (isset($_POST['add_to_cart']) && isset($_GET['itemID'])) {
-          $userID = $_SESSION['userID'] ?? null;
-          $imageID = $_GET['itemID'];
-          // Add more code to handle the add to cart logic here
-      }
       ?>
     </div>
   </div>
