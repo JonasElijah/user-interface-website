@@ -177,7 +177,6 @@ if(mysqli_num_rows($result) == 0)
 		}
 else
 		{	
-			echo '<h1> Here </h1>';
 			echo '<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">';
 					    echo '<span class="carousel-control-prev-icon" aria-hidden="true"></span>';
 					    echo '<span class="visually-hidden">Previous</span>';
