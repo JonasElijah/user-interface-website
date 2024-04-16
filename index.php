@@ -261,6 +261,31 @@ if(isset($_POST['submit'])) {
 	echo "Image Name: " . $imageName . "<br>";
 	echo "Image Price: " . $imagePrice . "<br>";
 
+	if(!isset($_SESSION['userID']))
+			{
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+			}
+			
+			$userID = $_SESSION['userID'];
+			
+			$sql="SELECT * FROM `orders` WHERE `userID` LIKE '$userID' AND `imageID` LIKE '$imageID'";
+			$result = mysqli_query($dblink, $sql);
+			if(mysqli_num_rows($result) == 0)
+			{
+				$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
+				$dblink->query($sql) or
+					die("Something went wrong with: $sql<br>".$dblink->error."</p>");
+				
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?itemID=$imageID&addItem=success");
+			}
+			else
+			{
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?itemID=$imageID&addItem=failed");
+
+				echo '<h1> Failed </h1>';
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=failed");
+			}
+
 
 
 }
