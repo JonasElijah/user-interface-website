@@ -182,45 +182,104 @@
       </nav>
     </header>
 <div class="category">
-  <h1>Recommended</h1>
-  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <?php
-      include("functions.php");
-      $dblink = db_connect("UI-schema");
-      $sql = "SELECT * FROM `image` ORDER BY id ASC";  // Ensure images are ordered
-      $result = mysqli_query($dblink, $sql);
+	<h1> Recommended </h1>
+<div class="carousel-inner">
+<?php
 
-      if(mysqli_num_rows($result) > 0) {
-          $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
-          $first = true; // Flag to mark the first item as active
-          foreach($images as $index => $image) {
-              $activeClass = $first ? 'active' : '';
-              $first = false;  // Only the first item should be active
-              echo '<div class="carousel-item '.$activeClass.'">
-                      <img src="'.$image['image'].'" class="d-block w-100" alt="'.$image['name'].'">
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5>'.$image['name'].'</h5>
-                        <p>'.$image['description'].'</p>
+include("functions.php");
+$dblink = db_connect("UI-schema");
+$sql = "SELECT * FROM `image`";
+$result = mysqli_query($dblink, $sql);
+
+if(mysqli_num_rows($result) == 0) {
+    echo 'Error, database table not found';
+} else {
+    $images = mysqli_fetch_all($result, MYSQLI_ASSOC); // Fetch all images into an array
+
+    // Split images array into chunks of 3
+    $imageSets = array_chunk($images, 3);
+
+    echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">';
+
+    // Loop through the image sets and generate HTML for each carousel item
+    $first = true; // Flag to mark the first item as active
+    foreach($imageSets as $set) {
+        $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
+
+        echo '<div class="carousel-item '.$activeClass.'">
+                <div class="row">'; // Open a row for the set of images
+
+        // Loop through the images in the set and generate HTML for each image
+        foreach($set as $image) {
+            $imagePath = $image['image']; // Assuming your image path column is named 'image_path'
+	    $imageName = $image['name'];
+	    $imagePrice = $image['price'];	
+
+            echo '<div class="col-md-4">
+                    <div class="card mb-3">
+                      <img src="'.$imagePath.'" class="card-img-top" alt="Your Logo">
+                      <div class="card-body">
+                        <h5 class="card-title">'.$imageName.'</h5>
+                        <p class="card-text">'.$imagePrice.'</p>
+			<form class="col-md-3 offset-md-8" method="post" action="">
+                        <button class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>
+		    	</form>
                       </div>
-                    </div>';
-          }
-      } else {
-          echo '<p>No images found in the database.</p>';
-      }
-      ?>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</div>
+                    </div>
+                  </div>';
+        }
 
+        echo '</div></div>'; // Close the row and carousel item
+
+        $first = false; // Update the flag after the first iteration
+    }
+
+    echo '</div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>';
+}
+
+if(isset($_POST['submit']))
+		{	
+			if(!isset($_SESSION['userID']))
+			{
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+			}
+			
+			$userID = $_SESSION['userID'];
+			$imageID = $_GET['itemID'];
+			$name = $data['name'];
+			$price = $data['price'];
+			
+			$sql="SELECT * FROM `orders` WHERE `userID` LIKE '$userID' AND `imageID` LIKE '$imageID'";
+			$result = mysqli_query($dblink, $sql);
+			if(mysqli_num_rows($result) == 0)
+			{
+				$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
+				$dblink->query($sql) or
+					die("Something went wrong with: $sql<br>".$dblink->error."</p>");
+				echo '<h1> Success </h1>';
+
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=success");
+			}
+			else
+			{
+				echo '<h1> Failed </h1>';
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=failed");
+			}
+		}
+
+ ?> 
+</div>
+</div>
    <br />
     <br />
     <br />
