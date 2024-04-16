@@ -279,11 +279,6 @@ if(isset($_POST['submit']))
             $result = $stmt->get_result();
             if($result->num_rows == 0)
             {
-		    echo "Attempting to add to cart:<br>";
-		    echo "User ID: $userID<br>";
-		    echo "Image ID: $imageID<br>";
-		    echo "Name: $name<br>";
-		    echo "Price: $price<br>";
                 $sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
                 $stmt = $dblink->prepare($sql);
                 $stmt->bind_param("iiss", $userID, $imageID, $name, $price);
