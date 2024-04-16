@@ -164,7 +164,7 @@
         </div>
       </nav>
     </header>
-    /*
+    
 <?php
 
 include("functions.php");
@@ -199,25 +199,25 @@ else
 
 
 ?>
-*/
-	  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-					    echo '<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					    echo '<span class="visually-hidden">Previous</span>
-					  echo '</button>';
-						echo '<div>';
-					        echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-					  	echo '<div class="carousel-inner">
-					    	echo '<div class="carousel-item active">
-						echo '<a href';
-					      echo ' <img src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px/>
-					    echo '</div>
-					  echo '</div>
-					
-					   echo '<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-					   echo ' <span class="carousel-control-next-icon" aria-hidden="true"></span>
-					   echo ' <span class="visually-hidden">Next</span>
-					   echo '  </button>
-					   echo '</div>'
+
+	<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="#">
+                <img src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px;"/>
+            </a>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
    <br />
     <br />
     <br />
