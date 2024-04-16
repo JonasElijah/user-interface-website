@@ -213,13 +213,15 @@ if(mysqli_num_rows($result) == 0) {
         // Loop through the images in the set and generate HTML for each image
         foreach($set as $image) {
             $imagePath = $image['image']; // Assuming your image path column is named 'image_path'
+	    $imageName = $image['name'];
+	    $imagePrice = $image['price'];	
 
             echo '<div class="col-md-4">
                     <div class="card mb-3">
                       <img src="'.$imagePath.'" class="card-img-top" alt="Your Logo">
                       <div class="card-body">
-                        <h5 class="card-title">Image Title</h5>
-                        <p class="card-text">Some description about the image.</p>
+                        <h5 class="card-title">'.$imageName.'</h5>
+                        <p class="card-text">'.$imagePrice.'</p>
                         <button class="btn btn-primary">Add to Cart</button>
                       </div>
                     </div>
