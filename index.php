@@ -184,6 +184,7 @@ if(mysqli_num_rows($result) == 0) {
                   <div class="card-body">
                     <h5 class="card-title">Image Title</h5>
                     <p class="card-text">Some description about the image.</p>
+                    <button class="btn btn-primary">Add to Cart</button>
                   </div>
                 </div>
               </div>';
