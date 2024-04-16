@@ -168,20 +168,15 @@
                 <a class="nav-link" href="#">About</a>
               </li>
 		    <?php
-			    if(!isset($_SESSION['userID'])){
-			echo '<li class="nav-item"> ';
-               	 	echo ' <a class="nav-link" href="#">Login</a>';
-              		echo '</li>';
-              		echo '<li class="nav-item">';
-                	echo '<a class="nav-link" href="signup.php">Signup</a>';
-              		echo ' </li>';
-			       }
-			    else
-			    {
-			echo '<li class="nav-item">';
-                	echo '<a class="nav-link" href="account.php">Account</a>';
-             		 echo '</li>';
-			    }
+			 
+			    
+		echo '<li class="nav-item">';
+                echo '<a class="nav-link" href="cart.php">Cart</a>';
+             	echo '</li>';
+		echo '<li class="nav-item">';
+                echo '<a class="nav-link" href="account.php">Account</a>';
+             	echo '</li>';
+			    
 		?>
 		
               
