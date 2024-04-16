@@ -289,7 +289,7 @@ else
 			echo '<img src="assets/images/photography.png" class="profile-img">';
 			echo '</div>';
 			echo '<div align="center">';
-			echo '<h5>'$nameHolder'</h5>';
+			echo '<h5>'.$nameHolder.'</h5>';
 			echo '</div>';
 			echo '<hr>';
 			echo '<div class="offset-md-1">';
