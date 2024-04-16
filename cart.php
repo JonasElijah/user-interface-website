@@ -247,6 +247,7 @@ if(!isset($_POST['submit'])) {
         }
 
         echo '</table>';
+        echo '<input type="hidden" name="totalItems" value="'.$totalItems.'"> ';    
         echo '<button class="btn btn-success" type="submit" name="update_cart" value="Update Cart">Update Cart</button>';
         echo '</form>';
         echo '</div>';
@@ -283,7 +284,7 @@ if(!isset($_POST['submit'])) {
 		 echo '</div>';
     }
 } elseif (isset($_POST['update_cart'])) {
-    echo "Quantity<br>";
+    echo "Image ID: " . $totalItems . "<br>";
 	/*
     foreach ($_POST['quantity'] as $orderID => $quantity) {
         $quantity = intval($quantity);
