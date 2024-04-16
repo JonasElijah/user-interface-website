@@ -264,15 +264,7 @@ else
 		echo '<div class="col-md-10 offset-md-1">';
 		echo '<br>';
 		echo '<h1>Shopping Cart</h1>';
-			echo '<div class="sub-text offset-md-1">';
-				echo '<br>';
-				echo '<h3>Shopping Cart Total:</h3>';
-				echo '<p class="user-info">'.$sum.'</p>';
-				echo '<br>';
-				echo '<h3>Number of Items</h3>';
-				echo '<p class="user-info">'.$quantity.'</p>';
-				echo '<br>';
-			echo '</div>';
+			
 		echo '</div>';
 		echo '</div>';
 		//Side Bar
@@ -286,6 +278,15 @@ else
 			echo '</div>';
 			echo '<hr>';
 			echo '<div class="offset-md-1">';
+			echo '</div>';
+			echo '<div class="sub-text offset-md-1">';
+				echo '<br>';
+				echo '<h3>Shopping Cart Total:</h3>';
+				echo '<p class="user-info">'.$sum.'</p>';
+				echo '<br>';
+				echo '<h3>Number of Items</h3>';
+				echo '<p class="user-info">'.$quantity.'</p>';
+				echo '<br>';
 			echo '</div>';
 		echo '</div>';
 		echo '</div>';
