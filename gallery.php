@@ -196,17 +196,30 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link">Upload</button>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
+                <a class="nav-link" href="gallery.php">Gallery</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
+             <?php
+
+	if(!isset($_SESSION['userID'])){
+			echo '<li class="nav-item"> ';
+               	 	echo ' <a class="nav-link" href="login.php">Login</a>';
+              		echo '</li>';
+              		echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="signup.php">Signup</a>';
+              		echo ' </li>';
+			}
+	else{
+			echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="cart.php">Cart</a>';
+             		echo '</li>';		
+			echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="account.php">Account</a>';
+             		echo '</li>';
+			    }
+		?>
               <li class="nav-item dropdown" id="hover-dropdown">
                 <a
                   class="nav-link dropdown-toggle"
