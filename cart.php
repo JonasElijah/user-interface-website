@@ -283,7 +283,8 @@ if(!isset($_POST['submit'])) {
 		 echo '</div>';
     }
 } elseif (isset($_POST['update_cart'])) {
-    echo "Quantity".$_POST['quantity']."<br>";
+    echo "Quantity<br>";
+	/*
     foreach ($_POST['quantity'] as $orderID => $quantity) {
         $quantity = intval($quantity);
         if ($quantity > 0) {
@@ -291,6 +292,7 @@ if(!isset($_POST['submit'])) {
             mysqli_query($dblink, $sql);
         }
     }
+	*/
     // Comment out the redirect to see the output
     // header("Location: cart.php");
 }
