@@ -259,14 +259,6 @@ else
 	echo '</div>';
 
 	echo "<div class='row main-background'>";
-	//Profile info
-		echo '<div class="col-md-9">';
-		echo '<div class="col-md-10 offset-md-1">';
-		echo '<br>';
-		echo '<h1>Shopping Cart</h1>';
-			
-		echo '</div>';
-		echo '</div>';
 		//Side Bar
 		echo '<div class="col-md-3 sidebar" >';
 			echo '<div class="col-md-10 offset-md-1">';
