@@ -168,26 +168,40 @@ $result = mysqli_query($dblink, $sql);
 
 if(mysqli_num_rows($result) == 0) {
     echo 'Error, database table not found';
-} else {	 
+} else {
+    $images = mysqli_fetch_all($result, MYSQLI_ASSOC); // Fetch all images into an array
+
+    // Split images array into chunks of 3
+    $imageSets = array_chunk($images, 3);
+
     echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">';
 
-    // Loop through the result set and generate HTML for each image
+    // Loop through the image sets and generate HTML for each carousel item
     $first = true; // Flag to mark the first item as active
-    while($row = mysqli_fetch_assoc($result)) {
-        $imagePath = $row['image']; // Assuming your image path column is named 'image_path'
+    foreach($imageSets as $set) {
         $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
 
         echo '<div class="carousel-item '.$activeClass.'">
-                <div class="card">
-                  <img src="'.$imagePath.'" class="card-img-top" alt="Your Logo">
-                  <div class="card-body">
-                    <h5 class="card-title">Image Title</h5>
-                    <p class="card-text">Some description about the image.</p>
-                    <button class="btn btn-primary">Add to Cart</button>
-                  </div>
-                </div>
-              </div>';
+                <div class="row">'; // Open a row for the set of images
+
+        // Loop through the images in the set and generate HTML for each image
+        foreach($set as $image) {
+            $imagePath = $image['image']; // Assuming your image path column is named 'image_path'
+
+            echo '<div class="col-md-4">
+                    <div class="card mb-3">
+                      <img src="'.$imagePath.'" class="card-img-top" alt="Your Logo">
+                      <div class="card-body">
+                        <h5 class="card-title">Image Title</h5>
+                        <p class="card-text">Some description about the image.</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>';
+        }
+
+        echo '</div></div>'; // Close the row and carousel item
 
         $first = false; // Update the flag after the first iteration
     }
@@ -203,6 +217,7 @@ if(mysqli_num_rows($result) == 0) {
           </button>
         </div>';
 }
+
 
 
 
