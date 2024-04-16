@@ -325,7 +325,7 @@ if(!isset($_POST['submit']))
 		
 	}
 }
-
+   }
 else
 {
 echo '<div style="background-color: #f8f8f8; width: 50%; margin: 0 auto; padding: 20px;">';
