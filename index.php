@@ -266,7 +266,8 @@ if(isset($_POST['submit']))
 				$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
 				$dblink->query($sql) or
 					die("Something went wrong with: $sql<br>".$dblink->error."</p>");
-				
+				echo '<h1> Success </h1>';
+
 				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=success");
 			}
 			else
