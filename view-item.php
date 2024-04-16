@@ -220,8 +220,8 @@
 					echo '<h6 class="col-md-4 price-val">$Price</h6>';
 					echo '</div>';
 				echo '</div>';
-	  			echo '<div class="col-md-3 offset-md-9">';
-	  				echo '<button type="button" class="btn">Add to Cart</button>';
+	  			echo '<div class="col-md-3 offset-md-9" align="right">';
+	  				echo '<button type="button" class="btn btn-outline-secondary">Add to Cart</button>';
 	  			echo '</div>';
 	  		echo '</div>';
 	  
