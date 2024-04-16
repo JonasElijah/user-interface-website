@@ -67,8 +67,8 @@
 
 	 /* Increase the width of the carousel items by adjusting the padding and margin */
 	.carousel-item .row > div {
-	  padding-right: 5px;
-	  padding-left: 5px;
+	  padding-right: 1px;
+	  padding-left: 1px;
 	}
 	
 	/* Ensure images take up more space and are responsive */
