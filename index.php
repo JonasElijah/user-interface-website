@@ -212,15 +212,21 @@ if(mysqli_num_rows($result) == 0) {
 
         // Loop through the images in the set and generate HTML for each image
         foreach($set as $image) {
-            $imagePath = $image['image']; // Assuming your image path column is named 'image_path'
+            $imagePath = $image['image'];
+            $imageName = $image['name'];
+            $imagePrice = $image['price'];
+            $imageID = $image['id'];  // Assuming there's an 'id' field in your images table
 
             echo '<div class="col-md-4">
                     <div class="card mb-3">
-                      <img src="'.$imagePath.'" class="card-img-top" alt="Your Logo">
+                      <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'">
                       <div class="card-body">
-                        <h5 class="card-title">Image Title</h5>
-                        <p class="card-text">Some description about the image.</p>
-                        <button class="btn btn-primary">Add to Cart</button>
+                        <h5 class="card-title">'.$imageName.'</h5>
+                        <p class="card-text">'.$imagePrice.'</p>
+                        <form method="post" action="">
+                          <input type="hidden" name="imageID" value="'.$imageID.'">
+                          <button class="btn btn-outline-secondary" type="submit" name="submit">Add to Cart</button>
+                        </form>
                       </div>
                     </div>
                   </div>';
@@ -243,7 +249,29 @@ if(mysqli_num_rows($result) == 0) {
         </div>';
 }
 
- ?> 
+if(isset($_POST['submit']))
+{
+    if(!isset($_SESSION['userID']))
+    {
+        redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+    }
+    else
+    {
+        
+
+        if($data)
+        {
+           
+        }
+        else
+        {
+            echo '<h1>Failed to fetch item details</h1>';
+        }
+    }
+}
+?>
+
+
 </div>
 </div>
    <br />

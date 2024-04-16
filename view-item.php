@@ -280,7 +280,12 @@
 			}
 			else
 			{
+<<<<<<< HEAD
 				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?itemID=$imageID&addItem=failed");
+=======
+				echo '<h1> Failed </h1>';
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=failed");
+>>>>>>> 21e8ce21591297fce72f6de5f5cd54b0286c882c
 			}
 		}
 	?>
