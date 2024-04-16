@@ -216,6 +216,41 @@
 	  
 	  	if(!isset($_POST['submit']))
 		{
+			if(isset($_GET['addItem']))
+			{
+				if($_GET['addItem'] == 'success')
+				{
+					echo '<div aria-live="polite" aria-atomic="true" class="position-relative">
+				  	<div class="toast-container top-0 end-0 p-3">
+
+					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+					  <div class="toast-header">
+						<img src="assets/assets/images/photography.png" class="rounded me-2" alt="...">
+						<strong class="me-auto">Photography Website</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+					  </div>
+					  <div class="toast-body">
+						Succesfully Added Item to Cart!
+					  </div>
+					</div>';
+				}
+				else
+				{
+					echo '<div aria-live="polite" aria-atomic="true" class="position-relative">
+				  <div class="toast-container top-0 end-0 p-3">
+
+					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+					  <div class="toast-header">
+						<img src="assets/assets/images/photography.png" class="rounded me-2" alt="...">
+						<strong class="me-auto">Photography Website</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+					  </div>
+					  <div class="toast-body">
+						Item is already in cart!
+					  </div>
+					</div>';
+				}
+			}
 			echo '<div class="row main-view">';
 				//Display Image
 				echo '<div class="col-md-6 item">';
@@ -244,36 +279,8 @@
 
 			echo '</div>';
 		}
-	  	else
+	  	if(isset($_POST['submit']))
 		{	
-			echo '<div class="row main-view">';
-				//Display Image
-				echo '<div class="col-md-6 item">';
-				echo '<img src="'.$data['image'].'" class="img-fluid">';
-				echo '</div>';
-
-				//Description
-				echo '<div class="col-md-6">';
-				echo '<br><hr>';
-				echo '<p>Description of the photo</p>';
-				echo '<p class="desc">"'.$data['ds'].'"</p>';
-					echo '<div>';
-					echo '<hr><br>';
-						echo '<div class="row">';
-						echo '<h5 class="col-md-2 offset-md-5">Price:</h5>';
-						echo '<h5 class="col-md-4 price-val">$'.$data['price'].'</h5>';
-						echo '</div>';
-					echo '</div>';
-					echo '<br><br><br>';
-					echo '<div class="col-md-3 offset-md-8" align="right">';
-						echo '<form method="get" action="">';
-						echo '<button type="button" class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
-						echo '</form>';
-					echo '</div>';
-				echo '</div>';
-
-			echo '</div>';
-			
 			if(!isset($_SESSION['userID']))
 			{
 				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
@@ -291,36 +298,12 @@
 				$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
 				$dblink->query($sql) or
 					die("Something went wrong with: $sql<br>".$dblink->error."</p>");
-
-				echo '<div aria-live="polite" aria-atomic="true" class="position-relative">
-				  <div class="toast-container top-0 end-0 p-3">
-
-					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-					  <div class="toast-header">
-						<img src="assets/assets/images/photography.png" class="rounded me-2" alt="...">
-						<strong class="me-auto">Photography Website</strong>
-						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-					  </div>
-					  <div class="toast-body">
-						Succesfully Added Item to Cart!
-					  </div>
-					</div>';
+				
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=success");
 			}
 			else
 			{
-				echo '<div aria-live="polite" aria-atomic="true" class="position-relative">
-				  <div class="toast-container top-0 end-0 p-3">
-
-					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-					  <div class="toast-header">
-						<img src="assets/assets/images/photography.png" class="rounded me-2" alt="...">
-						<strong class="me-auto">Photography Website</strong>
-						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-					  </div>
-					  <div class="toast-body">
-						Item is already in cart!
-					  </div>
-					</div>';
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=failed");
 			}
 		}
 	?>
