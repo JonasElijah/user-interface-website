@@ -181,7 +181,7 @@ if(mysqli_num_rows($result) == 0)
 }
 else
 {
-	$data=$result->fetch_array(MYSQLI_ASSOC)
+	$data=$result->fetch_array(MYSQLI_ASSOC);
 	echo '<table>';
 	echo '<tr>';
 	echo '<td>'.$data['imageID'].'</td>';
