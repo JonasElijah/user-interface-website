@@ -236,7 +236,7 @@
 						{
 							if($_GET['addItem']=='success')
 							{
-								echo '<div class="col-md-3 offset-md-8">';
+								echo '<div class="col-md-4 offset-md-7">';
 								echo '<p class="alert alert-success">Successfully Added to Cart!</p>';
 								echo '</div>';
 							}
