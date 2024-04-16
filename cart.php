@@ -296,6 +296,7 @@ else
 				echo '<h3>Number of Items</h3>';
 				echo '<p class="user-info">'.$quantity.'</p>';
 				echo '<br>';
+				echo '<br><button class="btn btn-success col-md-2 offset-md-5" name="submit" type="submit" value="submit">Log In</button></form>';
 			echo '</div>';
 		echo '</div>';
 		echo '</div>';
