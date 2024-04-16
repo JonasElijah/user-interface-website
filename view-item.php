@@ -6,7 +6,7 @@
 	}
 	
 	//Debug
-	$_SESSION['itemID'] = 81;
+	$_GET['itemID'] = 81;
 ?>
 
 <!DOCTYPE html>
@@ -214,44 +214,73 @@
 			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
 		$data=$result->fetch_array(MYSQLI_ASSOC);
 	  
-	  
-		echo '<div class="row main-view">';
-	  		//Display Image
-	  		echo '<div class="col-md-6 item">';
-	  		echo '<img src="'.$data['image'].'" class="img-fluid">';
-	  		echo '</div>';
-	  		
-	  		//Description
-	  		echo '<div class="col-md-6">';
-	  		echo '<br><hr>';
-	  		echo '<p>Description of the photo</p>';
-	  		echo '<p class="desc">"'.$data['ds'].'"</p>';
-				echo '<div>';
-				echo '<hr><br>';
-					echo '<div class="row">';
-					echo '<h5 class="col-md-2 offset-md-5">Price:</h5>';
-					echo '<h5 class="col-md-4 price-val">$'.$data['price'].'</h5>';
+	  	if(!isset($_POST['submit']))
+		{
+			echo '<div class="row main-view">';
+				//Display Image
+				echo '<div class="col-md-6 item">';
+				echo '<img src="'.$data['image'].'" class="img-fluid">';
+				echo '</div>';
+
+				//Description
+				echo '<div class="col-md-6">';
+				echo '<br><hr>';
+				echo '<p>Description of the photo</p>';
+				echo '<p class="desc">"'.$data['ds'].'"</p>';
+					echo '<div>';
+					echo '<hr><br>';
+						echo '<div class="row">';
+						echo '<h5 class="col-md-2 offset-md-5">Price:</h5>';
+						echo '<h5 class="col-md-4 price-val">$'.$data['price'].'</h5>';
+						echo '</div>';
+					echo '</div>';
+					echo '<br><br><br>';
+					echo '<div class="col-md-3 offset-md-8" align="right">';
+						echo '<form method="post" action="">';
+						echo '<button type="button" class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
+						echo '</form>';
 					echo '</div>';
 				echo '</div>';
-	  			echo '<br><br><br>';
-	  			echo '<div class="col-md-3 offset-md-8" align="right">';
-	  				echo '<form method="post" action="">';
-	  				echo '<button type="button" class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
-	  				echo '</form>';
-	  			echo '</div>';
-	  		echo '</div>';
-	  
-	  	echo '</div>';
-	  	
+
+			echo '</div>';
+		}
 	  	if(isset($_POST['submit']))
-		{
+		{	
+			echo '<div class="row main-view">';
+				//Display Image
+				echo '<div class="col-md-6 item">';
+				echo '<img src="'.$data['image'].'" class="img-fluid">';
+				echo '</div>';
+
+				//Description
+				echo '<div class="col-md-6">';
+				echo '<br><hr>';
+				echo '<p>Description of the photo</p>';
+				echo '<p class="desc">"'.$data['ds'].'"</p>';
+					echo '<div>';
+					echo '<hr><br>';
+						echo '<div class="row">';
+						echo '<h5 class="col-md-2 offset-md-5">Price:</h5>';
+						echo '<h5 class="col-md-4 price-val">$'.$data['price'].'</h5>';
+						echo '</div>';
+					echo '</div>';
+					echo '<br><br><br>';
+					echo '<div class="col-md-3 offset-md-8" align="right">';
+						echo '<form method="post" action="">';
+						echo '<button type="button" class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
+						echo '</form>';
+					echo '</div>';
+				echo '</div>';
+
+			echo '</div>';
+			
 			if(!isset($_SESSION['userID']))
 			{
 				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
 			}
 			
 			$userID = $_SESSION['userID'];
-			$imageID = $_SESSION['itemID'];
+			$imageID = $_GET['itemID'];
 			$name = $data['name'];
 			$price = $data['price'];
 			$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID,'$imageID','$name','$price')";
