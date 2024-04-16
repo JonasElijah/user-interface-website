@@ -215,7 +215,7 @@ if(mysqli_num_rows($result) == 0) {
             $imagePath = $image['image'];
             $imageName = $image['name'];
             $imagePrice = $image['price'];
-            $imageID = $image['id'];  // Assuming there's an 'id' field in your images table
+            $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
 
             echo '<div class="col-md-4">
                     <div class="card mb-3">
@@ -224,7 +224,7 @@ if(mysqli_num_rows($result) == 0) {
                         <h5 class="card-title">'.$imageName.'</h5>
                         <p class="card-text">'.$imagePrice.'</p>
                         <form method="post" action="">
-			    <input type="hidden" name="imageID" value=".'$imageName.'"> 
+                  	    <input type="hidden" name="imageID" value="'.$imageID.'"> 
 			    <button type="submit" name="submit">Add to Cart</button>
 			</form>
                       </div>
