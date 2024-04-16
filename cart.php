@@ -266,7 +266,6 @@ else
 				
 			}
 			
-			echo '<td>'.$data['imageID'].'</td>';
 			echo '<td>'.$data['name'].'</td>';
 			echo '<td>'.$data['price'].'</td>';
 			echo '</tr>';
