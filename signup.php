@@ -67,6 +67,13 @@
 		background-color: #fdf4eb;
 		padding: 50px;
 	}
+	 .custom-navbar h1 {
+        margin: 0;
+        padding: 0; 
+        line-height: 1;
+        vertical-align: bottom; 
+         font-size: 25px;
+      }
 
     </style>
 	
@@ -100,7 +107,7 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-	<h1 class="text-center"> Photo Bucket </h1>
+	<h1 class="text-center"> Photography Website </h1>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
