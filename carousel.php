@@ -114,12 +114,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="gallery.php">Gallery</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
+           
               <?php
 
 	if(!isset($_SESSION['userID'])){

@@ -179,7 +179,13 @@ if(mysqli_num_rows($result) == 0) {
         $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
 
         echo '<div class="carousel-item '.$activeClass.'">
-                <img src="'.$imagePath.'" alt="Your Logo" class="d-block w-100" style="max-width: 600px; height: auto;" />
+                <div class="card">
+                  <img src="'.$imagePath.'" class="card-img-top" alt="Your Logo">
+                  <div class="card-body">
+                    <h5 class="card-title">Image Title</h5>
+                    <p class="card-text">Some description about the image.</p>
+                  </div>
+                </div>
               </div>';
 
         $first = false; // Update the flag after the first iteration
