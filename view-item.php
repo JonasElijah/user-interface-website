@@ -6,7 +6,7 @@
 	}
 	
 	//Debug
-	$_GET['itemID'] = 81;
+	$_GET['itemID'] = 83;
 ?>
 
 <!DOCTYPE html>
@@ -283,7 +283,7 @@
 			$imageID = $_GET['itemID'];
 			$name = $data['name'];
 			$price = $data['price'];
-			$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID,'$imageID','$name','$price')";
+			$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
 			$dblink->query($sql) or
 				die("Something went wrong with: $sql<br>".$dblink->error."</p>");
 			
