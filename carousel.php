@@ -186,7 +186,7 @@ else
 					  	echo '<div class="carousel-inner">';
 					    	echo '<div class="carousel-item active">';
 						echo '<a href';
-					      echo ' <img src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px/>
+					      echo ' <img src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px/>';
 					    echo '</div>';
 					  echo '</div>';
 					
@@ -194,7 +194,6 @@ else
 					   echo ' <span class="carousel-control-next-icon" aria-hidden="true"></span>';
 					   echo ' <span class="visually-hidden">Next</span>';
 					   echo '  </button>';
-					
 					   echo '</div>';
 		}
 
