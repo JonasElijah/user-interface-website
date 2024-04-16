@@ -316,8 +316,7 @@ if(!isset($_POST['submit'])){
 			}
 			
 			$dblink = db_connect("UI-schema");
-			$firstName = addslashes($firstName);
-			$lastName = addslashes($lastName);
+			
 			$email = addslashes($email);
 			$pWord = addslashes($pWord);
 
