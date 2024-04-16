@@ -182,104 +182,62 @@
       </nav>
     </header>
 <div class="category">
-	<h1> Recommended </h1>
-<div class="carousel-inner">
-<?php
+    <h1> Recommended </h1>
+    <div class="carousel-inner">
+      <?php
+      include("functions.php");
+      $dblink = db_connect("UI-schema");
+      $sql = "SELECT * FROM `image`";
+      $result = mysqli_query($dblink, $sql);
 
-include("functions.php");
-$dblink = db_connect("UI-schema");
-$sql = "SELECT * FROM `image`";
-$result = mysqli_query($dblink, $sql);
+      if (mysqli_num_rows($result) == 0) {
+          echo 'Error, database table not found';
+      } else {
+          $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
+          echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">';
+          $first = true;
+          foreach ($images as $image) {
+              $activeClass = $first ? 'active' : '';
+              echo '<div class="carousel-item '.$activeClass.'">
+                      <div class="row">';
+              foreach ($image as $img) {
+                  echo '<div class="col-md-4">
+                          <div class="card mb-3">
+                            <img src="'.$img['image_path'].'" class="card-img-top" alt="Image">
+                            <div class="card-body">
+                              <h5 class="card-title">'.$img['name'].'</h5>
+                              <p class="card-text">'.$img['price'].'</p>
+                              <form method="post" action="cart.php?itemID='.$img['id'].'">
+                                <button class="btn btn-outline-secondary" type="submit" name="add_to_cart">Add to Cart</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>';
+              }
+              echo '</div></div>';
+              $first = false;
+          }
+          echo '</div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>';
+      }
 
-if(mysqli_num_rows($result) == 0) {
-    echo 'Error, database table not found';
-} else {
-    $images = mysqli_fetch_all($result, MYSQLI_ASSOC); // Fetch all images into an array
-
-    // Split images array into chunks of 3
-    $imageSets = array_chunk($images, 3);
-
-    echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">';
-
-    // Loop through the image sets and generate HTML for each carousel item
-    $first = true; // Flag to mark the first item as active
-    foreach($imageSets as $set) {
-        $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
-
-        echo '<div class="carousel-item '.$activeClass.'">
-                <div class="row">'; // Open a row for the set of images
-
-        // Loop through the images in the set and generate HTML for each image
-        foreach($set as $image) {
-            $imagePath = $image['image']; // Assuming your image path column is named 'image_path'
-	    $imageName = $image['name'];
-	    $imagePrice = $image['price'];	
-
-            echo '<div class="col-md-4">
-                    <div class="card mb-3">
-                      <img src="'.$imagePath.'" class="card-img-top" alt="Your Logo">
-                      <div class="card-body">
-                        <h5 class="card-title">'.$imageName.'</h5>
-                        <p class="card-text">'.$imagePrice.'</p>
-			<form class="col-md-3 offset-md-8" method="post" action="">
-                        <button class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>
-		    	</form>
-                      </div>
-                    </div>
-                  </div>';
-        }
-
-        echo '</div></div>'; // Close the row and carousel item
-
-        $first = false; // Update the flag after the first iteration
-    }
-
-    echo '</div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>';
-}
-
-if(isset($_POST['submit']))
-		{	
-			if(!isset($_SESSION['userID']))
-			{
-				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
-			}
-			
-			$userID = $_SESSION['userID'];
-			$imageID = $_GET['itemID'];
-			$name = $data['name'];
-			$price = $data['price'];
-			
-			$sql="SELECT * FROM `orders` WHERE `userID` LIKE '$userID' AND `imageID` LIKE '$imageID'";
-			$result = mysqli_query($dblink, $sql);
-			if(mysqli_num_rows($result) == 0)
-			{
-				$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
-				$dblink->query($sql) or
-					die("Something went wrong with: $sql<br>".$dblink->error."</p>");
-				echo '<h1> Success </h1>';
-
-				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=success");
-			}
-			else
-			{
-				echo '<h1> Failed </h1>';
-				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=failed");
-			}
-		}
-
- ?> 
-</div>
-</div>
+      if (isset($_POST['add_to_cart']) && isset($_GET['itemID'])) {
+          $userID = $_SESSION['userID'] ?? null;
+          $imageID = $_GET['itemID'];
+          // Add more code to handle the add to cart logic here
+      }
+      ?>
+    </div>
+  </div>
    <br />
     <br />
     <br />
