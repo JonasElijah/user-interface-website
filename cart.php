@@ -159,7 +159,7 @@
                 <a class="nav-link" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">gallery.php</a>
+                <a class="nav-link" href="gallery.php">Gallery</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">FAQ</a>
