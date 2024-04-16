@@ -227,7 +227,7 @@ $result = mysqli_query($dblink, $sql);
 if(mysqli_num_rows($result) == 0)
 {
 			
-	echo '<h1 align = "center" style = "color: #fdf4eb">Error, cart not found. Please log in or add to your cart.</h1>';
+	echo '<h1 align = "center" style = "color: #fdf4eb font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Error, cart not found. Please log in or add to your cart.</h1>';
 }
 else
 {
