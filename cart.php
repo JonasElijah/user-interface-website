@@ -283,7 +283,7 @@ if(!isset($_POST['submit'])) {
 		 echo '</div>';
     }
 } elseif (isset($_POST['update_cart'])) {
-    echo '<pre>'; print_r($_POST['quantity']); echo '</pre>';
+    echo '<h1>'.$_POST['quantity'].'</h1>';
     foreach ($_POST['quantity'] as $orderID => $quantity) {
         $quantity = intval($quantity);
         if ($quantity > 0) {
