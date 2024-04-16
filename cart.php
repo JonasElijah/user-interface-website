@@ -282,14 +282,19 @@ if(!isset($_POST['submit'])) {
 		
 		 echo '</div>';
     }
-} elseif(isset($_POST['update_cart'])) {
-    foreach($_POST['quantity'] as $orderID => $quantity) {
+} elseif (isset($_POST['update_cart'])) {
+    echo '<pre>'; print_r($_POST['quantity']); echo '</pre>';
+    foreach ($_POST['quantity'] as $orderID => $quantity) {
         $quantity = intval($quantity);
-        $sql = "UPDATE `orders` SET `quantity` = '$quantity' WHERE ID = '$orderID'";
-        mysqli_query($dblink, $sql);
+        if ($quantity > 0) {
+            $sql = "UPDATE orders SET quantity = '$quantity' WHERE ID = '$orderID'";
+            mysqli_query($dblink, $sql);
+        }
     }
-    header("Location: cart.php"); // Refresh the page
+    // Comment out the redirect to see the output
+    // header("Location: cart.php");
 }
+
 ?>
 
 </body>
