@@ -67,6 +67,8 @@
 	.form
 	{
 		background-color: #fdf4eb;
+		padding-right: 30px;
+		padding-left: 30px;
 	}
 
     </style>
