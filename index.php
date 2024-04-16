@@ -259,8 +259,9 @@ if(isset($_POST['submit']))
     {
         $userID = $_SESSION['userID'];
         $imageID = $_POST['imageID'];
+	 
 
-        $sql = "SELECT name, price FROM `image` WHERE id = ?";
+        $sql = "SELECT name, price FROM `image` WHERE id = '$imageID'";
         $stmt = $dblink->prepare($sql);
         $stmt->bind_param("i", $imageID);
         $stmt->execute();
