@@ -180,7 +180,7 @@
 		echo '<div class="row main-view">';
 	  		//Display Image
 	  		echo '<div class="col-md-4">';
-	  		echo '<img src="img/661d93c5a29" class="product-image">';
+	  		echo '<img src="img/661d93c5a29.png" class="product-image">';
 	  		echo '</div>';
 	  		
 	  		//Description
