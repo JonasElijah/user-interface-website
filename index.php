@@ -65,16 +65,22 @@
       }
 
 
-  #carouselExample {
-    max-width: 600px; 
-    margin: 0 auto; 
-  }
+	 /* Increase the width of the carousel items by adjusting the padding and margin */
+	.carousel-item .row > div {
+	  padding-right: 5px;
+	  padding-left: 5px;
+	}
+	
+	/* Ensure images take up more space and are responsive */
+	#carouselExample .carousel-item img {
+	  width: 100%; /* Make images fill their container */
+	  height: auto; /* Maintain aspect ratio */
+	  object-fit: cover; /* Cover the area without stretching */
+	}
+	
+	/* Additional style adjustments can be made here if necessary */
 
-
-  #carouselExample .carousel-item img {
-    height: 300px; 
-    object-fit: cover; 
-  }
+	    
     </style>
   </head>
   <body>
@@ -159,6 +165,7 @@
         </div>
       </nav>
     </header>
+<div class="carousel-inner">
 <?php
 
 include("functions.php");
@@ -219,7 +226,7 @@ if(mysqli_num_rows($result) == 0) {
 }
 
  ?> 
-    
+</div>
 
    <br />
     <br />
