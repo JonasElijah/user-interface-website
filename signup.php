@@ -361,7 +361,7 @@
 
 		
 		
-			echo '<br><button class="center-block" name="submit" type="submit" value="submit">Submit</button></form>';
+			echo '<br><button class="btn btn-success col-md-2 offset-md-5" name="submit" type="submit" value="submit">Sign Up</button></form>';
 	}
 
 	if(isset($_POST['submit'])){

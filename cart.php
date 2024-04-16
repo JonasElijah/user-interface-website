@@ -6,8 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shopping Cart page</title>
 
-<link href="node_modules/css/bootstrap.min.css" rel="stylesheet">
-<link href="node_modules/css/bst-styles.css" rel="stylesheet">
+
 <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
 <style>
       header {
@@ -68,6 +67,7 @@
 	.form
 	{
 		background-color: #fdf4eb;
+		padding: 50px;
 	}
 	.profile-img {
 			border-radius: 50%;
@@ -295,6 +295,8 @@ else
 				echo '<br>';
 				echo '<h3>Number of Items</h3>';
 				echo '<p class="user-info">'.$quantity.'</p>';
+				echo '<br>';
+				echo '<br><button class="btn btn-success offset-md-3" name="submit" type="submit" value="submit">Check Out</button></form>';
 				echo '<br>';
 			echo '</div>';
 		echo '</div>';
