@@ -243,11 +243,16 @@ else
 	$counter = 1;
 	$sum = 0;
 	$quantity = 0;
+	$nameHolder = "";
 	while ($data=$result->fetch_array(MYSQLI_ASSOC))
 		{
 			
 			echo '<tr>';
 			echo '<td>'.$counter.'</td>';
+			if($nameHolder == "")
+			{
+			$nameHolder .= $data['name'];
+			}
 			$myImage = $data['imageID'];
 			$sqlW = "SELECT `image` FROM `image` where `ID` LIKE '$myImage'";
 			$resultW = mysqli_query($dblink, $sqlW);
@@ -284,7 +289,7 @@ else
 			echo '<img src="assets/images/photography.png" class="profile-img">';
 			echo '</div>';
 			echo '<div align="center">';
-			echo '<h5>Checkout</h5>';
+			echo '<h5>'$nameHolder'</h5>';
 			echo '</div>';
 			echo '<hr>';
 			echo '<div class="offset-md-1">';
