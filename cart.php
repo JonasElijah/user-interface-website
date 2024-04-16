@@ -152,6 +152,12 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+		<?php 
+		if (isset($_POST['update_cart'])) {
+		    echo "Update cart triggered.<br>";
+		    // Existing code...
+		}
+		?>
 	
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
@@ -284,14 +290,6 @@ if(!isset($_POST['submit'])) {
 		 echo '</div>';
     }
 } 
-
-echo "Form submitted. Post data: <pre>" . print_r($_POST, true) . "</pre>";
-
-if (isset($_POST['update_cart'])) {
-    echo "Update cart triggered.<br>";
-    // Existing code...
-}
-
 
 ?>
 
