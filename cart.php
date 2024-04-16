@@ -260,7 +260,7 @@ else
 			{
 				while($dataW=$resultW->fetch_array(MYSQLI_ASSOC))
 					{
-						echo '<td>'.$dataW['name'].'</td>';
+						echo '<td>'.$dataW['image'].'</td>';
 					}
 				
 			}
