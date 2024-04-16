@@ -225,6 +225,8 @@ if(mysqli_num_rows($result) == 0) {
                         <p class="card-text">'.$imagePrice.'</p>
                         <form method="post" action="">
                   	    <input type="hidden" name="imageID" value="'.$imageID.'"> 
+		            <input type="hidden" name="imageName" value="'.$imageName.'"> 
+                  	    <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
 			    <button type="submit" name="submit">Add to Cart</button>
 			</form>
                       </div>
@@ -251,23 +253,16 @@ if(mysqli_num_rows($result) == 0) {
 
 if(isset($_POST['submit'])) {
     $imageID = $_POST['imageID'];
-echo "Image ID: " . $imageID . "<br>";
+    $imageName = $_POST['imageName'];
+    $imagePrice = $_POST['imagePrice'];
 
-    // Fetch image details from the database using imageID
-    $sql="SELECT * FROM `image` where `ID` LIKE '$imageId'";
-    $result=$dblink->query($sql) or
-	    die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
-    $data=$result->fetch_array(MYSQLI_ASSOC);
+  
+	echo "Image ID: " . $imageID . "<br>";
+	echo "Image Name: " . $imageName . "<br>";
+	echo "Image Price: " . $imagePrice . "<br>";
 
-    if($data) {
-        $imageName = $data['name'];  // Now you have the image name
-        $imagePrice = $data['price'];
 
-        // Proceed to add to cart logic
-        // Your existing code for adding to cart...
-    } else {
-        echo '<h1>Failed to fetch item details</h1>';
-    }
+
 }
 ?>
 
