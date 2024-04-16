@@ -235,11 +235,43 @@
 				echo '</div>';
 	  			echo '<br><br><br>';
 	  			echo '<div class="col-md-3 offset-md-8" align="right">';
-	  				echo '<button type="button" class="btn btn-outline-secondary">Add to Cart</button>';
+	  				echo '<form method="post" action="">';
+	  				echo '<button type="button" class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
+	  				echo '</form>';
 	  			echo '</div>';
 	  		echo '</div>';
 	  
 	  	echo '</div>';
+	  	
+	  	if(isset($_POST['submit']))
+		{
+			if(!isset($_SESSION['userID']))
+			{
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+			}
+			
+			$userID = $_SESSION['userID'];
+			$imageID = $_SESSION['itemID'];
+			$name = $data['name'];
+			$price = $data['price'];
+			$sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID,'$imageID','$name','$price')";
+			$dblink->query($sql) or
+				die("Something went wrong with: $sql<br>".$dblink->error."</p>");
+			
+			echo '<div aria-live="polite" aria-atomic="true" class="position-relative">
+			  <div class="toast-container top-0 end-0 p-3">
+
+				<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+				  <div class="toast-header">
+					<img src="assets/assets/images/photography.png" class="rounded me-2" alt="...">
+					<strong class="me-auto">Photography Website</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+				  </div>
+				  <div class="toast-body">
+					Succesfully Added Item to Cart!
+				  </div>
+				</div>';
+		}
 	?>
 
    <br />
