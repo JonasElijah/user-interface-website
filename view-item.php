@@ -213,14 +213,14 @@
 				embarkon a journeyintotheunknown
 				"</p>';
 	  		
-				echo '<div class="col-md-5 offset-md-7">';
+				echo '<div>';
 				echo '<hr>';
 					echo '<div class="row">';
-					echo '<h6 class="col-md-3">Price:</h6>';
-					echo '<h6 class="col-md-9 price-val">$Price</h6>';
+					echo '<h6 class="col-md-2 offset-md-6">Price:</h6>';
+					echo '<h6 class="col-md-4 price-val">$Price</h6>';
 					echo '</div>';
 				echo '</div>';
-	  			echo '<div col-md-3 offset-md-9>';
+	  			echo '<div class="col-md-3 offset-md-9">';
 	  				echo '<button type="button" class="btn">Add to Cart</button>';
 	  			echo '</div>';
 	  		echo '</div>';
