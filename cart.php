@@ -215,6 +215,8 @@
 include("functions.php");
 $dblink = db_connect("UI-schema");
 
+if(!isset($_POST['submit'])
+   {
 $userID = $_SESSION['userID'];
 $sql = "SELECT * FROM `orders` where `userID` LIKE '$userID'";
 $result = mysqli_query($dblink, $sql);
@@ -308,6 +310,12 @@ else
 
 		
 	}
+}
+else
+{
+echo '<h2 style = "color: #fdf4eb; font-size: 20px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Thank you for your order! </h2>';
+
+}
 ?>
 </body>
 <div>
