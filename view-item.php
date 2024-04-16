@@ -94,6 +94,11 @@
 		.price-val {
 			text-align: right;
 		}
+		
+		.desc {
+			height: 60%;
+			overflow:auto;
+		}
     </style>
   </head>
   <body>
@@ -191,7 +196,7 @@
 	  		echo '<div class="col-md-6">';
 	  		echo '<hr>';
 	  		echo '<p>Description of the photo</p>';
-	  		echo '<p>"
+	  		echo '<p class="desc">"
 				Inthiscaptivating photo, weseea
 				mystical forest scenebathed inthesoft
 				glow of twilight. Toweringtreesadorned
@@ -208,14 +213,18 @@
 				embarkon a journeyintotheunknown
 				"</p>';
 	  		
-	  		echo '<div class="col-md-3 justify-content-end">';
-	  		echo '<hr>';
-	  		echo '<div class="row">';
-	  		echo '<h6 class="col-md-3">Price:</h6>';
-	  		echo '<h6 class="col-md-9 price-val">$Price</h6>';
+				echo '<div class="col-md-5 offset-md-7">';
+				echo '<hr>';
+					echo '<div class="row">';
+					echo '<h6 class="col-md-3">Price:</h6>';
+					echo '<h6 class="col-md-9 price-val">$Price</h6>';
+					echo '</div>';
+				echo '</div>';
+	  			echo '<div col-md-3 offset-md-9>';
+	  				echo '<button type="button" class="btn">Add to Cart</button>';
+	  			echo '</div>';
 	  		echo '</div>';
-	  		echo '</div>';
-	  		echo '</div>';
+	  
 	  	echo '</div>';
 	?>
 
