@@ -174,13 +174,13 @@ $userID = $_SESSION['userID'];
 $sql = "SELECT * FROM `orders` where `userID` LIKE '$userID'";
 $result = mysqli_query($dblink, $sql);
 $row = $result->fetch_assoc();
-	if($row <0)
-	{
+if(mysqli_num_rows($result) == 0)
+{
 			
-		echo '<h1>Error, cart not found. Please log in or add to your cart.</h1>';
-	}
+	echo '<h1>Error, cart not found. Please log in or add to your cart.</h1>';
+}
 else
-	{
+{
 		
 	echo '<table>';
 	while ($data=$result->fetch_array(MYSQLI_ASSOC))
