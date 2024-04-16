@@ -220,23 +220,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
              		echo '</li>';
 			    }
 		?>
-              <li class="nav-item dropdown" id="hover-dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  >Profile</a
-                >
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Account</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Cart</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Settings</a></li>
-                </ul>
-              </li>
+             
             </ul>
           </div>
         </div>
