@@ -109,7 +109,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="gallery.php">Gallery</a>
@@ -131,6 +131,9 @@
               		echo ' </li>';
 			}
 	else{
+			echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="cart.php">Cart</a>';
+             		echo '</li>';		
 			echo '<li class="nav-item">';
                 	echo '<a class="nav-link" href="account.php">Account</a>';
              		echo '</li>';
