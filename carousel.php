@@ -164,7 +164,7 @@
         </div>
       </nav>
     </header>
-    /*
+    
 <?php
 
 include("functions.php");
@@ -204,7 +204,7 @@ else
 
 
 ?>
-*/
+
 
    <br />
     <br />
