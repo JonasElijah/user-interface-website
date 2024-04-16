@@ -183,12 +183,12 @@
 	<?php
 		echo '<div class="row main-view">';
 	  		//Display Image
-	  		echo '<div class="col-md-4">';
+	  		echo '<div class="col-md-6">';
 	  		echo '<img src="img/661d93c5a2987.png" class="product-image">';
 	  		echo '</div>';
 	  		
 	  		//Description
-	  		echo '<div class="col-md-4">';
+	  		echo '<div class="col-md-6">';
 	  		echo '<hr>';
 	  		echo '<p>Description of the photo</p>';
 	  		echo '<p>"
@@ -207,19 +207,13 @@
 				intrigue, thisphotoinvitesviewersto
 				embarkon a journeyintotheunknown
 				"</p>';
-	  		echo '</div>';
 	  		
-	  		//Photo Info
-	  		echo '<div class="col-md-4">';
-	  		echo '<hr>';
-	  			echo '<div class="info">';
-	  				echo '<p>';
-	  				echo '</p>';
-	  			echo '</div>';
+	  		echo '<div class="col-md-3 justify-content-end">';
 	  		echo '<hr>';
 	  		echo '<div class="row">';
-	  		echo '<h6>Price:</h6>';
-	  		echo '<h6 class="price-val">$Price</h6>';
+	  		echo '<h6 class="col-md-3">Price:</h6>';
+	  		echo '<h6 class="col-md-9 price-val">$Price</h6>';
+	  		echo '</div>';
 	  		echo '</div>';
 	  		echo '</div>';
 	  	echo '</div>';
