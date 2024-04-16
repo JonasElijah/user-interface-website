@@ -268,7 +268,7 @@ if(!isset($_POST['submit'])) {
 				echo '<p class="user-info">'.$sum.'</p>';
 				echo '<br>';
 				echo '<h3>Number of Items</h3>';
-				echo '<p class="user-info">'.$quantity.'</p>';
+				echo '<p class="user-info">'.$totalItems.'</p>';
 				echo '<br>';
 				echo '<form method = "post" action = "">';
 				echo '<br><button class="btn btn-success offset-md-3" name="submit" type="submit" value="submit">Check Out</button>';
