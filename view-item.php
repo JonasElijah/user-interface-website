@@ -199,7 +199,7 @@
       </nav>
     </header>
 	<?php
-		$imageId = $_SESSION['itemID'];
+		$imageId = $_GET['itemID'];
 		$dblink=db_connect("UI-schema");
 		$sql="SELECT * FROM `image` where `ID` LIKE '$imageId'";
 		$result=$dblink->query($sql) or
