@@ -1,3 +1,11 @@
+<?php
+	include("functions.php");
+	
+	if (session_status() === PHP_SESSION_NONE) {
+    	session_start();
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -108,11 +116,6 @@
     </style>
   </head>
   <body>
-	<?php
-    if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-    }
-	    ?>
     <header>
       <nav
         class="navbar navbar-expand-lg custom-navbar shadow rounded"
@@ -150,7 +153,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
-              <?php
+				
+				<?php
 
 	if(!isset($_SESSION['userID'])){
 			echo '<li class="nav-item"> ';
@@ -161,6 +165,9 @@
               		echo ' </li>';
 			}
 	else{
+			echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="cart.php">Cart</a>';
+             		echo '</li>';		
 			echo '<li class="nav-item">';
                 	echo '<a class="nav-link" href="account.php">Account</a>';
              		echo '</li>';
@@ -226,7 +233,7 @@
 					echo '<h6 class="col-md-4 price-val">$Price</h6>';
 					echo '</div>';
 				echo '</div>';
-	  			echo '<br><br>';
+	  			echo '<br><br><br>';
 	  			echo '<div class="col-md-3 offset-md-9" align="right">';
 	  				echo '<button type="button" class="btn btn-outline-secondary">Add to Cart</button>';
 	  			echo '</div>';
