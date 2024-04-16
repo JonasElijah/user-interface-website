@@ -216,12 +216,13 @@
 	  
 	  	if(!isset($_POST['submit']))
 		{
+			echo '<div aria-live="polite" aria-atomic="true" class="position-relative">';
 			if(isset($_GET['addItem']))
 			{
 				if($_GET['addItem'] == 'success')
 				{
-					echo '<div aria-live="polite" aria-atomic="true" class="position-relative">
-				  	<div class="toast-container top-0 end-0 p-3">
+					
+				  	echo '<div class="toast-container top-0 end-0 p-3">
 
 					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 					  <div class="toast-header">
@@ -231,13 +232,12 @@
 					  </div>
 					  <div class="toast-body">
 						Succesfully Added Item to Cart!
-					  </div>
-					</div>';
+					  </div>';
+					
 				}
 				else
 				{
-					echo '<div aria-live="polite" aria-atomic="true" class="position-relative">
-				  <div class="toast-container top-0 end-0 p-3">
+				  echo '<div class="toast-container top-0 end-0 p-3">
 
 					<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 					  <div class="toast-header">
@@ -277,6 +277,7 @@
 					echo '</div>';
 				echo '</div>';
 
+			echo '</div>';
 			echo '</div>';
 		}
 	  	if(isset($_POST['submit']))
