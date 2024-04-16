@@ -226,10 +226,7 @@ $result = mysqli_query($dblink, $sql);
 //$row = $result->fetch_assoc();
 if(mysqli_num_rows($result) == 0)
 {
-	echo '<br>';
-	echo '<br>';	
-	echo '<hr>';	
-	echo '<h1 align = "center" style = "color: #fdf4eb; font-size: 25px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Error, cart not found. Please log in or add to your cart.</h1>';
+	redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
 }
 else
 {
