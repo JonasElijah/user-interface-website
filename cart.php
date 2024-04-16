@@ -206,12 +206,13 @@
 	
 <h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Shopping Cart </h1>
 <?php
-	
+$displayName = "";
 include("functions.php");
 $dblink = db_connect("UI-schema");
 
 if(!isset($_POST['submit']))
    {
+	$displayName .= $_SESSION['userID'];
 	$userID = $_SESSION['userID'];
 	$sql = "SELECT * FROM `orders` where `userID` LIKE '$userID'";
 	$result = mysqli_query($dblink, $sql);
@@ -278,7 +279,21 @@ if(!isset($_POST['submit']))
 		echo '<div class="col-md-10 offset-md-1">';
 		echo '<div align="center">';
 		echo '<img src="assets/images/photography.png" class="profile-img">';
-			echo '</div>';
+		echo '</div>';
+		$sqlN = "SELECT `fName` FROM `user` where `userID` LIKE '$displayName'";
+		$resultN = mysqli_query($dblink, $sqlN);
+		if(mysqli_num_rows($resultN) == 0)
+					{
+			
+						echo '<h1>Error,name not found.</h1>';
+					}
+				else
+					{
+						while($dataN=$resultN->fetch_array(MYSQLI_ASSOC))
+							{
+						
+								echo '<td><img src = "'.$dataN['fName'].'" style="max-width:250px;"></td>';
+							}
 			echo '<div align="center">';
 			echo '<h5>'.$nameHolder.'</h5>';
 			echo '</div>';
