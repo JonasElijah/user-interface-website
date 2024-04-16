@@ -181,6 +181,7 @@
         </div>
       </nav>
     </header>
+<div class="category">
 <div class="carousel-inner">
 <?php
 
@@ -243,7 +244,7 @@ if(mysqli_num_rows($result) == 0) {
 
  ?> 
 </div>
-
+</div>
    <br />
     <br />
     <br />
