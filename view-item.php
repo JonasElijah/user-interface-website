@@ -214,7 +214,7 @@
 			die("<p>Something went wrong with: <br>$sql<br>".$dblink->error."</p>");
 		$data=$result->fetch_array(MYSQLI_ASSOC);
 	  
-	  	if(!isset($_POST['submit']))
+	  	if(!isset($_GET['submit']))
 		{
 			echo '<div class="row main-view">';
 				//Display Image
@@ -244,7 +244,7 @@
 
 			echo '</div>';
 		}
-	  	if(isset($_POST['submit']))
+	  	else
 		{	
 			echo '<div class="row main-view">';
 				//Display Image
@@ -266,7 +266,7 @@
 					echo '</div>';
 					echo '<br><br><br>';
 					echo '<div class="col-md-3 offset-md-8" align="right">';
-						echo '<form method="post" action="">';
+						echo '<form method="get" action="">';
 						echo '<button type="button" class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>';
 						echo '</form>';
 					echo '</div>';
