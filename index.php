@@ -72,11 +72,14 @@
 	}
 	
 	/* Ensure images take up more space and are responsive */
+	/* Ensure images in the carousel have the same fixed height and adjust width automatically */
 	#carouselExample .carousel-item img {
-	  width: 100%; /* Make images fill their container */
-	  height: auto; /* Maintain aspect ratio */
-	  object-fit: cover; /* Cover the area without stretching */
+	  height: 400px; /* Fixed height for all images */
+	  width: auto; /* Auto width to maintain aspect ratio */
+	  object-fit: cover; /* Cover the area nicely without stretching the image */
+	  max-width: 100%; /* Ensure the image does not overflow its container */
 	}
+
 	
 	/* Additional style adjustments can be made here if necessary */
 
