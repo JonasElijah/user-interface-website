@@ -277,7 +277,6 @@ if(isset($_POST['submit']))
             $stmt->bind_param("ii", $userID, $imageID);
             $stmt->execute();
             $result = $stmt->get_result();
-	    echo '<h1>'.$imageName.'</h1>';
             if($result->num_rows == 0)
             {
                 $sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
