@@ -182,21 +182,24 @@ if(mysqli_num_rows($result) == 0)
 else
 {
 	
-	echo '<table class = "table table-dark">';
+	echo '<table class = "table table-striped">';
 	echo '<tr>';
 	echo '<th scope="col">#</th>';
 	echo '<th scope="col">Image ID</th>';
       	echo '<th scope="col">Name</th>';
       	echo '<th scope="col">Price</th>';
 	echo '</tr>';
+	$counter = 1;
 	while ($data=$result->fetch_array(MYSQLI_ASSOC))
 		{
 			
 			echo '<tr>';
+			echo '<td>'.$counter.'</td>';
 			echo '<td>'.$data['imageID'].'</td>';
 			echo '<td>'.$data['name'].'</td>';
 			echo '<td>'.$data['price'].'</td>';
 			echo '</tr>';
+			$counter++;
 		}
 	echo '</table>';
 		
