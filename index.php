@@ -222,7 +222,7 @@ if(mysqli_num_rows($result) == 0) {
                       <div class="card-body">
                         <h5 class="card-title">'.$imageName.'</h5>
                         <p class="card-text">'.$imagePrice.'</p>
-			<form class="col-md-3 offset-md-8" method="post" action="">'
+			<form class="col-md-3 offset-md-8" method="post" action="">
                         <button class="btn btn-outline-secondary" name="submit" type="submit" value="submit">Add to Cart</button>
 		    	</form>
                       </div>
