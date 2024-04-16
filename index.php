@@ -251,6 +251,7 @@ if(mysqli_num_rows($result) == 0) {
 
 if(isset($_POST['submit'])) {
     $imageID = $_POST['imageID'];
+echo "Image ID: " . $imageID . "<br>";
 
     // Fetch image details from the database using imageID
     $sql="SELECT * FROM `image` where `ID` LIKE '$imageId'";
