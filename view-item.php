@@ -291,7 +291,7 @@
 			$name = $data['name'];
 			$price = $data['price'];
 			
-			$sql="Select * FROM `orders` WHERE (`userID`,`imageID`) IN ('$userID','$imageID')";
+			$sql="Select * FROM `orders` WHERE SELECT * FROM `orders` WHERE `userID` = '$userID' AND `imageID` = '$imageID'";
 			$result = mysqli_query($dblink, $sql);
 			if(mysqli_num_rows($result) == 0)
 			{
