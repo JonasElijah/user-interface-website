@@ -231,6 +231,7 @@ if(mysqli_num_rows($result) == 0)
 }
 else
 {
+	echo "<div class='row main-background'>";
 	echo '<div class = "col-md-9">';
 	echo '<table class = "table table-striped">';
 	echo '<tr>';
@@ -258,7 +259,7 @@ else
 	echo '</table>';
 	echo '</div>';
 
-	echo "<div class='row main-background'>";
+	
 		//Side Bar
 		echo '<div class="col-md-3 sidebar" >';
 			echo '<div class="col-md-10 offset-md-1">';
