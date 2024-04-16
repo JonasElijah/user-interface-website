@@ -67,8 +67,7 @@
 	.form
 	{
 		background-color: #fdf4eb;
-		padding-right: 30px;
-		padding-left: 30px;
+		p
 	}
 
     </style>
@@ -172,7 +171,7 @@ if(!isset($_POST['submit'])){
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="email">Email address</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" value="'.$_SESSION['email'].'">';
 				echo '<p class="alert alert-success" id="emailStatus">Email is valid!</p>';
 				echo '</div></div>';
@@ -181,7 +180,7 @@ if(!isset($_POST['submit'])){
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="email">Email address</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
 				echo '<p id="emailStatus"></p>';
 				echo '</div></div>';
@@ -193,7 +192,7 @@ if(!isset($_POST['submit'])){
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="email">Email address</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
 				echo '<p class="alert-danger" id="emailStatus">Email cannot be blank!</p>';
 				echo '</div></div>';
@@ -202,7 +201,7 @@ if(!isset($_POST['submit'])){
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="email">Email address</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
 				echo '<p class="alert alert-danger" id="emailStatus">Email Does not exist!</p>';
 				echo '</div></div>';
@@ -214,7 +213,7 @@ if(!isset($_POST['submit'])){
 				{
 					echo '<div class="form-group">';
 					echo '<label class="col-md-3" for="email">Email address</label>';
-					echo '<div class="col-md-9">';
+					echo '<div >';
 					echo '<input name="email" type="email" class="form-control" id="email" value="'.$_SESSION['email'].'">';
 					echo '<p class="alert alert-danger" id="emailStatus">Email is invalid!</p>';
 					echo '</div>
@@ -229,7 +228,7 @@ if(!isset($_POST['submit'])){
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="password">Password</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
 				echo '<p class="alert alert-success" id="passwordStatus">Password is valid!</p>';
 				echo '</div></div>';
@@ -238,7 +237,7 @@ if(!isset($_POST['submit'])){
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="password">Password</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
 				echo '<p id="passwordStatus"></p>';
 				echo '</div></div>';
@@ -250,7 +249,7 @@ if(!isset($_POST['submit'])){
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="password">Password</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
 				echo '<p class="alert alert-danger" id="passwordStatus">Password cannot be blank!</p>';
 				echo '</div></div>';
@@ -259,7 +258,7 @@ if(!isset($_POST['submit'])){
 			{
 			echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="password">Password</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
 				echo '<p class="alert alert-danger" id="passwordStatus">Password does not match email!</p>';
 				echo '</div></div>';
@@ -270,7 +269,7 @@ if(!isset($_POST['submit'])){
 				{
 					echo '<div class="form-group">';
 					echo '<label class="col-md-3" for="password">Password</label>';
-					echo '<div class="col-md-9">';
+					echo '<div >';
 					echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
 					echo '<p class="alert alert-danger" id="passwordStatus">Password is invalid!</p>';
 					echo '</div>
