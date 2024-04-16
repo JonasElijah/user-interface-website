@@ -5,9 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sign Up Page</title>
-
-<link href="node_modules/css/bootstrap.min.css" rel="stylesheet">
-<link href="node_modules/css/bst-styles.css" rel="stylesheet">
 <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
 <style>
       header {
@@ -68,6 +65,7 @@
 	.form
 	{
 		background-color: #fdf4eb;
+		padding: 50px;
 	}
 
     </style>
@@ -173,7 +171,7 @@
 <?php
 	
 	if(!isset($_POST['submit'])){
-		echo '<form class="col-md-6 col-md-offset-3 form-horizontal form" id="contact" method="post" action="">';
+		echo '<form class="col-md-6 offset-md-3  form" id="contact" method="post" action="">';
 		
 		if( (!isset($_GET['fName'])))
 		{
@@ -181,16 +179,16 @@
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="firstName">First Name</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="fName" type="text" class="form-control" id="fName" value="'.$_SESSION['fName'].'">';
-				echo '<p class="alert-success" id="fNameStatus">First Name is valid!</p>';
+				echo '<p class="alert alert-success" id="fNameStatus">First Name is valid!</p>';
 				echo '</div></div>';
 			}
 			else
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="firstName">First Name</label>';
-				echo '<div class="col-md-9">';
+				echo '<div>';
 				echo '<input name="fName" type="text" class="form-control" id="fName" placeholder="First Name">';
 				echo '<p id="fNameStatus"></p>';
 				echo '</div></div>';
@@ -202,9 +200,9 @@
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="firstName">First Name</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="fName" type="text" class="form-control" id="fName" placeholder="First Name">';
-				echo '<p class="alert-danger" id="fNameStatus">First name cannot be blank!</p>';
+				echo '<p class="alert alert-danger" id="fNameStatus">First name cannot be blank!</p>';
 				echo '</div></div>';
 			}
 			else
@@ -213,9 +211,9 @@
 				{
 					echo '<div class="form-group">';
 					echo '<label class="col-md-3" for="firstName">First Name</label>';
-					echo '<div class="col-md-9">';
+					echo '<div >';
 					echo '<input name="fName" type="text" class="form-control" id="fName" value="'.$_SESSION['fName'].'">';
-					echo '<p class="alert-danger" id="fNameStatus">First name is invalid!</p>';
+					echo '<p class="alert alert-danger" id="fNameStatus">First name is invalid!</p>';
 					echo '</div></div>';
 				}
 			}
@@ -227,16 +225,16 @@
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="lastName">Last Name</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="lName" type="text" class="form-control" id="lName" value="'.$_SESSION['lName'].'">';
-				echo '<p class="alert-success" id="lNameStatus">Last name is valid!</p>';
+				echo '<p class="alert alert-success" id="lNameStatus">Last name is valid!</p>';
 				echo '</div></div>';
 			}
 			else
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="lastName">Last Name</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="lName" type="text" class="form-control" id="lName" placeholder="Last Name">';
 				echo '<p id="lNameStatus"></p>';
 				echo '</div></div>';
@@ -248,9 +246,9 @@
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="lastName">Last Name</label>';
-				echo '<div class="col-md-9">';
+				echo '<div>';
 				echo '<input name="lName" type="text" class="form-control" id="lName" placeholder="Last Name">';
-				echo '<p class="alert-danger" id="lNameStatus">Last name cannot be blank!</p>';
+				echo '<p class="alert alert-danger" id="lNameStatus">Last name cannot be blank!</p>';
 				echo '</div></div>';
 			}
 			else
@@ -259,9 +257,9 @@
 				{
 					echo '<div class="form-group">';
 					echo '<label class="col-md-3" for="lastName">Last Name</label>';
-					echo '<div class="col-md-9">';
+					echo '<div >';
 					echo '<input name="lName" type="text" class="form-control" id="lName" value="'.$_SESSION['lName'].'">';
-					echo '<p class="alert-danger" id="lNameStatus">Last Name is invalid!</p>';
+					echo '<p class="alert alert-danger" id="lNameStatus">Last Name is invalid!</p>';
 					echo '</div></div>';
 				}
 			}
@@ -273,16 +271,16 @@
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="email">Email address</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" value="'.$_SESSION['email'].'">';
-				echo '<p class="alert-success" id="emailStatus">Email is valid!</p>';
+				echo '<p class="alert alert-success" id="emailStatus">Email is valid!</p>';
 				echo '</div></div>';
 			}
 			else
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="email">Email address</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
 				echo '<p id="emailStatus"></p>';
 				echo '</div></div>';
@@ -294,9 +292,9 @@
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="email">Email address</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
-				echo '<p class="alert-danger" id="emailStatus">Email cannot be blank!</p>';
+				echo '<p class="alert alert-danger" id="emailStatus">Email cannot be blank!</p>';
 				echo '</div></div>';
 			}
 			else
@@ -305,9 +303,9 @@
 				{
 					echo '<div class="form-group">';
 					echo '<label class="col-md-3" for="email">Email address</label>';
-					echo '<div class="col-md-9">';
+					echo '<div >';
 					echo '<input name="email" type="email" class="form-control" id="email" value="'.$_SESSION['email'].'">';
-					echo '<p class="alert-danger" id="emailStatus">Email is invalid!</p>';
+					echo '<p class="alert alert-danger" id="emailStatus">Email is invalid!</p>';
 					echo '</div>
 					</div>';
 				}
@@ -320,16 +318,16 @@
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="password">Password</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
-				echo '<p class="alert-success" id="passwordStatus">Password is valid!</p>';
+				echo '<p class="alert alert-success" id="passwordStatus">Password is valid!</p>';
 				echo '</div></div>';
 			}
 			else
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="password">Password</label>';
-				echo '<div class="col-md-9">';
+				echo '<div >';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
 				echo '<p id="passwordStatus"></p>';
 				echo '</div></div>';
@@ -341,9 +339,9 @@
 			{
 				echo '<div class="form-group">';
 				echo '<label class="col-md-3" for="password">Password</label>';
-				echo '<div class="col-md-9">';
+				echo '<div>';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
-				echo '<p class="alert-danger" id="passwordStatus">Password cannot be blank!</p>';
+				echo '<p class="alert alert-danger" id="passwordStatus">Password cannot be blank!</p>';
 				echo '</div></div>';
 			}
 			else
@@ -352,9 +350,9 @@
 				{
 					echo '<div class="form-group">';
 					echo '<label class="col-md-3" for="password">Password</label>';
-					echo '<div class="col-md-9">';
+					echo '<div >';
 					echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
-					echo '<p class="alert-danger" id="passwordStatus">Password is invalid!</p>';
+					echo '<p class="alert alert-danger" id="passwordStatus">Password is invalid!</p>';
 					echo '</div>
 					</div>';
 				}
@@ -367,7 +365,7 @@
 	}
 
 	if(isset($_POST['submit'])){
-		echo '<div class ="col-md-6 col-md-offset-3">';
+		echo '<div class ="col-md-6 offset-md-3 ">';
 		if($_POST['submit']=='submit'){
 			$errStatus=array();
 			$firstName=$_POST['fName'];
