@@ -285,20 +285,13 @@ if(!isset($_POST['submit'])) {
     }
 } 
 
+echo "Form submitted. Post data: <pre>" . print_r($_POST, true) . "</pre>";
+
 if (isset($_POST['update_cart'])) {
-    echo "Image ID: " . $totalItems . "<br>";
-	/*
-    foreach ($_POST['quantity'] as $orderID => $quantity) {
-        $quantity = intval($quantity);
-        if ($quantity > 0) {
-            $sql = "UPDATE orders SET quantity = '$quantity' WHERE ID = '$orderID'";
-            mysqli_query($dblink, $sql);
-        }
-    }
-	*/
-    // Comment out the redirect to see the output
-    // header("Location: cart.php");
+    echo "Update cart triggered.<br>";
+    // Existing code...
 }
+
 
 ?>
 
