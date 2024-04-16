@@ -90,6 +90,10 @@
 			height: 70%;
 			overflow: auto;
 		}
+		
+		.price-val {
+			text-align: right;
+		}
     </style>
   </head>
   <body>
@@ -180,7 +184,7 @@
 		echo '<div class="row main-view">';
 	  		//Display Image
 	  		echo '<div class="col-md-4">';
-	  		echo '<img src="img/661d93c5a29.png" class="product-image">';
+	  		echo '<img src="img/661d93c5a2987.png" class="product-image">';
 	  		echo '</div>';
 	  		
 	  		//Description
@@ -215,7 +219,7 @@
 	  		echo '<hr>';
 	  		echo '<div class="row">';
 	  		echo '<h6>Price:</h6>';
-	  		echo '<h6>$Price</h6>';
+	  		echo '<h6 class="price-val">$Price</h6>';
 	  		echo '</div>';
 	  		echo '</div>';
 	  	echo '</div>';
