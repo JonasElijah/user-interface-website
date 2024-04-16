@@ -283,6 +283,7 @@
 			}
 			else
 			{
+				echo '<h1> Failed </h1>';
 				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=failed");
 			}
 		}
