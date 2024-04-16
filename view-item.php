@@ -30,6 +30,10 @@
       body {
         font-family: "Georgia", sans-serif;
       }
+		
+		footer {
+			margin-top: 20px;
+		}
 
       .dropdown-menu {
         display: none;
@@ -113,6 +117,7 @@
 			justify-content: center;
 			align-items: center;
 		}
+		
     </style>
   </head>
   <body>
@@ -199,6 +204,9 @@
       </nav>
     </header>
 	<?php
+	  
+	  
+	  
 		echo '<div class="row main-view">';
 	  		//Display Image
 	  		echo '<div class="col-md-6 item">';
@@ -227,14 +235,14 @@
 				"</p>';
 	  		
 				echo '<div>';
-				echo '<hr>';
+				echo '<hr><br>';
 					echo '<div class="row">';
-					echo '<h6 class="col-md-2 offset-md-6">Price:</h6>';
-					echo '<h6 class="col-md-4 price-val">$Price</h6>';
+					echo '<h5 class="col-md-2 offset-md-5">Price:</h5>';
+					echo '<h5 class="col-md-4 price-val">$Price</h5>';
 					echo '</div>';
 				echo '</div>';
 	  			echo '<br><br><br>';
-	  			echo '<div class="col-md-3 offset-md-9" align="right">';
+	  			echo '<div class="col-md-3 offset-md-8" align="right">';
 	  				echo '<button type="button" class="btn btn-outline-secondary">Add to Cart</button>';
 	  			echo '</div>';
 	  		echo '</div>';
