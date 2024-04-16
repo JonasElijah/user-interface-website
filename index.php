@@ -198,7 +198,7 @@
               $activeClass = $first ? 'active' : '';
               $first = false;  // Only the first item should be active
               echo '<div class="carousel-item '.$activeClass.'">
-                      <img src="'.$image['image_path'].'" class="d-block w-100" alt="'.$image['name'].'">
+                      <img src="'.$image['image'].'" class="d-block w-100" alt="'.$image['name'].'">
                       <div class="carousel-caption d-none d-md-block">
                         <h5>'.$image['name'].'</h5>
                         <p>'.$image['description'].'</p>
