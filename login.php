@@ -126,6 +126,9 @@
 			       }
 		else{
 			echo '<li class="nav-item">';
+                	echo '<a class="nav-link" href="cart.php">Cart</a>';
+             		echo '</li>';
+			echo '<li class="nav-item">';
                 	echo '<a class="nav-link" href="account.php">Account</a>';
              		echo '</li>';
 			    }
