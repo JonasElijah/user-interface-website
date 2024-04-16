@@ -270,34 +270,7 @@ if(isset($_POST['submit']))
 
         if($data)
         {
-            $name = $data['name'];
-            $price = $data['price'];
-            $sql="SELECT * FROM `orders` WHERE `userID` LIKE '$userID' AND `imageID` LIKE '$imageID'";
-            $stmt = $dblink->prepare($sql);
-            $stmt->bind_param("ii", $userID, $imageID);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            if($result->num_rows == 0)
-            {
-                $sql="Insert into `orders` (`userID`,`imageID`,`name`,`price`) values ('$userID','$imageID','$name','$price')";
-                $stmt = $dblink->prepare($sql);
-                $stmt->bind_param("iiss", $userID, $imageID, $name, $price);
-                $stmt->execute();
-                if($stmt->affected_rows > 0)
-                {
-                    echo '<h1>Success</h1>';
-                    redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=success");
-                }
-                else
-                {
-                    echo '<h1>Insert failed</h1>';
-                }
-            }
-            else
-            {
-                echo '<h1>Item already in your cart</h1>';
-                redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=failed");
-            }
+           
         }
         else
         {
