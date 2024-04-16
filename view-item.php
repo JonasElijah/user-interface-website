@@ -234,7 +234,7 @@
 						
 						if(isset($_GET['addItem']))
 						{
-							if($_GET['addItem'] == success)
+							if($_GET['addItem'] == 'success')
 							{
 								echo '<div class="col-md-4">';
 								echo '<p class="alert alert-success">Successfully Added to Cart!</p>';
