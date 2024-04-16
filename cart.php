@@ -228,7 +228,7 @@ if(mysqli_num_rows($result) == 0)
 {
 	echo '<br>';
 	echo '<br>';	
-	echo '<hr style="border-color: red; border-width: 2px;">';	
+	echo '<hr style="border-color: #fdf4eb; border-width: 3px;">';	
 	echo '<h1 align = "center" style = "color: #fdf4eb; font-size: 25px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Error, cart not found. Please log in or add to your cart.</h1>';
 }
 else
