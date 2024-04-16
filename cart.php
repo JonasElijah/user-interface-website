@@ -284,18 +284,20 @@ if(!isset($_POST['submit']))
 		$resultN = mysqli_query($dblink, $sqlN);
 		if(mysqli_num_rows($resultN) == 0)
 					{
-			
+						echo '<div align="center">';
 						echo '<h1>Error,name not found.</h1>';
+						echo '</div>';
 					}
 				else
 					{
 						while($dataN=$resultN->fetch_array(MYSQLI_ASSOC))
 							{
-						
+								echo '<div align="center">';
 								echo '<td><img src = "'.$dataN['fName'].'" style="max-width:250px;"></td>';
+								echo '</div>';
 							}
-			echo '<div align="center">';
-			echo '<h5>'.$nameHolder.'</h5>';
+			
+			
 			echo '</div>';
 			echo '<hr>';
 			echo '<div class="offset-md-1">';
