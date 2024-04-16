@@ -283,7 +283,9 @@ if(!isset($_POST['submit'])) {
 		
 		 echo '</div>';
     }
-} elseif (isset($_POST['update_cart'])) {
+} 
+
+if (isset($_POST['update_cart'])) {
     echo "Image ID: " . $totalItems . "<br>";
 	/*
     foreach ($_POST['quantity'] as $orderID => $quantity) {
