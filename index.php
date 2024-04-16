@@ -182,57 +182,45 @@
       </nav>
     </header>
 <div class="category">
-    <h1> Recommended </h1>
+  <h1>Recommended</h1>
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <?php
       include("functions.php");
       $dblink = db_connect("UI-schema");
-      $sql = "SELECT * FROM `image`";
+      $sql = "SELECT * FROM `image` ORDER BY id ASC";  // Ensure images are ordered
       $result = mysqli_query($dblink, $sql);
 
-      if (mysqli_num_rows($result) == 0) {
-          echo 'Error, database table not found';
-      } else {
+      if(mysqli_num_rows($result) > 0) {
           $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
-          echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">';
-          $first = true;
-          foreach ($images as $image) {
+          $first = true; // Flag to mark the first item as active
+          foreach($images as $index => $image) {
               $activeClass = $first ? 'active' : '';
+              $first = false;  // Only the first item should be active
               echo '<div class="carousel-item '.$activeClass.'">
-                      <div class="row">';
-              foreach ($image as $img) {
-                  echo '<div class="col-md-4">
-                          <div class="card mb-3">
-                            <img src="'.$img['image_path'].'" class="card-img-top" alt="Image">
-                            <div class="card-body">
-                              <h5 class="card-title">'.$img['name'].'</h5>
-                              <p class="card-text">'.$img['price'].'</p>
-                              <form method="post" action="cart.php?itemID='.$img['id'].'">
-                                <button class="btn btn-outline-secondary" type="submit" name="add_to_cart">Add to Cart</button>
-                              </form>
-                            </div>
-                          </div>
-                        </div>';
-              }
-              echo '</div></div>';
-              $first = false;
+                      <img src="'.$image['image_path'].'" class="d-block w-100" alt="'.$image['name'].'">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>'.$image['name'].'</h5>
+                        <p>'.$image['description'].'</p>
+                      </div>
+                    </div>';
           }
-          echo '</div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>';
+      } else {
+          echo '<p>No images found in the database.</p>';
       }
-
       ?>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
+</div>
+
    <br />
     <br />
     <br />
