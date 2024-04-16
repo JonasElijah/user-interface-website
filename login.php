@@ -163,7 +163,7 @@
 <h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
 <?php
 if(!isset($_POST['submit'])){
-	echo '<form class="col-md-6 col-md-offset-3 form-horizontal form" id="contact" method="post" action="">';
+	echo '<form class="col-md-6 offset-md-3" id="contact" method="post" action="">';
 	if( (!isset($_GET['email'])))
 		{
 			if(isset($_SESSION['email']))
@@ -283,7 +283,7 @@ if(!isset($_POST['submit'])){
 			
 }
 	if(isset($_POST['submit'])){
-		echo '<div class ="col-md-6 col-md-offset-3">';
+		echo '<div class ="col-md-6 offset-md-3">';
 		if($_POST['submit']=='submit'){
 			$errStatus=array();
 			
