@@ -293,7 +293,7 @@ if(!isset($_POST['submit']))
 						while($dataN=$resultN->fetch_array(MYSQLI_ASSOC))
 							{
 								echo '<div align="center">';
-								echo '<td><img src = "'.$dataN['fName'].'" style="max-width:250px;"></td>';
+								echo '<td>< p> ='$dataN['fName']' style="max-width:250px;"</p></td>';
 								echo '</div>';
 							}
 			
