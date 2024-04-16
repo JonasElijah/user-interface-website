@@ -1,4 +1,4 @@
-<html>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -102,7 +102,7 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-	<h1 class="text-center"> Photo Bucket </h1>
+	<h1 class="text-center"> Photography Website </h1>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
