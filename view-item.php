@@ -4,9 +4,6 @@
 	if (session_status() === PHP_SESSION_NONE) {
     	session_start();
 	}
-	
-	//Debug
-	$_GET['itemID'] = 83;
 ?>
 
 <!DOCTYPE html>
@@ -279,11 +276,11 @@
 				$dblink->query($sql) or
 					die("Something went wrong with: $sql<br>".$dblink->error."</p>");
 				
-				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=success");
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?itemID=$imageID&addItem=success");
 			}
 			else
 			{
-				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?addItem=failed");
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/view-item.php?itemID=$imageID&addItem=failed");
 			}
 		}
 	?>
