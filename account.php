@@ -233,7 +233,7 @@
 						echo '<a class="nav-link" href="#">Payment Options</a>';
 					echo '</li>';
 					echo '<li class="nav-item">';
-						echo '<a class="nav-link" href="#">Privacy & Security</a>';
+						echo '<a class="nav-link" href="#">Biography</a>';
 					echo '</li>';
 					echo '<li class="nav-item">';
 						echo '<a class="nav-link" href="gallery.php">View Gallery</a>';
