@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <title>
 	 <?php 
 		  if (!isset($_GET['page']))
@@ -94,6 +94,6 @@
     </div>
 </div>
 
-	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script	
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </body>
 </html>
