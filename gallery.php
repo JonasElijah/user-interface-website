@@ -229,7 +229,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 
     <div>
 	<?php	
-		echo "<h1>Gallery Placeholder</h1>";
+		echo "<h1>Gallery</h1>";
 	?>
 	<!-- Button to launch modal -->
 	
