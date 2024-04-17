@@ -182,9 +182,10 @@
       </nav>
     </header>
 <div class="category">
-<h1> Recommended </h1>
+	<h1> Recommended </h1>
 <div class="carousel-inner">
 <?php
+
 include("functions.php");
 $dblink = db_connect("UI-schema");
 $sql = "SELECT * FROM `image`";
@@ -216,13 +217,18 @@ if(mysqli_num_rows($result) == 0) {
             $imagePrice = $image['price'];
             $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
 
-            // Make each image a link to 'view-item.php' with the image ID
             echo '<div class="col-md-4">
-                    <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?id='.$imageID.'\'">
-                      <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
+                    <div class="card mb-3">
+                      <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'">
                       <div class="card-body">
                         <h5 class="card-title">'.$imageName.'</h5>
-                        <p class="card-text">$'.$imagePrice.'</p>
+                        <p class="card-text">'.$imagePrice.'</p>
+                        <form method="post" action="">
+                  	    <input type="hidden" name="imageID" value="'.$imageID.'"> 
+		            <input type="hidden" name="imageName" value="'.$imageName.'"> 
+                  	    <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
+			    <button type="submit" name="submit">Add to Cart</button>
+			</form>
                       </div>
                     </div>
                   </div>';
@@ -244,7 +250,27 @@ if(mysqli_num_rows($result) == 0) {
           </button>
         </div>';
 }
+
+if (isset($_POST['submit'])) {
+    $imageID = $_POST['imageID'];
+    $imageName = $_POST['imageName'];
+    $imagePrice = $_POST['imagePrice'];
+
+    echo "Image ID: " . $imageID . "<br>";
+    echo "Image Name: " . $imageName . "<br>";
+    echo "Image Price: " . $imagePrice . "<br>";
+
+    $userID = $_SESSION['userID'];
+    
+    $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
+            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
+    $dblink->query($sql) or
+    die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
+}
+
 ?>
+
+
 </div>
 </div>
    <br />
