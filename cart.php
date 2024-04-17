@@ -219,7 +219,8 @@ if(!isset($_POST['submit']))
 	//$row = $result->fetch_assoc();
 	if(mysqli_num_rows($result) == 0)
 		{
-			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+			echo'<h2 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Shopping cart empty </h2>';
+
 		}
 	else
 		{
