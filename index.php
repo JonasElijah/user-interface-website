@@ -218,8 +218,8 @@ if(mysqli_num_rows($result) == 0) {
             $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
 
             echo '<div class="col-md-4">
-                    <div class="card mb-3">
-                      <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'">
+                    <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
+                      <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
                       <div class="card-body">
                         <h5 class="card-title">'.$imageName.'</h5>
                         <p class="card-text">'.$imagePrice.'</p>
