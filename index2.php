@@ -237,6 +237,7 @@
     </header>
 <div class="category">
   <h2> Recommended </h2>
+  <hr>
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <?php
     include("functions.php");
