@@ -101,12 +101,23 @@
 	  }
 	
 	  /* Adjust button positioning */
+	  .carousel-control-prev-icon,
+	  .carousel-control-next-icon {
+	    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23fff" viewBox="0 0 8 8"><path d="M4.707 0l1 1L2.707 4l3 3-1 1L0 4l4.707-4z"/></svg>'); /* Black arrow */
+	    background-color: black; /* Black background */
+	    border-radius: 50%; /* Maintain round shape */
+	    width: 40px; /* Consistent size */
+	    height: 40px; /* Consistent size */
+	    display: flex; /* Flex to center the content */
+	    align-items: center; /* Center vertically */
+	    justify-content: center; /* Center horizontally */
+	    opacity: 1; /* Full opacity for visibility */
+	  }
+	
+	  /* Make sure the controls are visible against any background */
 	  #carouselExample .carousel-control-prev,
 	  #carouselExample .carousel-control-next {
-	    position: absolute;
-	    top: 50%; /* Center vertically */
-	    transform: translateY(-50%); /* Ensure mid-point alignment */
-	    z-index: 5; /* Ensure they are above all other content */
+	    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); /* Soft shadow for better visibility */
 	  }
 	
 	  #carouselExample .carousel-control-prev {
