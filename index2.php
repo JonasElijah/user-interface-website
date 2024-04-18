@@ -287,7 +287,7 @@
 					    if (mysqli_num_rows($res) == 0) {
 					        echo '<button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>';
 					    } else {
-						echo '<button class="add-to-cart-btn" type="submit" disabled >In cart</button>';
+						echo '<button type="button" class="btn btn-secondary" disabled>Button</button>';
 					    }
 				echo	'</form>
                                   </div>
