@@ -167,12 +167,10 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
       }        
 	.photo-row img {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
-    margin: 1px; /* Uniform margin around images */
-    padding: 5px; /* Padding inside the image container, if needed */
+    margin: 5px; /* Uniform margin around images */
     max-width: 250px; /* Smaller maximum width for the images */
     height: auto; /* Maintain aspect ratio */
     display: block; /* Ensures proper handling of margins and alignment */
-    border-radius: 8px; /* Optional: Rounded corners */
     object-fit: contain; /* Ensures the image is scaled properly within its element */
 }
 
