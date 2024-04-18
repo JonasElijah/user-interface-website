@@ -197,10 +197,24 @@
 	    .nav-item {
 	        padding: 5px 0; /* More vertical padding on mobile */
 	    }
+
+	    .navbar-expand-lg .navbar-collapse {
+	        flex-basis: 100%; /* Full width for the collapsible area */
+	        flex-grow: 1;
+	    }
+	
+	    .navbar-toggler {
+	        display: block; /* Ensure toggler is always visible below this breakpoint */
+	    }
+		
+	    .custom-navbar .navbar-brand img {
+	        max-width: 150px; /* Even smaller logo for very small screens */
+	    }
+	
+	    .navbar-nav .nav-link {
+	        font-size: 12px; /* Even smaller font size */
+	    }
 	}
-
-
-
 
 
         .add-to-cart-btn {
