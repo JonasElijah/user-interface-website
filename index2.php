@@ -69,28 +69,32 @@
 	  padding-left: 30px;
 	}
 	
+	/* Adjust carousel item width to fit 5 images */
+	#carouselExample .carousel-item .col-md {
+	  flex: 0 0 auto;  /* Prevents flex items from growing or shrinking */
+	  width: 20%;      /* Each column takes up 20% of the row */
+	}
+	
+	/* Ensure images in the carousel are responsive and maintain aspect ratio */
 	#carouselExample .carousel-item img {
-	  height: 400px; 
-	  width: auto; 
-	  object-fit: cover; 
+	  height: auto;    /* Maintain aspect ratio */
+	  max-height: 200px; /* Maximum height to ensure visibility */
+	  object-fit: cover; /* Ensures the images cover the area nicely */
 	}
 	
-	.card {
-	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow for depth */
-	  margin: 5px; 
-  	  padding: 10px;
-	}
-	    .card-img-top {
-	  height: 150px; /* Smaller image height */
-	  object-fit: cover; /* Ensures image covers the defined area */
-	  width: 100%; /* Ensures image spans the full width of the card */
+	/* Responsive adjustments for smaller devices */
+	@media (max-width: 768px) {
+	  #carouselExample .carousel-item .col-md {
+	    width: 33.33%;  /* Show 3 cards in smaller screens */
+	  }
 	}
 	
-	/* Additional tweaks to maintain consistency */
-	.carousel-item .row > div {
-	  padding-right: 5px;
-	  padding-left: 5px;
+	@media (max-width: 480px) {
+	  #carouselExample .carousel-item .col-md {
+	    width: 50%;    /* Show 2 cards in very small screens */
+	  }
 	}
+
 	
 	/* Styling modifications for carousel control icons */
 	.carousel-control-prev-icon,
