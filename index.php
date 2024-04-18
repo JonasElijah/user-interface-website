@@ -126,7 +126,7 @@
             padding: 0 10px;
         }
 
-        @media (max-width: 576px) {
+        @media (max-width: 480px) {
 	    #carouselExample .carousel-control-prev,
 	    #carouselExample .carousel-control-next {
 	        display: none;  /* Optionally hide controls on small devices */
