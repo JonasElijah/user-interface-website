@@ -270,7 +270,7 @@
                         $imagePath = $image['image'];
                         $imageName = $image['name'];
                         $imagePrice = $image['price'];
-                        $imageID = $_POST['imageID'];  // Ensure to validate and sanitize this input
+                        $imageID = $_POST['ID'];  // Ensure to validate and sanitize this input
 			$userID = $_SESSION['userID']; // Ensure the user is authenticated and userID is valid			
 			$query = "SELECT * FROM `orders` WHERE `imageID` = ? AND `userID` = ?";
 			
@@ -280,10 +280,8 @@
 			
 			$stmt->execute();
 			
-			// Get the result
 			$result = $stmt->get_result();
 			
-			// Fetch all rows as an associative array
 			$orders = $result->fetch_all(MYSQLI_ASSOC);
 
                         echo '<div class="col-md-2">
