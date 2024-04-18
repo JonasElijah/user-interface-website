@@ -311,6 +311,7 @@
                 echo '<div id="carouselExample">';
                 createCarouselItems($imageSets, $categoryName);
                 echo '</div>';
+		echo '<br/>';
             }
         }
 
