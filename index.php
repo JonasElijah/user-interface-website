@@ -280,7 +280,7 @@
 				    <form method="post" action="">
 		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
 				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
-		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
+		                  	    <input type="hidden" name="imagePrice" value="$' . $imagePrice . '"> 
 					    <button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>
 					</form>
                                   </div>
