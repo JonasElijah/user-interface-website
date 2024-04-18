@@ -283,7 +283,7 @@
     </header>
 <div class="category">
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-    <?php
+  <?php
         include("functions.php");
         $dblink = db_connect("UI-schema");
         $sql = "SELECT *, `ds` FROM `image`";
@@ -316,17 +316,11 @@
                         $imagePrice = $image['price'];
                         $imageID = $image['ID'];
                         echo '<div class="col-md-2">
-                                <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
+                                <div class="card mb-3">
                                   <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
                                   <div class="card-body">
                                     <h5 class="card-title">'.$imageName.'</h5>
                                     <p class="card-text">'.$imagePrice.'</p>
-                                    <form method="post" action="">
-                                      <input type="hidden" name="imageID" value="'.$imageID.'"> 
-                                      <input type="hidden" name="imageName" value="'.$imageName.'"> 
-                                      <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
-                                      <button type="submit" name="submit" class="add-to-cart-btn">Add to Cart</button>
-                                    </form>
                                   </div>
                                 </div>
                               </div>';
@@ -334,17 +328,17 @@
                     echo '</div></div>';
                     $first = false;
                 }
-                 echo '</div>
-	      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-	        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-	        <span class="visually-hidden">Previous</span>
-	      </button>
-	      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-	        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-	        <span class="visually-hidden">Next</span>
-	      </button>
-	    </div>';
-	    }
+                echo '</div>'; // Close carousel-inner
+                echo '<button class="carousel-control-prev" type="button" data-bs-target="#'.$carouselId.'" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#'.$carouselId.'" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>'; // Close carousel
+            }
 
             // Process each category
             foreach ($categories as $categoryName => $filter) {
