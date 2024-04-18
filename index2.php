@@ -236,7 +236,7 @@
       </nav>
     </header>
 <div class="category">
-  <h1> Recommended </h1>
+  <h2> Recommended </h2>
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <?php
     include("functions.php");
