@@ -77,7 +77,7 @@
 	
 	.card {
 	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow for depth */
-	  margin: 10px; /* Smaller margin for tighter layout */
+	  margin: 5px; 
   	  padding: 10px;
 	}
 	
