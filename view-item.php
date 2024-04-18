@@ -118,7 +118,7 @@
 			align-items: center;
 		}
 
-	    .photo-row img {
+	    .photo-cus {
 	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for more depth */
 	  padding: 20px; /* Keeps padding around the image */
 	  margin: 20px; /* Ensures there is space around each image */
@@ -220,7 +220,7 @@
 			echo '<div class="row main-view">';
 				//Display Image
 				echo '<div class="col-md-6 item">';
-				echo '<img src="'.$data['image'].'" class="img-fluid">';
+				echo '<img src="'.$data['image'].'" class="photo-cus">';
 				echo '</div>';
 
 				//Description
