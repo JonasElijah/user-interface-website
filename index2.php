@@ -65,8 +65,8 @@
       }
 
 	.carousel-item .row > div {
-	  padding-right: 15px;
-	  padding-left: 15px;
+	  padding-right: 30px;
+	  padding-left: 30px;
 	}
 	
 	#carouselExample .carousel-item img {
