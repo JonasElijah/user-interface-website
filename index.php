@@ -255,7 +255,7 @@
                 }
             ];
 
-            function createCarouselItems($imageSets, $categoryName, $dblink)
+            function createCarouselItems($imageSets, $categoryName)
             {
                 $carouselId = "carousel" . preg_replace('/\s+/', '', $categoryName);
                 echo '<h2>' . $categoryName . '</h2><hr>
@@ -271,9 +271,8 @@
                         $imageName = $image['name'];
                         $imagePrice = $image['price'];
                         $imageID = (int) $image['ID'];
-			$userID = (int) $_SESSION['userID']; // Also casting to integer for safety
-			$query = "SELECT * FROM `orders` WHERE `imageID` = '$imageID' AND `userID` = '$userID'";
-			$res = mysqli_query($dblink, $query);
+			$userID = (int) $_SESSION['userID']; // Also casting to integer for safety$query = "SELECT * FROM `orders` WHERE `imageID` = '$imageID' AND `userID` = '$userID'";
+			
 			
                         echo '<div class="col-md-2">
                     		<div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
@@ -284,13 +283,9 @@
 				    <form method="post" action="">
 		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
 				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
-		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '">';
-					    if (mysqli_num_rows($res) == 0) {
-				                echo "<button class='add-to-cart-btn' type='submit' name='submit'>Add to Cart</button>";
-				            } else {
-				                echo "<button type='button' class='btn btn-secondary' disabled>In Cart</button>";
-				            }
-				echo'	</form>
+		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '">
+				            <button class='add-to-cart-btn' type='submit' name='submit'>Add to Cart</button>";
+					</form>
                                   </div>
                                 </div>
                               </div>';
@@ -312,12 +307,11 @@
 		      
                     </div>';
             }
-	    $dblink = db_connect("UI-schema");
             foreach ($categories as $categoryName => $filter) {
                 $filteredImages = array_filter($images, $filter);
                 $imageSets = array_chunk($filteredImages, 5);
                 echo '<div id="carouselExample">';
-                createCarouselItems($imageSets, $categoryName, $dblink);
+                createCarouselItems($imageSets, $categoryName;
                 echo '</div>';
             }
         }
