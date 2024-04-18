@@ -270,10 +270,7 @@
                         $imagePath = $image['image'];
                         $imageName = $image['name'];
                         $imagePrice = $image['price'];
-                        $imageID = (int) $image['ID'];
-			$userID = (int) $_SESSION['userID']; // Also casting to integer for safety$query = "SELECT * FROM `orders` WHERE `imageID` = '$imageID' AND `userID` = '$userID'";
-			
-			
+                        $imageID = $image['ID'];
                         echo '<div class="col-md-2">
                     		<div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
                                   <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
@@ -283,8 +280,8 @@
 				    <form method="post" action="">
 		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
 				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
-		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '">
-				            <button class='add-to-cart-btn' type='submit' name='submit'>Add to Cart</button>";
+		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
+					    <button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>
 					</form>
                                   </div>
                                 </div>
@@ -307,12 +304,14 @@
 		      
                     </div>';
             }
+
             foreach ($categories as $categoryName => $filter) {
                 $filteredImages = array_filter($images, $filter);
                 $imageSets = array_chunk($filteredImages, 5);
                 echo '<div id="carouselExample">';
-                createCarouselItems($imageSets, $categoryName;
+                createCarouselItems($imageSets, $categoryName);
                 echo '</div>';
+		echo '<br/>';
             }
         }
 
