@@ -255,8 +255,6 @@
                 }
             ];
 
-	   
-
             function createCarouselItems($imageSets, $categoryName)
             {
                 $carouselId = "carousel" . preg_replace('/\s+/', '', $categoryName);
@@ -273,8 +271,6 @@
                         $imageName = $image['name'];
                         $imagePrice = $image['price'];
                         $imageID = $image['ID'];
-			$sql = "SELECT * FROM `orders` where `userID` LIKE '$_SESSION['userID']' AND where `imageID` LIKE '$imageID'";
-			$res = mysqli_query($dblink, $sql);
                         echo '<div class="col-md-2">
                     		<div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
                                   <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
@@ -284,12 +280,8 @@
 				    <form method="post" action="">
 		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
 				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
-		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '"> ';
-			    		     if (mysqli_num_rows($result) == 0) {
-			               echo'<button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>';
-					     } else {
-					echo'<button class="add-to-cart-btn" type="submit" name="submit" disabled>In Cart</button>';
-					     }
+		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
+					    <button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>
 					</form>
                                   </div>
                                 </div>
