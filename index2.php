@@ -190,15 +190,26 @@
 
                     foreach ($imageSets as $set) {
                         echo '<div class="carousel-item ' . ($first ? 'active' : '') . '">';
-                        echo '<div class="row g-0">'; // Use g-0 for no gutters in Bootstrap 5
+                        echo '<div class="row g-0">';
 
                         foreach ($set as $image) {
+			    $imagePath = $image['image'];
+		            $imageName = $image['name'];
+		            $imagePrice = $image['price'];
+		            $imageID = $image['ID'];  
+
                             echo '<div class="col-md">';
                             echo '<div class="card">';
                             echo '<img src="'.$image['image'].'" class="card-img-top" alt="'.$image['name'].'">';
                             echo '<div class="card-body">';
                             echo '<h5 class="card-title">'.$image['name'].'</h5>';
                             echo '<p class="card-text">Price: '.$image['price'].'</p>';
+			    <form method="post" action="">
+                  	    <input type="hidden" name="imageID" value="'.$imageID.'"> 
+		            <input type="hidden" name="imageName" value="'.$imageName.'"> 
+                  	    <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
+			    <button type="submit" name="submit">Add to Cart</button>
+			    </form>
                             echo '</div>';
                             echo '</div>';
                             echo '</div>';
@@ -211,6 +222,23 @@
                 } else {
                     echo '<p class="text-center">No images found in the database.</p>';
                 }
+
+		if (isset($_POST['submit'])) {
+		    $imageID = $_POST['imageID'];
+		    $imageName = $_POST['imageName'];
+		    $imagePrice = $_POST['imagePrice'];
+		
+		    echo "Image ID: " . $imageID . "<br>";
+		    echo "Image Name: " . $imageName . "<br>";
+		    echo "Image Price: " . $imagePrice . "<br>";
+		
+		    $userID = $_SESSION['userID'];
+		    
+		    $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
+		            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
+		    $dblink->query($sql) or
+		    die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
+		}
                 ?>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
