@@ -292,7 +292,7 @@
 		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
 				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
 		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '">';
-					     if ($res->num_rows == 0) {
+					     if ($result->num_rows == 0) {
 				                echo "<button class='add-to-cart-btn' type='submit' name='submit'>Add to Cart</button>";
 				            } else {
 				                echo "<button type='button' class='btn btn-secondary' disabled>In Cart</button>";
