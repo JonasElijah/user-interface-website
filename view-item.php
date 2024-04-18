@@ -127,7 +127,7 @@
 	}
 
 	.photo-title {
-	    padding: 80px; /* Add padding around the gallery title */
+	    padding: 40px; /* Add padding around the gallery title */
 	}
     </style>
   </head>
@@ -219,7 +219,7 @@
 	  
 	  	if(!isset($_POST['submit']))
 		{
-		echo '<h3 class="photo-title">'.$data['name'].'</h3><hr>';
+		echo '<br/><h3 class="photo-title">'.$data['name'].'</h3><hr>';
 
 			echo '<div class="row main-view">';
 				//Display Image
