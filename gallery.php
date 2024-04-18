@@ -86,15 +86,6 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
         text-align: center;
       }
 
-      .photo-row {
-        padding: 50px;
-      }
-
-      .photo-row img {
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-right: 20px;
-      }
 
       .category {
         margin-bottom: 10px;
@@ -165,6 +156,41 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
         flex: 1;
         padding: 10px;
       }        
+	.photo-row img {
+	    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+	    margin: 15px; /* Uniform margin around images */
+	    padding: 15px; /* Padding inside the image container, if needed */
+	    max-width: 250px; /* Smaller maximum width for the images */
+	    height: auto; /* Maintain aspect ratio */
+	    display: block; /* Ensures proper handling of margins and alignment */
+	    object-fit: contain; /* Ensures the image is scaled properly within its element */
+	    transition: transform 0.3s ease; /* Smooth transition for the transform property */
+	}
+	
+	.photo-row img:hover {
+	    transform: scale(1.1); /* Scale the image up by 10% on hover */
+	}
+	
+	/* Adjusting the container for better layout and responsiveness */
+	.gallery-container {
+	    display: flex; /* Flexbox for better layout control */
+	    flex-wrap: wrap; /* Allows wrapping to the next line */
+	    justify-content: space-around; /* Even spacing around each item */
+	    padding: 20px; /* Padding around the entire gallery */
+	}
+	
+	/* Responsive behavior for smaller screens */
+	@media (max-width: 768px) {
+	    .photo-row img {
+	        margin: 0.5px; /* Smaller margin for smaller screens */
+	        max-width: 90px; /* Slightly smaller width on small devices */
+	    }
+	}
+
+	.gallery-title {
+	    padding: 20px; /* Add padding around the gallery title */
+	}
+
     </style>
   </head>
   <body>
@@ -229,7 +255,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 
     <div>
 	<?php	
-		echo "<h1>Gallery</h1>";
+		echo "<br/><div class='gallery-title'><h1>Gallery</h1><hr></div>";
 	?>
 	<!-- Button to launch modal -->
 	
@@ -280,19 +306,20 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	    </div>
 	  </div>
 	</div>
-	<?php 
-	if ($result->num_rows > 0) 
-	{
-	    while ($row = $result->fetch_assoc()) 
-	    {
-        	echo '<img src="' . $row['image'] . '" alt="' . $row['image_alt_text'] . '" width="200" height="200" />';
-	    }
-	} 
-	else 
-	{
-	    echo "No images found.";
-	}
-	?>
+	<div class="gallery-container">
+    <?php 
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo '
+	    <div style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$row['ID'].'\'">
+	    <div class="photo-row"><img src="' . $row['image'] . '" alt="' . htmlspecialchars($row['image_alt_text']) . '" /></div>
+            </div>';
+        }
+    } else {
+        echo "<p>No images found.</p>";
+    }
+    ?>
+</div>
 	
           	
     <br />
