@@ -127,7 +127,7 @@
 	}
 
 	.photo-title {
-	    padding: 20px; /* Add padding around the gallery title */
+	    padding: 80px; /* Add padding around the gallery title */
 	}
     </style>
   </head>
