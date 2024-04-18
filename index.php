@@ -240,12 +240,13 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg custom-navbar navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg custom-navbar shadow rounded">
 		  <div class="container-fluid">
-		    <a class="navbar-brand" href="#">Brand</a>
+		    <img src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
+		    <h1 class="text-center">Photography Website</h1>
 		    <div class="collapse navbar-collapse" id="navbarNav">
 		      <ul class="navbar-nav">
 		        <li class="nav-item">
