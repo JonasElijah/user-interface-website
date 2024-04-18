@@ -251,10 +251,6 @@
     $imageName = $_POST['imageName'];
     $imagePrice = $_POST['imagePrice'];
 
-    echo "Image ID: " . $imageID . "<br>";
-    echo "Image Name: " . $imageName . "<br>";
-    echo "Image Price: " . $imagePrice . "<br>";
-
     $userID = $_SESSION['userID'];
     
     $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
