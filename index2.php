@@ -94,41 +94,41 @@
 	height: auto; /* Maintain aspect ratio */
 	}    
 
-	  /* Carousel controls positioning */
-  #carouselExample .carousel-control-prev,
-  #carouselExample .carousel-control-next {
-    position: absolute;
-    top: 50%; /* Centers vertically */
-    transform: translateY(-50%); /* Align center vertically */
-    z-index: 5;
-  }
-
-  #carouselExample .carousel-control-prev {
-    left: calc(2vw - 30px); /* Keeps the button a viewport-width-based distance from the edge minus button width */
-  }
-
-  #carouselExample .carousel-control-next {
-    right: calc(2vw - 30px); /* Same for the right button */
-  }
-
-  /* Media query for small screens */
-  @media (max-width: 768px) {
-    #carouselExample .carousel-control-prev {
-      left: calc(5vw - 30px); /* Increase distance slightly on smaller screens */
-    }
-    #carouselExample .carousel-control-next {
-      right: calc(5vw - 30px);
-    }
-  }
-
-  /* Ensuring the buttons do not overlap with the cards on very small screens */
-  @media (max-width: 480px) {
-    #carouselExample .carousel-control-prev,
-    #carouselExample .carousel-control-next {
-      display: none; /* Optionally hide buttons on very small devices if overlap occurs */
-    }
-  }
-
+	#carouselExample {
+	    max-width: 100%; /* Limit carousel width to prevent overflow */
+	    position: relative; /* Needed for absolute positioning of children */
+	    padding: 0 50px; /* Adjust this value to increase space for buttons */
+	  }
+	
+	  /* Adjust button positioning */
+	  #carouselExample .carousel-control-prev,
+	  #carouselExample .carousel-control-next {
+	    position: absolute;
+	    top: 50%; /* Center vertically */
+	    transform: translateY(-50%); /* Ensure mid-point alignment */
+	    z-index: 5; /* Ensure they are above all other content */
+	  }
+	
+	  #carouselExample .carousel-control-prev {
+	    left: -30px; /* Place outside the carousel padding area */
+	  }
+	
+	  #carouselExample .carousel-control-next {
+	    right: -30px; /* Place outside the carousel padding area */
+	  }
+	
+	  /* Adjust button visibility on smaller screens if necessary */
+	  @media (max-width: 768px) {
+	    #carouselExample {
+	      padding: 0 30px; /* Smaller padding on smaller screens */
+	    }
+	    #carouselExample .carousel-control-prev {
+	      left: -20px;
+	    }
+	    #carouselExample .carousel-control-next {
+	      right: -20px;
+	    }
+	  }
 
     </style>
   </head>
