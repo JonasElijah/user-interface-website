@@ -117,6 +117,15 @@
 			justify-content: center;
 			align-items: center;
 		}
+
+	    .photo-row img {
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for more depth */
+	  padding: 20px; /* Keeps padding around the image */
+	  margin: 20px; /* Ensures there is space around each image */
+	  width: calc(100% - 40px); /* Adjust width to account for padding and maintain container size */
+	  height: auto; /* Maintain aspect ratio */
+	}
+
 		
     </style>
   </head>
