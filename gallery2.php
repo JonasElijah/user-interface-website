@@ -307,7 +307,10 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
     <?php 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo '<div class="photo-row"><img src="' . $row['image'] . '" alt="' . htmlspecialchars($row['image_alt_text']) . '" /></div>';
+            echo '
+	    <div style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
+	    <div class="photo-row"><img src="' . $row['image'] . '" alt="' . htmlspecialchars($row['image_alt_text']) . '" /></div>
+            </div>';
         }
     } else {
         echo "<p>No images found.</p>";
