@@ -126,7 +126,9 @@
 		  height: auto; 
 	}
 
-		
+	.photo-title {
+	    padding: 20px; /* Add padding around the gallery title */
+	}
     </style>
   </head>
   <body>
@@ -220,6 +222,7 @@
 			echo '<div class="row main-view">';
 				//Display Image
 				echo '<div class="col-md-6 item">';
+				echo '<h3 class="photo-title">'.$data['name'].'</h3><hr>';
 				echo '<img src="'.$data['image'].'" class="photo-cus">';
 				echo '</div>';
 
