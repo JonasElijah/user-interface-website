@@ -271,6 +271,7 @@
                         $imageName = $image['name'];
                         $imagePrice = $image['price'];
                         $imageID = $image['ID'];
+			$query = "SELECT * FROM `orders` WHERE `imageID` = '$imagID' AND `userID` = '$_SESSION['userID']'";
                         echo '<div class="col-md-2">
                     		<div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
                                   <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
