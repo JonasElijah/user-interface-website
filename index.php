@@ -240,18 +240,17 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg custom-navbar shadow rounded">
-        <div class="container-fluid">
-            <img src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <h1 class="text-center">Photography Website</h1>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <div class="container-fluid">
+		    <a class="navbar-brand" href="#">Brand</a>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarNav">
+		      <ul class="navbar-nav">
+		        <li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="#">Home</a>
+		        </li>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="gallery.php">Gallery</a>
@@ -386,5 +385,5 @@
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
+
 </html>
