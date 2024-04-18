@@ -276,11 +276,11 @@
                                   <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
                                   <div class="card-body">
                                     <h5 class="card-title">' . $imageName . '</h5>
-                                    <p class="card-text">' . $imagePrice . '</p>
+                                    <p class="card-text">$' . $imagePrice . '</p>
 				    <form method="post" action="">
 		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
 				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
-		                  	    <input type="hidden" name="imagePrice" value="$' . $imagePrice . '"> 
+		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
 					    <button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>
 					</form>
                                   </div>
