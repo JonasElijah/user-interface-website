@@ -167,7 +167,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
       }        
 	.photo-row img {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
-    margin: 15px; /* Uniform margin around images */
+    margin: 1px; /* Uniform margin around images */
     padding: 5px; /* Padding inside the image container, if needed */
     max-width: 250px; /* Smaller maximum width for the images */
     height: auto; /* Maintain aspect ratio */
@@ -187,7 +187,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 /* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
     .photo-row img {
-        margin: 10px; /* Smaller margin for smaller screens */
+        margin: 0.5px; /* Smaller margin for smaller screens */
         max-width: 90px; /* Slightly smaller width on small devices */
     }
 }
