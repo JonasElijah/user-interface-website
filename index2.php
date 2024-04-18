@@ -204,12 +204,12 @@
                             echo '<div class="card-body">';
                             echo '<h5 class="card-title">'.$image['name'].'</h5>';
                             echo '<p class="card-text">Price: '.$image['price'].'</p>';
-			    <form method="post" action="">
+			    echo '<form method="post" action="">
                   	    <input type="hidden" name="imageID" value="'.$imageID.'"> 
 		            <input type="hidden" name="imageName" value="'.$imageName.'"> 
                   	    <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
 			    <button type="submit" name="submit">Add to Cart</button>
-			    </form>
+			    </form> ';
                             echo '</div>';
                             echo '</div>';
                             echo '</div>';
