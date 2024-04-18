@@ -82,7 +82,7 @@
 
         .carousel-item .col-md-2 {
             flex: 0 0 auto;
-            width: 25%;
+            width: 15%;
             padding: 3px;
         }
 
