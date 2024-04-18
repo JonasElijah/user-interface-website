@@ -1,14 +1,8 @@
-<?php
-    // Enable error reporting for debugging
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    // Start session at the very beginning
+	<?php
+    if (session_status() === PHP_SESSION_NONE) {
     session_start();
-
-    // PHP and HTML content continues here
-?>
+    }
+	    ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
