@@ -154,11 +154,11 @@
 	  }
 	
 	  #carouselExample .carousel-control-prev {
-	    left: -30px; /* Place outside the carousel padding area */
+	    left: -50px; /* Place outside the carousel padding area */
 	  }
 	
 	  #carouselExample .carousel-control-next {
-	    right: -30px; /* Place outside the carousel padding area */
+	    right: -50px; /* Place outside the carousel padding area */
 	  }
 	
 	  /* Adjust button visibility on smaller screens if necessary */
@@ -335,18 +335,17 @@
                     $first = false;
                 }
                 echo '</div>'; // Close carousel-inner
-                echo '<div id="carouselExample">
+                echo '
 		      <button class="carousel-control-prev" type="button" data-bs-target="#'.$carouselId.'" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                       </button>
-		      </div>
-		      <div id="carouselExample">
+		      
                       <button class="carousel-control-next" type="button" data-bs-target="#'.$carouselId.'" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                       </button>
-		      </div>
+		      
                     </div>'; // Close carousel
             }
 
