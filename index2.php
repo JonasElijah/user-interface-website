@@ -70,14 +70,15 @@
 	}
 	
 	#carouselExample .carousel-item img {
-	  height: 300/2px; 
-	  width: auto/2; 
+	  height: 300px; 
+	  width: auto; 
 	  object-fit: cover; 
 	}
 	
-	/* Add shadow to each card */
 	.card {
 	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+	  margin: 10px; /* Smaller margin for tighter layout */
+  	  padding: 10px;
 	}
 	
 	/* Additional tweaks to maintain consistency */
