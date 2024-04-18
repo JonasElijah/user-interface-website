@@ -65,38 +65,115 @@
       }
 
 
-	 /* Increase the width of the carousel items by adjusting the padding and margin */
-	.carousel-item .row > div {
-	  padding-right: 1px;
-	  padding-left: 1px;
-	}
-	
-	/* Ensure images take up more space and are responsive */
-	/* Ensure images in the carousel have the same fixed height and adjust width automatically */
 	#carouselExample .carousel-item img {
-	  height: 400px; /* Fixed height for all images */
-	  width: 600px; /* Auto width to maintain aspect ratio */
+	  height: 300px; /* Reduced height */
+	  width: auto; /* Auto width to maintain aspect ratio */
 	  object-fit: cover; /* Cover the area nicely without stretching the image */
-	  max-width: 100%; /* Ensure the image does not overflow its container */
 	}
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: rgba(0, 0, 0, 0.5); /* Adjust the color as needed */
-        border-radius: 50%; /* Make the arrows round */
-        width: 40px; /* Adjust the width */
-        height: 40px; /* Adjust the height */
-        padding: 10px; /* Add some padding */
-    }
+	
+	.carousel-item .row {
+	display: flex;
+	justify-content: center; /* Centers the columns horizontally */
+	}
+	
+	.carousel-item .col-md-2 {
+	flex: 0 0 auto; /* Flex grow, shrink, and basis */
+	width: 18%; /* Adjust width to slightly less than 1/5th to include margins */
+	padding: 5px; /* Padding for spacing between cards */
+	}
+	
+	.card {
+	    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth transition for transformation and shadow */
+	    cursor: pointer; /* Indicates that the card is clickable */
+	    margin: 10px auto; /* Centering and spacing */
+	    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Initial subtle shadow for depth */
+	  }
+	
+	/* Ensure the images fit well within the cards */
+	.card-img-top {
+	    transition: transform 0.5s ease; /* Smooth transition using transform over 0.5 seconds */
+	    display: block; /* Ensures the image takes up the full container width */
+	    width: 100%; /* Maintains full width */
+	    height: auto; /* Keeps aspect ratio */
+	  }
+	
+	  .card:hover {
+	    transform: scale(1.05); /* Slightly enlarges the card */
+	    box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* Enhances shadow for a lifted effect */
+	    z-index: 10; /* Ensures the card pops out over other content */
+	  }
 
-    /* Custom styles for carousel control buttons */
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: auto; /* Ensure the buttons wrap the arrows */
-    }
+	    .carousel-inner .row {
+	    display: flex; /* Ensures that cards are in a flex container */
+	    overflow: hidden; /* Prevents the row from spilling out of its container */
+	  }
+	
+	  /* Specific adjustments to prevent cards from pushing others around on scale */
+	  .carousel-item .col-md-2 {
+	    transition: margin 0.3s ease-in-out; /* Smooth transition for margins */
+	  }
+	
+	  .carousel-item .col-md-2:hover {
+	    margin: 0 5px; /* Optional: Adjust margins if needed to prevent overlap */
+	  }
+	    
+	#carouselExample {
+	    max-width: 100%; /* Limit carousel width to prevent overflow */
+	    position: relative; /* Needed for absolute positioning of children */
+	    padding: 0 50px; /* Adjust this value to increase space for buttons */
+	  }
+	
+	  /* CSS for customizing the carousel control icons */
+	  .carousel-control-next-icon {
+	    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 8 8"><path d="M3.293 0l-1 1L5.293 4 2.293 7l1 1L8 4 3.293 0z"/></svg>'); /* SVG with black arrow pointing left */
+	    background-color: transparent; /* Transparent background */
+	    border-radius: 50%; /* Round shape */
+	    width: 40px; /* Standard size */
+	    height: 40px; /* Standard size */
+	    display: flex; /* Enables centering of the icon */
+	    align-items: center; /* Center vertically */
+	    justify-content: center; /* Center horizontally */
+	  }
+	
+	  .carousel-control-prev-icon {
+	    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 8 8"><path d="M4.707 0l1 1L2.707 4l3 3-1 1L0 4l4.707-4z"/></svg>'); /* SVG with black arrow pointing right */
+	    background-color: transparent; /* Transparent background */
+	    border-radius: 50%; /* Round shape */
+	    width: 40px; /* Standard size */
+	    height: 40px; /* Standard size */
+	    display: flex; /* Enables centering of the icon */
+	    align-items: center; /* Center vertically */
+	    justify-content: center; /* Center horizontally */
+	  }
 
 	
+	  /* Make sure the controls are visible against any background */
+	  #carouselExample .carousel-control-prev,
+	  #carouselExample .carousel-control-next {
+	    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); /* Soft shadow for better visibility */
+	  }
+	
+	  #carouselExample .carousel-control-prev {
+	    left: -30px; /* Place outside the carousel padding area */
+	  }
+	
+	  #carouselExample .carousel-control-next {
+	    right: -30px; /* Place outside the carousel padding area */
+	  }
+	
+	  /* Adjust button visibility on smaller screens if necessary */
+	  @media (max-width: 768px) {
+	    #carouselExample {
+	      padding: 0 30px; /* Smaller padding on smaller screens */
+	    }
+	    #carouselExample .carousel-control-prev {
+	      left: -20px;
+	    }
+	    #carouselExample .carousel-control-next {
+	      right: -20px;
+	    }
+	  }
 
-	    
     </style>
   </head>
   <body>
@@ -182,83 +259,79 @@
       </nav>
     </header>
 <div class="category">
-	<h1> Recommended </h1>
-<div class="carousel-inner">
-<?php
+  <h2> Recommended </h2>
+  <hr>
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <?php
+    include("functions.php");
+    $dblink = db_connect("UI-schema");
+    $sql = "SELECT * FROM `image`";
+    $result = mysqli_query($dblink, $sql);
 
-include("functions.php");
-$dblink = db_connect("UI-schema");
-$sql = "SELECT * FROM `image`";
-$result = mysqli_query($dblink, $sql);
+    if (mysqli_num_rows($result) == 0) {
+        echo 'Error, database table not found';
+    } else {
+        $images = mysqli_fetch_all($result, MYSQLI_ASSOC); // Fetch all images into an array
 
-if(mysqli_num_rows($result) == 0) {
-    echo 'Error, database table not found';
-} else {
-    $images = mysqli_fetch_all($result, MYSQLI_ASSOC); // Fetch all images into an array
+        // Split images array into chunks of 5
+        $imageSets = array_chunk($images, 5);
 
-    // Split images array into chunks of 3
-    $imageSets = array_chunk($images, 3);
+        echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">';
 
-    echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">';
+        // Loop through the image sets and generate HTML for each carousel item
+        $first = true; // Flag to mark the first item as active
+        foreach ($imageSets as $set) {
+            $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
 
-    // Loop through the image sets and generate HTML for each carousel item
-    $first = true; // Flag to mark the first item as active
-    foreach($imageSets as $set) {
-        $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
+            echo '<div class="carousel-item '.$activeClass.'">
+                    <div class="row">'; // Open a row for the set of images
 
-        echo '<div class="carousel-item '.$activeClass.'">
-                <div class="row">'; // Open a row for the set of images
+            // Loop through the images in the set and generate HTML for each image
+            foreach ($set as $image) {
+                $imagePath = $image['image'];
+                $imageName = $image['name'];
+                $imagePrice = $image['price'];
+                $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
 
-        // Loop through the images in the set and generate HTML for each image
-        foreach($set as $image) {
-            $imagePath = $image['image'];
-            $imageName = $image['name'];
-            $imagePrice = $image['price'];
-            $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
+                echo '<div class="col-md-2">
+                        <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
+                          <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
+                          <div class="card-body">
+                            <h5 class="card-title">'.$imageName.'</h5>
+                            <p class="card-text">'.$imagePrice.'</p>
+                            <form method="post" action="">
+                              <input type="hidden" name="imageID" value="'.$imageID.'"> 
+                              <input type="hidden" name="imageName" value="'.$imageName.'"> 
+                              <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
+                              <button type="submit" name="submit">Add to Cart</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>';
+            }
 
-            echo '<div class="col-md-4">
-                    <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
-                      <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
-                      <div class="card-body">
-                        <h5 class="card-title">'.$imageName.'</h5>
-                        <p class="card-text">'.$imagePrice.'</p>
-                        <form method="post" action="">
-                  	    <input type="hidden" name="imageID" value="'.$imageID.'"> 
-		            <input type="hidden" name="imageName" value="'.$imageName.'"> 
-                  	    <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
-			    <button type="submit" name="submit">Add to Cart</button>
-			</form>
-                      </div>
-                    </div>
-                  </div>';
+            echo '</div></div>'; // Close the row and carousel item
+
+            $first = false; // Update the flag after the first iteration
         }
 
-        echo '</div></div>'; // Close the row and carousel item
-
-        $first = false; // Update the flag after the first iteration
+       echo '</div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>';
     }
 
-    echo '</div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>';
-}
-
-if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) {
     $imageID = $_POST['imageID'];
     $imageName = $_POST['imageName'];
     $imagePrice = $_POST['imagePrice'];
-
-    echo "Image ID: " . $imageID . "<br>";
-    echo "Image Name: " . $imageName . "<br>";
-    echo "Image Price: " . $imagePrice . "<br>";
 
     $userID = $_SESSION['userID'];
     
@@ -268,11 +341,12 @@ if (isset($_POST['submit'])) {
     die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
 }
 
-?>
+
+    ?>
+  </div>
+</div>
 
 
-</div>
-</div>
    <br />
     <br />
     <br />
@@ -289,103 +363,3 @@ if (isset($_POST['submit'])) {
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
-
-<!--
-      <section class="category">
-        <h2>Recommended</h2>
-        <div class="photo-row">
-          <img
-            src="assets/images/gallery/DSC00892.jpg"
-            alt="Your Logo"
-            style="max-width: 350px; max-height: 300px"
-          />
-          <img
-            src="assets/images/gallery/DSC00868-Enhanced-NR.jpg"
-            alt="Your Logo"
-            style="max-width: 550px; max-height: 250px"
-          />
-          <img
-            src="assets/images/gallery/DSC00022.jpg"
-            alt="Your Logo"
-            style="max-width: 500px; max-height: 350px"
-          />
-          <img
-            src="assets/images/gallery/DSC00887.jpg"
-            alt="Your Logo"
-            style="max-width: 300px; max-height: 330px"
-          />
-        </div>
-      </section>
-
-      <section class="category">
-        <h2>Nature</h2>
-        <div class="photo-row">
-          <img
-            src="assets/images/gallery/DSC06655.jpg"
-            alt="Your Logo"
-            style="max-width: 350px; max-height: 300px"
-          />
-          <img
-            src="assets/images/gallery/DSC06664.jpg"
-            alt="Your Logo"
-            style="max-width: 550px; max-height: 250px"
-          />
-          <img
-            src="assets/images/gallery/DSC07026.jpg"
-            alt="Your Logo"
-            style="max-width: 500px; max-height: 350px"
-          />
-          <img
-            src="assets/images/gallery/DSC07112.jpg"
-            alt="Your Logo"
-            style="max-width: 300px; max-height: 230px"
-          />
-        </div>
-      </section>
-
-      <section class="category">
-        <h2>Portrait</h2>
-        <div class="photo-row">
-          <img
-            src="assets/images/gallery/DSC07334-Enhanced-NR.jpg"
-            alt="Your Logo"
-            style="max-width: 450px; max-height: 300px"
-          />
-          <img
-            src="assets/images/gallery/DSC00980.jpg"
-            alt="Your Logo"
-            style="max-width: 400px; max-height: 250px"
-          />
-          <img
-            src="assets/images/gallery/DSC05084-Enhanced-NR-2.jpg"
-            alt="Your Logo"
-            style="max-width: 500px; max-height: 350px"
-          />
-          <img
-            src="assets/images/gallery/DSC06474.jpg"
-            alt="Your Logo"
-            style="max-width: 450px; max-height: 300px"
-          />
-          <img
-            src="assets/images/gallery/DSC04977-Enhanced-NR.jpg"
-            alt="Your Logo"
-            style="max-width: 550px; max-height: 300px"
-          />
-        </div>
-      </section>
-    </div>
-
-    <div
-      class="container"
-      style="
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 10vh;
-      "
-    >
-      <button type="button" class="btn btn-primary btn-lg custom-button">
-        Explore More
-      </button>
-    </div>
--->
