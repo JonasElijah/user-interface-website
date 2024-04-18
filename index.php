@@ -174,6 +174,29 @@
 	    }
 	  }
 
+	  /* Custom styling for the 'Add to Cart' button */
+	  .add-to-cart-btn {
+	    background-color: #fdf4eb; /* Light cream background */
+	    color: #333; /* Dark text for contrast */
+	    border: 1px solid #a5998c; /* Thinner, subtle border */
+	    padding: 4px 8px; /* Appropriate padding for a better click area */
+	    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+	    cursor: pointer; /* Cursor indicates clickable button */
+	    outline: none; /* Removes the default focus outline */
+	  }
+	
+	  /* Hover effect to subtly change color for user feedback */
+	  .add-to-cart-btn:hover {
+	    background-color: #f0e6d1; /* Slightly darker shade on hover for interaction feedback */
+	  }
+	
+	  /* Focus state to maintain accessibility */
+	  .add-to-cart-btn:focus {
+	    border-color: #555; /* Darkens the border to indicate focus */
+	    outline: none; /* Keeps the focus style clean */
+	  }
+
+
     </style>
   </head>
   <body>
@@ -304,7 +327,7 @@
                               <input type="hidden" name="imageID" value="'.$imageID.'"> 
                               <input type="hidden" name="imageName" value="'.$imageName.'"> 
                               <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
-                              <button type="submit" name="submit">Add to Cart</button>
+				<button type="submit" name="submit" class="add-to-cart-btn">Add to Cart</button>
                             </form>
                           </div>
                         </div>
