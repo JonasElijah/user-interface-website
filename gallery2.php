@@ -165,6 +165,32 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
         flex: 1;
         padding: 10px;
       }        
+	.photo-row img {
+	    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adding a stronger shadow */
+	    margin: 15px; /* Uniform margin around images */
+	    padding: 10px; /* Padding inside the image container, if needed */
+	    width: calc(100% - 30px); /* Adjust width to accommodate margins */
+	    height: auto; /* Maintain aspect ratio */
+	    display: block; /* Block display to handle margins correctly */
+	    border-radius: 8px; /* Optional: Adds rounded corners to the images */
+	}
+	
+	/* Additional styling for the gallery container for better alignment and spacing */
+	.gallery-container {
+	    display: flex; /* Using Flexbox for better control over layout */
+	    flex-wrap: wrap; /* Allows multiple lines of images */
+	    justify-content: space-around; /* Spacing out items evenly */
+	    padding: 20px; /* Padding around the entire gallery for spacing from the container edges */
+	}
+	
+	/* Style adjustments for responsive behavior */
+	@media (max-width: 768px) {
+	    .photo-row img {
+	        margin: 10px; /* Smaller margin on smaller screens */
+	        width: calc(100% - 20px); /* Adjust width accordingly */
+	    }
+	}
+
     </style>
   </head>
   <body>
@@ -280,19 +306,17 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	    </div>
 	  </div>
 	</div>
-	<?php 
-	if ($result->num_rows > 0) 
-	{
-	    while ($row = $result->fetch_assoc()) 
-	    {
-        	echo '<img src="' . $row['image'] . '" alt="' . $row['image_alt_text'] . '" width="200" height="200" />';
-	    }
-	} 
-	else 
-	{
-	    echo "No images found.";
-	}
-	?>
+	<div class="gallery-container">
+    <?php 
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo '<div class="photo-row"><img src="' . $row['image'] . '" alt="' . htmlspecialchars($row['image_alt_text']) . '" /></div>';
+        }
+    } else {
+        echo "<p>No images found.</p>";
+    }
+    ?>
+</div>
 	
           	
     <br />
