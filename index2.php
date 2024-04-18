@@ -7,10 +7,10 @@
     <!-- Local Bootstrap CSS files -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-      
         header {
-          background-color: #fdf4eb;
-        }
+      		background-color: #fdf4eb;
+    	}
+
 
       .custom-navbar h1 {
         margin: 0;
@@ -71,28 +71,40 @@
 	  padding-left: 1px;
 	}
 	
-	/* Ensure images take up more space and are responsive */
-	/* Ensure images in the carousel have the same fixed height and adjust width automatically */
+	/* Ensure images in the carousel have a fixed height and a smaller width */
 	#carouselExample .carousel-item img {
-	  height: 400px; /* Fixed height for all images */
-	  width: 600px; /* Auto width to maintain aspect ratio */
+	  height: 300px; /* Reduced height */
+	  width: auto; /* Auto width to maintain aspect ratio */
 	  object-fit: cover; /* Cover the area nicely without stretching the image */
-	  max-width: 100%; /* Ensure the image does not overflow its container */
 	}
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: rgba(0, 0, 0, 0.5); /* Adjust the color as needed */
-        border-radius: 50%; /* Make the arrows round */
-        width: 40px; /* Adjust the width */
-        height: 40px; /* Adjust the height */
-        padding: 10px; /* Add some padding */
-    }
+	
+	/* Add shadow to each card */
+	.card {
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+	}
+	
+	/* Additional tweaks to maintain consistency */
+	.carousel-item .row > div {
+	  padding-right: 5px;
+	  padding-left: 5px;
+	}
+	
+	/* Styling modifications for carousel control icons */
+	.carousel-control-prev-icon,
+	.carousel-control-next-icon {
+	    background-color: rgba(0, 0, 0, 0.5); /* More visible background */
+	    border-radius: 50%; /* Rounded shape */
+	    width: 35px; /* Smaller size */
+	    height: 35px; /* Smaller size */
+	    padding: 5px; /* Adjust padding */
+	}
+	
+	/* Ensure buttons are responsive and cover the arrows correctly */
+	.carousel-control-prev,
+	.carousel-control-next {
+	    width: 45px; /* Adjusted width */
+	}
 
-    /* Custom styles for carousel control buttons */
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: auto; /* Ensure the buttons wrap the arrows */
-    }
 
 	
 
