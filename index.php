@@ -255,7 +255,7 @@
                 }
             ];
 
-            function createCarouselItems($imageSets, $categoryName)
+            function createCarouselItems($imageSets, $categoryName, $dblink)
             {
                 $carouselId = "carousel" . preg_replace('/\s+/', '', $categoryName);
                 echo '<h2>' . $categoryName . '</h2><hr>
@@ -273,7 +273,6 @@
                         $imageID = (int) $image['ID'];
 			$userID = (int) $_SESSION['userID']; // Also casting to integer for safety
 			$query = "SELECT * FROM `orders` WHERE `imageID` = '$imageID' AND `userID` = '$userID'";
-			$dblink = db_connect("UI-schema");
 			$res = mysqli_query($dblink, $query);
 			
                         echo '<div class="col-md-2">
@@ -313,12 +312,12 @@
 		      
                     </div>';
             }
-
+	    $dblink = db_connect("UI-schema");
             foreach ($categories as $categoryName => $filter) {
                 $filteredImages = array_filter($images, $filter);
                 $imageSets = array_chunk($filteredImages, 5);
                 echo '<div id="carouselExample">';
-                createCarouselItems($imageSets, $categoryName);
+                createCarouselItems($imageSets, $categoryName, $dblink);
                 echo '</div>';
             }
         }
