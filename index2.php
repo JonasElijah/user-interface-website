@@ -64,11 +64,9 @@
         color: #a5998c;
       }
 
-
-	 /* Increase the width of the carousel items by adjusting the padding and margin */
 	.carousel-item .row > div {
-	  padding-right: 1px;
-	  padding-left: 1px;
+	  padding-right: 15px;
+	  padding-left: 15px;
 	}
 	
 	/* Ensure images in the carousel have a fixed height and a smaller width */
