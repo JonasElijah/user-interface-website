@@ -70,9 +70,9 @@
             color: #a5998c;
         }
 
-        #carouselExample .carousel-item img {
-            height: auto;
-            width: 100%;
+            #carouselExample .carousel-item img {
+            height: 300px;
+            width: auto;
             object-fit: cover;
         }
 
@@ -83,7 +83,7 @@
 
         .carousel-item .col-md-2 {
             flex: 0 0 auto;
-            width: 48%; /* Adjust for small screens */
+            width: 18%;
             padding: 3px;
         }
 
@@ -125,6 +125,65 @@
             position: relative;
             padding: 0 10px;
         }
+
+        .carousel-control-next-icon {
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 8 8"><path d="M3.293 0l-1 1L5.293 4 2.293 7l1 1L8 4 3.293 0z"/></svg>');
+            background-color: transparent;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-control-prev-icon {
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 8 8"><path d="M4.707 0l1 1L2.707 4l3 3-1 1L0 4l4.707-4z"/></svg>');
+            background-color: transparent;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #carouselExample .carousel-control-prev,
+        #carouselExample .carousel-control-next {
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+        }
+
+        #carouselExample .carousel-control-prev {
+            left: -80px;
+        }
+
+        #carouselExample .carousel-control-next {
+            right: -80px;
+        }
+	
+
+	@media (max-width: 480px) {
+	    #carouselExample .carousel-control-prev,
+	    #carouselExample .carousel-control-next {
+	        display: none;  /* Optionally hide controls on small devices */
+	    }
+	
+	    .carousel-item .col-md-2 {
+	        flex: 0 0 100%; /* Each item takes full width of the carousel */
+	        max-width: 100%; /* Each item takes full width of the carousel */
+	        padding: 3px; /* Adjust padding as needed */
+	    }
+	
+	    .carousel-inner .row {
+	        flex-wrap: nowrap; /* Prevents wrapping of items */
+	        overflow-x: auto; /* Allows horizontal scrolling */
+	        scroll-snap-type: x mandatory; /* Optional: enhances the scroll experience */
+	    }
+	
+	    .carousel-item .col-md-2 {
+	        scroll-snap-align: start; /* Optional: ensures items align nicely on scroll */
+	    }
+	}
 
 
 
