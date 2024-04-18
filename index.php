@@ -126,7 +126,7 @@
             padding: 0 10px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 576px) {
 	    #carouselExample .carousel-control-prev,
 	    #carouselExample .carousel-control-next {
 	        display: none;  /* Optionally hide controls on small devices */
@@ -148,6 +148,7 @@
 	        scroll-snap-align: start; /* Optional: ensures items align nicely on scroll */
 	    }
 	}
+
 
 
         .add-to-cart-btn {
