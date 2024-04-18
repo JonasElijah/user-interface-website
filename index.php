@@ -287,7 +287,7 @@
   <?php
         include("functions.php");
         $dblink = db_connect("UI-schema");
-        $sql = "SELECT *, `ds` FROM `image`";
+        $sql = "SELECT *, `category` FROM `image`";
         $result = mysqli_query($dblink, $sql);
         if (mysqli_num_rows($result) == 0) {
             echo 'Error, database table not found';
@@ -296,8 +296,8 @@
 
             // Define categories and their conditions
             $categories = [
-                'Recommended' => function($img) { return $img['ds'] !== 'portrait'; },
-                'Portrait' => function($img) { return $img['ds'] === 'portrait'; }
+                'Recommended' => function($img) { return $img['category'] !== 'portrait'; },
+                'Portrait' => function($img) { return $img['category'] === 'portrait'; }
             ];
 
             // Function to create carousel items
@@ -326,7 +326,7 @@
 		                  	    <input type="hidden" name="imageID" value="'.$imageID.'"> 
 				            <input type="hidden" name="imageName" value="'.$imageName.'"> 
 		                  	    <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
-					    <button type="submit" name="submit">Add to Cart</button>
+					    <button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>
 					</form>
                                   </div>
                                 </div>
