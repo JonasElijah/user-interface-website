@@ -270,7 +270,7 @@
                         $imagePath = $image['image'];
                         $imageName = $image['name'];
                         $imagePrice = $image['price'];
-                        $imageID = $_POST['ID'];
+                        $imageID = $image['ID'];
 			$userID = $_SESSION['userID'];
 			$query = "SELECT * FROM `orders` WHERE `imageID` = '$imageID' AND `userID` = '$userID'";
 			$res = mysqli_query($dblink, $query);
