@@ -69,9 +69,8 @@
 	  padding-left: 15px;
 	}
 	
-	/* Ensure images in the carousel have a fixed height and a smaller width */
 	#carouselExample .carousel-item img {
-	  height: 300px; /* Reduced height */
+	  height: 150px; /* Reduced height */
 	  width: auto; /* Auto width to maintain aspect ratio */
 	  object-fit: cover; /* Cover the area nicely without stretching the image */
 	}
