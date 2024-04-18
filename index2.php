@@ -70,9 +70,9 @@
 	}
 	
 	#carouselExample .carousel-item img {
-	  height: 150px; /* Reduced height */
-	  width: auto; /* Auto width to maintain aspect ratio */
-	  object-fit: cover; /* Cover the area nicely without stretching the image */
+	  height: 300/2px; 
+	  width: auto/2; 
+	  object-fit: cover; 
 	}
 	
 	/* Add shadow to each card */
