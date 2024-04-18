@@ -65,9 +65,9 @@
       }
 
 
-	.card-img-top {
-	  height: 200px; /* New fixed height, smaller than the previous 400px */
-	  width: 100%; /* Maintain the width to the full container width */
+	#carouselExample .carousel-item img {
+	  height: 300px; /* Reduced height */
+	  width: auto; /* Auto width to maintain aspect ratio */
 	  object-fit: cover; /* Cover the area nicely without stretching the image */
 	}
 	
