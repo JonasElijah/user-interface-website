@@ -252,7 +252,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 
     <div>
 	<?php	
-		echo "<br/><h1 class="category">Gallery</h1><hr>";
+		echo "<br/><div class=""category"><h1>Gallery</h1><hr></div>";
 	?>
 	<!-- Button to launch modal -->
 	
