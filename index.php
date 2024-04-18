@@ -183,6 +183,20 @@
 	    .carousel-item .col-md-2 {
 	        scroll-snap-align: start; /* Optional: ensures items align nicely on scroll */
 	    }
+		
+	    .custom-navbar {
+	        flex-direction: column;
+	        align-items: flex-start;
+	    }
+	
+	    .navbar-nav {
+	        width: 100%;
+	        justify-content: flex-start;
+	    }
+	
+	    .nav-item {
+	        padding: 5px 0; /* More vertical padding on mobile */
+	    }
 	}
 
 
