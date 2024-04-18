@@ -80,6 +80,11 @@
 	  margin: 5px; 
   	  padding: 10px;
 	}
+	    .card-img-top {
+	  height: 150px; /* Smaller image height */
+	  object-fit: cover; /* Ensures image covers the defined area */
+	  width: 100%; /* Ensures image spans the full width of the card */
+	}
 	
 	/* Additional tweaks to maintain consistency */
 	.carousel-item .row > div {
