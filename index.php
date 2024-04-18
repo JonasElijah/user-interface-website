@@ -273,14 +273,7 @@
                         $imageID = (int) $image['ID'];
 			$query = "SELECT * FROM `orders` WHERE `imageID` = ? AND `userID` = ?";
 			$dblink = db_connect("UI-schema");
-			$stmt = $dblink->prepare($query);
-			if ($stmt === false) {
-			    die('MySQL prepare error: ' . $dblink->error);
-			}
-			$userID = (int) $_SESSION['userID']; 
-			$stmt->bind_param("ii", $imageID, $userID);  
-			$stmt->execute();
-			$result = $stmt->get_result();
+			$res = mysqli_query($dblink, $query);
 			
                         echo '<div class="col-md-2">
                     		<div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
@@ -292,7 +285,7 @@
 		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
 				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
 		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '">';
-					     if ($result->num_rows == 0) {
+					    if (mysqli_num_rows($res) == 0) {
 				                echo "<button class='add-to-cart-btn' type='submit' name='submit'>Add to Cart</button>";
 				            } else {
 				                echo "<button type='button' class='btn btn-secondary' disabled>In Cart</button>";
