@@ -83,17 +83,40 @@
 	}
 	
 	.card {
-	margin: 10px auto; /* Margin for top and bottom spacing and auto to center horizontally */
-	width: 100%; /* Make the card use all available width within the column */
-	box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds shadow for better visibility */
-	}
+	    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth transition for transformation and shadow */
+	    cursor: pointer; /* Indicates that the card is clickable */
+	    margin: 10px auto; /* Centering and spacing */
+	    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Initial subtle shadow for depth */
+	  }
 	
 	/* Ensure the images fit well within the cards */
 	.card-img-top {
-	width: 100%;
-	height: auto; /* Maintain aspect ratio */
-	}    
+	    transition: transform 0.5s ease; /* Smooth transition using transform over 0.5 seconds */
+	    display: block; /* Ensures the image takes up the full container width */
+	    width: 100%; /* Maintains full width */
+	    height: auto; /* Keeps aspect ratio */
+	  }
+	
+	  .card:hover {
+	    transform: scale(1.05); /* Slightly enlarges the card */
+	    box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* Enhances shadow for a lifted effect */
+	    z-index: 10; /* Ensures the card pops out over other content */
+	  }
 
+	    .carousel-inner .row {
+	    display: flex; /* Ensures that cards are in a flex container */
+	    overflow: hidden; /* Prevents the row from spilling out of its container */
+	  }
+	
+	  /* Specific adjustments to prevent cards from pushing others around on scale */
+	  .carousel-item .col-md-2 {
+	    transition: margin 0.3s ease-in-out; /* Smooth transition for margins */
+	  }
+	
+	  .carousel-item .col-md-2:hover {
+	    margin: 0 5px; /* Optional: Adjust margins if needed to prevent overlap */
+	  }
+	    
 	#carouselExample {
 	    max-width: 100%; /* Limit carousel width to prevent overflow */
 	    position: relative; /* Needed for absolute positioning of children */
