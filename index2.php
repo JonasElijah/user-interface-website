@@ -6,6 +6,62 @@
     <title>Photography Website</title>
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+	    header {
+      		background-color: #fdf4eb;
+    	}
+
+
+      .custom-navbar h1 {
+        margin: 0;
+        padding: 0; 
+        line-height: 1;
+        vertical-align: bottom; 
+         font-size: 25px;
+      }
+      body {
+        font-family: "Georgia", sans-serif;
+      }
+
+      .dropdown-menu {
+        display: none;
+      }
+
+      #hover-dropdown:hover .dropdown-menu {
+        display: block;
+        min-width: 1rem;
+        max-width: 6.5rem;
+        max-height: calc(50vh - 50px);
+        overflow-y: auto;
+        text-align: center;
+      }
+
+      .photo-row {
+        padding: 50px;
+      }
+
+      .photo-row img {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-right: 20px;
+      }
+
+      .category {
+        margin-bottom: 10px;
+        padding: 40px;
+        margin-right: 10px;
+      }
+
+      .custom-button {
+        background-color: #fdf4eb;
+        border-color: #fdf4eb;
+        color: #a5998c;
+      }
+
+      .custom-button:hover {
+        background-color: #f0e6d1;
+        border-color: #f0e6d1;
+        color: #a5998c;
+      }
         /* Carousel and card styling adjustments */
         #carouselExample .carousel-item .col-md {
             flex: 0 0 auto;
