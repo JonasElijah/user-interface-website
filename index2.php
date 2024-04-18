@@ -65,35 +65,34 @@
       }
 
 
-
+	.card-img-top {
+	  height: 200px; /* New fixed height, smaller than the previous 400px */
+	  width: 100%; /* Maintain the width to the full container width */
+	  object-fit: cover; /* Cover the area nicely without stretching the image */
+	}
 	
-	  .carousel-item .row {
-	    display: flex;
-	    justify-content: center; /* Centers the columns horizontally */
-	  }
+	.carousel-item .row {
+	display: flex;
+	justify-content: center; /* Centers the columns horizontally */
+	}
 	
-	  .carousel-item .col-md-2 {
-	    flex: 0 0 auto; /* Flex grow, shrink, and basis */
-	    width: 18%; /* Adjust width to slightly less than 1/5th to include margins */
-	    padding: 5px; /* Padding for spacing between cards */
-	  }
+	.carousel-item .col-md-2 {
+	flex: 0 0 auto; /* Flex grow, shrink, and basis */
+	width: 18%; /* Adjust width to slightly less than 1/5th to include margins */
+	padding: 5px; /* Padding for spacing between cards */
+	}
 	
-	  .card {
-	    margin: 10px auto; /* Margin for top and bottom spacing and auto to center horizontally */
-	    width: 100%; /* Make the card use all available width within the column */
-	    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds shadow for better visibility */
-	  }
+	.card {
+	margin: 10px auto; /* Margin for top and bottom spacing and auto to center horizontally */
+	width: 100%; /* Make the card use all available width within the column */
+	box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds shadow for better visibility */
+	}
 	
-	  /* Ensure the images fit well within the cards */
-	  .card-img-top {
-	    width: 100%;
-	    height: auto; /* Maintain aspect ratio */
-	  }
-
-
-	
-
-	    
+	/* Ensure the images fit well within the cards */
+	.card-img-top {
+	width: 100%;
+	height: auto; /* Maintain aspect ratio */
+	}    
     </style>
   </head>
   <body>
@@ -179,7 +178,7 @@
       </nav>
     </header>
 <div class="category">
-  <h1> Recommended </h1>
+  <h1>Recommended</h1>
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <?php
@@ -191,44 +190,31 @@
       if (mysqli_num_rows($result) == 0) {
           echo 'Error, database table not found';
       } else {
-          $images = mysqli_fetch_all($result, MYSQLI_ASSOC); // Fetch all images into an array
-
-          // Split images array into chunks of 5
+          $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
           $imageSets = array_chunk($images, 5);
-
-          $first = true; // Flag to mark the first item as active
+          $first = true;
           foreach ($imageSets as $set) {
-              $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
-
-              echo '<div class="carousel-item '.$activeClass.'">
-                      <div class="row">'; // Open a row for the set of images
-
+              $activeClass = $first ? 'active' : '';
+              echo '<div class="carousel-item '.$activeClass.'"><div class="row">';
               foreach ($set as $image) {
-                  $imagePath = $image['image'];
-                  $imageName = $image['name'];
-                  $imagePrice = $image['price'];
-                  $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
-
                   echo '<div class="col-md-2">
                           <div class="card">
-                            <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
+                            <img src="'.$image['image'].'" class="card-img-top" alt="Image of '.$image['name'].'">
                             <div class="card-body">
-                              <h5 class="card-title">'.$imageName.'</h5>
-                              <p class="card-text">'.$imagePrice.'</p>
+                              <h5 class="card-title">'.$image['name'].'</h5>
+                              <p class="card-text">'.$image['price'].'</p>
                               <form method="post" action="">
-                                <input type="hidden" name="imageID" value="'.$imageID.'"> 
-                                <input type="hidden" name="imageName" value="'.$imageName.'"> 
-                                <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
+                                <input type="hidden" name="imageID" value="'.$image['ID'].'">
+                                <input type="hidden" name="imageName" value="'.$image['name'].'">
+                                <input type="hidden" name="imagePrice" value="'.$image['price'].'">
                                 <button type="submit" name="submit">Add to Cart</button>
                               </form>
                             </div>
                           </div>
                         </div>';
               }
-
-              echo '</div></div>'; // Close the row and carousel item
-
-              $first = false; // Update the flag after the first iteration
+              echo '</div></div>';
+              $first = false;
           }
       }
       ?>
@@ -243,6 +229,7 @@
     </button>
   </div>
 </div>
+
 
    <br />
     <br />
