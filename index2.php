@@ -100,18 +100,18 @@
 	    padding: 0 50px; /* Adjust this value to increase space for buttons */
 	  }
 	
-	  /* Adjust button positioning */
+	 /* CSS for customizing the carousel control icons */
 	  .carousel-control-prev-icon,
 	  .carousel-control-next-icon {
-	    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23fff" viewBox="0 0 8 8"><path d="M4.707 0l1 1L2.707 4l3 3-1 1L0 4l4.707-4z"/></svg>'); /* Black arrow */
-	    background-color: black; /* Black background */
-	    border-radius: 50%; /* Maintain round shape */
-	    width: 40px; /* Consistent size */
-	    height: 40px; /* Consistent size */
-	    display: flex; /* Flex to center the content */
+	    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 8 8"><path d="M4.707 0l1 1L2.707 4l3 3-1 1L0 4l4.707-4z"/></svg>'); /* SVG with black arrow */
+	    background-color: transparent; /* Transparent background */
+	    border-radius: 50%; /* Round shape */
+	    width: 40px; /* Standard size */
+	    height: 40px; /* Standard size */
+	    display: flex; /* Enables centering of the icon */
 	    align-items: center; /* Center vertically */
 	    justify-content: center; /* Center horizontally */
-	    opacity: 1; /* Full opacity for visibility */
+	    opacity: 1; /* Ensure the icon is fully opaque */
 	  }
 	
 	  /* Make sure the controls are visible against any background */
