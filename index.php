@@ -270,7 +270,18 @@
                         $imagePath = $image['image'];
                         $imageName = $image['name'];
                         $imagePrice = $image['price'];
-                        $imageID = $image['ID'];
+                        $imageID = (int) $image['ID'];
+			$query = "SELECT * FROM `orders` WHERE `imageID` = ? AND `userID` = ?";
+			$stmt = $dblink->prepare($query);
+			
+			if ($stmt === false) {
+			    die('MySQL prepare error: ' . $dblink->error);
+			}
+			$userID = (int) $_SESSION['userID']; 
+			
+			$stmt->bind_param("ii", $imageID, $userID);  
+			$stmt->execute();
+			$result = $stmt->get_result();
                         echo '<div class="col-md-2">
                     		<div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
                                   <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
