@@ -179,7 +179,7 @@
 	    background-color: #fdf4eb; /* Light cream background */
 	    color: #333; /* Dark text for contrast */
 	    border: 1px solid #a5998c; /* Thinner, subtle border */
-	    padding: 8px 16px; /* Appropriate padding for a better click area */
+	    padding: 4px 8px; /* Appropriate padding for a better click area */
 	    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
 	    cursor: pointer; /* Cursor indicates clickable button */
 	    outline: none; /* Removes the default focus outline */
