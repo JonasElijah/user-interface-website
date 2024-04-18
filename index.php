@@ -70,7 +70,7 @@
         }
 
         #carouselExample .carousel-item img {
-            height: 300px;
+            height: 250px;
             width: auto;
             object-fit: cover;
         }
