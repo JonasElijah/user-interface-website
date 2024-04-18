@@ -157,30 +157,36 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
         padding: 10px;
       }        
 	.photo-row img {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
-    margin: 15px; /* Uniform margin around images */
-    padding: 15px; /* Padding inside the image container, if needed */
-    max-width: 250px; /* Smaller maximum width for the images */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensures proper handling of margins and alignment */
-    object-fit: contain; /* Ensures the image is scaled properly within its element */
-}
+	    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+	    margin: 15px; /* Uniform margin around images */
+	    padding: 15px; /* Padding inside the image container, if needed */
+	    max-width: 250px; /* Smaller maximum width for the images */
+	    height: auto; /* Maintain aspect ratio */
+	    display: block; /* Ensures proper handling of margins and alignment */
+	    object-fit: contain; /* Ensures the image is scaled properly within its element */
+	    transition: transform 0.3s ease; /* Smooth transition for the transform property */
+	}
+	
+	.photo-row img:hover {
+	    transform: scale(1.1); /* Scale the image up by 10% on hover */
+	}
+	
+	/* Adjusting the container for better layout and responsiveness */
+	.gallery-container {
+	    display: flex; /* Flexbox for better layout control */
+	    flex-wrap: wrap; /* Allows wrapping to the next line */
+	    justify-content: space-around; /* Even spacing around each item */
+	    padding: 20px; /* Padding around the entire gallery */
+	}
+	
+	/* Responsive behavior for smaller screens */
+	@media (max-width: 768px) {
+	    .photo-row img {
+	        margin: 0.5px; /* Smaller margin for smaller screens */
+	        max-width: 90px; /* Slightly smaller width on small devices */
+	    }
+	}
 
-/* Adjusting the container for better layout and responsiveness */
-.gallery-container {
-    display: flex; /* Flexbox for better layout control */
-    flex-wrap: wrap; /* Allows wrapping to the next line */
-    justify-content: space-around; /* Even spacing around each item */
-    padding: 20px; /* Padding around the entire gallery */
-}
-
-/* Responsive behavior for smaller screens */
-@media (max-width: 768px) {
-    .photo-row img {
-        margin: 0.5px; /* Smaller margin for smaller screens */
-        max-width: 90px; /* Slightly smaller width on small devices */
-    }
-}
 
     </style>
   </head>
