@@ -282,74 +282,77 @@
       </nav>
     </header>
 <div class="category">
-  <h2> Recommended </h2>
-  <hr>
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <?php
-    include("functions.php");
-    $dblink = db_connect("UI-schema");
-    $sql = "SELECT * FROM `image`";
-    $result = mysqli_query($dblink, $sql);
+        include("functions.php");
+        $dblink = db_connect("UI-schema");
+        $sql = "SELECT *, `ds` FROM `image`";
+        $result = mysqli_query($dblink, $sql);
+        if (mysqli_num_rows($result) == 0) {
+            echo 'Error, database table not found';
+        } else {
+            $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    if (mysqli_num_rows($result) == 0) {
-        echo 'Error, database table not found';
-    } else {
-        $images = mysqli_fetch_all($result, MYSQLI_ASSOC); // Fetch all images into an array
+            // Define categories and their conditions
+            $categories = [
+                'Recommended' => function($img) { return $img['ds'] !== 'portrait'; },
+                'Portrait' => function($img) { return $img['ds'] === 'portrait'; }
+            ];
 
-        // Split images array into chunks of 5
-        $imageSets = array_chunk($images, 5);
-
-        echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">';
-
-        // Loop through the image sets and generate HTML for each carousel item
-        $first = true; // Flag to mark the first item as active
-        foreach ($imageSets as $set) {
-            $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
-
-            echo '<div class="carousel-item '.$activeClass.'">
-                    <div class="row">'; // Open a row for the set of images
-
-            // Loop through the images in the set and generate HTML for each image
-            foreach ($set as $image) {
-                $imagePath = $image['image'];
-                $imageName = $image['name'];
-                $imagePrice = $image['price'];
-                $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
-
-                echo '<div class="col-md-2">
-                        <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
-                          <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
-                          <div class="card-body">
-                            <h5 class="card-title">'.$imageName.'</h5>
-                            <p class="card-text">'.$imagePrice.'</p>
-                            <form method="post" action="">
-                              <input type="hidden" name="imageID" value="'.$imageID.'"> 
-                              <input type="hidden" name="imageName" value="'.$imageName.'"> 
-                              <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
-				<button type="submit" name="submit" class="add-to-cart-btn">Add to Cart</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>';
+            // Function to create carousel items
+            function createCarouselItems($imageSets, $categoryName) {
+                $carouselId = "carousel" . preg_replace('/\s+/', '', $categoryName); // Create an ID by removing spaces
+                echo '<h2>'.$categoryName.'</h2><hr>
+                      <div id="'.$carouselId.'" class="carousel slide" data-bs-ride="carousel">
+                      <div class="carousel-inner">';
+                $first = true;
+                foreach ($imageSets as $set) {
+                    $activeClass = $first ? 'active' : '';
+                    echo '<div class="carousel-item '.$activeClass.'">
+                            <div class="row">';
+                    foreach ($set as $image) {
+                        $imagePath = $image['image'];
+                        $imageName = $image['name'];
+                        $imagePrice = $image['price'];
+                        $imageID = $image['ID'];
+                        echo '<div class="col-md-2">
+                                <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
+                                  <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
+                                  <div class="card-body">
+                                    <h5 class="card-title">'.$imageName.'</h5>
+                                    <p class="card-text">'.$imagePrice.'</p>
+                                    <form method="post" action="">
+                                      <input type="hidden" name="imageID" value="'.$imageID.'"> 
+                                      <input type="hidden" name="imageName" value="'.$imageName.'"> 
+                                      <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
+                                      <button type="submit" name="submit" class="add-to-cart-btn">Add to Cart</button>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>';
+                    }
+                    echo '</div></div>';
+                    $first = false;
+                }
+                echo '</div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#'.$carouselId.'" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#'.$carouselId.'" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span the="visually-hidden">Next</span>
+                </button>
+              </div>';
             }
 
-            echo '</div></div>'; // Close the row and carousel item
-
-            $first = false; // Update the flag after the first iteration
+            // Process each category
+            foreach ($categories as $categoryName => $filter) {
+                $filteredImages = array_filter($images, $filter);
+                $imageSets = array_chunk($filteredImages, 5);
+                createCarouselItems($imageSets, $categoryName);
+            }
         }
-
-       echo '</div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>';
-    }
 
     if (isset($_POST['submit'])) {
     $imageID = $_POST['imageID'];
