@@ -270,9 +270,22 @@
                         $imagePath = $image['image'];
                         $imageName = $image['name'];
                         $imagePrice = $image['price'];
-                        $imageID = $image['ID'];
-			$query = "SELECT * FROM `orders` WHERE `imageID` = '$imageID' AND `userID` = '$_SESSION['userID']'";
-			$res = mysqli_query($dblink, $query);
+                        $imageID = $_POST['imageID'];  // Ensure to validate and sanitize this input
+			$userID = $_SESSION['userID']; // Ensure the user is authenticated and userID is valid			
+			$query = "SELECT * FROM `orders` WHERE `imageID` = ? AND `userID` = ?";
+			
+			$stmt = $dblink->prepare($query);
+			
+			$stmt->bind_param("ii", $imageID, $userID); /
+			
+			$stmt->execute();
+			
+			// Get the result
+			$result = $stmt->get_result();
+			
+			// Fetch all rows as an associative array
+			$orders = $result->fetch_all(MYSQLI_ASSOC);
+
                         echo '<div class="col-md-2">
                     		<div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
                                   <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
@@ -283,7 +296,7 @@
 		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
 				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
 		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '">';
-					    if (mysqli_num_rows($res) == 0) {
+					    if (!$orders) {
 					        echo '<button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>';
 					    } else {
 						echo '<button class="add-to-cart-btn" type="submit" disabled >In cart</button>';
