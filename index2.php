@@ -320,8 +320,10 @@
             foreach ($categories as $categoryName => $filter) {
                 $filteredImages = array_filter($images, $filter);
                 $imageSets = array_chunk($filteredImages, 5);
+		$userID = $_SESSION['userID'];
+
                 echo '<div id="carouselExample">';
-                createCarouselItems($imageSets, $categoryName);
+                createCarouselItems($imageSets, $categoryName,$userID,$dblink);
                 echo '</div>';
 		echo '<br/>';
             }
