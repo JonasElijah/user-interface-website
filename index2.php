@@ -65,34 +65,31 @@
       }
 
 
-	 /* Increase the width of the carousel items by adjusting the padding and margin */
-	.carousel-item .row > div {
-	  padding-right: 1px;
-	  padding-left: 1px;
-	}
-	
-	/* Ensure images take up more space and are responsive */
-	/* Ensure images in the carousel have the same fixed height and adjust width automatically */
-	#carouselExample .carousel-item img {
-	  height: 400px; /* Fixed height for all images */
-	  width: 600px; /* Auto width to maintain aspect ratio */
-	  object-fit: cover; /* Cover the area nicely without stretching the image */
-	  max-width: 100%; /* Ensure the image does not overflow its container */
-	}
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: rgba(0, 0, 0, 0.5); /* Adjust the color as needed */
-        border-radius: 50%; /* Make the arrows round */
-        width: 40px; /* Adjust the width */
-        height: 40px; /* Adjust the height */
-        padding: 10px; /* Add some padding */
-    }
 
-    /* Custom styles for carousel control buttons */
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: auto; /* Ensure the buttons wrap the arrows */
-    }
+	
+	  .carousel-item .row {
+	    display: flex;
+	    justify-content: center; /* Centers the columns horizontally */
+	  }
+	
+	  .carousel-item .col-md-2 {
+	    flex: 0 0 auto; /* Flex grow, shrink, and basis */
+	    width: 18%; /* Adjust width to slightly less than 1/5th to include margins */
+	    padding: 5px; /* Padding for spacing between cards */
+	  }
+	
+	  .card {
+	    margin: 10px auto; /* Margin for top and bottom spacing and auto to center horizontally */
+	    width: 100%; /* Make the card use all available width within the column */
+	    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds shadow for better visibility */
+	  }
+	
+	  /* Ensure the images fit well within the cards */
+	  .card-img-top {
+	    width: 100%;
+	    height: auto; /* Maintain aspect ratio */
+	  }
+
 
 	
 
@@ -183,93 +180,66 @@
     </header>
 <div class="category">
   <h1> Recommended </h1>
-  <div class="carousel-inner">
-    <?php
-    include("functions.php");
-    $dblink = db_connect("UI-schema");
-    $sql = "SELECT * FROM `image`";
-    $result = mysqli_query($dblink, $sql);
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <?php
+      include("functions.php");
+      $dblink = db_connect("UI-schema");
+      $sql = "SELECT * FROM `image`";
+      $result = mysqli_query($dblink, $sql);
 
-    if (mysqli_num_rows($result) == 0) {
-        echo 'Error, database table not found';
-    } else {
-        $images = mysqli_fetch_all($result, MYSQLI_ASSOC); // Fetch all images into an array
+      if (mysqli_num_rows($result) == 0) {
+          echo 'Error, database table not found';
+      } else {
+          $images = mysqli_fetch_all($result, MYSQLI_ASSOC); // Fetch all images into an array
 
-        // Split images array into chunks of 5
-        $imageSets = array_chunk($images, 5);
+          // Split images array into chunks of 5
+          $imageSets = array_chunk($images, 5);
 
-        echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">';
+          $first = true; // Flag to mark the first item as active
+          foreach ($imageSets as $set) {
+              $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
 
-        // Loop through the image sets and generate HTML for each carousel item
-        $first = true; // Flag to mark the first item as active
-        foreach ($imageSets as $set) {
-            $activeClass = $first ? 'active' : ''; // Add 'active' class to the first item
+              echo '<div class="carousel-item '.$activeClass.'">
+                      <div class="row">'; // Open a row for the set of images
 
-            echo '<div class="carousel-item '.$activeClass.'">
-                    <div class="row">'; // Open a row for the set of images
+              foreach ($set as $image) {
+                  $imagePath = $image['image'];
+                  $imageName = $image['name'];
+                  $imagePrice = $image['price'];
+                  $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
 
-            // Loop through the images in the set and generate HTML for each image
-            foreach ($set as $image) {
-                $imagePath = $image['image'];
-                $imageName = $image['name'];
-                $imagePrice = $image['price'];
-                $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
-
-                echo '<div class="col-md-2">
-                        <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
-                          <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
-                          <div class="card-body">
-                            <h5 class="card-title">'.$imageName.'</h5>
-                            <p class="card-text">'.$imagePrice.'</p>
-                            <form method="post" action="">
-                              <input type="hidden" name="imageID" value="'.$imageID.'"> 
-                              <input type="hidden" name="imageName" value="'.$imageName.'"> 
-                              <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
-                              <button type="submit" name="submit">Add to Cart</button>
-                            </form>
+                  echo '<div class="col-md-2">
+                          <div class="card">
+                            <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
+                            <div class="card-body">
+                              <h5 class="card-title">'.$imageName.'</h5>
+                              <p class="card-text">'.$imagePrice.'</p>
+                              <form method="post" action="">
+                                <input type="hidden" name="imageID" value="'.$imageID.'"> 
+                                <input type="hidden" name="imageName" value="'.$imageName.'"> 
+                                <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
+                                <button type="submit" name="submit">Add to Cart</button>
+                              </form>
+                            </div>
                           </div>
-                        </div>
-                      </div>';
-            }
+                        </div>';
+              }
 
-            echo '</div></div>'; // Close the row and carousel item
+              echo '</div></div>'; // Close the row and carousel item
 
-            $first = false; // Update the flag after the first iteration
-        }
+              $first = false; // Update the flag after the first iteration
+          }
+      }
+      ?>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden
 
-        echo '</div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>';
-    }
-
-    if (isset($_POST['submit'])) {
-        $imageID = $_POST['imageID'];
-        $imageName = $_POST['imageName'];
-        $imagePrice = $_POST['imagePrice'];
-
-        echo "Image ID: " . $imageID . "<br>";
-        echo "Image Name: " . $imageName . "<br>";
-        echo "Image Price: " . $imagePrice . "<br>";
-
-        $userID = $_SESSION['userID'];
-        
-        $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
-                VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
-        $dblink->query($sql) or
-        die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
-    }
-
-    ?>
-  </div>
-</div>
 
    <br />
     <br />
