@@ -219,10 +219,11 @@
 	  
 	  	if(!isset($_POST['submit']))
 		{
+		echo '<h3 class="photo-title">'.$data['name'].'</h3><hr>';
+
 			echo '<div class="row main-view">';
 				//Display Image
 				echo '<div class="col-md-6 item">';
-				echo '<h3 class="photo-title">'.$data['name'].'</h3><hr>';
 				echo '<img src="'.$data['image'].'" class="photo-cus">';
 				echo '</div>';
 
