@@ -284,7 +284,11 @@
 		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
 				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
 		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '">';
-					    
+					    if (mysqli_num_rows($res) == 0) {
+					        echo '<button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>';
+					    } else {
+						echo '<button class="add-to-cart-btn" type="submit" disabled >In cart</button>';
+					    }
 				echo	'</form>
                                   </div>
                                 </div>
