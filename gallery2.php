@@ -166,30 +166,31 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
         padding: 10px;
       }        
 	.photo-row img {
-	    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adding a stronger shadow */
-	    margin: 15px; /* Uniform margin around images */
-	    padding: 10px; /* Padding inside the image container, if needed */
-	    width: calc(100% - 30px); /* Adjust width to accommodate margins */
-	    height: auto; /* Maintain aspect ratio */
-	    display: block; /* Block display to handle margins correctly */
-	    border-radius: 8px; /* Optional: Adds rounded corners to the images */
-	}
-	
-	/* Additional styling for the gallery container for better alignment and spacing */
-	.gallery-container {
-	    display: flex; /* Using Flexbox for better control over layout */
-	    flex-wrap: wrap; /* Allows multiple lines of images */
-	    justify-content: space-around; /* Spacing out items evenly */
-	    padding: 20px; /* Padding around the entire gallery for spacing from the container edges */
-	}
-	
-	/* Style adjustments for responsive behavior */
-	@media (max-width: 768px) {
-	    .photo-row img {
-	        margin: 10px; /* Smaller margin on smaller screens */
-	        width: calc(100% - 20px); /* Adjust width accordingly */
-	    }
-	}
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    margin: 15px; /* Uniform margin around images */
+    padding: 10px; /* Padding inside the image container, if needed */
+    max-width: 100px; /* Smaller maximum width for the images */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures proper handling of margins and alignment */
+    border-radius: 8px; /* Optional: Rounded corners */
+    object-fit: contain; /* Ensures the image is scaled properly within its element */
+}
+
+/* Adjusting the container for better layout and responsiveness */
+.gallery-container {
+    display: flex; /* Flexbox for better layout control */
+    flex-wrap: wrap; /* Allows wrapping to the next line */
+    justify-content: space-around; /* Even spacing around each item */
+    padding: 20px; /* Padding around the entire gallery */
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+    .photo-row img {
+        margin: 10px; /* Smaller margin for smaller screens */
+        max-width: 90px; /* Slightly smaller width on small devices */
+    }
+}
 
     </style>
   </head>
