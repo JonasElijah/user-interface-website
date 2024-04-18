@@ -82,8 +82,8 @@
 
         .carousel-item .col-md-2 {
             flex: 0 0 auto;
-            width: 18%;
-            padding: 5px;
+            width: 25%;
+            padding: 3px;
         }
 
         .card {
@@ -122,7 +122,7 @@
         #carouselExample {
             max-width: 100%;
             position: relative;
-            padding: 0 20px;
+            padding: 0 10px;
         }
 
         .carousel-control-next-icon {
@@ -162,7 +162,7 @@
 
         @media (max-width: 768px) {
             #carouselExample {
-                padding: 0 30px;
+                padding: 0 10px;
             }
 
             #carouselExample .carousel-control-prev {
