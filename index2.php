@@ -6,7 +6,7 @@
     <title>Photography Website</title>
     <!-- Local Bootstrap CSS files -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
+      <style>
       
         header {
           background-color: #fdf4eb;
@@ -350,7 +350,9 @@
             foreach ($categories as $categoryName => $filter) {
                 $filteredImages = array_filter($images, $filter);
                 $imageSets = array_chunk($filteredImages, 5);
+		echo '<div id="carouselExample">';
                 createCarouselItems($imageSets, $categoryName);
+		echo '</div>';
             }
         }
 
