@@ -94,29 +94,40 @@
 	height: auto; /* Maintain aspect ratio */
 	}    
 
-	  /* Custom styles for pushing the carousel controls outward */
-	  #carouselExample .carousel-control-prev,
-	  #carouselExample .carousel-control-next {
-	    position: absolute; /* Ensures you can position them precisely */
-	    top: 50%; /* Align vertically in the middle */
-	    transform: translateY(-50%); /* Offset by half the height for vertical centering */
-	    z-index: 5; /* Ensures they are above other elements */
-	  }
-	
-	  #carouselExample .carousel-control-prev {
-	    left: -50px; /* Adjust this value to push the button further from the center */
-	  }
-	
-	  #carouselExample .carousel-control-next {
-	    right: -50px; /* Adjust this value to push the button further from the center */
-	  }
-	
-	  /* Making the control icons larger and more visible */
-	  .carousel-control-prev-icon,
-	  .carousel-control-next-icon {
-	    background-size: 100%; /* Makes the arrows fill the background */
-	    opacity: 1; /* Full visibility */
-	  }
+	  /* Carousel controls positioning */
+  #carouselExample .carousel-control-prev,
+  #carouselExample .carousel-control-next {
+    position: absolute;
+    top: 50%; /* Centers vertically */
+    transform: translateY(-50%); /* Align center vertically */
+    z-index: 5;
+  }
+
+  #carouselExample .carousel-control-prev {
+    left: calc(2vw - 30px); /* Keeps the button a viewport-width-based distance from the edge minus button width */
+  }
+
+  #carouselExample .carousel-control-next {
+    right: calc(2vw - 30px); /* Same for the right button */
+  }
+
+  /* Media query for small screens */
+  @media (max-width: 768px) {
+    #carouselExample .carousel-control-prev {
+      left: calc(5vw - 30px); /* Increase distance slightly on smaller screens */
+    }
+    #carouselExample .carousel-control-next {
+      right: calc(5vw - 30px);
+    }
+  }
+
+  /* Ensuring the buttons do not overlap with the cards on very small screens */
+  @media (max-width: 480px) {
+    #carouselExample .carousel-control-prev,
+    #carouselExample .carousel-control-next {
+      display: none; /* Optionally hide buttons on very small devices if overlap occurs */
+    }
+  }
 
 
     </style>
