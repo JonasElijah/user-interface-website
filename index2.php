@@ -212,21 +212,21 @@
                 $imagePrice = $image['price'];
                 $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
 
-                echo '<div class="col-md-4">
-                    <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
-                      <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
-                      <div class="card-body">
-                        <h5 class="card-title">'.$imageName.'</h5>
-                        <p class="card-text">'.$imagePrice.'</p>
-                        <form method="post" action="">
-                  	    <input type="hidden" name="imageID" value="'.$imageID.'"> 
-		            <input type="hidden" name="imageName" value="'.$imageName.'"> 
-                  	    <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
-			    <button type="submit" name="submit">Add to Cart</button>
-			</form>
-                      </div>
-                    </div>
-                  </div>';
+                echo '<div class="col-md-2">
+                        <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
+                          <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
+                          <div class="card-body">
+                            <h5 class="card-title">'.$imageName.'</h5>
+                            <p class="card-text">'.$imagePrice.'</p>
+                            <form method="post" action="">
+                              <input type="hidden" name="imageID" value="'.$imageID.'"> 
+                              <input type="hidden" name="imageName" value="'.$imageName.'"> 
+                              <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
+                              <button type="submit" name="submit">Add to Cart</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>';
             }
 
             echo '</div></div>'; // Close the row and carousel item
