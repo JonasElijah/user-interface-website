@@ -271,6 +271,7 @@
                         $imageName = $image['name'];
                         $imagePrice = $image['price'];
                         $imageID = (int) $image['ID'];
+			$userID = (int) $_SESSION['userID']; // Also casting to integer for safety
 			$query = "SELECT * FROM `orders` WHERE `imageID` = ? AND `userID` = ?";
 			$dblink = db_connect("UI-schema");
 			$res = mysqli_query($dblink, $query);
