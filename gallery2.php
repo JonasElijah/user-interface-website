@@ -86,15 +86,6 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
         text-align: center;
       }
 
-      .photo-row {
-        padding: 50px;
-      }
-
-      .photo-row img {
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-right: 20px;
-      }
 
       .category {
         margin-bottom: 10px;
