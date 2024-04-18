@@ -212,21 +212,21 @@
                 $imagePrice = $image['price'];
                 $imageID = $image['ID'];  // Assuming there's an 'id' field in your images table
 
-                echo '<div class="col-md-2">
-                        <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
-                          <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
-                          <div class="card-body">
-                            <h5 class="card-title">'.$imageName.'</h5>
-                            <p class="card-text">'.$imagePrice.'</p>
-                            <form method="post" action="">
-                              <input type="hidden" name="imageID" value="'.$imageID.'"> 
-                              <input type="hidden" name="imageName" value="'.$imageName.'"> 
-                              <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
-                              <button type="submit" name="submit">Add to Cart</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>';
+                echo '<div class="col-md-4">
+                    <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID='.$imageID.'\'">
+                      <img src="'.$imagePath.'" class="card-img-top" alt="Image of '.$imageName.'" title="Click to view details">
+                      <div class="card-body">
+                        <h5 class="card-title">'.$imageName.'</h5>
+                        <p class="card-text">'.$imagePrice.'</p>
+                        <form method="post" action="">
+                  	    <input type="hidden" name="imageID" value="'.$imageID.'"> 
+		            <input type="hidden" name="imageName" value="'.$imageName.'"> 
+                  	    <input type="hidden" name="imagePrice" value="'.$imagePrice.'"> 
+			    <button type="submit" name="submit">Add to Cart</button>
+			</form>
+                      </div>
+                    </div>
+                  </div>';
             }
 
             echo '</div></div>'; // Close the row and carousel item
@@ -247,21 +247,22 @@
     }
 
     if (isset($_POST['submit'])) {
-        $imageID = $_POST['imageID'];
-        $imageName = $_POST['imageName'];
-        $imagePrice = $_POST['imagePrice'];
+    $imageID = $_POST['imageID'];
+    $imageName = $_POST['imageName'];
+    $imagePrice = $_POST['imagePrice'];
 
-        echo "Image ID: " . $imageID . "<br>";
-        echo "Image Name: " . $imageName . "<br>";
-        echo "Image Price: " . $imagePrice . "<br>";
+    echo "Image ID: " . $imageID . "<br>";
+    echo "Image Name: " . $imageName . "<br>";
+    echo "Image Price: " . $imagePrice . "<br>";
 
-        $userID = $_SESSION['userID'];
-        
-        $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
-                VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
-        $dblink->query($sql) or
-        die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
-    }
+    $userID = $_SESSION['userID'];
+    
+    $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
+            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
+    $dblink->query($sql) or
+    die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
+}
+
 
     ?>
   </div>
