@@ -12,187 +12,179 @@
     <!-- Local Bootstrap CSS files -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <style>
-        header {
-            background-color: #fdf4eb;
-        }
+    header {
+        background-color: #fdf4eb;
+    }
 
-        .custom-navbar h1 {
-            margin: 0;
-            padding: 0;
-            line-height: 1;
-            vertical-align: bottom;
-            font-size: 25px;
-        }
+    .custom-navbar h1 {
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        vertical-align: bottom;
+        font-size: 25px;
+    }
 
-        body {
-            font-family: "Georgia", sans-serif;
-        }
+    body {
+        font-family: "Georgia", sans-serif;
+    }
 
-        .dropdown-menu {
-            display: none;
-        }
+    .dropdown-menu {
+        display: none;
+    }
 
-        #hover-dropdown:hover .dropdown-menu {
-            display: block;
-            min-width: 1rem;
-            max-width: 6.5rem;
-            max-height: calc(50vh - 50px);
-            overflow-y: auto;
-            text-align: center;
-        }
+    #hover-dropdown:hover .dropdown-menu {
+        display: block;
+        min-width: 1rem;
+        max-width: 6.5rem;
+        max-height: calc(50vh - 50px);
+        overflow-y: auto;
+        text-align: center;
+    }
 
-        .photo-row {
-            padding: 50px;
-        }
+    .photo-row {
+        padding: 50px;
+    }
 
-        .photo-row img {
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-right: 20px;
-        }
+    .photo-row img {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-right: 20px;
+    }
 
-        .category {
-            margin-bottom: 10px;
-            padding: 40px;
-            margin-right: 10px;
-        }
+    .category {
+        margin-bottom: 10px;
+        padding: 40px;
+        margin-right: 10px;
+    }
 
-        .custom-button {
-            background-color: #fdf4eb;
-            border-color: #fdf4eb;
-            color: #a5998c;
-        }
+    .custom-button {
+        background-color: #fdf4eb;
+        border-color: #fdf4eb;
+        color: #a5998c;
+    }
 
-        .custom-button:hover {
-            background-color: #f0e6d1;
-            border-color: #f0e6d1;
-            color: #a5998c;
-        }
+    .custom-button:hover {
+        background-color: #f0e6d1;
+        border-color: #f0e6d1;
+        color: #a5998c;
+    }
 
-        #carouselExample .carousel-item img {
-            height: 300px;
-            width: auto;
-            object-fit: cover;
-        }
+    #carouselExample .carousel-item img {
+        height: 300px; /* Adjust height if necessary */
+        width: auto;
+        object-fit: cover;
+    }
 
-        .carousel-item .row {
-            display: flex;
-            justify-content: center;
-        }
+    .carousel-item .row {
+        display: flex;
+        justify-content: center;
+    }
 
-        .carousel-item .col-md-2 {
-            flex: 0 0 auto;
-            width: 18%;
-            padding: 5px;
-        }
+    .carousel-item .col-md-2 {
+        flex: 0 0 auto;
+        width: 20%; /* Adjust width to show more or larger items */
+        padding: 5px;
+    }
 
-        .card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-            cursor: pointer;
-            margin: 10px auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    .card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        cursor: pointer;
+        margin: 10px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        .card-img-top {
-            transition: transform 0.5s ease;
-            display: block;
-            width: 100%;
-            height: auto;
-        }
+    .card-img-top {
+        transition: transform 0.5s ease;
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-            z-index: 10;
-        }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        z-index: 10;
+    }
 
-        .carousel-inner .row {
-            display: flex;
-            overflow: hidden;
-        }
+    .carousel-inner .row {
+        display: flex;
+        overflow: hidden;
+    }
 
-        .carousel-item .col-md-2 {
-            transition: margin 0.3s ease-in-out;
-        }
+    .carousel-item .col-md-2 {
+        transition: margin 0.3s ease-in-out;
+    }
 
-        .carousel-item .col-md-2:hover {
-            margin: 0 5px;
-        }
+    .carousel-item .col-md-2:hover {
+        margin: 0 5px;
+    }
 
+    #carouselExample {
+        max-width: 100%;
+        position: relative;
+        padding: 0 100px; /* Increased padding for wider view */
+    }
+
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+        background-color: transparent;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #carouselExample .carousel-control-prev,
+    #carouselExample .carousel-control-next {
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #carouselExample .carousel-control-prev {
+        left: -20px;
+    }
+
+    #carouselExample .carousel-control-next {
+        right: -20px;
+    }
+
+    @media (max-width: 768px) {
         #carouselExample {
-            max-width: 100%;
-            position: relative;
-            padding: 0 50px;
-        }
-
-        .carousel-control-next-icon {
-            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 8 8"><path d="M3.293 0l-1 1L5.293 4 2.293 7l1 1L8 4 3.293 0z"/></svg>');
-            background-color: transparent;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-control-prev-icon {
-            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 8 8"><path d="M4.707 0l1 1L2.707 4l3 3-1 1L0 4l4.707-4z"/></svg>');
-            background-color: transparent;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #carouselExample .carousel-control-prev,
-        #carouselExample .carousel-control-next {
-            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+            padding: 0 15px; /* Reduced padding for smaller screens */
         }
 
         #carouselExample .carousel-control-prev {
-            left: -80px;
+            left: 0;
         }
 
         #carouselExample .carousel-control-next {
-            right: -80px;
+            right: 0;
         }
+    }
 
-        @media (max-width: 768px) {
-            #carouselExample {
-                padding: 0 30px;
-            }
+    .add-to-cart-btn {
+        background-color: #fdf4eb;
+        color: #333;
+        border: 1px solid #a5998c;
+        padding: 4px 8px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        outline: none;
+    }
 
-            #carouselExample .carousel-control-prev {
-                left: -20px;
-            }
+    .add-to-cart-btn:hover {
+        background-color: #f0e6d1;
+    }
 
-            #carouselExample .carousel-control-next {
-                right: -20px;
-            }
-        }
+    .add-to-cart-btn:focus {
+        border-color: #555;
+        outline: none;
+    }
+</style>
 
-        .add-to-cart-btn {
-            background-color: #fdf4eb;
-            color: #333;
-            border: 1px solid #a5998c;
-            padding: 4px 8px;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .add-to-cart-btn:hover {
-            background-color: #f0e6d1;
-        }
-
-        .add-to-cart-btn:focus {
-            border-color: #555;
-            outline: none;
-        }
-    </style>
 </head>
 <body>
 <header>
