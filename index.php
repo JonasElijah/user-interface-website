@@ -201,9 +201,16 @@
   </head>
   <body>
 	<?php
+    // Enable error reporting for debugging
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    // Start session at the very beginning
     session_start();
-    
-	    ?>
+
+    // PHP and HTML content continues here
+?>
     <header>
       <nav
         class="navbar navbar-expand-lg custom-navbar shadow rounded"
