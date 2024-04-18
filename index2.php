@@ -93,6 +93,32 @@
 	width: 100%;
 	height: auto; /* Maintain aspect ratio */
 	}    
+
+	  /* Custom styles for pushing the carousel controls outward */
+	  #carouselExample .carousel-control-prev,
+	  #carouselExample .carousel-control-next {
+	    position: absolute; /* Ensures you can position them precisely */
+	    top: 50%; /* Align vertically in the middle */
+	    transform: translateY(-50%); /* Offset by half the height for vertical centering */
+	    z-index: 5; /* Ensures they are above other elements */
+	  }
+	
+	  #carouselExample .carousel-control-prev {
+	    left: -50px; /* Adjust this value to push the button further from the center */
+	  }
+	
+	  #carouselExample .carousel-control-next {
+	    right: -50px; /* Adjust this value to push the button further from the center */
+	  }
+	
+	  /* Making the control icons larger and more visible */
+	  .carousel-control-prev-icon,
+	  .carousel-control-next-icon {
+	    background-size: 100%; /* Makes the arrows fill the background */
+	    opacity: 1; /* Full visibility */
+	  }
+
+
     </style>
   </head>
   <body>
@@ -234,16 +260,16 @@
             $first = false; // Update the flag after the first iteration
         }
 
-        echo '</div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>';
+       echo '</div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>';
     }
 
     if (isset($_POST['submit'])) {
