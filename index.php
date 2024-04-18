@@ -278,10 +278,10 @@
 			    die('MySQL prepare error: ' . $dblink->error);
 			}
 			$userID = (int) $_SESSION['userID']; 
-			
 			$stmt->bind_param("ii", $imageID, $userID);  
 			$stmt->execute();
 			$result = $stmt->get_result();
+			
                         echo '<div class="col-md-2">
                     		<div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
                                   <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
@@ -291,9 +291,13 @@
 				    <form method="post" action="">
 		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
 				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
-		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
-					    <button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>
-					</form>
+		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '">';
+					     if ($res->num_rows == 0) {
+				                echo "<button class='add-to-cart-btn' type='submit' name='submit'>Add to Cart</button>";
+				            } else {
+				                echo "<button type='button' class='btn btn-secondary' disabled>In Cart</button>";
+				            }
+				echo'	</form>
                                   </div>
                                 </div>
                               </div>';
