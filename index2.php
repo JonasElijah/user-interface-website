@@ -154,11 +154,11 @@
 	  }
 	
 	  #carouselExample .carousel-control-prev {
-	    left: -50px; /* Place outside the carousel padding area */
+	    left: -80px; /* Place outside the carousel padding area */
 	  }
 	
 	  #carouselExample .carousel-control-next {
-	    right: -50px; /* Place outside the carousel padding area */
+	    right: -80px; /* Place outside the carousel padding area */
 	  }
 	
 	  /* Adjust button visibility on smaller screens if necessary */
