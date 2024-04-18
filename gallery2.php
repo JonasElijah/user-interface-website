@@ -187,6 +187,9 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	    }
 	}
 
+	.gallery-title {
+	    padding: 20px; /* Add padding around the gallery title */
+	}
 
     </style>
   </head>
@@ -252,7 +255,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 
     <div>
 	<?php	
-		echo "<br/><div class=""category"><h1>Gallery</h1><hr></div>";
+		echo "<br/><div class='gallery-title'><h1>Gallery</h1><hr></div>";
 	?>
 	<!-- Button to launch modal -->
 	
