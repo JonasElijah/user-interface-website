@@ -126,28 +126,7 @@
             padding: 0 10px;
         }
 
-        @media (max-width: 480px) {
-	    #carouselExample .carousel-control-prev,
-	    #carouselExample .carousel-control-next {
-	        display: none;  /* Optionally hide controls on small devices */
-	    }
-	
-	    .carousel-item .col-md-2 {
-	        flex: 0 0 100%; /* Each item takes full width of the carousel */
-	        max-width: 100%; /* Each item takes full width of the carousel */
-	        padding: 3px; /* Adjust padding as needed */
-	    }
-	
-	    .carousel-inner .row {
-	        flex-wrap: nowrap; /* Prevents wrapping of items */
-	        overflow-x: auto; /* Allows horizontal scrolling */
-	        scroll-snap-type: x mandatory; /* Optional: enhances the scroll experience */
-	    }
-	
-	    .carousel-item .col-md-2 {
-	        scroll-snap-align: start; /* Optional: ensures items align nicely on scroll */
-	    }
-	}
+
 
 
 
