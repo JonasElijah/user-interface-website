@@ -225,7 +225,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 
 <div>
     <?php
-    echo "<br/><div class='gallery-title'><h1>Gallery</h1><hr></div>";
+    echo "<br/><div class='gallery-title'><h1>Gallery (Keep photos less than a MB)</h1><hr></div>";
     ?>
 
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
