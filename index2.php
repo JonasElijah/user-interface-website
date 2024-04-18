@@ -101,7 +101,7 @@
 	  }
 	
 	  /* CSS for customizing the carousel control icons */
-	  .carousel-control-prev-icon {
+	  .carousel-control-next-icon {
 	    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 8 8"><path d="M3.293 0l-1 1L5.293 4 2.293 7l1 1L8 4 3.293 0z"/></svg>'); /* SVG with black arrow pointing left */
 	    background-color: transparent; /* Transparent background */
 	    border-radius: 50%; /* Round shape */
@@ -112,7 +112,7 @@
 	    justify-content: center; /* Center horizontally */
 	  }
 	
-	  .carousel-control-next-icon {
+	  .carousel-control-prev-icon {
 	    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 8 8"><path d="M4.707 0l1 1L2.707 4l3 3-1 1L0 4l4.707-4z"/></svg>'); /* SVG with black arrow pointing right */
 	    background-color: transparent; /* Transparent background */
 	    border-radius: 50%; /* Round shape */
