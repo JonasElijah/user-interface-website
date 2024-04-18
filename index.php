@@ -272,8 +272,8 @@
                         $imagePrice = $image['price'];
                         $imageID = (int) $image['ID'];
 			$query = "SELECT * FROM `orders` WHERE `imageID` = ? AND `userID` = ?";
+			$dblink = db_connect("UI-schema");
 			$stmt = $dblink->prepare($query);
-			
 			if ($stmt === false) {
 			    die('MySQL prepare error: ' . $dblink->error);
 			}
