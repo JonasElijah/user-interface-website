@@ -242,7 +242,7 @@
 <header>
     <nav class="navbar navbar-expand-lg custom-navbar shadow rounded">
         <div class="container-fluid">
-            <img src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
+            <img class="site-logo" src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
