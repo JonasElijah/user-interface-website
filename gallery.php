@@ -183,7 +183,9 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 <header>
     <nav class="navbar navbar-expand-lg custom-navbar shadow rounded">
         <div class="container-fluid">
-            <img src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
+	<a href="index.php">
+	    <img class="site-logo" src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
+	</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
