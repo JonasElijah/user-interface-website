@@ -1,10 +1,10 @@
 <?php
-    // Start session if not already started
+
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
-    require_once("functions.php");  // Include functions file
-    $dblink = db_connect("UI-schema");  // Connect to the database
+    require_once("functions.php"); 
+    $dblink = db_connect("UI-schema"); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
