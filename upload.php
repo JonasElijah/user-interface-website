@@ -166,11 +166,10 @@ if(isset($_POST["submit"])) {
         class="navbar navbar-expand-lg custom-navbar shadow rounded"
       >
         <div class="container-fluid">
-          <img
-            src="assets/images/photography.png"
-            alt="Photography Logo"
-            style="max-width: 250px; max-height: 100px"
-          />
+         <a href="index.php">
+	    <img class="site-logo" src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
+	</a>
+
 
           <button
             class="navbar-toggler"
