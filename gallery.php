@@ -190,18 +190,18 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	}
 	
 	.header-with-button .end {
-	    margin-left: auto;        /* Forces the button to the right */
-	    margin-right: 20px;       /* Adds space from the right edge of the container */
-	    padding: 10px 20px;       /* Adds padding inside the button for better visual appeal */
-	    border: 2px solid #fdf4eb; /* Adds a solid border around the button with a blue color */
-	    border-radius: 5px;       /* Gives the border rounded corners */
-	    background-color: white;  /* Sets the background color of the button to white */
-	    color: #333;           /* Sets the text color of the button to blue */
+	    margin-left: auto;        
+	    margin-right: 20px;       
+	    padding: 10px 20px;       
+	    border: 2px solid #007BFF; 
+	    border-radius: 5px;       
+	    background-color: white;  
+	    color: #333;           
 	}
 	
 	.header-with-button .end:hover {
-	    background-color: #fdf4eb; /* Changes background to blue on hover */
-	    color: white;              /* Changes text color to white on hover */
+	    background-color: #007BFF; 
+	    color: white;              
 	}
 
 
