@@ -192,7 +192,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	    margin-left: auto;        
 	    margin-right: 20px;     
 	    padding: 10px 20px;       
-	    border: 2px solid #fdf4eb;
+	    border: 2px solid #a5998c;
 	    border-radius: 5px;      
 	    background-color: white;  
 	    color: #fdf4eb;          
