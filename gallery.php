@@ -179,18 +179,19 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
         }
 
 	.header-with-button {
-	    display: flex;            /* Establishes a flexbox layout */
-	    justify-content: space-between; /* Places space between the h1 and button */
-	    align-items: center;      /* Vertically aligns items in the center */
-	    width: 100%;              /* Ensures the container takes full width */
+	    display: flex;           
+	    justify-content: space-between;
+	    align-items: center;     
+	    width: 100%;         
 	}
 	
 	.header-with-button h1 {
-	    margin-right: auto;       /* Ensures the h1 text is left-aligned */
+	    margin-right: auto;      
 	}
 	
 	.header-with-button .end {
-	    margin-left: auto;        /* Forces the button to the right */
+	    margin-left: auto; 
+	    margin-right: 20px; 
 	}
 
     </style>
