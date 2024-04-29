@@ -226,7 +226,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 <div class='gallery-title'>
     <div class="header-with-button">
         <h1>Gallery (Keep photos less than a MB)</h1>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link">Upload</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link float-end">Upload</button>
     </div>
     <hr>
 </div>
