@@ -179,29 +179,28 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
         }
 
 	.header-with-button {
-	    display: flex;            /* Establishes a flexbox layout */
-	    justify-content: space-between; /* Places space between the h1 and button */
-	    align-items: center;      /* Vertically aligns items in the center */
-	    width: 100%;              /* Ensures the container takes full width */
-	}
+	    display: flex;            
+	    justify-content: space-between;
+	    align-items: center;    
+	    width: 100%;            
 	
 	.header-with-button h1 {
-	    margin-right: auto;       /* Ensures the h1 text is left-aligned */
+	    margin-right: auto;      
 	}
 	
 	.header-with-button .end {
-	    margin-left: auto;        /* Forces the button to the right */
-	    margin-right: 20px;       /* Adds space from the right edge of the container */
-	    padding: 10px 20px;       /* Adds padding inside the button for better visual appeal */
-	    border: 2px solid #007BFF; /* Adds a solid border around the button with a blue color */
-	    border-radius: 5px;       /* Gives the border rounded corners */
-	    background-color: white;  /* Sets the background color of the button to white */
-	    color: #007BFF;           /* Sets the text color of the button to blue */
+	    margin-left: auto;        
+	    margin-right: 20px;     
+	    padding: 10px 20px;       
+	    border: 2px solid #fdf4eb;
+	    border-radius: 5px;      
+	    background-color: white;  
+	    color: #fdf4eb;          
 	}
 	
 	.header-with-button .end:hover {
-	    background-color: #007BFF; /* Changes background to blue on hover */
-	    color: white;              /* Changes text color to white on hover */
+	    background-color: #f0e6d1; 
+	    color: white;             
 	}
 
 
