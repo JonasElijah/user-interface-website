@@ -195,11 +195,11 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	    border: 2px solid #a5998c;
 	    border-radius: 5px;      
 	    background-color: white;  
-	    color: #fdf4eb;          
+	    color: #333;          
 	}
 	
 	.header-with-button .end:hover {
-	    background-color: #f0e6d1; 
+	    background-color: #f0e6d1;
 	    color: white;             
 	}
 
