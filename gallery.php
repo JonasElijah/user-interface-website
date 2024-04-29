@@ -196,7 +196,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	    border: 2px solid #fdf4eb; /* Adds a solid border around the button with a blue color */
 	    border-radius: 5px;       /* Gives the border rounded corners */
 	    background-color: white;  /* Sets the background color of the button to white */
-	    color: #fdf4eb;           /* Sets the text color of the button to blue */
+	    color: #333;           /* Sets the text color of the button to blue */
 	}
 	
 	.header-with-button .end:hover {
