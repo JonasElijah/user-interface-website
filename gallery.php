@@ -224,10 +224,12 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 
 <div>
 <div class='gallery-title'>
-	<h1>Gallery (Keep photos less than a MB)</h1>
-	<hr>
-	<button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link float-end">Upload</button>
-     </div>
+    <div class="header-with-button">
+        <h1>Gallery (Keep photos less than a MB)</h1>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link">Upload</button>
+    </div>
+    <hr>
+</div>
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen-sm-down">
             <div class="modal-content">
