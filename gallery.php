@@ -193,9 +193,6 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link">Upload</button>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
@@ -227,7 +224,9 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 
 <div>
     <?php
-    echo "<br/><div class='gallery-title'><h1>Gallery (Keep photos less than a MB)</h1><hr></div>";
+    echo "<br/><div class='gallery-title'><h1>Gallery (Keep photos less than a MB)</h1>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link">Upload</button>
+	<hr></div>";
     ?>
 
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
