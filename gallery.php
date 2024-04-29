@@ -193,19 +193,16 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	    margin-left: auto;        
 	    margin-right: 20px;       
 	    padding: 10px 20px;       
-	    border: 2px solid #007BFF; 
+	    border: 2px solid #fdf4eb; 
 	    border-radius: 5px;       
 	    background-color: white;  
 	    color: #333;           
 	}
 	
 	.header-with-button .end:hover {
-	    background-color: #007BFF; 
+	    background-color: #fdf4eb; 
 	    color: white;              
 	}
-
-
-
     </style>
 </head>
 <body>
