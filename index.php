@@ -371,6 +371,7 @@
             VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
             $dblink->query($sql) or
             die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
+	    redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/cart.php");
         }
         ?>
     </div>
