@@ -245,8 +245,8 @@
 	<a href="index.php">
 	    <img class="site-logo" src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
 	</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -284,17 +284,18 @@
         <?php
         include("functions.php");
         $dblink = db_connect("UI-schema");
-          $sql = "SELECT image.*, IF(cart.imageID IS NULL, 0, 1) AS isInCart
-            FROM image
-            LEFT JOIN (SELECT * FROM orders WHERE userID = ?) AS cart
-            ON image.ID = cart.imageID";
+          // $sql = "SELECT image.*, IF(cart.imageID IS NULL, 0, 1) AS isInCart
+          //   FROM image
+          //   LEFT JOIN (SELECT * FROM orders WHERE userID = ?) AS cart
+          //   ON image.ID = cart.imageID";
+
+        $sql = "SELECT *, `category` FROM `image`";
 
         $result = mysqli_query($dblink, $sql);
         if (mysqli_num_rows($result) == 0) {
             echo 'Error, database table not found';
         } else {
             $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
             $categories = [
                 'Recommended' => function ($img) {
                     return $img['category'] !== 'portrait';
