@@ -365,7 +365,7 @@
                 echo '</div>';
 		echo '<br/>';
             }
-        }
+        //}
 
         if (isset($_POST['submit'])) {
             $imageID = $_POST['imageID'];
