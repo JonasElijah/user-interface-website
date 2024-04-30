@@ -160,6 +160,20 @@
         #carouselExample .carousel-control-next {
             right: -80px;
         }
+	    
+	.add-to-cart-btn:disabled {
+	    background-color: #cccccc; /* Light gray background */
+	    color: #666666; /* Darker gray text for better contrast */
+	    cursor: not-allowed; /* Cursor indicates the button is disabled */
+	    border: 1px solid #999999; /* Darker gray border to match */
+	}
+	
+	/* Optional: Additional styling for hover state on disabled buttons to make it clear they are inactive */
+	.add-to-cart-btn:disabled:hover {
+	    background-color: #cccccc; /* Keep the same background color on hover */
+	    color: #666666; /* Keep the same text color on hover */
+	}
+
 	
 
 	@media (max-width: 480px) {
