@@ -332,60 +332,50 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
     </div>
     <hr>
 </div>
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-sm-down">
-        <div class="modal-content">
-            <div class="modal-body">
-                <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
-                    <div class="upload">
-                        <div class="custom-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="modal-title" id="exampleModalLabel">Upload Your Image</h5>
-                                    <p class="card-text">Please select an image from your device to upload.</p>
-                                    <div class="form-group">
-                                        <label for="name">Name:</label>
-                                        <input type="text" name="name" id="name" class="form-control" required>
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="" action="" method="post" autocomplete="off" enctype="multipart/form-data">
+                        <div class="upload">
+                            <div class="custom-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="modal-title" id="exampleModalLabel">Upload Your Image</h5>
+                                        <p class="card-text">Please select an image from your device to upload.</p>
+                                        <div class="form-group">
+                                            <label for="name">Name:</label>
+                                            <input type="text" name="name" id="name" class="form-control" required value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="category">Category:</label>
+                                            <input type="text" name="category" id="category" class="form-control" required value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="desc">Description:</label>
+                                            <input type="text" name="desc" id="desc" class="form-control" required value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="price">Price:</label>
+                                            <input type="number" name="price" id="price" class="form-control" required value="">
+                                            <br>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value="" class="custom-file-label">
+                                        </div>
+                                        <button type = "submit" name = "submit">Submit</button>
+					<hr>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="category">Category:</label>
-                                        <select name="category" id="category" class="form-control" required>
-                                            <option value="">Select a Category</option>
-                                            <option value="Landscape">Landscape</option>
-                                            <option value="Portrait">Portrait</option>
-                                            <option value="Wildlife">Wildlife</option>
-                                            <option value="Macro">Macro</option>
-                                            <option value="Street">Street</option>
-                                            <option value="Travel">Travel</option>
-                                            <option value="Astro">Astro</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="desc">Description:</label>
-                                        <input type="text" name="desc" id="desc" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="price">Price:</label>
-                                        <input type="number" name="price" id="price" class="form-control" required>
-                                        <br>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="image" class="custom-file-label">Choose file:</label>
-                                        <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" class="form-control custom-file-input">
-                                    </div>
-                                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                                    <hr>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
-
-
 
 
 
