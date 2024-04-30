@@ -377,7 +377,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
                                     </div>
                                     <div class="form-group">
                                         <label for="category">Category:</label>
-                                        <select name="category" id="category" class="form-control" required>
+    					<select name="category" id="category" class="form-control centered-text" required>
                                             <option value="">Select a Category</option>
                                             <option value="Landscape">Landscape</option>
                                             <option value="Portrait">Portrait</option>
@@ -398,7 +398,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
                                         <br>
                                     </div>
                                     <div class="form-group">
-    					<label for="image" class="custom-file-label underline-text">Choose file:</label>
+    					<label for="image" class="custom-file-label underline-text">Choose file</label>
                                         <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" class="form-control custom-file-input">
                                     </div>
                                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
