@@ -281,6 +281,34 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	    padding: 20px;
 	}
 
+	    .centered-text option {
+	        text-align: center;
+	    }
+	
+	    .centered-text {
+	        text-align-last: center; /* Centers the select dropdown text */
+	    }
+	
+	    .underline-text {
+	        text-decoration: underline; /* Underlines the text */
+	    }
+	
+	    /* Ensure the custom file input aligns well */
+	    .custom-file-label {
+	        display: block;
+	        margin: 20px auto;
+	        cursor: pointer;
+	    }
+	
+	    /* Adjustments to ensure styles apply correctly across browsers */
+	    .custom-file-input::file-selector-button {
+	        display: none;
+	    }
+	
+	    .custom-file-input::file-selector-text {
+	        display: none;
+	    }
+
     </style>
 </head>
 <body>
@@ -370,7 +398,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
                                         <br>
                                     </div>
                                     <div class="form-group">
-                                        <label for="image" class="custom-file-label">Choose file:</label>
+    					<label for="image" class="custom-file-label underline-text">Choose file:</label>
                                         <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" class="form-control custom-file-input">
                                     </div>
                                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
