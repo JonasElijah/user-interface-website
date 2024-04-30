@@ -277,7 +277,6 @@ if(!isset($_POST['submit']))
 							}
 				
 					}
-			
 				
 				}
 			echo '</table>';
@@ -346,6 +345,18 @@ echo '<h2 style="color: black; font-size: 20px; text-shadow:
        1px 1px 0 #fdf4eb;" align="center">Thank you for your order! </h2>';
 echo '</div>';
 }
+
+if (isset($_POST['remove_item_id'])) {
+    $orderID = $_POST['remove_item_id'];
+    $sqlDelete = "DELETE FROM `orders` WHERE `orderID` = '$orderID'";
+    if(mysqli_query($dblink, $sqlDelete)) {
+        echo "<script>alert('Item removed successfully');</script>";
+        echo "<script>window.location = 'cart.php';</script>"; 
+    } else {
+        echo "<script>alert('Error removing item');</script>";
+    }
+}
+
 ?>
 </body>
 <div>
