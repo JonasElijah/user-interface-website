@@ -201,7 +201,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 
 	    .photo-row img {
                 margin: 0.5px;
-                max-width: 15px;
+                max-width: 256px;
 		padding: 0.5px;
 
             }
