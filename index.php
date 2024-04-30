@@ -285,7 +285,7 @@
         include("functions.php");
         $dblink = db_connect("UI-schema");
        $sql = "SELECT `image`.*, 
-               IF(`cart`.`imageID` IS NULL, 0, 1) AS `isInCart`
+               IF(`orders`.`imageID` IS NULL, 0, 1) AS `isInCart`
         FROM `image`
         LEFT JOIN (SELECT * FROM `orders` WHERE `userID` = '$userID') AS `cart`
         ON `image`.`ID` = `cart`.`imageID`";
