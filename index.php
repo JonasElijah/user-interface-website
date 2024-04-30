@@ -339,7 +339,7 @@
 							<input type="hidden" name="imageID" value="' . $imageID . '"> 
 					        	<input type="hidden" name="imageName" value="' . $imageName . '"> 
 			                  		<input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
-		                              		<button class="add-to-cart-btn" type="submit" name="submit" ' . $buttonDisabled . '>Add to cart</button>
+		                              		<button class="add-to-cart-btn" type="submit" name="submit" ' . $buttonDisabled . '>' . $buttonText . '</button>
 		                          	</form>
 			     		 </div>
 		                      </div>
