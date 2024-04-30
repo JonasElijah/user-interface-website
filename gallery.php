@@ -198,9 +198,12 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	}
 
 	@media (max-width: 480px) {
+
 	    .photo-row img {
                 margin: 0.5px;
-                max-width: 90px;
+                max-width: 15px;
+		padding: 0.5px;
+
             }
 	    .custom-navbar {
 	        flex-direction: column;
