@@ -339,7 +339,7 @@
 							<input type="hidden" name="imageID" value="' . $imageID . '"> 
 					        	<input type="hidden" name="imageName" value="' . $imageName . '"> 
 			                  		<input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
-		                              	<button class="add-to-cart-btn" type="submit" ' . $buttonDisabled . '>' . $buttonText . '</button>
+		                              		<button class="add-to-cart-btn" type="submit" ' . $buttonDisabled . '>' . $buttonText . '</button>
 		                          	</form>
 			     		 </div>
 		                      </div>
@@ -375,8 +375,6 @@
             $imageID = $_POST['imageID'];
             $imageName = $_POST['imageName'];
             $imagePrice = $_POST['imagePrice'];
-            $userID = $_SESSION['userID'];
-
             $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
             VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
             $dblink->query($sql) or
