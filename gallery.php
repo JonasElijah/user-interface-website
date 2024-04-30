@@ -379,11 +379,12 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
+                	</div>
+		</form>
             </div>
         </div>
     </div>
+</div>
 
 
 
