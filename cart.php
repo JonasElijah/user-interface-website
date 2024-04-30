@@ -375,7 +375,6 @@ if (isset($_POST['remove_item_id'])) {
     $imageID = $_POST['remove_item_id'];
     $userID = $_SESSION['userID'];  
 
-    // Prepare the SQL statement to prevent SQL injection
     $sqlDelete = "DELETE FROM `orders` WHERE `imageID` = ? AND `userID` = ?";
     $stmt = $dblink->prepare($sqlDelete);
     $stmt->bind_param("ss", $imageID, $userID);  
@@ -384,7 +383,6 @@ if (isset($_POST['remove_item_id'])) {
         echo "<script>alert('Item removed successfully');</script>";
         echo "<script>window.location = 'cart.php';</script>"; 
     } else {
-        echo "<script>alert('Error removing item');</script>";
     }
     $stmt->close();
 }
