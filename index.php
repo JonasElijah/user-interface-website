@@ -372,15 +372,31 @@
         }
 
         if (isset($_POST['submit'])) {
-            $imageID = $_POST['imageID'];
-            $imageName = $_POST['imageName'];
-            $imagePrice = $_POST['imagePrice'];
-            $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
-            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
-            $dblink->query($sql) or
-            die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
-	    redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/cart.php");
-        }
+	    $imageID = $_POST['imageID'];
+	    $imageName = $_POST['imageName'];
+	    $imagePrice = $_POST['imagePrice'];
+	
+	    // Echo for debugging: Outputting values to verify what's being received
+	    echo "Debugging Information:<br/>";
+	    echo "User ID: " . htmlspecialchars($userID) . "<br/>";
+	    echo "Image ID: " . htmlspecialchars($imageID) . "<br/>";
+	    echo "Image Name: " . htmlspecialchars($imageName) . "<br/>";
+	    echo "Image Price: " . htmlspecialchars($imagePrice) . "<br/>";
+	
+	    // Prepare the SQL query
+	    $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
+	            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
+	    
+	    // Execute the query and check for errors
+	    if (!$dblink->query($sql)) {
+	        echo "Something went wrong with the SQL query: <br/>" . htmlspecialchars($sql) . "<br/>Error: " . $dblink->error;
+	        exit; // Stop further execution in case of error
+	    } else {
+	        // If everything is fine, redirect
+	        redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/cart.php");
+	    }
+	}
+
         ?>
     </div>
 </div>
