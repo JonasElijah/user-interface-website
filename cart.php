@@ -259,7 +259,7 @@ if(!isset($_POST['submit']))
 						
 				
 				
-						echo '<td><img src = "'.$dataW['image'].'" style="max-width:250px;"></td>';
+						echo '<td><img src = "'.$data['image'].'" style="max-width:250px;"></td>';
 						echo '<td>'.$data['name'].'</td>';
 						echo '<td>'.$data['price'].'</td>';
 						echo '</tr>';
