@@ -238,6 +238,33 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	    .navbar-nav .nav-link {
 	        font-size: 12px; /* Even smaller font size */
 	    }
+
+	    .header-with-button {
+		display: flex;           
+		justify-content: space-between; 
+		align-items: center;      
+		width: 100%;              
+	     }
+		
+	    .header-with-button h1 {
+		margin-right: auto;       
+	     }
+		
+	    .header-with-button .end {
+		margin-left: auto;        
+		margin-right: 30px;       
+		padding: 2px 6px;     
+		font-size: 0.8em;
+		border: 1px solid #333; 
+		border-radius: 5px;       
+		background-color: white;  
+		color: #333;           
+	      }
+		
+	     .header-with-button .end:hover {
+		background-color: #333; 
+		color: white;              
+	      }
 	}
     </style>
 </head>
