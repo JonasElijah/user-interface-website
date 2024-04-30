@@ -341,7 +341,7 @@ $userID = $_SESSION['userID'];
 $sqlCheckOwner = "SELECT COUNT(*) AS own_photos 
                   FROM `orders`
                   JOIN `image` ON `orders`.`imageID` = `image`.`ID`
-                  WHERE `orders`.`userID` = ? AND `image`.`ownerID` = ?";
+                  WHERE `orders`.`userID` = ? AND `image`.`userID` = ?";
     
     $stmt = $dblink->prepare($sqlCheckOwner);
     $stmt->bind_param("ss", $userID, $userID); 
