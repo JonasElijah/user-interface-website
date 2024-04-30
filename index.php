@@ -318,7 +318,7 @@
                         $imageID = $image['ID'];
                         echo '<div class="col-md-2">
                     		<div class="card mb-3" style="cursor:pointer;" data-href="view-item.php?itemID=<?php echo $imageID; ?>">
-				    <img src="<?php echo $imagePath; ?>" class="card-img-top" alt="Image of <?php echo $imageName; ?>" title="Click to view details">
+                                  <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
 				    <div class="card-body">
 				        <h5 class="card-title"><?php echo $imageName; ?></h5>
 				        <p class="card-text">$<?php echo $imagePrice; ?></p>
