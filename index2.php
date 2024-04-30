@@ -1,10 +1,7 @@
 <?php
-
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
-    require_once("functions.php"); 
-    $dblink = db_connect("UI-schema"); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +9,8 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Photography Website</title>
+    <!-- Local Bootstrap CSS files -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/css/style.css" rel="stylesheet"/> <!-- External CSS file for custom styles -->
     <style>
         header {
             background-color: #fdf4eb;
@@ -45,18 +42,19 @@
         }
 
         .photo-row {
-            padding: 50px;
+            padding: 15px;
         }
 
         .photo-row img {
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-right: 20px;
+            padding: 10px;
+            margin-right: 10px;
+            width: 100%; /* Ensures responsiveness */
         }
 
         .category {
             margin-bottom: 10px;
-            padding: 40px;
+            padding: 20px;
             margin-right: 10px;
         }
 
@@ -72,7 +70,7 @@
             color: #a5998c;
         }
 
-        #carouselExample .carousel-item img {
+            #carouselExample .carousel-item img {
             height: 300px;
             width: auto;
             object-fit: cover;
@@ -86,7 +84,7 @@
         .carousel-item .col-md-2 {
             flex: 0 0 auto;
             width: 18%;
-            padding: 5px;
+            padding: 3px;
         }
 
         .card {
@@ -125,7 +123,7 @@
         #carouselExample {
             max-width: 100%;
             position: relative;
-            padding: 0 50px;
+            padding: 0 10px;
         }
 
         .carousel-control-next-icon {
@@ -162,20 +160,62 @@
         #carouselExample .carousel-control-next {
             right: -80px;
         }
+	
 
-        @media (max-width: 768px) {
-            #carouselExample {
-                padding: 0 30px;
-            }
+	@media (max-width: 480px) {
+	    #carouselExample .carousel-control-prev,
+	    #carouselExample .carousel-control-next {
+	        display: none;  /* Optionally hide controls on small devices */
+	    }
+	
+	    .carousel-item .col-md-2 {
+	        flex: 0 0 100%; /* Each item takes full width of the carousel */
+	        max-width: 100%; /* Each item takes full width of the carousel */
+	        padding: 3px; /* Adjust padding as needed */
+	    }
+	
+	    .carousel-inner .row {
+	        flex-wrap: nowrap; /* Prevents wrapping of items */
+	        overflow-x: auto; /* Allows horizontal scrolling */
+	        scroll-snap-type: x mandatory; /* Optional: enhances the scroll experience */
+	    }
+	
+	    .carousel-item .col-md-2 {
+	        scroll-snap-align: start; /* Optional: ensures items align nicely on scroll */
+	    }
+		
+	    .custom-navbar {
+	        flex-direction: column;
+	        align-items: flex-start;
+	    }
+	
+	    .navbar-nav {
+	        width: 100%;
+	        justify-content: flex-start;
+	    }
+	
+	    .nav-item {
+	        padding: 5px 0; /* More vertical padding on mobile */
+	    }
 
-            #carouselExample .carousel-control-prev {
-                left: -20px;
-            }
+	    .navbar-expand-lg .navbar-collapse {
+	        flex-basis: 100%; /* Full width for the collapsible area */
+	        flex-grow: 1;
+	    }
+	
+	    .navbar-toggler {
+	        display: block; /* Ensure toggler is always visible below this breakpoint */
+	    }
+		
+	    .custom-navbar .navbar-brand img {
+	        max-width: 150px; /* Even smaller logo for very small screens */
+	    }
+	
+	    .navbar-nav .nav-link {
+	        font-size: 12px; /* Even smaller font size */
+	    }
+	}
 
-            #carouselExample .carousel-control-next {
-                right: -20px;
-            }
-        }
 
         .add-to-cart-btn {
             background-color: #fdf4eb;
@@ -196,17 +236,18 @@
             outline: none;
         }
     </style>
+
 </head>
 <body>
 <header>
     <nav class="navbar navbar-expand-lg custom-navbar shadow rounded">
         <div class="container-fluid">
-            <img src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+	<a href="index.php">
+	    <img class="site-logo" src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
+	</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
             </button>
-            <h1 class="text-center">Photography Website</h1>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -215,113 +256,122 @@
                     <li class="nav-item">
                         <a class="nav-link" href="gallery.php">Gallery</a>
                     </li>
-                    <?php if (!isset($_SESSION['userID'])): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="signup.php">Signup</a>
-                        </li>
-                    <?php else: ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cart.php">Cart</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="account.php">Account</a>
-                        </li>
-                    <?php endif; ?>
+                    <?php
+                    if(!isset($_SESSION['userID'])){
+                        echo '<li class="nav-item"> ';
+                        echo ' <a class="nav-link" href="login.php">Login</a>';
+                        echo '</li>';
+                        echo '<li class="nav-item">';
+                        echo '<a class="nav-link" href="signup.php">Signup</a>';
+                        echo ' </li>';
+                    }
+                    else{
+                        echo '<li class="nav-item">';
+                        echo '<a class="nav-link" href="cart.php">Cart</a>';
+                        echo '</li>';
+                        echo '<li class="nav-item">';
+                        echo '<a class="nav-link" href="account.php">Account</a>';
+                        echo '</li>';
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<main class="container">
-    <div class="category">
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-            <?php
-		$userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
+<div class="category">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <?php
+        include("functions.php");
+        $dblink = db_connect("UI-schema");
+	$userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
+	
+	if ($userID !== null) {
+	    $sql = "SELECT `image`.*, IF(`cart`.`imageID` IS NULL, 0, 1) AS `isInCart`
+	            FROM `image`
+	            LEFT JOIN (SELECT * FROM `orders` WHERE `userID` = '" . mysqli_real_escape_string($dblink, $userID) . "') AS `cart`
+	            ON `image`.`ID` = `cart`.`imageID`";
+	} else {
+	    $sql = "SELECT `image`.*, 0 AS `isInCart`
+	            FROM `image`";
+	}
+        $result = mysqli_query($dblink, $sql);
+	
+        if (mysqli_num_rows($result) == 0) {
+            echo 'Error, database table not found';
+        } else {
+            $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $categories = [
+                'Recommended' => function ($img) {
+                    return $img['category'] !== 'portrait';
+                },
+                'Portrait' => function ($img) {
+                    return $img['category'] === 'portrait';
+                }
+            ];
 
-              	if ($userID !== null) {
-		    $sql = "SELECT `image`.*, IF(`cart`.`imageID` IS NULL, 0, 1) AS `isInCart`
-		            FROM `image`
-		            LEFT JOIN (SELECT * FROM `orders` WHERE `userID` = '" . mysqli_real_escape_string($dblink, $userID) . "') AS `cart`
-		            ON `image`.`ID` = `cart`.`imageID`";
-		} else {
-		    $sql = "SELECT `image`.*, 0 AS `isInCart`
-		            FROM `image`";
+           function createCarouselItems($imageSets, $categoryName) {
+		    $carouselId = "carousel" . preg_replace('/\s+/', '', $categoryName);
+		    echo '<h2>' . htmlspecialchars($categoryName) . '</h2><hr>
+		          <div id="' . $carouselId . '" class="carousel slide" data-bs-ride="carousel">
+		          <div class="carousel-inner">';
+		
+		    $first = true;
+		    foreach ($imageSets as $set) {
+		        $activeClass = $first ? 'active' : '';
+		        echo '<div class="carousel-item ' . $activeClass . '">
+		                <div class="row">';
+		        foreach ($set as $image) {
+		            $imageID = $image['ID'];
+		            $imageName = $image['name'];
+		            $imagePrice = $image['price'];
+		            $imagePath = $image['image'];
+		            $isInCart = $image['isInCart'];
+		            $buttonText = $isInCart ? 'In Cart' : 'Add to Cart';
+		            $buttonDisabled = $isInCart ? 'disabled' : '';
+		            echo '<div class="col-md-2">
+		                      <div class="card mb-3" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
+		                          <img src="' . htmlspecialchars($imagePath) . '" class="card-img-top" alt="Image of ' . htmlspecialchars($imageName) . '" title="' . htmlspecialchars($imageName) . '">
+			                  <div class="card-body">
+			    		  	<h5 class="card-title">' . $imageName . '</h5>
+                                    	  	<p class="card-text">$' . $imagePrice . '</p>
+		                          	<form method="post" action="">
+							<input type="hidden" name="imageID" value="' . $imageID . '"> 
+					        	<input type="hidden" name="imageName" value="' . $imageName . '"> 
+			                  		<input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
+		                              		<button class="add-to-cart-btn" type="submit" name="submit" ' . $buttonDisabled . '>Add to cart</button>
+		                          	</form>
+			     		 </div>
+		                      </div>
+		                  </div>';
+		        }
+		        echo '</div></div>';
+		        $first = false;
+		    }
+		    echo '</div>
+		          <button class="carousel-control-prev" type="button" data-bs-target="#' . $carouselId . '" data-bs-slide="prev">
+		              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		              <span class="visually-hidden">Previous</span>
+		          </button>
+		          <button class="carousel-control-next" type="button" data-bs-target="#' . $carouselId . '" data-bs-slide="next">
+		              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		              <span class="visually-hidden">Next</span>
+		          </button>
+		          </div>';
 		}
-                $result = $stmt->get_result();
-                if ($result->num_rows == 0) {
-                    echo 'No images found in the database';
-                } else {
-                    $images = $result->fetch_all(MYSQLI_ASSOC);
-                    $categories = [
-                        'Recommended' => function ($img) {
-                            return $img['category'] !== 'portrait';
-                        },
-                        'Portrait' => function ($img) {
-                            return $img['category'] === 'portrait';
-                        }
-                    ];
-                    
-                    function createCarouselItems($imageSets, $categoryName)
-                    {
-                        $carouselId = "carousel" . preg_replace('/\s+/', '', $categoryName);
-                        echo '<h2>' . $categoryName . '</h2><hr>
-                              <div id="' . $carouselId . '" class="carousel slide" data-bs-ride="carousel">
-                              <div class="carousel-inner">';
-                        $first = true;
-                        foreach ($imageSets as $set) {
-                            $activeClass = $first ? 'active' : '';
-                            echo '<div class="carousel-item ' . $activeClass . '">
-                                    <div class="row">';
-                            foreach ($set as $image) {
-                                $imagePath = $image['image'];
-                                $imageName = $image['name'];
-                                $imagePrice = $image['price'];
-                                $imageID = (int) $image['ID'];
-				$isInCart = $image['isInCart'];
-		            	$buttonText = $isInCart ? 'In Cart' : 'Add to Cart';
-                                echo '<div class="col-md-2">
-                                        <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
-                                            <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
-                                            <div class="card-body">
-                                                <h5 class="card-title">' . $imageName . '</h5>
-                                                <p class="card-text">$' . $imagePrice . '</p>
-                                                <form method="post" action="">
-                                                    <input type="hidden" name="imageID" value="' . $imageID . '">
-                                                    <input type="hidden" name="imageName" value="' . $imageName . '">
-                                                    <input type="hidden" name="imagePrice" value="' . $imagePrice . '">
-                                                    <button class="add-to-cart-btn" type="submit" name="submit">Add To Cart</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                      </div>';
-                            }
-                            echo '</div></div>';
-                            $first = false;
-                        }
-                        echo '</div>';
-                        echo '<button class="carousel-control-prev" type="button" data-bs-target="#' . $carouselId . '" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                              </button>';
-                        echo '<button class="carousel-control-next" type="button" data-bs-target="#' . $carouselId . '" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                              </button>';
-                        echo '</div>';  // End of carousel
-                    }
-                    
-                    foreach ($categories as $categoryName => $filter) {
-                        $filteredImages = array_filter($images, $filter);
-                        $imageSets = array_chunk($filteredImages, 5);
-                        echo '<div id="carouselExample">';
-                        createCarouselItems($imageSets, $categoryName);
-                        echo '</div>';
-                    }
-               }
-                if (isset($_POST['submit'])) {
+
+
+            foreach ($categories as $categoryName => $filter) {
+                $filteredImages = array_filter($images, $filter);
+                $imageSets = array_chunk($filteredImages, 5);
+                echo '<div id="carouselExample">';
+                createCarouselItems($imageSets, $categoryName);
+                echo '</div>';
+		echo '<br/>';
+            }
+        }
+
+        if (isset($_POST['submit'])) {
 	    $imageID = $_POST['imageID'];
 	    $imageName = $_POST['imageName'];
 	    $imagePrice = $_POST['imagePrice'];
@@ -346,17 +396,21 @@
 	        redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/cart.php");
 	    }
 	}
-            ?>
-        </div>
+
+        ?>
     </div>
-</main>
+</div>
+<br/>
+<br/>
+<br/>
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container text-center">
         <span class="text-muted">Photography Website &copy; 2024</span>
     </div>
 </footer>
+<!-- Local Bootstrap JavaScript files -->
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
+
 </html>
