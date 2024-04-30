@@ -99,51 +99,51 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
             color: #a5998c;
         }
 
-        .upload {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+       .upload {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
 
-        .custom-card {
-            max-width: 400px;
-            width: 100%;
-        }
+    .custom-card {
+        max-width: 400px;
+        width: 100%;
+    }
 
-        .custom-card .card {
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #fdf4eb;
-        }
+    .custom-card .card {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fdf4eb;
+    }
 
-        .custom-card .card-body {
-            text-align: center;
-        }
+    .custom-card .card-body {
+        text-align: center;
+    }
 
-        .custom-card .btn-primary {
-            display: block;
-            margin: 20px auto;
-        }
+    .custom-card .btn-primary {
+        display: block;
+        margin: 20px auto;
+    }
 
-        .custom-card .custom-file-input {
-            display: none;
-        }
+    .custom-card .custom-file-input {
+        display: none;
+    }
 
-        .custom-card .custom-file-label {
-            display: block;
-            margin: 20px auto;
-        }
+    .custom-card .custom-file-label {
+        display: block;
+        margin: 20px auto;
+    }
 
-        .custom-card .form-group label {
-            flex: 0 0 120px;
-        }
+    .custom-card .form-group label {
+        flex: 0 0 120px;
+    }
 
-        .custom-card .form-group input {
-            flex: 1;
-            padding: 10px;
-        }
+    .custom-card .form-group input {
+        flex: 1;
+        padding: 10px;
+    }
 
         .photo-row img {
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -339,36 +339,38 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
-                        <div class="custom-card">
+                <div class="modal-body upload">
+                    <div class="custom-card">
+                        <div class="card">
                             <div class="card-body">
                                 <h5 class="modal-title" id="exampleModalLabel">Upload Your Image</h5>
                                 <p class="card-text">Please select an image from your device to upload.</p>
-                                <div class="form-group">
-                                    <label for="name">Name:</label>
-                                    <input type="text" name="name" id="name" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="category">Category:</label>
-                                    <input type="text" name="category" id="category" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="desc">Description:</label>
-                                    <input type="text" name="desc" id="desc" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="price">Price:</label>
-                                    <input type="number" name="price" id="price" class="form-control" required>
-                                    <br>
-                                </div>
-                                <div class="form-group">
-                                    <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" class="form-control">
-                                </div>
-                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" name="name" id="name" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category">Category:</label>
+                                        <input type="text" name="category" id="category" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="desc">Description:</label>
+                                        <input type="text" name="desc" id="desc" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price:</label>
+                                        <input type="number" name="price" id="price" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image" class="custom-file-label">Choose file</label>
+                                        <input type="file" name="image" id="image" class="form-control custom-file-input" accept=".jpg, .jpeg, .png">
+                                    </div>
+                                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
