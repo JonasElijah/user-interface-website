@@ -263,16 +263,16 @@ if(!isset($_POST['submit']))
 								// echo '<td>'.$data['name'].'</td>';
 								// echo '<td>'.$data['price'].'</td>';
 								// echo '</tr>';
-								// $counter++;
-								// $quantity++;
-								// $sum += $data['price'];
+								
 								echo '<tr>';
 								echo '<td><img src = "'.$dataW['image'].'" style="max-width:250px;"></td>';
 								echo '<td>'.$data['name'].'</td>';
 								echo '<td>'.$data['price'].'</td>';
 								echo '<td><form method="post" action=""><input type="hidden" name="remove_item_id" value="'.$data['orderID'].'"><button type="submit" class="btn btn-danger">Remove</button></form></td>';
 								echo '</tr>';
-
+								$counter++;
+								$quantity++;
+								$sum += $data['price'];
 							}
 				
 					}
