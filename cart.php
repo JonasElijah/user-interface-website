@@ -267,7 +267,6 @@ if(!isset($_POST['submit']))
 								// $quantity++;
 								// $sum += $data['price'];
 								echo '<tr>';
-								echo '<td>'.$counter.'</td>';
 								echo '<td><img src = "'.$dataW['image'].'" style="max-width:250px;"></td>';
 								echo '<td>'.$data['name'].'</td>';
 								echo '<td>'.$data['price'].'</td>';
