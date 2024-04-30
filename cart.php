@@ -257,18 +257,20 @@ if(!isset($_POST['submit']))
 				else
 					{
 						while($dataW=$resultW->fetch_array(MYSQLI_ASSOC))
-						{
+							{
 						
-							echo '<td><img src = "'.$dataW['image'].'" style="max-width:250px;"></td>';
-						}
-					echo '<td>'.$data['name'].'</td>';
-					echo '<td>'.$data['price'].'</td>';
-					echo '</tr>';
-					$counter++;
-					$quantity++;
-					$sum += $data['price'];
-					
+								echo '<td><img src = "'.$dataW['image'].'" style="max-width:250px;"></td>';
+							}
+				
 					}
+			
+				echo '<td>'.$data['name'].'</td>';
+				echo '<td>'.$data['price'].'</td>';
+				echo '</tr>';
+				$counter++;
+				$quantity++;
+				$sum += $data['price'];
+				}
 			echo '</table>';
 			echo '</div>';
 
