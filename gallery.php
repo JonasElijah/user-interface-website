@@ -364,6 +364,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
                                             <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value="" class="custom-file-label">
                                         </div>
                                         <button type = "submit" name = "submit">Submit</button>
+					<hr>
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
