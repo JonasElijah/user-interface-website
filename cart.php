@@ -268,7 +268,7 @@ if(!isset($_POST['submit']))
 								echo '<td><img src = "'.$dataW['image'].'" style="max-width:250px;"></td>';
 								echo '<td>'.$data['name'].'</td>';
 								echo '<td>'.$data['price'].'</td>';
-								echo '<td><form method="post" action=""><input type="hidden" name="remove_item_id" value="'.$data['orderID'].'"><button type="submit" class="btn btn-danger">Remove</button></form></td>';
+								echo '<td><form method="post" action=""><input type="hidden" name="remove_item_id" value="'.$data['imageID'].'"><button type="submit" class="btn btn-danger">Remove</button></form></td>';
 								echo '</tr>';
 								$counter++;
 								$quantity++;
@@ -346,8 +346,8 @@ echo '</div>';
 }
 
 if (isset($_POST['remove_item_id'])) {
-    $orderID = $_POST['remove_item_id'];
-    $sqlDelete = "DELETE FROM `orders` WHERE `orderID` = '$orderID'";
+    $imageID = $_POST['remove_item_id'];
+    $sqlDelete = "DELETE FROM `orders` WHERE `imageID` = '$imageID'";
     if(mysqli_query($dblink, $sqlDelete)) {
         echo "<script>alert('Item removed successfully');</script>";
         echo "<script>window.location = 'cart.php';</script>"; 
