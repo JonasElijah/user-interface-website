@@ -11,7 +11,6 @@
     <title>Photography Website</title>
     <!-- Local Bootstrap CSS files -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         header {
             background-color: #fdf4eb;
@@ -323,12 +322,12 @@
                                   <div class="card-body">
                                     <h5 class="card-title">' . $imageName . '</h5>
                                     <p class="card-text">$' . $imagePrice . '</p>
-				   <form method="post" action="" class="add-to-cart-form">
-				    	<input type="hidden" name="imageID" value="' . $imageID . '"> 
-				    	<input type="hidden" name="imageName" value="' . $imageName . '"> 
-				    	<input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
-				    	<button type="button" class="add-to-cart-btn">Add to Cart</button>
-				    </form>
+				    <form method="post" action="">
+		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
+				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
+		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
+					    <button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>
+					</form>
                                   </div>
                                 </div>
                               </div>';
@@ -361,37 +360,18 @@
             }
         }
 
-        // if (isset($_POST['submit'])) {
-        //     $imageID = $_POST['imageID'];
-        //     $imageName = $_POST['imageName'];
-        //     $imagePrice = $_POST['imagePrice'];
+        if (isset($_POST['submit'])) {
+            $imageID = $_POST['imageID'];
+            $imageName = $_POST['imageName'];
+            $imagePrice = $_POST['imagePrice'];
 
-        //     $userID = $_SESSION['userID'];
+            $userID = $_SESSION['userID'];
 
-        //     $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
-        //     VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
-        //     $dblink->query($sql) or
-        //     die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
-        // }
-	$(document).ready(function() {
-	    $('.add-to-cart-btn').click(function() {
-	        var form = $(this).closest('form');
-	        var data = form.serialize() + '&submit=true';
-	
-	        $.ajax({
-	            type: 'POST',
-	            url: 'add_to_cart.php', // Make sure the path is correct
-	            data: data,
-	            dataType: 'json',
-	            success: function(response) {
-	                alert(response.message);
-	            },
-	            error: function() {
-	                alert('Error adding item to cart.');
-	            }
-	        });
-	    });
-	});
+            $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
+            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
+            $dblink->query($sql) or
+            die("Something went wrong with: <br>$sql<br>" . $dblink->error . "</p>");
+        }
         ?>
     </div>
 </div>
@@ -407,6 +387,5 @@
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
 
 </html>
