@@ -332,7 +332,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
     </div>
     <hr>
 </div>
- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-sm-down">
         <div class="modal-content">
             <div class="modal-body">
@@ -374,7 +374,6 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
                                         <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" class="form-control custom-file-input">
                                     </div>
                                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-				     </br>
                                     <hr>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
@@ -385,6 +384,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
             </div>
         </div>
     </div>
+
 
 
 
