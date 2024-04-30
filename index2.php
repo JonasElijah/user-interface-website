@@ -312,20 +312,31 @@
                         echo '</div>';
                     }
                }
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-                    $imageID = $dblink->real_escape_string($_POST['imageID']);
-                    $imageName = $dblink->real_escape_string($_POST['imageName']);
-                    $imagePrice = $dblink->real_escape_string($_POST['imagePrice']);
-                    $userID = $_SESSION['userID'];
-
-                    $insert_sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) VALUES (?, ?, ?, ?)";
-                    $insert_stmt = $dblink->prepare($insert_sql);
-                    $insert_stmt->bind_param("iisd", $userID, $imageID, $imageName, $imagePrice);
-                    $insert_stmt->execute();
-                    if ($insert_stmt->affected_rows === 0) {
-                        echo "Error adding to cart.";
-                    }
-                }
+                if (isset($_POST['submit'])) {
+	    $imageID = $_POST['imageID'];
+	    $imageName = $_POST['imageName'];
+	    $imagePrice = $_POST['imagePrice'];
+	
+	    // Echo for debugging: Outputting values to verify what's being received
+	    echo "Debugging Information:<br/>";
+	    echo "User ID: " . htmlspecialchars($userID) . "<br/>";
+	    echo "Image ID: " . htmlspecialchars($imageID) . "<br/>";
+	    echo "Image Name: " . htmlspecialchars($imageName) . "<br/>";
+	    echo "Image Price: " . htmlspecialchars($imagePrice) . "<br/>";
+	
+	    // Prepare the SQL query
+	    $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
+	            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
+	    
+	    // Execute the query and check for errors
+	    if (!$dblink->query($sql)) {
+	        echo "Something went wrong with the SQL query: <br/>" . htmlspecialchars($sql) . "<br/>Error: " . $dblink->error;
+	        exit; // Stop further execution in case of error
+	    } else {
+	        // If everything is fine, redirect
+	        redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/cart.php");
+	    }
+	}
             ?>
         </div>
     </div>
