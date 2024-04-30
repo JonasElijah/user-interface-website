@@ -191,7 +191,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 	
 	.header-with-button .end {
 	    margin-left: auto;        
-	    margin-right: 30px;       
+	    margin-right: 20px;       
 	    padding: 8px 20px;       
 	    border: 2px solid #333; 
 	    border-radius: 5px;       
