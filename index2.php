@@ -241,9 +241,15 @@
             <?php
 		$userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
 
-                $sql = "SELECT * FROM `image`";
-                $stmt = $dblink->prepare($sql);
-                $stmt->execute();
+              	if ($userID !== null) {
+		    $sql = "SELECT `image`.*, IF(`cart`.`imageID` IS NULL, 0, 1) AS `isInCart`
+		            FROM `image`
+		            LEFT JOIN (SELECT * FROM `orders` WHERE `userID` = '" . mysqli_real_escape_string($dblink, $userID) . "') AS `cart`
+		            ON `image`.`ID` = `cart`.`imageID`";
+		} else {
+		    $sql = "SELECT `image`.*, 0 AS `isInCart`
+		            FROM `image`";
+		}
                 $result = $stmt->get_result();
                 if ($result->num_rows == 0) {
                     echo 'No images found in the database';
@@ -274,7 +280,8 @@
                                 $imageName = $image['name'];
                                 $imagePrice = $image['price'];
                                 $imageID = (int) $image['ID'];
-                    
+				$isInCart = $image['isInCart'];
+		            	$buttonText = $isInCart ? 'In Cart' : 'Add to Cart';
                                 echo '<div class="col-md-2">
                                         <div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
                                             <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
@@ -285,7 +292,7 @@
                                                     <input type="hidden" name="imageID" value="' . $imageID . '">
                                                     <input type="hidden" name="imageName" value="' . $imageName . '">
                                                     <input type="hidden" name="imagePrice" value="' . $imagePrice . '">
-                                                    <button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>
+                                                    <button class="add-to-cart-btn" type="submit" name="submit">' . $buttonText . '</button>
                                                 </form>
                                             </div>
                                         </div>
