@@ -337,12 +337,31 @@ if(!isset($_POST['submit']))
 else
 {
 $userID = $_SESSION['userID'];
-$sqlDeleteAll = "DELETE FROM `orders` WHERE `userID` = '$userID'";
-if (mysqli_query($dblink, $sqlDeleteAll)) {
-	echo "<script>alert('All items have been checked out successfully');</script>";
-} else {
-	echo "<script>alert('Error during checkout');</script>";
-}
+
+$sqlCheckOwner = "SELECT COUNT(*) AS own_photos 
+                  FROM `orders`
+                  JOIN `image` ON `orders`.`imageID` = `image`.`ID`
+                  WHERE `orders`.`userID` = ? AND `image`.`ownerID` = ?";
+    
+    $stmt = $dblink->prepare($sqlCheckOwner);
+    $stmt->bind_param("ss", $userID, $userID); 
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    if ($row['own_photos'] > 0) {
+        echo "<script>alert('You cannot purchase your own photos. Please remove them from your cart.');</script>";
+        echo "<script>window.location.href = 'cart.php';</script>";
+    } else {
+        $sqlDeleteAll = "DELETE FROM `orders` WHERE `userID` = '$userID'";
+        if (mysqli_query($dblink, $sqlDeleteAll)) {
+            echo "<script>alert('Checkout successful. All items have been purchased.');</script>";
+            echo "<script>window.location.href = 'order_confirmation.php';</script>";
+        } else {
+            echo "<script>alert('Error during checkout');</script>";
+        }
+    }
+    $stmt->close();
 echo '<div style="background-color: #f8f8f8; width: 50%; margin: 0 auto; padding: 20px;">';
 echo '<h2 style="color: black; font-size: 20px; text-shadow: 
       -1px -1px 0 #fdf4eb,
