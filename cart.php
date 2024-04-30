@@ -356,7 +356,6 @@ $sqlCheckOwner = "SELECT COUNT(*) AS own_photos
         $sqlDeleteAll = "DELETE FROM `orders` WHERE `userID` = '$userID'";
         if (mysqli_query($dblink, $sqlDeleteAll)) {
             echo "<script>alert('Checkout successful. All items have been purchased.');</script>";
-            echo "<script>window.location.href = 'order_confirmation.php';</script>";
         } else {
             echo "<script>alert('Error during checkout');</script>";
         }
@@ -382,8 +381,7 @@ if (isset($_POST['remove_item_id'])) {
     if ($stmt->execute()) {
         echo "<script>alert('Item removed successfully');</script>";
         echo "<script>window.location = 'cart.php';</script>"; 
-    } else {
-    }
+    } 
     $stmt->close();
 }
 
