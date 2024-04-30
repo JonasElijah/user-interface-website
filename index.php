@@ -317,19 +317,19 @@
                         $imagePrice = $image['price'];
                         $imageID = $image['ID'];
                         echo '<div class="col-md-2">
-                    		<div class="card mb-3" style="cursor:pointer;" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
-                                  <img src="' . $imagePath . '" class="card-img-top" alt="Image of ' . $imageName . '" title="Click to view details">
-                                  <div class="card-body">
-                                    <h5 class="card-title">' . $imageName . '</h5>
-                                    <p class="card-text">$' . $imagePrice . '</p>
-				    <form method="post" class="add-to-cart-form">
-				        <input type="hidden" name="imageID" value="<?php echo $imageID; ?>">
-				        <input type="hidden" name="imageName" value="<?php echo $imageName; ?>">
-				        <input type="hidden" name="imagePrice" value="<?php echo $imagePrice; ?>">
-				        <button class="add-to-cart-btn" type="button">Add to Cart</button>
-				    </form>
-                                  </div>
-                                </div>
+                    		<div class="card mb-3" style="cursor:pointer;" data-href="view-item.php?itemID=<?php echo $imageID; ?>">
+				    <img src="<?php echo $imagePath; ?>" class="card-img-top" alt="Image of <?php echo $imageName; ?>" title="Click to view details">
+				    <div class="card-body">
+				        <h5 class="card-title"><?php echo $imageName; ?></h5>
+				        <p class="card-text">$<?php echo $imagePrice; ?></p>
+				        <form method="post" class="add-to-cart-form">
+				            <input type="hidden" name="imageID" value="<?php echo $imageID; ?>">
+				            <input type="hidden" name="imageName" value="<?php echo $imageName; ?>">
+				            <input type="hidden" name="imagePrice" value="<?php echo $imagePrice; ?>">
+				            <button class="add-to-cart-btn" type="button">Add to Cart</button>
+				        </form>
+				    </div>
+				</div>
                               </div>';
                     }
                     echo '</div></div>';
@@ -390,22 +390,32 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function() {
-    $('.add-to-cart-btn').click(function() {
+    $('.add-to-cart-btn').click(function(event) {
+        event.preventDefault(); // Prevent default button action
+        event.stopPropagation(); // Stop event from bubbling up to parent elements
+
         var form = $(this).closest('form');
-        var formData = form.serialize();
+        var formData = form.serialize(); // Serialize the data in the form for submission
+
         $.ajax({
             type: 'POST',
-            url: 'add_to_cart.php',
+            url: 'add_to_cart.php', // This should point to your server-side script that handles the cart
             data: formData,
             success: function(response) {
-                alert('Item added to cart!');
+                alert('Item added to cart!'); // Alert the user on success
             },
             error: function() {
-                alert('Error adding item to cart.');
+                alert('Error adding item to cart.'); // Alert the user on error
             }
         });
     });
+
+    // If cards themselves are links, you might also need to manage event propagation there
+    $('.card').click(function(event) {
+        window.location.href = $(this).attr('data-href'); // Assuming you have 'data-href' attribute for redirection
+    });
 });
 </script>
+
 </body>
 </html>
