@@ -333,6 +333,8 @@
 		            echo '<div class="col-md-2">
 		                      <div class="card mb-3" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
 		                          <img src="' . htmlspecialchars($imagePath) . '" class="card-img-top" alt="Image of ' . htmlspecialchars($imageName) . '" title="' . htmlspecialchars($imageName) . '">
+			    		  <h5 class="card-title">' . $imageName . '</h5>
+                                    	  <p class="card-text">$' . $imagePrice . '</p>
 		                          <form method="post" action="">
 						<input type="hidden" name="imageID" value="' . $imageID . '"> 
 					        <input type="hidden" name="imageName" value="' . $imageName . '"> 
