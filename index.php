@@ -296,7 +296,6 @@
 	            FROM `image`";
 	}
 
-        $sql = "SELECT *, `category` FROM `image`";
 
         $result = mysqli_query($dblink, $sql);
         if (mysqli_num_rows($result) == 0) {
