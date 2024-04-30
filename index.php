@@ -294,17 +294,18 @@
         $result = mysqli_query($dblink, $sql);
         if (mysqli_num_rows($result) == 0) {
             echo 'Error, database table not found';
+        } else {
+            $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $categories = [
+                'Recommended' => function ($img) {
+                    return $img['category'] !== 'portrait';
+                },
+                'Portrait' => function ($img) {
+                    return $img['category'] === 'portrait';
+                }
+            ];
+
 	}
-        // } else {
-        //     $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        //     $categories = [
-        //         'Recommended' => function ($img) {
-        //             return $img['category'] !== 'portrait';
-        //         },
-        //         'Portrait' => function ($img) {
-        //             return $img['category'] === 'portrait';
-        //         }
-        //     ];
 
       //       function createCarouselItems($imageSets, $categoryName)
       //       {
