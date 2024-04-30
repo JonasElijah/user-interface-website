@@ -239,6 +239,8 @@
     <div class="category">
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
             <?php
+		$userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
+
                 $sql = "SELECT * FROM `image`";
                 $stmt = $dblink->prepare($sql);
                 $stmt->execute();
