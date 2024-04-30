@@ -362,7 +362,7 @@
                 $filteredImages = array_filter($images, $filter);
                 $imageSets = array_chunk($filteredImages, 5);
                 echo '<div id="carouselExample">';
-                //createCarouselItems($imageSets, $categoryName);
+                createCarouselItems($imageSets, $categoryName);
                 echo '</div>';
 		echo '<br/>';
             }
