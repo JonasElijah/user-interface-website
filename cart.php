@@ -336,9 +336,13 @@ if(!isset($_POST['submit']))
    }
 else
 {
-    $userID = $_SESSION['userID'];
-    $sqlDeleteAll = "DELETE FROM `orders` WHERE `userID` = '$userID'";
-
+$userID = $_SESSION['userID'];
+$sqlDeleteAll = "DELETE FROM `orders` WHERE `userID` = '$userID'";
+if (mysqli_query($dblink, $sqlDeleteAll)) {
+	echo "<script>alert('All items have been checked out successfully');</script>";
+} else {
+	echo "<script>alert('Error during checkout');</script>";
+}
 echo '<div style="background-color: #f8f8f8; width: 50%; margin: 0 auto; padding: 20px;">';
 echo '<h2 style="color: black; font-size: 20px; text-shadow: 
       -1px -1px 0 #fdf4eb,
