@@ -284,10 +284,17 @@
         <?php
         include("functions.php");
         $dblink = db_connect("UI-schema");
-          $sql = "SELECT image.*, IF(cart.imageID IS NULL, 0, 1) AS isInCart
-            FROM image
-            LEFT JOIN (SELECT * FROM orders WHERE userID = ?) AS cart
-            ON image.ID = cart.imageID";
+	$userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
+	
+	if ($userID !== null) {
+	    $sql = "SELECT `image`.*, IF(`cart`.`imageID` IS NULL, 0, 1) AS `isInCart`
+	            FROM `image`
+	            LEFT JOIN (SELECT * FROM `orders` WHERE `userID` = '" . mysqli_real_escape_string($dblink, $userID) . "') AS `cart`
+	            ON `image`.`ID` = `cart`.`imageID`";
+	} else {
+	    $sql = "SELECT `image`.*, 0 AS `isInCart`
+	            FROM `image`";
+	}
 
         $sql = "SELECT *, `category` FROM `image`";
 
