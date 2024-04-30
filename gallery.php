@@ -199,7 +199,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 
 	@media (max-width: 480px) {
 	    h1 {
-		font-size: 12px;
+		font-size: 16px;
 	    }
 
 	    .photo-row img {
