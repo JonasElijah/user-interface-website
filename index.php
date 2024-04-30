@@ -284,10 +284,10 @@
         <?php
         include("functions.php");
         $dblink = db_connect("UI-schema");
-          // $sql = "SELECT image.*, IF(cart.imageID IS NULL, 0, 1) AS isInCart
-          //   FROM image
-          //   LEFT JOIN (SELECT * FROM orders WHERE userID = ?) AS cart
-          //   ON image.ID = cart.imageID";
+          $sql = "SELECT image.*, IF(cart.imageID IS NULL, 0, 1) AS isInCart
+            FROM image
+            LEFT JOIN (SELECT * FROM orders WHERE userID = ?) AS cart
+            ON image.ID = cart.imageID";
 
         $sql = "SELECT *, `category` FROM `image`";
 
