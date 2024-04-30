@@ -322,12 +322,12 @@
                                   <div class="card-body">
                                     <h5 class="card-title">' . $imageName . '</h5>
                                     <p class="card-text">$' . $imagePrice . '</p>
-				    <form method="post" action="">
-		                  	    <input type="hidden" name="imageID" value="' . $imageID . '"> 
-				            <input type="hidden" name="imageName" value="' . $imageName . '"> 
-		                  	    <input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
-					    <button class="add-to-cart-btn" type="submit" name="submit">Add to Cart</button>
-					</form>
+				    <form method="post" class="add-to-cart-form">
+				        <input type="hidden" name="imageID" value="<?php echo $imageID; ?>">
+				        <input type="hidden" name="imageName" value="<?php echo $imageName; ?>">
+				        <input type="hidden" name="imagePrice" value="<?php echo $imagePrice; ?>">
+				        <button class="add-to-cart-btn" type="button">Add to Cart</button>
+				    </form>
                                   </div>
                                 </div>
                               </div>';
@@ -383,9 +383,29 @@
         <span class="text-muted">Photography Website &copy; 2024</span>
     </div>
 </footer>
+	
 <!-- Local Bootstrap JavaScript files -->
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+<script>
+$(document).ready(function() {
+    $('.add-to-cart-btn').click(function() {
+        var form = $(this).closest('form');
+        var formData = form.serialize();
+        $.ajax({
+            type: 'POST',
+            url: 'add_to_cart.php',
+            data: formData,
+            success: function(response) {
+                alert('Item added to cart!');
+            },
+            error: function() {
+                alert('Error adding item to cart.');
+            }
+        });
+    });
+});
+</script>
+</body>
 </html>
