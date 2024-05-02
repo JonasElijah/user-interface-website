@@ -286,11 +286,9 @@
                         echo '<li class="nav-item">';
                         echo '<a class="nav-link" href="account.php">Account</a>';
                         echo '</li>';
-			echo '<li>
-   		 	<form action="logout.php" method="post">
-        		<button type="submit" class="btn btn-link nav-link">Logout</button>
-    			</form>
-			</li>';
+			echo '<li class="nav-item"> ';
+                        echo ' <a class="nav-link" href="logout.php">Logout</a>';
+                        echo '</li>';
                     }
                     ?>
 
