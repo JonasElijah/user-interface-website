@@ -398,7 +398,6 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
                                         <br>
                                     </div>
                                     <div class="form-group">
-    					<label for="image" class="custom-file-label underline-text">Choose file</label>
                                         <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" class="form-control custom-file-input">
 					<button type="button" onclick="document.getElementById('image').click()" class="btn btn-primary">Choose File</button>
                                     </div>
