@@ -288,6 +288,12 @@
                         echo '</li>';
                     }
                     ?>
+
+		<li>
+   		 <form action="logout.php" method="post">
+        	<button type="submit" class="btn btn-link nav-link">Logout</button>
+    		</form>
+		</li>
                 </ul>
             </div>
         </div>
@@ -412,6 +418,7 @@
 	}
 
         ?>
+	
     </div>
 </div>
 <br/>
