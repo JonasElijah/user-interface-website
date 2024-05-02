@@ -438,7 +438,7 @@
 			$_SESSION['userID'] = $row['userID'];
 			//echo '$_SESSION[\'userID\'] = ' . $_SESSION['userID'] . '<br>';
 			//echo '<script>window.location.href = "index.php";</script>';
-			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com");
 		}
 		
 }
