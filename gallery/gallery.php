@@ -58,7 +58,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Photography Website</title>
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <style>
         header {
             background-color: #fdf4eb;
@@ -403,8 +403,8 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
     </div>
 </footer>
 
-<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-<script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+<script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
