@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sign Up Page</title>
-<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
+<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
 <style>
       header {
 	       background-color: #fdf4eb;
@@ -123,7 +123,7 @@
 	?>
 	<div>
 	<div id="header">
-        <?php include 'header.html'; ?>
+        <?php include '../assets/html/header.html'; ?>
 </div>
 </div>
 
