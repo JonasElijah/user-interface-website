@@ -168,7 +168,7 @@
 <h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Shopping Cart </h1>
 <?php
 $displayName = "";
-include("functions.php");
+include("../functions.php");
 $dblink = db_connect("UI-schema");
 
 if(!isset($_POST['submit']))
