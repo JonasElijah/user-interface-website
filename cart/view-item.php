@@ -170,7 +170,7 @@
   </head>
   <body>
    <div id="header">
-        <?php include 'header.html'; ?>
+        <?php include '../assets/header.html'; ?>
 </div>
 	<?php
 		$imageId = $_GET['itemID'];
