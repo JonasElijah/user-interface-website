@@ -197,7 +197,7 @@
 						echo '<a class="nav-link" href="#">Biography</a>';
 					echo '</li>';
 					echo '<li class="nav-item">';
-						echo '<a class="nav-link" href="gallery/gallery.php">View Gallery</a>';
+						echo '<a class="nav-link" href="/gallery.php">View Gallery</a>';
 					echo '</li>';
 				echo '</ul>';
 			echo '</div>';
