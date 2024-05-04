@@ -307,7 +307,7 @@
 		            $buttonText = $isInCart ? 'In Cart' : 'Add to Cart';
 		            $buttonDisabled = $isInCart ? 'disabled' : '';
 		            echo '<div class="col-md-2">
-		                      <div class="card mb-3" alt="'.$imageName.' Price $'.$imagePrice.'" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
+		                      <div class="card mb-3" alt="'.$imageName.' Price $'.$imagePrice.'" onclick="window.location.href=\'/cart/view-item.php?itemID=' . $imageID . '\'">
 		                          <img src="' . htmlspecialchars($imagePath) . '" class="card-img-top" alt="Image of ' . htmlspecialchars($imageName) . '" title="' . htmlspecialchars($imageName) . '">
 			                  <div class="card-body">
 			    		  	<h5 class="card-title">' . $imageName . '</h5>
