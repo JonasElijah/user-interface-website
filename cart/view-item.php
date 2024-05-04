@@ -187,7 +187,7 @@
 			echo '<div class="row main-view">';
 				//Display Image
 				echo '<div class="col-md-6 item">';
-				echo '<img src="'.$data['image'].'" class="photo-cus">';
+				echo '<img src="../'.$data['image'].'" class="photo-cus">';
 				echo '</div>';
 
 				//Description
