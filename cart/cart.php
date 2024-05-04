@@ -7,7 +7,7 @@
 <title>Shopping Cart page</title>
 
 
-<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
+<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
 <style>
       header {
 	       background-color: #fdf4eb;
@@ -163,7 +163,7 @@
 	}
 	?>
 <div id="header">
-        <?php include 'header.html'; ?>
+        <?php include '../assets/html/header.html'; ?>
 </div>
 <h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Shopping Cart </h1>
 <?php
