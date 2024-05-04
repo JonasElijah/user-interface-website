@@ -188,7 +188,7 @@
 			echo '<div class="offset-md-1">';
 				echo '<ul class="nav flex-column">';
 					echo '<li class="nav-item">';
-						echo '<a class="nav-link active" href="auth/account.php">Profile</a>';
+						echo '<a class="nav-link active" href="/auth/account.php">Profile</a>';
 					echo '</li>';
 					echo '<li class="nav-item">';
 						echo '<a class="nav-link" href="#">Payment Options</a>';
