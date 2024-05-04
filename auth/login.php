@@ -281,7 +281,7 @@ if(!isset($_POST['submit'])){
 			
 
 			
-			include("functions.php");
+			include("../functions.php");
 			if (count($errStatus)>0)
 			{
 				$errString=implode("&",$errStatus);
