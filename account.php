@@ -168,46 +168,9 @@
     </style>
   </head>
   <body>
-    <header>
-    <nav class="navbar navbar-expand-lg custom-navbar shadow rounded">
-        <div class="container-fluid">
-	<a href="index.php">
-	    <img class="site-logo" src="assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
-	</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.php">Gallery</a>
-                    </li>
-                    <?php
-                    if(!isset($_SESSION['userID'])){
-                        echo '<li class="nav-item"> ';
-                        echo ' <a class="nav-link" href="login.php">Login</a>';
-                        echo '</li>';
-                        echo '<li class="nav-item">';
-                        echo '<a class="nav-link" href="signup.php">Signup</a>';
-                        echo ' </li>';
-                    }
-                    else{
-                        echo '<li class="nav-item">';
-                        echo '<a class="nav-link" href="cart.php">Cart</a>';
-                        echo '</li>';
-                        echo '<li class="nav-item">';
-                        echo '<a class="nav-link" href="account.php">Account</a>';
-                        echo '</li>';
-                    }
-                    ?>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+    <div id="header">
+        <?php include 'header.html'; ?>
+    </div>
 
     <div>
 	<?php
