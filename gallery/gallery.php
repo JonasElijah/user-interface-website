@@ -313,7 +313,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 </head>
 <body>
 <div id="header">
-        <?php include 'header.html'; ?>
+        <?php include '../assets/html/header.html'; ?>
 </div>
 <div>
 <div class='gallery-title'>
