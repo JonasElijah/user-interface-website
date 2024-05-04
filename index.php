@@ -253,9 +253,9 @@
 
 </head>
 <body>
-<?php>
-require 'header.html';
-<?>
+<div id="header">
+        <?php include 'header.html'; ?>
+</div>
 <div class="category">
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
         <?php
