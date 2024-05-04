@@ -285,7 +285,7 @@ if(!isset($_POST['submit'])){
 			if (count($errStatus)>0)
 			{
 				$errString=implode("&",$errStatus);
-				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php?$errString");
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/auth/login.php?$errString");
 			}
 			
 			$dblink = db_connect("UI-schema");
@@ -301,7 +301,7 @@ if(!isset($_POST['submit'])){
 			if($row <0)
 			{
 			
-			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php?email=emailNonexist");
+			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/auth/login.php?email=emailNonexist");
 			}
 			else
 			{
@@ -309,7 +309,7 @@ if(!isset($_POST['submit'])){
 			
 				if($row['pWord'] != $pWord)
 				{
-				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php?password=pWordNonexist");
+				redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/auth/login.php?password=pWordNonexist");
 				}
 				else
 				{

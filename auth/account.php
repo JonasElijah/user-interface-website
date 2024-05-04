@@ -6,7 +6,7 @@
 	}
 	
 	if(!isset($_SESSION['userID'])){
-		redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+		redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/auth/login.php");
 	}
 	else {
 		$userId = $_SESSION['userID'];
@@ -145,24 +145,24 @@
 	    }
 	
 	    .nav-item {
-	        padding: 5px 0; /* More vertical padding on mobile */
+	        padding: 5px 0;
 	    }
 
 	    .navbar-expand-lg .navbar-collapse {
-	        flex-basis: 100%; /* Full width for the collapsible area */
+	        flex-basis: 100%; 
 	        flex-grow: 1;
 	    }
 	
 	    .navbar-toggler {
-	        display: block; /* Ensure toggler is always visible below this breakpoint */
+	        display: block;
 	    }
 		
 	    .custom-navbar .navbar-brand img {
-	        max-width: 150px; /* Even smaller logo for very small screens */
+	        max-width: 150px; 
 	    }
 	
 	    .navbar-nav .nav-link {
-	        font-size: 12px; /* Even smaller font size */
+	        font-size: 12px; 
 	    }
 	}
     </style>
@@ -188,7 +188,7 @@
 			echo '<div class="offset-md-1">';
 				echo '<ul class="nav flex-column">';
 					echo '<li class="nav-item">';
-						echo '<a class="nav-link active" href="account.php">Profile</a>';
+						echo '<a class="nav-link active" href="auth/account.php">Profile</a>';
 					echo '</li>';
 					echo '<li class="nav-item">';
 						echo '<a class="nav-link" href="#">Payment Options</a>';
@@ -197,14 +197,13 @@
 						echo '<a class="nav-link" href="#">Biography</a>';
 					echo '</li>';
 					echo '<li class="nav-item">';
-						echo '<a class="nav-link" href="gallery.php">View Gallery</a>';
+						echo '<a class="nav-link" href="gallery/gallery.php">View Gallery</a>';
 					echo '</li>';
 				echo '</ul>';
 			echo '</div>';
 		echo '</div>';
 		echo '</div>';
 		
-		//Profile info
 		echo '<div class="col-md-9">';
 		echo '<div class="col-md-10 offset-md-1">';
 		echo '<br>';

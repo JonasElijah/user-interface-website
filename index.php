@@ -179,23 +179,23 @@
 	@media (max-width: 480px) {
 	    #carouselExample .carousel-control-prev,
 	    #carouselExample .carousel-control-next {
-	        display: none;  /* Optionally hide controls on small devices */
+	        display: none;  
 	    }
 	
 	    .carousel-item .col-md-2 {
-	        flex: 0 0 100%; /* Each item takes full width of the carousel */
-	        max-width: 100%; /* Each item takes full width of the carousel */
-	        padding: 3px; /* Adjust padding as needed */
+	        flex: 0 0 100%; 
+	        max-width: 100%; 
+	        padding: 3px; 
 	    }
 	
 	    .carousel-inner .row {
-	        flex-wrap: nowrap; /* Prevents wrapping of items */
-	        overflow-x: auto; /* Allows horizontal scrolling */
-	        scroll-snap-type: x mandatory; /* Optional: enhances the scroll experience */
+	        flex-wrap: nowrap;
+	        overflow-x: auto; 
+	        scroll-snap-type: x mandatory; 
 	    }
 	
 	    .carousel-item .col-md-2 {
-	        scroll-snap-align: start; /* Optional: ensures items align nicely on scroll */
+	        scroll-snap-align: start; 
 	    }
 		
 	    .custom-navbar {
@@ -209,24 +209,24 @@
 	    }
 	
 	    .nav-item {
-	        padding: 5px 0; /* More vertical padding on mobile */
+	        padding: 5px 0;
 	    }
 
 	    .navbar-expand-lg .navbar-collapse {
-	        flex-basis: 100%; /* Full width for the collapsible area */
+	        flex-basis: 100%; 
 	        flex-grow: 1;
 	    }
 	
 	    .navbar-toggler {
-	        display: block; /* Ensure toggler is always visible below this breakpoint */
+	        display: block; 
 	    }
 		
 	    .custom-navbar .navbar-brand img {
-	        max-width: 150px; /* Even smaller logo for very small screens */
+	        max-width: 150px; 
 	    }
 	
 	    .navbar-nav .nav-link {
-	        font-size: 12px; /* Even smaller font size */
+	        font-size: 12px; 
 	    }
 	}
 
@@ -254,7 +254,7 @@
 </head>
 <body>
 <div id="header">
-        <?php include 'header.html'; ?>
+        <?php include 'assets/html/header.html'; ?>
 </div>
 <div class="category">
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -351,30 +351,24 @@
         if (isset($_POST['submit'])) {
 		if($userID == null)
 		{
-			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/login.php");
+			redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/auth/login.php");
 		}
+
 	    $imageID = $_POST['imageID'];
 	    $imageName = $_POST['imageName'];
 	    $imagePrice = $_POST['imagePrice'];
 	
-	    // Echo for debugging: Outputting values to verify what's being received
-	    echo "Debugging Information:<br/>";
-	    echo "User ID: " . htmlspecialchars($userID) . "<br/>";
-	    echo "Image ID: " . htmlspecialchars($imageID) . "<br/>";
-	    echo "Image Name: " . htmlspecialchars($imageName) . "<br/>";
-	    echo "Image Price: " . htmlspecialchars($imagePrice) . "<br/>";
-	
-	    // Prepare the SQL query
 	    $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
 	            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
 	    
-	    // Execute the query and check for errors
-	    if (!$dblink->query($sql)) {
+	    if (!$dblink->query($sql)) 
+        {
 	        echo "Something went wrong with the SQL query: <br/>" . htmlspecialchars($sql) . "<br/>Error: " . $dblink->error;
-	        exit; // Stop further execution in case of error
-	    } else {
-	        // If everything is fine, redirect
-	        redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/cart.php");
+	        exit; 
+	    } 
+        else 
+        {
+	        redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/cart/cart.php");
 	    }
 	}
 

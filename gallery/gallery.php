@@ -3,7 +3,7 @@ include("functions.php");
 session_start();
 if(!isset($_SESSION['userID']))
 {
-	redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/signup.php");
+	redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/auth/signup.php");
 }
 $conn = db_connect("UI-schema");
 $userId = $_SESSION['userID'];
@@ -376,8 +376,6 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
         </div>
     </div>
 </div>
-
-
 
 
     <div class="gallery-container">
