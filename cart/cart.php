@@ -353,7 +353,7 @@ if (isset($_POST['remove_item_id'])) {
 	<br>
 	<br>
 <div id="footer">
-        <?php include 'assets/html/footer.html'; ?>
+        <?php include '/assets/html/footer.html'; ?>
 </div>
 </div>
 </html>
