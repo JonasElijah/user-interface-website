@@ -23,7 +23,6 @@ body {
     color: #333;
 }
 
-/* Add an overlay to the background image */
 body::before {
     content: "";
     position: absolute;
@@ -31,18 +30,18 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-    z-index: -1; /* Ensure it is behind the content */
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
 }
 
 .form {
-    background-color: rgba(253, 244, 235, 0.85); /* Semi-transparent background */
+    background-color: rgba(253, 244, 235, 0.85);
     padding: 50px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     margin: auto;
-    margin-top: 100px; /* Center it vertically */
+    margin-top: 100px; 
 }
 
 .form-group {
@@ -54,28 +53,29 @@ body::before {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
     margin-top: 10px;
-    font-size: 16px; /* Slightly larger font */
+    font-size: 16px; 
 }
 
 .btn {
     background-color: #28a745;
     border-color: #28a745;
+    width: 50px;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
-    font-size: 16px; /* Slightly larger font */
+    font-size: 16px; 
 }
 
 .btn:hover {
     background-color: #218838;
-    transform: translateY(-2px);
+    transform: translateY(2px);
 }
 
 h1 {
     color: #fdf4eb;
     font-size: 50px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger shadow for better contrast */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
     text-align: center;
     margin-bottom: 20px;
 }
@@ -91,7 +91,7 @@ h1 {
 @media (max-width: 480px) {
     .form {
         padding: 20px;
-        margin-top: 50px; /* Adjust margin for smaller screens */
+        margin-top: 50px; 
     }
 
     .btn {
