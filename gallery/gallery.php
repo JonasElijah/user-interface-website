@@ -398,7 +398,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
 <br />
 
 <div id="footer">
-        <?php include 'assets/html/footer.html'; ?>
+        <?php include '/assets/html/footer.html'; ?>
 </div>
 
 <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
