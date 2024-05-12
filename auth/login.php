@@ -56,10 +56,10 @@ body::before {
     font-size: 16px; 
 }
 
-.btn {
+.form-group button {
     background-color: #28a745;
     border-color: #28a745;
-    width: 100%;
+    width: 25%;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
