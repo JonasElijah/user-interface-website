@@ -7,113 +7,138 @@
 <title>Sign Up Page</title>
 <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
 <style>
-      header {
-	       background-color: #fdf4eb;
-      }
+header {
+    background-color: #fdf4eb;
+}
 
-      body {
-        font-family: "Georgia", sans-serif;
-	display: flex;
-    	flex-direction: column;
-	background-image: url('/assets/images/gallery/trees-3822149_1280.jpg');
+body {
+    font-family: "Georgia", sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/assets/images/gallery/trees-3822149_1280.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: #333;
+    min-height: calc(100vh - 100px);
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
+
+.form {
+    background-color: rgba(253, 244, 235, 0.85);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+    margin-top: 100px; 
+}
 	
-      }
+.form-group label {
+    font-weight: bold; 
+    width: 100%;       
+}
 
-      .dropdown-menu {
-        display: none;
-      }
 
-      #hover-dropdown:hover .dropdown-menu {
-        display: block;
-        min-width: 1rem;
-        max-width: 6.5rem;
-        max-height: calc(50vh - 50px);
-        overflow-y: auto;
-        text-align: center;
-      }
+.form-group {
+    margin-bottom: 20px;
+    align-items: flex-start;	
+    flex-direction: column;
+}
 
-      .photo-row {
-        padding: 50px;
-      }
+.form-control {
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px; 
+}
 
-      .photo-row img {
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.btn_log, .btn_sin {
+    width: 25%;
+    height: 40px;
+    color: #fff; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    font-size: 12px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); 
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+    cursor: pointer; 
+    display: inline-block;
+    margin-top: 10px; 
+    text-align: center; 
+}
+
+.btn_log {
+    background-color: #28a745; 
+    border: 1px solid #28a745;
+    margin-left: 20px;
+}
+
+.btn_sin {
+    background-color: #808080;
+    border: 1px solid #808080;
+    margin-right: 150px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.btn:hover {
+    background-color: #ffffff;
+    color: #000; 
+    border: 1px solid #ffffff;
+    transform: translateY(2px);
+}
+
+h1 {
+    color: #fdf4eb;
+    font-size: 50px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer {
+    margin-top: auto;
+    padding: 10px;
+    background-color: #fdf4eb;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+@media (max-width: 480px) {
+    .form {
         padding: 20px;
-        margin-right: 20px;
-      }
+        margin-top: 50px; 
+    }
 
-      .category {
-        margin-bottom: 10px;
-        padding: 40px;
-        margin-right: 10px;
-      }
+    .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
 
-      .custom-button {
-        background-color: #fdf4eb;
-        border-color: #fdf4eb;
-        color: #a5998c;
-      }
-
-      .custom-button:hover {
-        background-color: #f0e6d1;
-        border-color: #f0e6d1;
-        color: #a5998c;
-      }
-	.footer {
-	margin-top: auto; /* Push the footer to the bottom */
-	}
-	.form
-	{
-		background-color: #fdf4eb;
-		padding: 50px;
-	}
-	 .custom-navbar h1 {
-        margin: 0;
-        padding: 0; 
-        line-height: 1;
-        vertical-align: bottom; 
-         font-size: 25px;
-      }
-
-	@media (max-width: 480px) {
-	    .photo-row img {
-                margin: 0.5px;
-                max-width: 90px;
-            }
-	    .custom-navbar {
-	        flex-direction: column;
-	        align-items: flex-start;
-	    }
-	
-	    .navbar-nav {
-	        width: 100%;
-	        justify-content: flex-start;
-	    }
-	
-	    .nav-item {
-	        padding: 5px 0; /* More vertical padding on mobile */
-	    }
-
-	    .navbar-expand-lg .navbar-collapse {
-	        flex-basis: 100%; /* Full width for the collapsible area */
-	        flex-grow: 1;
-	    }
-	
-	    .navbar-toggler {
-	        display: block; /* Ensure toggler is always visible below this breakpoint */
-	    }
-		
-	    .custom-navbar .navbar-brand img {
-	        max-width: 150px; /* Even smaller logo for very small screens */
-	    }
-	
-	    .navbar-nav .nav-link {
-	        font-size: 12px; /* Even smaller font size */
-	    }
-	}
+    h1 {
+        font-size: 30px;
+    }
+}
 
     </style>
-	
 </head>
 <body>
 	<?php
@@ -327,7 +352,10 @@
 
 		
 		
-			echo '<br><button class="btn btn-success col-md-2 offset-md-5" name="submit" type="submit" value="submit">Sign Up</button></form>';
+		echo '<div class="button-container">';
+		echo '<button class="btn_log btn btn-success" name="submit" type="submit" value="submit">Sign Up</button>';
+		echo '<a href="/auth/login.php" class="btn_sin btn btn-success">Login</a></form>';
+		echo '</div>';	
 	}
 
 	if(isset($_POST['submit'])){
