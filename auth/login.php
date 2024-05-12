@@ -61,7 +61,7 @@ body::before {
 .btn_log {
     background-color: #28a745; 
     width: 25%;
-    height: 50px;
+/*     height: 50px; */
     color: #fff; 
     border: 1px solid #28a745;
     border-radius: 5px; 
@@ -73,13 +73,13 @@ body::before {
     cursor: pointer; 
     display: inline-block;
     margin-top: 10px; 
-    margin-left: 20px; 
+    margin-left: 10px; 
 }
 
 .btn_sin {
     background-color: #28a745; 
     width: 25%;
-    height: 50px;
+    /*height: 50px;*/
     color: #fff; 
     border: 1px solid #28a745;
     border-radius: 5px; 
@@ -91,7 +91,7 @@ body::before {
     cursor: pointer; 
     display: inline-block;
     margin-top: 10px; 
-    margin-right: 20px; 
+    margin-right:100px; 
 }
 
 
