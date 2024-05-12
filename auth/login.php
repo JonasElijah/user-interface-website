@@ -59,7 +59,7 @@ body::before {
 .btn {
     background-color: #28a745;
     border-color: #28a745;
-    width: 50px;
+    width: 100%;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
