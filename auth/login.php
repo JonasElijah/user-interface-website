@@ -60,7 +60,7 @@ body::before {
 
 .btn_log, .btn_sin {
     width: 25%;
-    height: 50px;
+    height: 40px;
     color: #fff; 
     border-radius: 5px; 
     padding: 10px 20px; 
