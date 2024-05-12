@@ -47,6 +47,7 @@ body::before {
 .form-group {
     margin-bottom: 20px;
     align-items: flex-start;	
+    flex-direction: column;
 }
 
 .form-control {
