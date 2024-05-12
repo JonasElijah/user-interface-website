@@ -8,111 +8,84 @@
 <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <style>
-      header {
-	       background-color: #fdf4eb;
-      }
+     header {
+    background-color: #fdf4eb;
+}
 
-      body {
-        font-family: "Georgia", sans-serif;
-	display: flex;
-    	flex-direction: column;
-	background-image: url('/assets/images/gallery/trees-3822149_1280.jpg');
-	background-position: center;
-    	background-size: cover;
-      }
+body {
+    font-family: "Georgia", sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/assets/images/gallery/trees-3822149_1280.jpg');
+    background-position: center;
+    background-size: cover;
+    color: #333;
+}
 
-      .dropdown-menu {
-        display: none;
-      }
+.form {
+    background-color: rgba(253, 244, 235, 0.9);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+}
 
-      #hover-dropdown:hover .dropdown-menu {
-        display: block;
-        min-width: 1rem;
-        max-width: 6.5rem;
-        max-height: calc(50vh - 50px);
-        overflow-y: auto;
-        text-align: center;
-      }
+.form-group {
+    margin-bottom: 20px;
+}
 
-      .photo-row {
-        padding: 50px;
-      }
+.form-control {
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-top: 10px;
+}
 
-      .photo-row img {
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.btn {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+h1 {
+    color: #fdf4eb;
+    font-size: 50px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer {
+    margin-top: auto;
+    padding: 10px;
+    background-color: #fdf4eb;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+@media (max-width: 480px) {
+    .form {
         padding: 20px;
-        margin-right: 20px;
-      }
+    }
 
-      .category {
-        margin-bottom: 10px;
-        padding: 40px;
-        margin-right: 10px;
-      }
+    .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
 
-      .custom-button {
-        background-color: #fdf4eb;
-        border-color: #fdf4eb;
-        color: #a5998c;
-      }
-
-      .custom-button:hover {
-        background-color: #f0e6d1;
-        border-color: #f0e6d1;
-        color: #a5998c;
-      }
-	.footer {
-	margin-top: auto; /* Push the footer to the bottom */
-	}
-	.form
-	{
-		background-color: #fdf4eb;
-		padding: 50px;
-	}
-	.custom-navbar h1 {
-        margin: 0;
-        padding: 0; 
-        line-height: 1;
-        vertical-align: bottom; 
-         font-size: 25px;
-      }
-
-	@media (max-width: 480px) {
-	    .photo-row img {
-                margin: 0.5px;
-                max-width: 90px;
-            }
-	    .custom-navbar {
-	        flex-direction: column;
-	        align-items: flex-start;
-	    }
-	
-	    .navbar-nav {
-	        width: 100%;
-	        justify-content: flex-start;
-	    }
-	
-	    .nav-item {
-	        padding: 5px 0; /* More vertical padding on mobile */
-	    }
-
-	    .navbar-expand-lg .navbar-collapse {
-	        flex-basis: 100%; /* Full width for the collapsible area */
-	        flex-grow: 1;
-	    }
-	
-	    .navbar-toggler {
-	        display: block; /* Ensure toggler is always visible below this breakpoint */
-	    }
-		
-	    .custom-navbar .navbar-brand img {
-	        max-width: 150px; /* Even smaller logo for very small screens */
-	    }
-	
-	    .navbar-nav .nav-link {
-	        font-size: 12px; /* Even smaller font size */
-	    }
-	}
+    h1 {
+        font-size: 30px;
+    }
+}
 
     </style>
   </head>
