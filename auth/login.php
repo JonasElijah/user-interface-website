@@ -75,11 +75,11 @@ body::before {
 }
 
 .btn_log {
-    margin-left: 20px;
+    margin-left: 0px;
 }
 
 .btn_sin {
-    margin-right: 20px;
+    margin-right: 0px;
 }
 
 .button-container {
@@ -260,8 +260,10 @@ if(!isset($_POST['submit'])){
 
 		
 			
-			echo '<br><button class="btn_log btn btn-success col-md-2 offset-md-5" name="submit" type="submit" value="submit">Log In</button>';
-			echo '<a href="/auth/signup.php" class="btn_sin btn btn-success col-md-2 offset-md-5">Sign Up</a></form>';
+		echo '<div class="button-container">';
+		echo '<button class="btn_log btn btn-success" name="submit" type="submit" value="submit">Log In</button>';
+		echo '<a href="/auth/signup.php" class="btn_sin btn btn-success">Sign Up</a>';
+		echo '</div>';
 
 			
 }
