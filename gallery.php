@@ -350,6 +350,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
                                             <option value="Street">Street</option>
                                             <option value="Travel">Travel</option>
                                             <option value="Astro">Astro</option>
+                                            <option value="Astro">Other</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
