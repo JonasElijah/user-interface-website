@@ -75,11 +75,11 @@ body::before {
 }
 
 .btn_log {
-    margin-left: 0px;
+    margin-left: 20px;
 }
 
 .btn_sin {
-    margin-right: 0px;
+    margin-right: 20px;
 }
 
 .button-container {
