@@ -267,7 +267,7 @@
 	
 	<div class="row">
    <div id="footer">
-        <?php include '/assets/html/footer.html'; ?>
+        <?php include '../assets/html/footer.html'; ?>
 </div>
 	</div>
 		
