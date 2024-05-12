@@ -43,6 +43,12 @@ body::before {
     margin: auto;
     margin-top: 100px; 
 }
+	
+.form-group label {
+    font-weight: bold; 
+    width: 100%;       
+}
+
 
 .form-group {
     margin-bottom: 20px;
