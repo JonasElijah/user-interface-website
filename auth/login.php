@@ -94,7 +94,7 @@ body::before {
 
 
 .btn:hover {
-    background-color: #218838;
+    background-color: #ffffff;
     transform: translateY(2px);
 }
 
