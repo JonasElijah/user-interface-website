@@ -245,7 +245,7 @@ if(!isset($_POST['submit'])){
 		
 			
 			echo '<br><button class="btn btn-success col-md-2 offset-md-5" name="submit" type="submit" value="submit">Log In</button>';
-			echo '<a href="/auth/signup.php" class="btn_signup btn-success col-md-2 offset-md-5">Sign Up</a></form>';
+			echo '<a href="/auth/signup.php" class="btn btn-success col-md-2 offset-md-5">Sign Up</a></form>';
 
 			
 }
