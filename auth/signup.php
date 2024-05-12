@@ -153,7 +153,6 @@ h1 {
 </div>
 
 
-<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Sign Up page! </h1>
 
 <div id="wrapper">
 <div id="page-wrapper">
@@ -163,7 +162,8 @@ h1 {
 	
 	if(!isset($_POST['submit'])){
 		echo '<form class="col-md-6 offset-md-3  form" id="contact" method="post" action="">';
-		
+		echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Sign Up page! </h1>
+				';
 		if( (!isset($_GET['fName'])))
 		{
 			if(isset($_SESSION['fName']))
