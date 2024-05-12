@@ -60,6 +60,7 @@ body::before {
 
 .btn_log {
     background-color: #28a745; 
+    width: 25%;
     color: #fff; 
     border: 1px solid #28a745;
     border-radius: 5px; 
@@ -71,7 +72,7 @@ body::before {
     cursor: pointer; 
     display: inline-block;
     margin-top: 10px; 
-    margin-left: 15; 
+    margin-left: 0; 
 }
 
 
