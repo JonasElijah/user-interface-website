@@ -58,7 +58,23 @@ body::before {
     font-size: 16px; 
 }
 
-.form-group button {
+.form-group btn {
+    background-color: #28a745; 
+    color: #fff; 
+    border: 1px solid #28a745;
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    text-transform: uppercase;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+    cursor: pointer; 
+    display: inline-block;
+    margin-top: 10px; 
+}
+
+.form-group btn_signup {
     background-color: #28a745; 
     color: #fff; 
     border: 1px solid #28a745;
@@ -246,7 +262,7 @@ if(!isset($_POST['submit'])){
 		
 			
 			echo '<br><button class="btn btn-success col-md-2 offset-md-5" name="submit" type="submit" value="submit">Log In</button>';
-			echo '<br><a href="/auth/signup.php" class="btn btn-success col-md-2 offset-md-5">Sign Up</a></form>';
+			echo '<a href="/auth/signup.php" class="btn_signup btn-success col-md-2 offset-md-5">Sign Up</a></form>';
 
 			
 }
