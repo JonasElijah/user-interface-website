@@ -73,7 +73,7 @@ body::before {
     cursor: pointer; 
     display: inline-block;
     margin-top: 10px; 
-    margin-left: 10px; 
+    margin-left: 0px; 
 }
 
 .btn_sin {
@@ -91,7 +91,7 @@ body::before {
     cursor: pointer; 
     display: inline-block;
     margin-top: 10px; 
-    margin-right:100px; 
+    margin-right: 0px; 
 }
 
 
