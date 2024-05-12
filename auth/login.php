@@ -71,6 +71,7 @@ body::before {
     cursor: pointer; 
     display: inline-block;
     margin-top: 10px; 
+    margin-left: 0; 
 }
 
 
