@@ -5,7 +5,7 @@
 
 if(isset($_POST['login'])){
 		echo '<div class ="col-md-6 offset-md-3 form">';
-		if($_POST['submit']=='submit'){
+		if($_POST['login']=='login'){
 			$errStatus=array();
 			
 			$email=$_POST['email'];
