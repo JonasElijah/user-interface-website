@@ -10,12 +10,7 @@ if(isset($_POST['login'])){
 			
 			$email=$_POST['email'];
 			$pWord=$_POST['password'];
-			echo "Debugging Information:<br/>";
-			    echo "User ID: " . htmlspecialchars($userID) . "<br/>";
-			    echo "Image ID: " . htmlspecialchars($imageID) . "<br/>";
-			    echo "Image Name: " . htmlspecialchars($imageName) . "<br/>";
-			    echo "Image Price: " . htmlspecialchars($imagePrice) . "<br/>";
-				
+			
 			
 			
 			if ($email==NULL)
@@ -62,6 +57,12 @@ if(isset($_POST['login'])){
 			}
 			else
 			{
+				echo "Debugging Information:<br/>";
+			    echo "User ID: " . htmlspecialchars($userID) . "<br/>";
+			    echo "Image ID: " . htmlspecialchars($imageID) . "<br/>";
+			    echo "Image Name: " . htmlspecialchars($imageName) . "<br/>";
+			    echo "Image Price: " . htmlspecialchars($imagePrice) . "<br/>";
+				
 			
 			
 				if($row['pWord'] != $pWord)
