@@ -259,7 +259,7 @@
                     <?php
                     if(!isset($_SESSION['userID'])){
                         echo '<li class="nav-item"> ';
-                        echo ' <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login-modal</a>';
+                        echo '<button type="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="nav-link end">Login-Modal</button>';
                         echo '</li>';
                         echo '<li class="nav-item">';
                         echo '<a class="nav-link" href="signup.php">Signup</a>';
