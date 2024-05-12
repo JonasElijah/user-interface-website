@@ -80,7 +80,7 @@ body::before {
 }
 
 .btn_sin {
-    margin-right: 60px;
+    margin-right: 90px;
 }
 
 .button-container {
