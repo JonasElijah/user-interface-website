@@ -368,7 +368,7 @@ if(!isset($_POST['submit'])){
 	<br>
 	<br>
 <div id="footer">
-        <?php include '/assets/html/footer.html'; ?>
+        <?php include '../assets/html/footer.html'; ?>
 </div>
 </div>
 </body>
