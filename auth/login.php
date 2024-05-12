@@ -58,10 +58,9 @@ body::before {
     font-size: 16px; 
 }
 
-.btn_log {
+.btn_log, .btn_sin {
     background-color: #28a745; 
     width: 25%;
-/*     height: 50px; */
     color: #fff; 
     border: 1px solid #28a745;
     border-radius: 5px; 
@@ -73,26 +72,22 @@ body::before {
     cursor: pointer; 
     display: inline-block;
     margin-top: 10px; 
-    margin-left: 0px; 
+}
+
+.btn_log {
+    margin-left: 0px;
 }
 
 .btn_sin {
-    background-color: #28a745; 
-    width: 25%;
-    /*height: 50px;*/
-    color: #fff; 
-    border: 1px solid #28a745;
-    border-radius: 5px; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    font-weight: bold; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
-    cursor: pointer; 
-    display: inline-block;
-    margin-top: 10px; 
-    margin-right: 0px; 
+    margin-right: 0px;
 }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 
 .btn:hover {
