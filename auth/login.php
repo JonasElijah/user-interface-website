@@ -71,7 +71,6 @@ body::before {
     display: inline-block;
     margin-top: 10px; 
     text-align: center; 
-    line-height: 50px;
 }
 
 .btn_log {
