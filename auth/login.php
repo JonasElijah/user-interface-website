@@ -59,8 +59,9 @@ body::before {
 .form-group button {
     background-color: #28a745;
     border-color: #28a745;
-    width: 25%;
+    width: 30%;
     color: #fff;
+    align: left;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
