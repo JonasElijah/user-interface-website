@@ -46,6 +46,7 @@ body::before {
 
 .form-group {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .form-control {
