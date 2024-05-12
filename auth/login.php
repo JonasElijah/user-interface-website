@@ -8,7 +8,7 @@
 <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <style>
-     header {
+ header {
     background-color: #fdf4eb;
 }
 
@@ -19,16 +19,30 @@ body {
     background-image: url('/assets/images/gallery/trees-3822149_1280.jpg');
     background-position: center;
     background-size: cover;
+    position: relative;
     color: #333;
 }
 
+/* Add an overlay to the background image */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
 .form {
-    background-color: rgba(253, 244, 235, 0.9);
+    background-color: rgba(253, 244, 235, 0.95);
     padding: 50px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     margin: auto;
+    margin-top: 100px; /* Center it vertically */
 }
 
 .form-group {
@@ -40,6 +54,7 @@ body {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
     margin-top: 10px;
+    font-size: 16px; /* Slightly larger font */
 }
 
 .btn {
@@ -49,6 +64,7 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px; /* Slightly larger font */
 }
 
 .btn:hover {
@@ -59,7 +75,7 @@ body {
 h1 {
     color: #fdf4eb;
     font-size: 50px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger shadow for better contrast */
     text-align: center;
     margin-bottom: 20px;
 }
@@ -75,6 +91,7 @@ h1 {
 @media (max-width: 480px) {
     .form {
         padding: 20px;
+        margin-top: 50px; /* Adjust margin for smaller screens */
     }
 
     .btn {
