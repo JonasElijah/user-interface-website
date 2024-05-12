@@ -71,7 +71,7 @@ body::before {
     border-radius: 5px; 
     padding: 10px 20px; 
     font-size: 12px; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); 
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
     cursor: pointer; 
     display: inline-block;
