@@ -95,6 +95,8 @@ body::before {
 
 .btn:hover {
     background-color: #ffffff;
+    color: #000; 
+    border: 1px solid #ffffff;
     transform: translateY(2px);
 }
 
