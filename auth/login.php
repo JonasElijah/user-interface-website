@@ -262,7 +262,7 @@ if(!isset($_POST['submit'])){
 			
 		echo '<div class="button-container">';
 		echo '<button class="btn_log btn btn-success" name="submit" type="submit" value="submit">Log In</button>';
-		echo '<a href="/auth/signup.php" class="btn_sin btn btn-success">Sign Up</a>';
+		echo '<a href="/auth/signup.php" class="btn_sin btn btn-success">Sign Up</a></form>';
 		echo '</div>';
 
 			
@@ -347,9 +347,9 @@ if(!isset($_POST['submit'])){
 	<br>
 	<br>
 	<footer class="footer mt-auto py-3 bg-light">
-      <div class="container text-center">
-        <span class="text-muted">Photography Website &copy; 2024</span>
-      </div>
+	      <div class="container text-center">
+	        <span class="text-muted">Photography Website &copy; 2024</span>
+	      </div>
     </footer>
 </div>
 </html>
