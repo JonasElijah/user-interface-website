@@ -362,7 +362,7 @@ if(!isset($_POST['submit'])){
 		
 }
 		?>
-</body>
+
 <div>
 	<br>
 	<br>
@@ -372,4 +372,5 @@ if(!isset($_POST['submit'])){
 	      </div>
     </footer>
 </div>
+</body>
 </html>
