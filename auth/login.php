@@ -58,7 +58,7 @@ body::before {
     font-size: 16px; 
 }
 
-/* .form-group btn {
+.btn {
     background-color: #000000; 
     color: #fff; 
     border: 1px solid #28a745;
@@ -72,7 +72,7 @@ body::before {
     cursor: pointer; 
     display: inline-block;
     margin-top: 10px; 
-} */
+}
 
 
 .btn:hover {
