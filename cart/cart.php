@@ -352,10 +352,8 @@ if (isset($_POST['remove_item_id'])) {
 <div>
 	<br>
 	<br>
-	<footer class="footer mt-auto py-3 bg-light">
-      <div class="container text-center">
-        <span class="text-muted">Photography Website &copy; 2024</span>
-      </div>
-    </footer>
+<div id="footer">
+        <?php include 'assets/html/footer.html'; ?>
+</div>
 </div>
 </html>
