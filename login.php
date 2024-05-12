@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
 
     $_SESSION['password'] = $pWord;
 
-    include("../functions.php");
+    include("functions.php");
 
     if (count($errStatus) > 0) {
         $errString = implode("&", $errStatus);
