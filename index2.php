@@ -404,32 +404,32 @@
 	    </div>
 	</div>
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="loginForm" method="post" action="login.php">
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input name="email" type="email" class="form-control" id="email" placeholder="Email">
-                            <p id="emailStatus"></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input name="password" type="password" class="form-control" id="password" placeholder="Password">
-                            <p id="passwordStatus"></p>
-                        </div>
-                        <button type="submit" name="submit" class="btn btn-success">Log In</button>
-                    </form>
-                </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" method="post" action="login.php">
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                        <p id="emailStatus"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+                        <p id="passwordStatus"></p>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-success">Log In</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
     </body>
 <br/>
 <br/>
@@ -439,6 +439,30 @@
         <span class="text-muted">Photography Website &copy; 2024</span>
     </div>
 </footer>
+<script>
+    $(document).ready(function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('email')) {
+            var emailError = urlParams.get('email');
+            if (emailError == 'emailNull') {
+                $('#emailStatus').text('Email cannot be blank!').addClass('alert alert-danger');
+            } else if (emailError == 'emailInvalid') {
+                $('#emailStatus').text('Email is invalid!').addClass('alert alert-danger');
+            } else if (emailError == 'emailNonexist') {
+                $('#emailStatus').text('Email does not exist!').addClass('alert alert-danger');
+            }
+        }
+
+        if (urlParams.has('password')) {
+            var passwordError = urlParams.get('password');
+            if (passwordError == 'pWordNull') {
+                $('#passwordStatus').text('Password cannot be blank!').addClass('alert alert-danger');
+            } else if (passwordError == 'pWordNonexist') {
+                $('#passwordStatus').text('Password does not match email!').addClass('alert alert-danger');
+            }
+        }
+    });
+</script>
 <!-- Local Bootstrap JavaScript files -->
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
