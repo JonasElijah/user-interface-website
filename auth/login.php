@@ -58,7 +58,7 @@ body::before {
     font-size: 16px; 
 }
 
-.btn {
+.btn_log {
     background-color: #28a745; 
     color: #fff; 
     border: 1px solid #28a745;
@@ -71,7 +71,7 @@ body::before {
     cursor: pointer; 
     display: inline-block;
     margin-top: 10px; 
-    margin-left: 0; 
+    margin-left: 15; 
 }
 
 
@@ -245,7 +245,7 @@ if(!isset($_POST['submit'])){
 
 		
 			
-			echo '<br><button class="btn btn-success col-md-2 offset-md-5" name="submit" type="submit" value="submit">Log In</button>';
+			echo '<br><button class=".btn_log btn-success col-md-2 offset-md-5" name="submit" type="submit" value="submit">Log In</button>';
 			echo '<a href="/auth/signup.php" class="btn btn-success col-md-2 offset-md-5">Sign Up</a></form>';
 
 			
