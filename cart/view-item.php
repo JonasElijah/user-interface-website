@@ -266,11 +266,9 @@
     <br />
 	
 	<div class="row">
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container text-center">
-        <span class="text-muted">Photography Website &copy; 2024</span>
-      </div>
-    </footer>
+   <div id="footer">
+        <?php include '/assets/html/footer.html'; ?>
+</div>
 	</div>
 		
     <!-- Local Bootstrap JavaScript files -->
