@@ -3,7 +3,7 @@
         session_start();
     }
 
-if(isset($_POST['submit'])){
+if(isset($_POST['login'])){
 		echo '<div class ="col-md-6 offset-md-3 form">';
 		if($_POST['submit']=='submit'){
 			$errStatus=array();
@@ -499,7 +499,7 @@ if(isset($_POST['submit'])){
                         <input name="password" type="password" class="form-control" id="password" placeholder="Password">
                         <p id="passwordStatus"></p>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-success">Log In</button>
+                    <button type="submit" name="login" class="btn btn-success">Log In</button>
                 </form>
             </div>
         </div>
