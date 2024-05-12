@@ -152,7 +152,6 @@ h1 {
         <?php include '../assets/html/header.html'; ?>
 </div>
 </div>
-<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
 <?php
 if(!isset($_POST['submit'])){
 	echo '<form class="col-md-6 offset-md-3 form" id="contact" method="post" action="">';
@@ -161,6 +160,8 @@ if(!isset($_POST['submit'])){
 			if(isset($_SESSION['email']))
 			{
 				echo '<div class="form-group">';
+				echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+';
 				echo '<label class="col-md-3" for="email">Email address</label>';
 				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" value="'.$_SESSION['email'].'">';
@@ -170,6 +171,8 @@ if(!isset($_POST['submit'])){
 			else
 			{
 				echo '<div class="form-group">';
+				echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+';
 				echo '<label class="col-md-3" for="email">Email address</label>';
 				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
@@ -182,6 +185,8 @@ if(!isset($_POST['submit'])){
 			if ($_GET['email']=='emailNull')
 			{
 				echo '<div class="form-group">';
+				echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+';
 				echo '<label class="col-md-3" for="email">Email address</label>';
 				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
@@ -191,6 +196,8 @@ if(!isset($_POST['submit'])){
 			elseif($_GET['email']=='emailNonexist')
 			{
 				echo '<div class="form-group">';
+				echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+';
 				echo '<label class="col-md-3" for="email">Email address</label>';
 				echo '<div >';
 				echo '<input name="email" type="email" class="form-control" id="email" placeholder="Email">';
@@ -203,6 +210,8 @@ if(!isset($_POST['submit'])){
 				if (isset($_SESSION['email']))
 				{
 					echo '<div class="form-group">';
+					echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+';
 					echo '<label class="col-md-3" for="email">Email address</label>';
 					echo '<div >';
 					echo '<input name="email" type="email" class="form-control" id="email" value="'.$_SESSION['email'].'">';
@@ -218,6 +227,8 @@ if(!isset($_POST['submit'])){
 			if(isset($_SESSION['password']))
 			{
 				echo '<div class="form-group">';
+				echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+';
 				echo '<label class="col-md-3" for="password">Password</label>';
 				echo '<div >';
 				echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
@@ -227,6 +238,8 @@ if(!isset($_POST['submit'])){
 			else
 			{
 				echo '<div class="form-group">';
+				echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+';
 				echo '<label class="col-md-3" for="password">Password</label>';
 				echo '<div >';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
@@ -239,6 +252,8 @@ if(!isset($_POST['submit'])){
 			if ($_GET['password']=='pWordNull')
 			{
 				echo '<div class="form-group">';
+				echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+';
 				echo '<label class="col-md-3" for="password">Password</label>';
 				echo '<div >';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
@@ -247,7 +262,9 @@ if(!isset($_POST['submit'])){
 			}
 			elseif($_GET['password']=='pWordNonexist')
 			{
-			echo '<div class="form-group">';
+				echo '<div class="form-group">';
+				echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+';
 				echo '<label class="col-md-3" for="password">Password</label>';
 				echo '<div >';
 				echo '<input name="password" type="text" class="form-control" id="password" placeholder="Password">';
@@ -259,6 +276,8 @@ if(!isset($_POST['submit'])){
 				if (isset($_SESSION['password']))
 				{
 					echo '<div class="form-group">';
+					echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Log-in page! </h1>
+';
 					echo '<label class="col-md-3" for="password">Password</label>';
 					echo '<div >';
 					echo '<input name="password" type="text" class="form-control" id="password" value="'.$_SESSION['password'].'">';
