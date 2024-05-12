@@ -282,127 +282,155 @@
         </div>
     </nav>
 </header>
-<div class="category">
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <?php
-        include("functions.php");
-        $dblink = db_connect("UI-schema");
-	$userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
-	
-	if ($userID !== null) {
-	    $sql = "SELECT `image`.*, IF(`cart`.`imageID` IS NULL, 0, 1) AS `isInCart`
-	            FROM `image`
-	            LEFT JOIN (SELECT * FROM `orders` WHERE `userID` = '" . mysqli_real_escape_string($dblink, $userID) . "') AS `cart`
-	            ON `image`.`ID` = `cart`.`imageID`";
-	} else {
-	    $sql = "SELECT `image`.*, 0 AS `isInCart`
-	            FROM `image`";
-	}
-        $result = mysqli_query($dblink, $sql);
-	
-        if (mysqli_num_rows($result) == 0) {
-            echo 'Error, database table not found';
-        } else {
-            $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            $categories = [
-                'Recommended' => function ($img) {
-                    return $img['category'] !== 'portrait';
-                },
-                'Portrait' => function ($img) {
-                    return $img['category'] === 'portrait';
-                }
-            ];
-
-           function createCarouselItems($imageSets, $categoryName) {
-		    $carouselId = "carousel" . preg_replace('/\s+/', '', $categoryName);
-		    echo '<h2>' . htmlspecialchars($categoryName) . '</h2><hr>
-		          <div id="' . $carouselId . '" class="carousel slide" data-bs-ride="carousel">
-		          <div class="carousel-inner">';
+   <body>
+	<div class="category">
+	    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+	        <?php
+	        include("functions.php");
+	        $dblink = db_connect("UI-schema");
+		$userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
 		
-		    $first = true;
-		    foreach ($imageSets as $set) {
-		        $activeClass = $first ? 'active' : '';
-		        echo '<div class="carousel-item ' . $activeClass . '">
-		                <div class="row">';
-		        foreach ($set as $image) {
-		            $imageID = $image['ID'];
-		            $imageName = $image['name'];
-		            $imagePrice = $image['price'];
-		            $imagePath = $image['image'];
-		            $isInCart = $image['isInCart'];
-		            $buttonText = $isInCart ? 'In Cart' : 'Add to Cart';
-		            $buttonDisabled = $isInCart ? 'disabled' : '';
-		            echo '<div class="col-md-2">
-		                      <div class="card mb-3" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
-		                          <img src="' . htmlspecialchars($imagePath) . '" class="card-img-top" alt="Image of ' . htmlspecialchars($imageName) . '" title="' . htmlspecialchars($imageName) . '">
-			                  <div class="card-body">
-			    		  	<h5 class="card-title">' . $imageName . '</h5>
-                                    	  	<p class="card-text">$' . $imagePrice . '</p>
-		                          	<form method="post" action="">
-							<input type="hidden" name="imageID" value="' . $imageID . '"> 
-					        	<input type="hidden" name="imageName" value="' . $imageName . '"> 
-			                  		<input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
-		                              		<button class="add-to-cart-btn" type="submit" name="submit" ' . $buttonDisabled . '>Add to cart</button>
-		                          	</form>
-			     		 </div>
-		                      </div>
-		                  </div>';
-		        }
-		        echo '</div></div>';
-		        $first = false;
-		    }
-		    echo '</div>
-		          <button class="carousel-control-prev" type="button" data-bs-target="#' . $carouselId . '" data-bs-slide="prev">
-		              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		              <span class="visually-hidden">Previous</span>
-		          </button>
-		          <button class="carousel-control-next" type="button" data-bs-target="#' . $carouselId . '" data-bs-slide="next">
-		              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		              <span class="visually-hidden">Next</span>
-		          </button>
-		          </div>';
+		if ($userID !== null) {
+		    $sql = "SELECT `image`.*, IF(`cart`.`imageID` IS NULL, 0, 1) AS `isInCart`
+		            FROM `image`
+		            LEFT JOIN (SELECT * FROM `orders` WHERE `userID` = '" . mysqli_real_escape_string($dblink, $userID) . "') AS `cart`
+		            ON `image`.`ID` = `cart`.`imageID`";
+		} else {
+		    $sql = "SELECT `image`.*, 0 AS `isInCart`
+		            FROM `image`";
 		}
-
-
-            foreach ($categories as $categoryName => $filter) {
-                $filteredImages = array_filter($images, $filter);
-                $imageSets = array_chunk($filteredImages, 5);
-                echo '<div id="carouselExample">';
-                createCarouselItems($imageSets, $categoryName);
-                echo '</div>';
-		echo '<br/>';
-            }
-        }
-
-        if (isset($_POST['submit'])) {
-	    $imageID = $_POST['imageID'];
-	    $imageName = $_POST['imageName'];
-	    $imagePrice = $_POST['imagePrice'];
+	        $result = mysqli_query($dblink, $sql);
+		
+	        if (mysqli_num_rows($result) == 0) {
+	            echo 'Error, database table not found';
+	        } else {
+	            $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	            $categories = [
+	                'Recommended' => function ($img) {
+	                    return $img['category'] !== 'portrait';
+	                },
+	                'Portrait' => function ($img) {
+	                    return $img['category'] === 'portrait';
+	                }
+	            ];
 	
-	    // Echo for debugging: Outputting values to verify what's being received
-	    echo "Debugging Information:<br/>";
-	    echo "User ID: " . htmlspecialchars($userID) . "<br/>";
-	    echo "Image ID: " . htmlspecialchars($imageID) . "<br/>";
-	    echo "Image Name: " . htmlspecialchars($imageName) . "<br/>";
-	    echo "Image Price: " . htmlspecialchars($imagePrice) . "<br/>";
+	           function createCarouselItems($imageSets, $categoryName) {
+			    $carouselId = "carousel" . preg_replace('/\s+/', '', $categoryName);
+			    echo '<h2>' . htmlspecialchars($categoryName) . '</h2><hr>
+			          <div id="' . $carouselId . '" class="carousel slide" data-bs-ride="carousel">
+			          <div class="carousel-inner">';
+			
+			    $first = true;
+			    foreach ($imageSets as $set) {
+			        $activeClass = $first ? 'active' : '';
+			        echo '<div class="carousel-item ' . $activeClass . '">
+			                <div class="row">';
+			        foreach ($set as $image) {
+			            $imageID = $image['ID'];
+			            $imageName = $image['name'];
+			            $imagePrice = $image['price'];
+			            $imagePath = $image['image'];
+			            $isInCart = $image['isInCart'];
+			            $buttonText = $isInCart ? 'In Cart' : 'Add to Cart';
+			            $buttonDisabled = $isInCart ? 'disabled' : '';
+			            echo '<div class="col-md-2">
+			                      <div class="card mb-3" onclick="window.location.href=\'view-item.php?itemID=' . $imageID . '\'">
+			                          <img src="' . htmlspecialchars($imagePath) . '" class="card-img-top" alt="Image of ' . htmlspecialchars($imageName) . '" title="' . htmlspecialchars($imageName) . '">
+				                  <div class="card-body">
+				    		  	<h5 class="card-title">' . $imageName . '</h5>
+	                                    	  	<p class="card-text">$' . $imagePrice . '</p>
+			                          	<form method="post" action="">
+								<input type="hidden" name="imageID" value="' . $imageID . '"> 
+						        	<input type="hidden" name="imageName" value="' . $imageName . '"> 
+				                  		<input type="hidden" name="imagePrice" value="' . $imagePrice . '"> 
+			                              		<button class="add-to-cart-btn" type="submit" name="submit" ' . $buttonDisabled . '>Add to cart</button>
+			                          	</form>
+				     		 </div>
+			                      </div>
+			                  </div>';
+			        }
+			        echo '</div></div>';
+			        $first = false;
+			    }
+			    echo '</div>
+			          <button class="carousel-control-prev" type="button" data-bs-target="#' . $carouselId . '" data-bs-slide="prev">
+			              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			              <span class="visually-hidden">Previous</span>
+			          </button>
+			          <button class="carousel-control-next" type="button" data-bs-target="#' . $carouselId . '" data-bs-slide="next">
+			              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			              <span class="visually-hidden">Next</span>
+			          </button>
+			          </div>';
+			}
 	
-	    // Prepare the SQL query
-	    $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
-	            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
-	    
-	    // Execute the query and check for errors
-	    if (!$dblink->query($sql)) {
-	        echo "Something went wrong with the SQL query: <br/>" . htmlspecialchars($sql) . "<br/>Error: " . $dblink->error;
-	        exit; // Stop further execution in case of error
-	    } else {
-	        // If everything is fine, redirect
-	        redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/cart.php");
-	    }
-	}
-
-        ?>
+	
+	            foreach ($categories as $categoryName => $filter) {
+	                $filteredImages = array_filter($images, $filter);
+	                $imageSets = array_chunk($filteredImages, 5);
+	                echo '<div id="carouselExample">';
+	                createCarouselItems($imageSets, $categoryName);
+	                echo '</div>';
+			echo '<br/>';
+	            }
+	        }
+	
+	        if (isset($_POST['submit'])) {
+		    $imageID = $_POST['imageID'];
+		    $imageName = $_POST['imageName'];
+		    $imagePrice = $_POST['imagePrice'];
+		
+		    // Echo for debugging: Outputting values to verify what's being received
+		    echo "Debugging Information:<br/>";
+		    echo "User ID: " . htmlspecialchars($userID) . "<br/>";
+		    echo "Image ID: " . htmlspecialchars($imageID) . "<br/>";
+		    echo "Image Name: " . htmlspecialchars($imageName) . "<br/>";
+		    echo "Image Price: " . htmlspecialchars($imagePrice) . "<br/>";
+		
+		    // Prepare the SQL query
+		    $sql = "INSERT INTO `orders` (`userID`, `imageID`, `name`, `price`) 
+		            VALUES ('$userID', '$imageID', '$imageName', '$imagePrice')";
+		    
+		    // Execute the query and check for errors
+		    if (!$dblink->query($sql)) {
+		        echo "Something went wrong with the SQL query: <br/>" . htmlspecialchars($sql) . "<br/>Error: " . $dblink->error;
+		        exit; // Stop further execution in case of error
+		    } else {
+		        // If everything is fine, redirect
+		        redirect("https://ec2-18-191-216-234.us-east-2.compute.amazonaws.com/cart.php");
+		    }
+		}
+	        ?>
+	    </div>
+	</div>
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" method="post" action="login.php">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                            <p id="emailStatus"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+                            <p id="passwordStatus"></p>
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-success">Log In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    </body>
 <br/>
 <br/>
 <br/>
