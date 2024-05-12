@@ -280,11 +280,29 @@
             $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
             $categories = [
                 'Recommended' => function ($img) {
-                    return $img['category'] !== 'portrait';
+                    return $img['category'] !== 'Portrait' || $img['category'] !== 'portrait' || $img['category'] !== 'Landscape' || $img['category'] !== 'Wildlife' || $img['category'] !== 'Marco' || $img['category'] !== 'Street' || $img['category'] !== 'Travel' || $img['category'] !== 'Astro';
                 },
                 'Portrait' => function ($img) {
-                    return $img['category'] === 'portrait';
-                }
+                    return $img['category'] === 'Portrait' || $img['category'] === 'portrait';
+                },
+                'Landscape' => function ($img) {
+                    return $img['category'] === 'Landscape';
+                },
+                'Wildlife' => function ($img) {
+                    return $img['category'] === 'Wildlife';
+                },
+                'Macro' => function ($img) {
+                    return $img['category'] === 'Macro';
+                },
+                'Street' => function ($img) {
+                    return $img['category'] === 'Street';
+                },
+                'Travel' => function ($img) {
+                    return $img['category'] === 'Travel';
+                },
+                'Astro' => function ($img) {
+                    return $img['category'] === 'Astro';
+                },
             ];
 
            function createCarouselItems($imageSets, $categoryName) {
@@ -341,10 +359,14 @@
             foreach ($categories as $categoryName => $filter) {
                 $filteredImages = array_filter($images, $filter);
                 $imageSets = array_chunk($filteredImages, 5);
-                echo '<div id="carouselExample">';
-                createCarouselItems($imageSets, $categoryName);
-                echo '</div>';
-		echo '<br/>';
+                
+                if (!empty($imageSets)) 
+                {
+                    echo '<div id="carouselExample">';
+                    createCarouselItems($imageSets, $categoryName);
+                    echo '</div>';
+                    echo '<br/>';
+                }
             }
         }
 
