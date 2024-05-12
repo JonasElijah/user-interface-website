@@ -21,6 +21,7 @@ body {
     background-size: cover;
     position: relative;
     color: #333;
+    min-height: calc(100vh - 100px);
 }
 
 body::before {
