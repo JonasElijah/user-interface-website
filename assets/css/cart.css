@@ -1,0 +1,171 @@
+header 
+{
+    background-color: #fdf4eb;
+}
+
+body 
+{
+    font-family: "Georgia", sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/assets/images/gallery/trees-3822149_1280.jpg');
+}
+
+.dropdown-menu 
+{
+    display: none;
+}
+
+#hover-dropdown:hover .dropdown-menu 
+{
+    display: block;
+    min-width: 1rem;
+    max-width: 6.5rem;
+    max-height: calc(50vh - 50px);
+    overflow-y: auto;
+    text-align: center;
+}
+
+.photo-row 
+{
+    padding: 50px;
+}
+
+.photo-row img 
+{
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.category 
+{
+    margin-bottom: 10px;
+    padding: 40px;
+    margin-right: 10px;
+}
+
+.custom-button 
+{
+    background-color: #fdf4eb;
+    border-color: #fdf4eb;
+    color: #a5998c;
+}
+
+.custom-button:hover 
+{
+    background-color: #f0e6d1;
+    border-color: #f0e6d1;
+    color: #a5998c;
+}
+.footer 
+{
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+.form
+{
+    background-color: #fdf4eb;
+    padding: 50px;
+}
+
+.profile-img 
+{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border-style: solid;
+    margin: 20px;
+    background-color: white;
+}
+ 
+.sidebar 
+{
+    background-color: #F2EAE1;
+    border-right: thin;
+    border-right-style: solid;
+    border-color: #b7b7b7;
+    height: inherit;
+    overflow: auto;
+}
+ 
+.sidebar a 
+{
+    color:dimgray;
+    text-decoration: underline;
+ }
+ 
+.sidebar a:hover 
+{
+    color: black;
+    text-decoration: none;
+}
+ 
+ .active 
+ {
+    color: black;
+ }
+ 
+ .sub-text 
+ {
+    color: dimgray;
+    font-style: italic;
+ }
+ 
+ .user-info 
+ {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+    font-style: normal;
+ }
+ 
+ .main-background 
+ {
+    background-color: whitesmoke;
+    min-height: 79vh;
+    width: 100%;
+    margin: unset;
+ }
+
+@media (max-width: 480px) 
+{
+    .custom-navbar 
+    {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-nav 
+    {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .nav-item 
+    {
+        padding: 5px 0; 
+    }
+
+    .navbar-expand-lg .navbar-collapse 
+    {
+        flex-basis: 100%; 
+        flex-grow: 1;
+    }
+
+    .navbar-toggler
+    {
+        display: block; 
+        
+    }
+    
+    .custom-navbar .navbar-brand img 
+    {
+        max-width: 150px; 
+    }
+
+    .navbar-nav .nav-link
+    {
+        font-size: 12px; 
+    }
+}
