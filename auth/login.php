@@ -137,6 +137,37 @@ h1 {
     h1 {
         font-size: 30px;
     }
+	
+	.custom-navbar {
+	        flex-direction: column;
+	        align-items: flex-start;
+	    }
+	
+	.navbar-nav {
+	        width: 100%;
+	        justify-content: flex-start;
+	    }
+	
+	.nav-item {
+	        padding: 5px 0;
+	    }
+
+	.navbar-expand-lg .navbar-collapse {
+	        flex-basis: 100%; 
+	        flex-grow: 1;
+	    }
+	
+	   .navbar-toggler {
+	        display: block; 
+	    }
+		
+	.custom-navbar .navbar-brand img {
+	        max-width: 150px; 
+	    }
+	
+	.navbar-nav .nav-link {
+	        font-size: 12px; 
+	    }
 }
 
     </style>
