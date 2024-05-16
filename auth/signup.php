@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sign Up Page</title>
 <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
-<link href="assets/css/signup.css" rel="stylesheet" />	
+<link href="/assets/css/signup.css" rel="stylesheet" />	
 </head>
 <body>
 	<?php
