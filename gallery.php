@@ -60,10 +60,7 @@ $result = $conn->query($sql) or die("Something went wrong with: $sql<br>" . $con
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Photography Website</title>
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <style>
-        
-
-    </style>
+    <link href="/assets/css/gallery.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="header">
