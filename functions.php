@@ -17,4 +17,38 @@
 		</script>	
 		<?php die;
 	}
+	
+	function get_width()
+	{
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+		{
+			if (isset($_POST['screenWidth'])) 
+			{
+				$screenWidth = intval($_POST['screenWidth']);
+
+				$itemsToShow = 3;
+				if ($screenWidth < 600) 
+				{
+					$itemsToShow = 1;
+				} 
+				elseif ($screenWidth < 900) 
+				{
+					$itemsToShow = 2;
+				}
+
+				return $itemsToShow;
+			} 
+			else 
+			{
+				echo 'Screen width not set';
+				return null;
+			}
+		} 
+		else 
+		{
+			echo 'Invalid request method';
+			return null;
+		}
+	}
+
 ?>

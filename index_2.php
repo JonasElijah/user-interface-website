@@ -4,9 +4,29 @@
     }
 ?>
 <script>
-    const screenWidth = window.innerWidth;
-    console.log(`Screen width: ${screenWidth}`);
+    function sendScreenWidthToServer() 
+    {
+        const screenWidth = window.innerWidth;
+        console.log(`Screen width: ${screenWidth}`);
+
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'process_screen_width.php';
+
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'screenWidth';
+        input.value = screenWidth;
+
+        form.appendChild(input);
+        document.body.appendChild(form);
+
+        form.submit();
+    }
+
+    window.addEventListener('load', sendScreenWidthToServer);
 </script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,10 +59,13 @@
 	}
         $result = mysqli_query($dblink, $sql);
 	
-        if (mysqli_num_rows($result) == 0) {
+        if (mysqli_num_rows($result) == 0) 
+        {
             echo 'Error, database table not found';
-        } else {
+        } else 
+        {
             $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $itemsToShow = isset($_SESSION['itemsToShow']) ? $_SESSION['itemsToShow'] : 5;
             $categories = [
                 'Recommended' => function ($img) {
                     return $img['category'] !== 'Portrait' || $img['category'] !== 'portrait' || $img['category'] !== 'Landscape' || $img['category'] !== 'Wildlife' || $img['category'] !== 'Marco' || $img['category'] !== 'Street' || $img['category'] !== 'Travel' || $img['category'] !== 'Astro';
@@ -126,7 +149,7 @@
             foreach ($categories as $categoryName => $filter) 
             {
                 $filteredImages = array_filter($images, $filter); //https://www.php.net/manual/en/function.array-filter.php
-                $imageSets = array_chunk($filteredImages, 1); //https://www.php.net/manual/en/function.array-chunk.php
+                $imageSets = array_chunk($filteredImages, $itemsToShow); //https://www.php.net/manual/en/function.array-chunk.php
                 
                 if (!empty($imageSets)) 
                 {
