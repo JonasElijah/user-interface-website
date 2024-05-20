@@ -126,7 +126,7 @@
             foreach ($categories as $categoryName => $filter) 
             {
                 $filteredImages = array_filter($images, $filter); //https://www.php.net/manual/en/function.array-filter.php
-                $imageSets = array_chunk($filteredImages, 5); //https://www.php.net/manual/en/function.array-chunk.php
+                $imageSets = array_chunk($filteredImages, 1); //https://www.php.net/manual/en/function.array-chunk.php
                 
                 if (!empty($imageSets)) 
                 {
