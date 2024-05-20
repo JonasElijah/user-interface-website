@@ -4,27 +4,26 @@
     }
 ?>
 <script>
-    function sendScreenWidthToServer() 
-    {
-        const screenWidth = window.innerWidth;
-        console.log(`Screen width: ${screenWidth}`);
+    function adjustCarouselItems() {
+            const screenWidth = window.innerWidth;
+            let itemsToShow;
 
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = 'index_2.php';
+            if (screenWidth < 600) {
+                itemsToShow = 1;
+            } else if (screenWidth < 900) {
+                itemsToShow = 2;
+            } else {
+                itemsToShow = 3;
+            }
 
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = 'screenWidth';
-        input.value = screenWidth;
+            // Adjust the carousel items
+            const carousel = document.getElementById('carousel');
+            // Logic to adjust the carousel based on itemsToShow
+            console.log(`Screen width: ${screenWidth}, Items to show: ${itemsToShow}`);
+        }
 
-        form.appendChild(input);
-        document.body.appendChild(form);
-
-        form.submit();
-    }
-
-    window.addEventListener('load', sendScreenWidthToServer);
+        window.addEventListener('resize', adjustCarouselItems);
+        window.addEventListener('load', adjustCarouselItems);
 </script>
 
 <!DOCTYPE html>
@@ -65,7 +64,6 @@
         } else 
         {
             $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            $itemsToShow = isset($_SESSION['itemsToShow']) ? $_SESSION['itemsToShow'] : 5;
             $categories = [
                 'Recommended' => function ($img) {
                     return $img['category'] !== 'Portrait' || $img['category'] !== 'portrait' || $img['category'] !== 'Landscape' || $img['category'] !== 'Wildlife' || $img['category'] !== 'Marco' || $img['category'] !== 'Street' || $img['category'] !== 'Travel' || $img['category'] !== 'Astro';
