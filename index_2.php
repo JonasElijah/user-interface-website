@@ -3,6 +3,10 @@
         session_start();
     }
 ?>
+<script>
+    const screenWidth = window.innerWidth;
+    console.log(`Screen width: ${screenWidth}`);
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,8 +72,7 @@
 
            function createCarouselItems($imageSets, $categoryName) 
            {
-            // const screenWidth = window.innerWidth;
-            // console.log(`Screen width: ${screenWidth}`);
+           
 		    $carouselId = "carousel" . preg_replace('/\s+/', '', $categoryName);
 		    echo '<h2>' . htmlspecialchars($categoryName) . '</h2><hr>
 		          <div id="' . $carouselId . '" class="carousel slide" data-bs-ride="carousel">
