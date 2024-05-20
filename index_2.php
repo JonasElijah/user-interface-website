@@ -11,7 +11,7 @@
 
         const form = document.createElement('form');
         form.method = 'POST';
-        form.action = 'index_2.php.php';
+        form.action = 'index_2.php';
 
         const input = document.createElement('input');
         input.type = 'hidden';
