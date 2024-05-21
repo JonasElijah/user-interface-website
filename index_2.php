@@ -15,6 +15,7 @@
                 $('#carouselContainer').html(response);
             }
         });
+        console.log("Screen Width:" + screenWidth);
     }
 
     window.addEventListener('resize', adjustCarouselItems);
