@@ -41,10 +41,11 @@ body
     border-collapse: separate; 
 }
 
-.table-row {
+.table-row 
+{
     display: flex;
-    align-items: center;
     margin-bottom: 50px; 
+    padding: 50px;
 }
 
 .image-container {
