@@ -34,29 +34,29 @@ body
 .table-bordered th,
 .table-bordered td {
     border: 1px solid #dee2e6;
-    padding: 15px; /* Increase padding for more space */
+    padding: 15px; 
 }
 .table {
-    border-spacing: 0 10px; /* Add space between rows */
-    border-collapse: separate; /* Ensure border-spacing works */
+    border-spacing: 0 40px; 
+    border-collapse: separate; 
 }
 .table-bordered tbody tr {
-    border-bottom: 2px solid #dee2e6; /* Same color as the <hr> line */
+    border-bottom: 2px solid #dee2e6; 
 }
 .table-bordered td {
-    border-bottom: 2px solid #dee2e6; /* Same color as the <hr> line */
+    border-bottom: 2px solid #dee2e6; 
 }
 .image-container {
     display: flex;
-    align-items: flex-start; /* Align the name at the top of the image */
+    align-items: flex-start; 
 }
 .image-container img {
     max-width: 200px;
-    margin-right: 20px; /* Space between image and name */
+    margin-right: 20px; 
 }
 .image-container .name {
-    align-self: flex-start; /* Align the text at the top */
-    margin-top: 10px; /* Optional: Add some margin to position text */
+    align-self: flex-start;
+    margin-top: 10px; 
 }
 .dropdown-menu 
 {
