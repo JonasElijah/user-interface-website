@@ -13,7 +13,6 @@
                     $current_page = basename($_SERVER['REQUEST_URI']);
 
                     // Log $current_page to the browser console
-                    echo "<script>console.log('Current page: " . $page . "');</script>";
 
                     $nav_items = [
                         'index.php' => 'Home',
@@ -27,6 +26,8 @@
 
                     foreach ($nav_items as $page => $title) 
                     {
+                        echo "<script>console.log('Current page: " . $page . "');</script>";
+
                         if(!isset($_SESSION['userID']) && $page ==  'auth/account.php')
                         {
                             continue;
