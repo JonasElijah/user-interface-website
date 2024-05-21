@@ -26,8 +26,8 @@
 
                     foreach ($nav_items as $page => $title) 
                     {
-                        echo "<script>console.log('Current page: " . $page . "');</script>";
-
+                        echo "<script>console.log('page: " . $page . "');</script>";
+                        echo "<script>console.log('Current page: " . $current_page . "');</script>";
                         if(!isset($_SESSION['userID']) && $page ==  'auth/account.php')
                         {
                             continue;
