@@ -65,7 +65,7 @@
 
                     echo '<tr>';
                     echo '<td>'.$counter.'</td>';
-                    echo '<td class="image-container"><img src="../'.$dataW['image'].'"><span class="name">'.$data['name'].'</span></td>';
+                    echo '<td class="image-container"><img src="../'.$dataW['image'].'">'.$data['name'].'</td>';
                     echo '<td><form method="post" action=""><input type="hidden" name="remove_item_id" value="'.$data['imageID'].'"><button type="submit" class="btn btn-danger">Remove</button></form></td>';
                     echo '<td>$'.$data['price'].'</td>';
                     echo '</tr>';
