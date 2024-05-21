@@ -12,6 +12,9 @@
                     <?php
                     $current_page = basename($_SERVER['REQUEST_URI']);
 
+                    // Log $current_page to the browser console
+                    echo "<script>console.log('Current page: " . $current_page . "');</script>";
+
                     $nav_items = [
                         'index.php' => 'Home',
                         'gallery.php' => 'Gallery',
@@ -23,7 +26,7 @@
                     ];
 
                     foreach ($nav_items as $page => $title) {
-                        $active_class = strpos($current_page, $page) !== false ? ' active' : '';
+                        $active_class = strpos($current_page, basename($page)) !== false ? ' active' : '';
                         echo '<li class="nav-item">';
                         echo '<a class="nav-link' . $active_class . '" href="/' . $page . '">' . $title . '</a>';
                         echo '</li>';
