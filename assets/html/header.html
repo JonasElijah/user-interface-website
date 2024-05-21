@@ -24,12 +24,7 @@
 
                     foreach ($nav_items as $page => $title) {
                         $active_class = $current_page == $page ? ' active' : '';
-                        if (($page == 'auth/login.php' || $page == 'auth/signup.php') && isset($_SESSION['userID'])) {
-                            continue;
-                        }
-                        if (($page == 'cart/cart.php' || $page == 'auth/account.php' || $page == 'auth/logout.php') && !isset($_SESSION['userID'])) {
-                            continue;
-                        }
+                        
                         echo '<li class="nav-item">';
                         echo '<a class="nav-link' . $active_class . '" href="/' . $page . '">' . $title . '</a>';
                         echo '</li>';
