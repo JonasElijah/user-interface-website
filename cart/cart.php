@@ -54,7 +54,8 @@
             $sum = 0;
             $quantity = 0;
 
-            while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
+            while ($data = $result->fetch_array(MYSQLI_ASSOC)) 
+			{
                 $myImage = $data['imageID'];
                 $sqlW = "SELECT `image` FROM `image` WHERE `ID` = '$myImage'";
                 $resultW = mysqli_query($dblink, $sqlW);
@@ -68,6 +69,7 @@
                     echo '<td>'.$data['name'].'</td>';
                     echo '<td>$'.$data['price'].'</td>';
                     echo '<td><form method="post" action=""><input type="hidden" name="remove_item_id" value="'.$data['imageID'].'"><button type="submit" class="btn btn-danger">Remove</button></form></td>';
+					echo '<br/>';
                     echo '</tr>';
 
                     $counter++;
