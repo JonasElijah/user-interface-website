@@ -23,13 +23,10 @@ body
 .table td 
 {
     padding: 15px; 
-
-}
-
-.table tr 
-{
     margin-bottom: 40px; 
 }
+
+
 
 .dropdown-menu 
 {
