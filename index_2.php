@@ -1,8 +1,3 @@
-<?php
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-?>
 <script>
     function adjustCarouselItems() 
     {
@@ -25,6 +20,21 @@
     window.addEventListener('resize', adjustCarouselItems);
     window.addEventListener('load', adjustCarouselItems);
 </script>
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sW'])) 
+    {
+        $screenWidth = (int)$_POST['sW'];
+        echo '<script>console.log("PHP screenwidth: ' . $screenWidth . '");</script>';
+    } 
+    else 
+    {
+        $screenWidth = 900;
+    }
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +78,7 @@
         } 
         else 
         {
-            $screenWidth = isset($_POST['sW']) ? (int)$_POST['sW'] : 900;
+            //$screenWidth = isset($_POST['sW']) ? (int)$_POST['sW'] : 900;
             echo '<script>console.log("PHP screenwidth: ' . $screenWidth . '");</script>';
             
             $itemsToShow = 3;
