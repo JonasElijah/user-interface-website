@@ -98,7 +98,7 @@
             }
 
             echo '<hr>';
-            echo '<div align="center">';
+			echo '<div class="sub-text offset-md-1">';
             echo '<h3>Shopping Cart Total:</h3>';
 			echo '<p class="user-info">'.$sum.'</p>';
             echo '<h3>Number of Items:</h3>';
