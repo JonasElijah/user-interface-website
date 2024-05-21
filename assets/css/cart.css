@@ -41,11 +41,6 @@ body
     border-collapse: separate; 
 }
 
-.table-row 
-{
-    display: flex;
-    padding-bottom: 100px;
-}
 
 .image-container {
     display: flex;

@@ -63,7 +63,7 @@
 				if(mysqli_num_rows($resultW) > 0) {
                     $dataW = $resultW->fetch_array(MYSQLI_ASSOC);
 
-                    echo '<tr><td colspan="4"><div class="table-row">';
+                    echo '<tr>';
                     echo '<td>'.$counter.'</td>';
                     echo '<td class="image-container"><img src="../'.$dataW['image'].'"><span class="name">'.$data['name'].'</span></td>';
                     echo '<td><form method="post" action=""><input type="hidden" name="remove_item_id" value="'.$data['imageID'].'"><button type="submit" class="btn btn-danger">Remove</button></form></td>';
