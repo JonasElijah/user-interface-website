@@ -44,8 +44,9 @@ body
 .table-row {
     display: flex;
     align-items: center;
-    margin-bottom: 20px; 
+    margin-bottom: 50px; 
 }
+
 .image-container {
     display: flex;
     align-items: flex-start; 
