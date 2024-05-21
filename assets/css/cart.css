@@ -36,12 +36,13 @@ body
     border: 1px solid #dee2e6;
     padding: 15px; 
 }
+
 .table {
-    border-spacing: 0 40px; 
     border-collapse: separate; 
 }
 .table-bordered tbody tr {
     border-bottom: 2px solid #dee2e6; 
+    border-spacing: 0 20px; 
 }
 .table-bordered td {
     border-bottom: 2px solid #dee2e6; 
