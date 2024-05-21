@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <?php
-                    $current_page = basename($_SERVER['PHP_SELF']);
+                    $current_page = basename($_SERVER['REQUEST_URI']);
 
                     $nav_items = [
                         'index.php' => 'Home',
@@ -23,7 +23,7 @@
                     ];
 
                     foreach ($nav_items as $page => $title) {
-                        $active_class = $current_page === $page ? ' active' : '';
+                        $active_class = strpos($current_page, $page) !== false ? ' active' : '';
                         echo '<li class="nav-item">';
                         echo '<a class="nav-link' . $active_class . '" href="/' . $page . '">' . $title . '</a>';
                         echo '</li>';
