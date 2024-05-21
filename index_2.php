@@ -1,6 +1,8 @@
 <script>
     function adjustCarouselItems() {
         const screenWidth = window.innerWidth;
+        echo '<script>console.log("JS screenwidth: ' . $screenWidth . '");</script>';
+
 
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "index_2.php", true);
