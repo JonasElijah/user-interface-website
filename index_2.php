@@ -168,6 +168,8 @@
                     echo '<br/>';
                 }
             }
+            echo '<script>console.log("Items to show: ' . $itemsToShow . '");</script>';
+
         }
 
         if (isset($_POST['submit'])) {
