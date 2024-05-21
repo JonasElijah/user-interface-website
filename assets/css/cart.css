@@ -11,6 +11,12 @@ header
     color: #d0c9c1; 
 }
 
+.image-container img 
+{
+    max-width: 200px;
+    margin-right: 20px; /* Space between image and name */
+}
+
 body 
 {
     font-family: "Georgia", sans-serif;
