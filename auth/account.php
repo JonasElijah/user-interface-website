@@ -26,6 +26,7 @@
     <title>Photography Website</title>
     <!-- Local Bootstrap CSS files -->
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/assets/css/account.css"/>
   </head>
   <body>
     <div id="header">
