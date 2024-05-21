@@ -85,11 +85,27 @@ body::before
     margin-left: 20px;
 }
 
+.btn_log:hover
+{
+    background-color: #28a745; 
+    border: 1px solid #28a745;
+    margin-left: 20px;
+    transform: translateY(2px);
+}
+
 .btn_sin 
 {
     background-color: #808080;
     border: 1px solid #808080;
     margin-right: 150px;
+}
+
+.btn_sin:hover
+{
+    background-color: #808080;
+    border: 1px solid #808080;
+    margin-right: 150px;
+    transform: translateY(2px);
 }
 
 .button-container 
@@ -101,13 +117,13 @@ body::before
 
 
 
-.btn:hover 
+/* .btn:hover 
 {
-    /* background-color: #ffffff; */
-    /* color: #000;  */
-    /* border: 1px solid #ffffff; */
+    background-color: #ffffff; 
+    color: #000; 
+    border: 1px solid #ffffff;
     transform: translateY(2px);
-}
+}  */
 
 h1 
 {
