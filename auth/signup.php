@@ -20,14 +20,12 @@
 </div>
 </div>
 
-
-
 <div id="wrapper">
 <div id="page-wrapper">
 <div id="page-inner">
 <br><br><br><br>
 <?php
-	
+
 	if(!isset($_POST['submit'])){
 		echo '<form class="col-md-6 offset-md-3  form" id="contact" method="post" action="">';
 		echo '<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Welcome to the Sign Up page! </h1>

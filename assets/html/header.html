@@ -23,8 +23,7 @@
                     ];
 
                     foreach ($nav_items as $page => $title) {
-                        $active_class = $current_page == $page ? ' active' : '';
-                        
+                        $active_class = $current_page === $page ? ' active' : '';
                         echo '<li class="nav-item">';
                         echo '<a class="nav-link' . $active_class . '" href="/' . $page . '">' . $title . '</a>';
                         echo '</li>';
