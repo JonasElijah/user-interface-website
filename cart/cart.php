@@ -103,7 +103,7 @@
             echo '<h3 style="font-size: 20px;">Number of Items:</h3>';
 			echo '<p class="user-info">$'.$quantity.'</p>';
             echo '<form method="post" action="">';
-			echo '<br/><br/><br/>';
+			echo '<br/><br/><br/><br/><br/>';
             echo '<button class="btn btn-success" name="submit" type="submit" value="submit">Check Out</button>';
             echo '</form>';
             echo '</div>';
