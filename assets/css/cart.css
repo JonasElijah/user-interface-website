@@ -26,9 +26,10 @@ body
     margin-bottom: 40px; 
 }
 
-.table {
-    border-spacing: 0 10px; /* Add space between rows */
-    border-collapse: separate; /* Ensure border-spacing works */
+.table 
+{
+    border-spacing: 0 20px; 
+    border-collapse: separate; /
 }
 
 .dropdown-menu 
