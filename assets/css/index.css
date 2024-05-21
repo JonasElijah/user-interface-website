@@ -3,6 +3,11 @@ header
     background-color: #fdf4eb;
 }
 
+.nav-link.active {
+    text-decoration: underline;
+    color: #000; /* Optional: you can change the color to make it more distinct */
+}
+
 .custom-navbar h1 
 {
     margin: 0;
