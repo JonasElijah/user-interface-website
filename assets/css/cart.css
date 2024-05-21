@@ -22,12 +22,12 @@ body
 .table th,
 .table td 
 {
-    padding: 15px; 
+    padding: 50px; 
 }
 
 .table tbody tr 
 {
-    margin-bottom: 10px; 
+    margin-bottom: 20px; 
 }
 
 .dropdown-menu 
