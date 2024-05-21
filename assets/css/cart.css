@@ -14,7 +14,7 @@ header
 .image-container img 
 {
     max-width: 200px;
-    margin-right: 20px; /* Space between image and name */
+    /* margin-right: 20px;  */
 }
 
 body 
