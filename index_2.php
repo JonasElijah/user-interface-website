@@ -9,7 +9,7 @@
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 //document.getElementById('carouselContainer').innerHTML = xhr.responseText;
-                console.log("Received response:", xhr.responseText);
+                console.log("Received response:", screenWidth);
             } else if (xhr.readyState === 4) {
                 console.error("AJAX error:", xhr.status, xhr.statusText);
             }
