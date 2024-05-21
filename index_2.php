@@ -4,18 +4,22 @@
     }
 ?>
 <script>
-    function adjustCarouselItems() {
+    function adjustCarouselItems() 
+    {
         const screenWidth = window.innerWidth;
 
         $.ajax({
             type: "POST",
             url: "index_2.php",
-            data: { screenWidth: screenWidth },
+            data: { sW: screenWidth },
             success: function (response) {
                 $('#carouselContainer').html(response);
+                console.log("Screen Width:" + screenWidth);
+            },
+            error: function (xhr, status, error) {
+                console.error("AJAX error:", status, error);
             }
         });
-        console.log("Screen Width:" + screenWidth);
     }
 
     window.addEventListener('resize', adjustCarouselItems);
@@ -64,7 +68,7 @@
         } 
         else 
         {
-            $screenWidth = isset($_POST['screenWidth']) ? (int)$_POST['screenWidth'] : 900;
+            $screenWidth = isset($_POST['sW']) ? (int)$_POST['sW'] : 900;
             echo '<script>console.log("PHP screenwidth: ' . $screenWidth . '");</script>';
             
             $itemsToShow = 3;
