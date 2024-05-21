@@ -17,6 +17,12 @@ header
     margin-right: 20px; 
 }
 
+.d-flex 
+{
+    display: flex;
+    align-items: center;
+}
+
 body 
 {
     font-family: "Georgia", sans-serif;
