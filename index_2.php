@@ -1,25 +1,28 @@
 <script>
-    function adjustCarouselItems() 
-    {
+    function adjustCarouselItems() {
         const screenWidth = window.innerWidth;
+        console.log("Sending screen width:", screenWidth);
 
-        $.ajax({
-            type: "POST",
-            url: "index_2.php",
-            data: { sW: screenWidth },
-            success: function (response) {
-                $('#carouselContainer').html(response);
-                console.log("Screen Width:" + screenWidth);
-            },
-            error: function (xhr, status, error) {
-                console.error("AJAX error:", status, error);
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "index_2.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById('carouselContainer').innerHTML = xhr.responseText;
+                console.log("Received response:", xhr.responseText);
+            } else if (xhr.readyState === 4) {
+                console.error("AJAX error:", xhr.status, xhr.statusText);
             }
-        });
+        };
+
+        xhr.send("sW=" + screenWidth);
     }
 
     window.addEventListener('resize', adjustCarouselItems);
     window.addEventListener('load', adjustCarouselItems);
 </script>
+
 <?php
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -27,7 +30,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sW'])) 
     {
         $screenWidth = (int)$_POST['sW'];
-        echo '<script>console.log("PHP idk screenwidth: ' . $screenWidth . '");</script>';
+        echo '<script>console.log("PHP screenwidth: ' . $screenWidth . '");</script>';
     } 
     else 
     {
@@ -85,7 +88,8 @@
             if ($screenWidth < 600) 
             {
                 $itemsToShow = 1;
-            } else if ($screenWidth < 900) 
+            } 
+            else if ($screenWidth < 900) 
             {
                 $itemsToShow = 2;
             }
