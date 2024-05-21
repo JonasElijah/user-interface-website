@@ -89,7 +89,8 @@
 
             $sqlN = "SELECT `fName` FROM `user` WHERE `userID` = '$displayName'";
             $resultN = mysqli_query($dblink, $sqlN);
-            if(mysqli_num_rows($resultN) > 0) {
+            if(mysqli_num_rows($resultN) > 0) 
+			{
                 $dataN = $resultN->fetch_array(MYSQLI_ASSOC);
                 echo '<div align="center">';
                 echo '<h4>'.$dataN['fName'].'</h4>';
@@ -98,8 +99,10 @@
 
             echo '<hr>';
             echo '<div align="center">';
-            echo '<h3>Shopping Cart Total: $'.$sum.'</h3>';
-            echo '<h3>Number of Items: '.$quantity.'</h3>';
+            echo '<h3>Shopping Cart Total:</h3>';
+			echo '<p class="user-info">'.$sum.'</p>';
+            echo '<h3>Number of Items:</h3>';
+			echo '<p class="user-info">'.$quantity.'</p>';
             echo '<form method="post" action="">';
             echo '<button class="btn btn-success" name="submit" type="submit" value="submit">Check Out</button>';
             echo '</form>';
