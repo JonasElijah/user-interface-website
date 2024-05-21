@@ -1,7 +1,6 @@
 <script>
     function adjustCarouselItems() {
         const screenWidth = window.innerWidth;
-        console.log("Sending screen width:", screenWidth);
 
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "index_2.php", true);
@@ -9,7 +8,7 @@
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById('carouselContainer').innerHTML = xhr.responseText;
+                //document.getElementById('carouselContainer').innerHTML = xhr.responseText;
                 console.log("Received response:", xhr.responseText);
             } else if (xhr.readyState === 4) {
                 console.error("AJAX error:", xhr.status, xhr.statusText);
