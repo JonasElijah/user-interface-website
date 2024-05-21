@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shopping Cart page</title>
 
-
 <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />	
 <link href="/assets/css/cart.css" rel="stylesheet" />	
 	
@@ -20,7 +19,7 @@
 <div id="header">
         <?php include '../assets/html/header.html'; ?>
 </div>
-<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Shopping Cart </h1>
+//<h1 style = "color: #fdf4eb; font-size: 50px;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"  align = "center">Shopping Cart </h1>
 <?php
 $displayName = "";
 include("../functions.php");
@@ -141,12 +140,7 @@ if(!isset($_POST['submit']))
 			echo '</div>';
 		echo '</div>';
 		echo '</div>';
-		
-		
-		
 		echo '</div>';
-
-		
 	}
 }
    }
