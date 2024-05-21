@@ -29,7 +29,8 @@ body
 .table 
 {
     border-spacing: 0 20px; 
-    border-collapse: separate; /
+    border-collapse: separate; 
+    border-bottom: 2px solid #333; 
 }
 
 .dropdown-menu 
