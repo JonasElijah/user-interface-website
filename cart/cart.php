@@ -38,7 +38,7 @@
             echo '<br/><br/>';
             echo '<h3 style="color: rgb(86, 86, 86); font-size: 45px; margin-left: 25px;" align="left">Shopping Cart</h3>';
             echo '<hr>';
-            echo '<table class="table table-striped table-bordered">';
+            echo '<table class="table">';
             echo '<thead>';
             echo '<tr>';
             echo '<th scope="col">#</th>';
