@@ -130,7 +130,7 @@ body
  
  .main-background 
  {
-    background-color: whitesmoke;
+    background-color: rgb(255, 255, 255);
     min-height: 79vh;
     width: 100%;
     margin: unset;

@@ -41,11 +41,11 @@
             echo '<table class="table">';
             echo '<thead>';
             echo '<tr>';
-            echo '<th scope="col">#</th>';
-            echo '<th scope="col">Image</th>';
-            echo '<th scope="col">Name</th>';
-            echo '<th scope="col">Price</th>';
-            echo '<th scope="col">Action</th>';
+            // echo '<th scope="col"></th>';
+            // echo '<th scope="col">Image</th>';
+            // echo '<th scope="col">Name</th>';
+            // echo '<th scope="col">Price</th>';
+            // echo '<th scope="col">Action</th>';
             echo '</tr>';
             echo '</thead>';
             echo '<tbody>';
