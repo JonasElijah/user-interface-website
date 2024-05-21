@@ -40,8 +40,9 @@ if(!isset($_POST['submit']))
 		{
 			echo "<div class='row main-background'>";
 			echo '<div class = "col-md-9">';
-			echo '<hr>';
+			echo '<br/>';
 			echo '<h1 style = "color: #00000; font-size: 50px;"  align = "left">Shopping Cart </h1>';
+			echo '<hr>';
 			echo '<table class = "table table-striped">';
 			echo '<tr>';
 			echo '<th scope="col">#</th>';
