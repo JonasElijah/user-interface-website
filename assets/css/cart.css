@@ -19,6 +19,18 @@ body
     background-image: url('/assets/images/gallery/trees-3822149_1280.jpg'); */
 }
 
+.table th,
+.table td 
+{
+    border: 1px solid #dee2e6;
+    padding: 15px; 
+}
+
+.table tbody tr 
+{
+    margin-bottom: 10px; 
+}
+
 .dropdown-menu 
 {
     display: none;
