@@ -1,7 +1,7 @@
 <script>
     function adjustCarouselItems() {
         const screenWidth = window.innerWidth;
-        console.log("JS screenwidth:"+ $screenWidth);
+        console.log("JS screenwidth:"+ screenWidth);
 
 
         const xhr = new XMLHttpRequest();
