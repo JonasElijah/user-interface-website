@@ -3,7 +3,8 @@ header
     background-color: #fdf4eb;
 }
 
-.nav-link.active {
+.nav-link.active 
+{
     text-decoration: underline;
     text-decoration-thickness: 2px; 
     text-underline-offset: 4px;
@@ -22,7 +23,7 @@ header
 body 
 {
     font-family: "Georgia", sans-serif;
-}
+} 
 
 .dropdown-menu 
 {
