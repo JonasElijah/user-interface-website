@@ -19,8 +19,8 @@ header
 
 .image-container span 
 {
-    align-self: flex-start; /* Align the text at the top */
-    margin-top: 10px; /* Optional: Add some margin to position text */
+    align-self: flex-start;
+    margin-top: 10px;
 }
 
 body 
@@ -31,20 +31,33 @@ body
     background-image: url('/assets/images/gallery/trees-3822149_1280.jpg'); */
 }
 
-.table th,
-.table td 
-{
-    padding: 15px; 
-    margin-bottom: 40px; 
-    border-bottom: 2px solid #dee2e6; 
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+    padding: 15px; /* Increase padding for more space */
 }
-
-.table 
-{
-    border-spacing: 0 20px; 
-    border-collapse: separate; 
+.table {
+    border-spacing: 0 10px; /* Add space between rows */
+    border-collapse: separate; /* Ensure border-spacing works */
 }
-
+.table-bordered tbody tr {
+    border-bottom: 2px solid #dee2e6; /* Same color as the <hr> line */
+}
+.table-bordered td {
+    border-bottom: 2px solid #dee2e6; /* Same color as the <hr> line */
+}
+.image-container {
+    display: flex;
+    align-items: flex-start; /* Align the name at the top of the image */
+}
+.image-container img {
+    max-width: 200px;
+    margin-right: 20px; /* Space between image and name */
+}
+.image-container .name {
+    align-self: flex-start; /* Align the text at the top */
+    margin-top: 10px; /* Optional: Add some margin to position text */
+}
 .dropdown-menu 
 {
     display: none;
