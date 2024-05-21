@@ -5,25 +5,20 @@
 ?>
 <script>
     function adjustCarouselItems() {
-            const screenWidth = window.innerWidth;
-            let itemsToShow;
+        const screenWidth = window.innerWidth;
 
-            if (screenWidth < 600) {
-                itemsToShow = 1;
-            } else if (screenWidth < 900) {
-                itemsToShow = 2;
-            } else {
-                itemsToShow = 3;
+        $.ajax({
+            type: "POST",
+            url: "index_2.php",
+            data: { screenWidth: screenWidth },
+            success: function (response) {
+                $('#carouselContainer').html(response);
             }
+        });
+    }
 
-            // Adjust the carousel items
-            const carousel = document.getElementById('carousel');
-            // Logic to adjust the carousel based on itemsToShow
-            console.log(`Screen width: ${screenWidth}, Items to show: ${itemsToShow}`);
-        }
-
-        window.addEventListener('resize', adjustCarouselItems);
-        window.addEventListener('load', adjustCarouselItems);
+    window.addEventListener('resize', adjustCarouselItems);
+    window.addEventListener('load', adjustCarouselItems);
 </script>
 
 <!DOCTYPE html>
@@ -47,12 +42,15 @@
         $dblink = db_connect("UI-schema");
 	$userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
 	
-	if ($userID !== null) {
+	if ($userID !== null) 
+    {
 	    $sql = "SELECT `image`.*, IF(`cart`.`imageID` IS NULL, 0, 1) AS `isInCart`
 	            FROM `image`
 	            LEFT JOIN (SELECT * FROM `orders` WHERE `userID` = '" . mysqli_real_escape_string($dblink, $userID) . "') AS `cart`
 	            ON `image`.`ID` = `cart`.`imageID`";
-	} else {
+	} 
+    else 
+    {
 	    $sql = "SELECT `image`.*, 0 AS `isInCart`
 	            FROM `image`";
 	}
@@ -61,8 +59,21 @@
         if (mysqli_num_rows($result) == 0) 
         {
             echo 'Error, database table not found';
-        } else 
+        } 
+        else 
         {
+            $screenWidth = isset($_POST['screenWidth']) ? (int)$_POST['screenWidth'] : 900;
+    
+            $itemsToShow = 3;
+            if ($screenWidth < 600) 
+            {
+                $itemsToShow = 1;
+            } else if ($screenWidth < 900) 
+            {
+                $itemsToShow = 2;
+            }
+
+
             $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
             $categories = [
                 'Recommended' => function ($img) {
@@ -93,7 +104,6 @@
 
            function createCarouselItems($imageSets, $categoryName) 
            {
-           
 		    $carouselId = "carousel" . preg_replace('/\s+/', '', $categoryName);
 		    echo '<h2>' . htmlspecialchars($categoryName) . '</h2><hr>
 		          <div id="' . $carouselId . '" class="carousel slide" data-bs-ride="carousel">
@@ -147,7 +157,7 @@
             foreach ($categories as $categoryName => $filter) 
             {
                 $filteredImages = array_filter($images, $filter); //https://www.php.net/manual/en/function.array-filter.php
-                $imageSets = array_chunk($filteredImages, 5); //https://www.php.net/manual/en/function.array-chunk.php
+                $imageSets = array_chunk($filteredImages, $itemsToShow); //https://www.php.net/manual/en/function.array-chunk.php
                 
                 if (!empty($imageSets)) 
                 {
