@@ -27,7 +27,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sW'])) 
     {
         $screenWidth = (int)$_POST['sW'];
-        echo '<script>console.log("PHP screenwidth: ' . $screenWidth . '");</script>';
+        echo '<script>console.log("PHP idk screenwidth: ' . $screenWidth . '");</script>';
     } 
     else 
     {
