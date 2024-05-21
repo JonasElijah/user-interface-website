@@ -1,43 +1,40 @@
 <header>
     <nav class="navbar navbar-expand-lg custom-navbar shadow rounded">
         <div class="container-fluid">
-	<a href="/index.php">
-	    <img class="site-logo" src="/assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
-	</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <a href="/index.php">
+                <img class="site-logo" src="/assets/images/photography.png" alt="Photography Logo" style="max-width: 250px; max-height: 100px"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/gallery.php">Gallery</a>
-                    </li>
                     <?php
-                    if(!isset($_SESSION['userID'])){
-                        echo '<li class="nav-item"> ';
-                        echo ' <a class="nav-link" href="/auth/login.php">Login</a>';
-                        echo '</li>';
+                    $current_page = basename($_SERVER['PHP_SELF']);
+
+                    $nav_items = [
+                        'index.php' => 'Home',
+                        'gallery.php' => 'Gallery',
+                        'auth/login.php' => 'Login',
+                        'auth/signup.php' => 'Signup',
+                        'cart/cart.php' => 'Cart',
+                        'auth/account.php' => 'Account',
+                        'auth/logout.php' => 'Logout'
+                    ];
+
+                    foreach ($nav_items as $page => $title) {
+                        $active_class = $current_page == $page ? ' active' : '';
+                        if (($page == 'auth/login.php' || $page == 'auth/signup.php') && isset($_SESSION['userID'])) {
+                            continue;
+                        }
+                        if (($page == 'cart/cart.php' || $page == 'auth/account.php' || $page == 'auth/logout.php') && !isset($_SESSION['userID'])) {
+                            continue;
+                        }
                         echo '<li class="nav-item">';
-                        echo '<a class="nav-link" href="/auth/signup.php">Signup</a>';
-                        echo ' </li>';
-                    }
-                    else{
-                        echo '<li class="nav-item">';
-                        echo '<a class="nav-link" href="/cart/cart.php">Cart</a>';
-                        echo '</li>';
-                        echo '<li class="nav-item">';
-                        echo '<a class="nav-link" href="/auth/account.php">Account</a>';
-                        echo '</li>';
-						echo '<li class="nav-item">';
-                        echo '<a class="nav-link" href="/auth/logout.php">Logout</a>';
+                        echo '<a class="nav-link' . $active_class . '" href="/' . $page . '">' . $title . '</a>';
                         echo '</li>';
                     }
                     ?>
-
-		
                 </ul>
             </div>
         </div>
