@@ -3,7 +3,6 @@
         const screenWidth = window.innerWidth;
         console.log("JS screenwidth:"+ screenWidth);
 
-
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "index_2.php", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
