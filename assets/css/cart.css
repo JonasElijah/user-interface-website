@@ -44,8 +44,7 @@ body
 .table-row 
 {
     display: flex;
-    margin-bottom: 50px; 
-    padding-bottom: 500px;
+    padding-bottom: 100px;
 }
 
 .image-container {
