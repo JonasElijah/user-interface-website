@@ -25,7 +25,30 @@
                         'auth/logout.php' => 'Logout'
                     ];
 
-                    foreach ($nav_items as $page => $title) {
+                    foreach ($nav_items as $page => $title) 
+                    {
+                        if(!isset($_SESSION['userID']) && $page ==  'auth/account.php')
+                        {
+                            continue;
+                        }
+
+                        if(!isset($_SESSION['userID']) && $page ==  'auth/logout.php')
+                        {
+                            continue;
+                        }
+
+                        if(isset($_SESSION['userID']) && $page ==  'auth/login.php')
+                        {
+                            continue;
+                        }
+
+                        if(isset($_SESSION['userID']) && $page ==  'auth/signup.php')
+                        {
+                            continue;
+                        }
+                        
+
+
                         $active_class = strpos($current_page, basename($page)) !== false ? ' active' : '';
                         echo '<li class="nav-item">';
                         echo '<a class="nav-link' . $active_class . '" href="/' . $page . '">' . $title . '</a>';
