@@ -5,7 +5,9 @@ header
 
 .nav-link.active {
     text-decoration: underline;
-    color: #000; /* Optional: you can change the color to make it more distinct */
+    text-decoration-thickness: 2px; 
+    text-underline-offset: 4px;
+    color: #d0c9c1; 
 }
 
 .custom-navbar h1 
