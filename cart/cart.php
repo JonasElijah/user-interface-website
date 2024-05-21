@@ -24,7 +24,7 @@
     include("../functions.php");
     $dblink = db_connect("UI-schema");
 
-    if(!isset($_POST['submit'])) {
+	if(!isset($_POST['submit'])) {
         $displayName .= $_SESSION['userID'];
         $userID = $_SESSION['userID'];
         $sql = "SELECT * FROM `orders` WHERE `userID` = '$userID'";
@@ -38,7 +38,7 @@
             echo '<br/><br/>';
             echo '<h3 style="color: rgb(86, 86, 86); font-size: 45px; margin-left: 25px;" align="left">Shopping Cart</h3>';
             echo '<hr>';
-            echo '<table class="table table-striped">';
+            echo '<table class="table table-striped table-bordered">';
             echo '<thead>';
             echo '<tr>';
             echo '<th scope="col">#</th>';
@@ -79,7 +79,6 @@
             echo '</tbody>';
             echo '</table>';
             echo '</div>';
-
             // Side Bar
             echo '<div class="col-md-3 sidebar">';
             echo '<div class="col-md-10 offset-md-1">';
