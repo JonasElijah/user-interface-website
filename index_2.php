@@ -65,7 +65,8 @@
         else 
         {
             $screenWidth = isset($_POST['screenWidth']) ? (int)$_POST['screenWidth'] : 900;
-    
+            echo '<script>console.log("PHP screenwidth: ' . $screenWidth . '");</script>';
+            
             $itemsToShow = 3;
             if ($screenWidth < 600) 
             {
